@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-02-19 金 23:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>base.css</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">base.css</h1>
+<div id="outline-container-org82f5250" class="outline-2">
+<h2 id="org82f5250"></h2>
+<div class="outline-text-2" id="text-org82f5250">
+<hr />
+</div>
+<div id="outline-container-orgead32ee" class="outline-3">
+<h3 id="orgead32ee"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgead32ee">
+<hr />
+
+<div class="org-src-container">
+<pre class="src src-css">@charset "utf-8";
+
+body {
+    /* スタート時点での隙間をなくす */
+    margin: 0;
+    padding: 0;
+    /* サイト全体での文字色 */
+    color: #333;
+}
+a { color: #b7a077; }
+/* 訪問済みリンクの色 */
+a:visited { color: #a8a8a8; }
+/* マウスポインタを乗せたときの色 */
+a:hover {
+    color: #988564;
+    font-weight: bold;
+    text-decoration: none;
+}
+/* 画像リンクに対するアニメーション */
+a img { transition: opacity 0.2s linear; }
+/* 画像リンクの時は半透明に */
+a:hover img { opacity: 0.7; }
+/* 見出しの上のマージンを0にする */
+h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+p {
+    /* 段落の初期マージンを0にする */
+    margin-top: 0;
+    /* 行間にゆとりを */
+    line-height: 1.6;
+}
+/* 画像に対する「行の下端揃え」で、画像下の意図しない余白を消す */
+img { vertical-align: bottom; }
+#main h1 {
+    /* 画像ファイル指定 */
+    background-image: url(../images/header_bg.jpg);
+    /* 内側の余白調整 */
+    padding: 10px 10px 10px 20px;
+
+    font-size: 26px;
+    border-bottom: solid 1px #8b7348
+}
+#main h2 {
+    font-size: 22px;
+    /* 細い実線による囲み罫 */
+    border: 1px solid #b7a077;
+    /* 文字と罫線の間を調整 */
+    padding: 11px 22px;
+    /* 角丸 */
+    border-radius: 5px;
+}
+#main h3{
+    font-size: 18px;
+    /* 左側のみに実線 */
+    border-left: solid 3px #b7a077;
+
+    padding: 4px 9px 4px 14px;
+}
+header {
+    /* 要素の幅 */
+    width: 980px;
+    /* 左右中央揃えに */
+    margin: 0 auto;
+}
+header h1 {
+    /* 左に浮動 */
+    float: left;
+    /* 上下に調整のための隙間を作る */
+    margin: 5px 0 10px;
+}
+header #header_contact {
+    /* 右に浮動 */
+    float: right;
+    /* 上マージンを指定して、少し下にずらす */
+    margin: 35px 0 0;
+}
+#global_navi {
+    /* 横幅指定 */
+    width: 980px;
+    /* フロートを解除し、回り込みを回避して下に配置させる */
+    clear: both;
+    /* clearと類似、高さがなくなる現象を防ぐ */
+    overflow: hidden;
+    /* 上下のマージンを設定してバランスを調整 */
+    margin: 16px auto;
+}
+#global_navi ul {
+    /* リストの行頭アイコンを外す */
+    list-style: none;
+    margin: 0;
+    /* 行頭アイコンがあったスペースを消す */
+    padding: 0;
+}
+#global_navi ul li {
+    /*
+      横並びにするために横幅指定
+      ナビゲーション全体の横幅980px ÷ 5項目 = 196px = 195px + 右マージン1px
+    */
+    width: 195px;
+    /* 横並びにする */
+    float: left;
+    /* 項目の間を空けるために右マージン設定 */
+    margin-right: 1px;
+    /* 文字を中央揃えに */
+    text-align: center;
+}
+#global_navi ul li a {
+    /* ブロックレベルに変更、クリック領域を文字部分からli要素全体に広げる */
+    display: block;
+    /* クリック領域を広げる */
+    padding: 16px;
+    /* 背景色 */
+    background-color: #352b23;
+    /* 文字色 */
+    color: #fff;
+    /* リンクの下線を消す */
+    text-decoration: none;
+    /* background-color が #352b23 から #8c7a5b に変化するときのアニメーション */
+    /* transition を使うときは、変化前と変化後の記述がしっかりされていること */
+    transition: background-color 0.2s linear;
+}
+/* 現在地部分の色を変える */
+#global_navi ul li.current a {
+    background-color: #b7a077;
+}
+/* マウスポインタを乗せたときに色を変える */
+#global_navi ul li a:hover {
+    background-color: #8c7a5b;
+}
+#wrapper {
+    /* 幅指定 */
+    width: 980px;
+    /* ブロックをページ中央に配置 */
+    margin: 0 auto;
+    /* 高さを指定 */
+    overflow: hidden;
+}
+#main {
+    /* 730pxで左寄せ */
+    width: 730px;
+    /* 左に浮動 */
+    float: left;
+}
+#sidebar {
+    /* 220pxで右寄せ、コンテンツエリアとの間に30px空く */
+    width: 220px;
+    /* 右に浮動 */
+    float: right;
+}
+/* サイドバー バナーエリア */
+/* 続くエリアに隣接しすぎないよう隙間を作る */
+#side_banner { margin-bottom: 30px; }
+#side_banner h2 {
+    /* 背景色 */
+    background-color: #716961;
+    /* 文字色 */
+    color: #fff;
+    /* 内側の余白 */
+    padding: 7px;
+    /* 文字サイズは小さめ */
+    font-size: 14px;
+    /* 文字は中央揃え */
+    text-align: center;
+}
+#side_banner ul {
+    /* 行頭アイコンを非表示 */
+    list-style: none;
+    margin: 0;
+    /* 行頭アイコンがあったスペースを消す */
+    padding: 0;
+}
+/* バナー間の感覚を少し空ける */
+#side_banner ul li { margin-bottom: 10px; }
+/* サイドバー お問い合わせエリア */
+/* 下マージン設定 */
+#side_contact { margin-bottom: 30px; }
+#side_contact {
+    /* 1つの固まりとするよう実線で囲む */
+    border: 1px solid #b7a077;
+    /* 文字色 */
+    color: #7f7259;
+    /* テキスト中央揃え */
+    text-align: center;
+}
+#side_contact h2 {
+    /* 背景色を枠線とそろえる(h2要素は親要素と同じ幅) */
+    background-color: #b7a077;
+    /* 文字色 */
+    color: #fff;
+    /* 少しゆとりを出す */
+    padding: 7px;
+    /* 文字サイズは小さめに */
+    font-size: 14px;
+}
+#side_contact address {
+    /* 太字に */
+    font-weight: bold;
+    /* フォントサイズ少し大きめ */
+    font-size: 20px;
+    /* 斜体を解除 */
+    font-style: normal;
+}
+/* 電話のアイコン画像 */
+#side_contact address img {
+    /* テキストと並べたときの縦位置調整 */
+    vertical-align: middle;
+    /* 画像に対して右マージン指定、テキストとの間隔を空ける */
+    margin-right: 5px;
+}
+#side_contact .contact_button {
+    /* インラインブロックにする */
+    display: inline-block;
+    /* グラデーションの設定 */
+    background: #f1ede4;
+    background: linear-gradient(to bottom,  #ffffff 0%,#f1ede4 100%);
+    /* ベンダープレフィックス */
+    background: -webkit-gradient(linear, left top, left, bottom, color-stop(0%,#ffffff), color-stop(100%,#f1ede4));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f1ede4 100%);
+    /* ボタン文字色 */
+    color: #b7a077;
+    /* ボタン内側の余白を調節 */
+    padding: 10px;
+    /* ボーダー設定 */
+    border: 1px solid #b7a077;
+    /* 角丸を設定 */
+    border-radius: 5px;
+    /* リンクのアンダーラインを消す */
+    text-decoration: none;
+}
+#side_contact .contact_button:hover {
+    background: #b7a077;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b7a077), color-stop(100%,#e2cda7));
+    background: -webkit-linear-gradient(top,  #b7a077 0%,#e2cda7 100%);
+    background: linear-gradient(to bottom,  #b7a077 0%, #e2cda7 100%);
+    color: #fff;
+}
+footer {
+    /* フッター背景 */
+    background-color: #352b23;
+    /* コンテンツをすべて中央揃え */
+    text-align: center;
+}
+footer #footer_nav {
+    /* フッターナビゲーションの背景色は控えめに */
+    background-color: #efefef;
+    /* 上下の内側の余白を調整 */
+    padding: 10px 0;
+}
+footer #footer_nav ul {
+    /* 行頭アイコンを非表示に */
+    list-style: none;
+    /* リストのデフォルトの余白をカット */
+    margin: 0;
+    padding: 0;
+}
+footer #footer_nav li {
+    /* ブロックレベルの挙動をインラインに */
+    display: inline;
+    /* リンク間のディバイダー */
+    border-left: solid 1px #aaa;
+    /* ボーダーの左右に空きを作る */
+    margin-left: 8px;
+    padding-left: 8px;
+    /* フォントを少し小さく */
+    font-size: smaller;
+}
+/* フッターナビゲーション最後の項目に右のボーダーを設定 */
+footer #footer_nav li:last-child {
+    border-right: solid 1px #aaa;
+    padding: 0 8px;
+}
+footer small {
+    /* ブロックレベルに変更 */
+    display: block;
+    /* ブロックレベルでは(上下含む)全パディングが有効、上下の余白を設定 */
+    padding: 8px 0;
+    /* 文字色 */
+    color: #fff;
+}
+#breadcrumb { font-size: smaller; }
+#breadcrumb ol {
+    /* 行頭の数字を非表示 */
+    list-style: none;
+    /* 行頭の余白をなくす */
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+/* インライン表示に切り替え(項目が横並びに) */
+#breadcrumb ol li { display: inline; }
+#breadcrumb ol li::after {
+    /* 選択要素の後ろに文字を表示 */
+    content: "&gt;";
+    /* &gt; の左側の間隔調整 */
+    padding-left: 7px;
+}
+/* 最後の項目の &gt; を消す */
+/* 疑似クラス:と疑似要素:: */
+#breadcrumb ol li:last-child::after {
+    content: none;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

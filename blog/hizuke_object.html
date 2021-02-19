@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-02-19 金 23:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>日付オブジェクト</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">日付オブジェクト</h1>
+<div id="outline-container-orgf6dfadf" class="outline-2">
+<h2 id="orgf6dfadf"></h2>
+<div class="outline-text-2" id="text-orgf6dfadf">
+<hr />
+</div>
+<div id="outline-container-orgfb44b08" class="outline-3">
+<h3 id="orgfb44b08"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgfb44b08">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92505de" class="outline-2">
+<h2 id="org92505de">『日付オブジェクト』の作成</h2>
+<div class="outline-text-2" id="text-org92505de">
+<p>
+『日付オブジェクト』は、『new Date()』と初期化することで、現在時刻で新しいオブジェクトを作成します。<br />
+</p>
+<pre class="example">
+var d = new Date();
+</pre>
+<p>
+また、『new Date(1999, 11, 31);』のように年月日時分秒…と引数を設定すれば、その日時の『日付オブジェクト』を作成します。<br />
+</p>
+<pre class="example">
+var d = new Date(1999, 11, 31);
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7dd46b6" class="outline-2">
+<h2 id="org7dd46b6">『日付オブジェクト』からの日時の取得</h2>
+<div class="outline-text-2" id="text-org7dd46b6">
+<p>
+作成した『日付オブジェクト』からは、様々なメソッドで年月日や時間を取得することができます。<br />
+</p>
+<pre class="example">
+alert(d.getHours() + "時" + d.getMinutes() + "分");
+</pre>
+<p>
+『getHours』は『時間』を取得するメソッド、『getMinutes』は『分』を取得するメソッドです。<br />
+『new Date()』で作成した『d』変数の、『d.getHours()』『d.getMinutes()』メソッドを利用して、『時』『分』を取り出しています。<br />
+『日付オブジェクト』からの値の取り出しは、基本的にはこういった『get～』という名前のメソッドを使います。<br />
+</p>
+</div>
+
+<div id="outline-container-orge7bc371" class="outline-3">
+<h3 id="orge7bc371">『年』を取得する場合の注意</h3>
+<div class="outline-text-3" id="text-orge7bc371">
+<p>
+『年』を取り出すメソッドには『getFullYear』と『getYear』の2種類がありますが、『getFullYear』を利用してください。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga8414e9" class="outline-3">
+<h3 id="orga8414e9">『月』を取得する場合の注意</h3>
+<div class="outline-text-3" id="text-orga8414e9">
+<p>
+『月』は普通、『1月』『2月』『3月』……『12月』のように、数字の『1』から順番に数を増やしていき『12』まで数えます。<br />
+しかし、プログラムの世界では、『月』は『0』から始まり『11』までの数字で表されます。<br />
+そのため、取得した『月』の数字に『1』を足した値が、実際の『月』になります。<br />
+</p>
+<pre class="example">
+var month = d.getMonth() + 1;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org536da60" class="outline-2">
+<h2 id="org536da60">ある時間からの経過時間を知る</h2>
+<div class="outline-text-2" id="text-org536da60">
+<p>
+プログラムでは、ある瞬間からの経過時間を知りたい時がよくあります。<br />
+こういった場合は、『日付オブジェクト』の『getTime』メソッドを利用します。<br />
+このメソッドを利用すれば、『1970年1月1日0時0分0秒からのミリ秒』を取得することができます。<br />
+</p>
+
+<p>
+経過時間を調べるには、元となる時間と、現在の時間とで、それぞれ『日付オブジェクト』を作成します。<br />
+この2つの『日付オブジェクト』の『getTime』メソッドの戻り値の差を調べることで、経過時間を知ることができます。<br />
+以下、2001年1月1日からの、経過秒と、経過日数を計算して表示するプログラムです。<br />
+</p>
+<pre class="example">
+var dNow = new Date();              // 現在の日付オブジェクト
+var dOld = new Date(2001, 1, 1);    // 2001年1月1日の日付オブジェクト
+var elapseMilliSeconds = dNow.getTime() - dOld.getTime(); // 経過時間（ミリ秒の差）
+var elapseSeconds = elapseMilliSeconds / 1000;  // ミリ秒を1000で割って秒に
+var elapseDay = elapseSeconds / 60 / 60 / 24;   // 秒を60秒、60分、24時間で割って日数に
+alert("経過秒は" + elapseSeconds);  // 経過秒をダイアログ表示
+alert("経過日数は" + elapseDay);    // 経過日数をダイアログ表示
+</pre>
+
+<p>
+cf.<br />
+現在の経過ミリ秒を得たい場合は、『new Date().getTime()』とする以外にも『+new Date()』でも取得できます。<br />
+以下、経過時間を簡便に計算するプログラムを書いてみます。<br />
+</p>
+<pre class="example">
+var start = +new Date();    // 開始（現在の日付オブジェクト）
+var str = "";
+for (var i = 0; i &lt; 1000000; i ++) {
+    str += i;
+}
+var end = +new Date();      // 終了（現在の日付オブジェクト）
+var elapseMilliSeconds = end - start;   // 経過時間（ミリ秒の差）
+alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイアログ表示
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5b366f4" class="outline-2">
+<h2 id="org5b366f4">『日付オブジェクト』のメソッド</h2>
+<div class="outline-text-2" id="text-org5b366f4">
+<p>
+以下、『日付オブジェクト』を使ったメソッドを紹介します。<br />
+</p>
+</div>
+
+<div id="outline-container-org8d3fc7f" class="outline-3">
+<h3 id="org8d3fc7f">日付の取得</h3>
+<div class="outline-text-3" id="text-org8d3fc7f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.getFullYear()</td>
+<td class="org-left">西暦を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getMonth()</td>
+<td class="org-left">月を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getDate()</td>
+<td class="org-left">日を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getDay()</td>
+<td class="org-left">曜日（0～6:日曜日開始）を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getHours()</td>
+<td class="org-left">時を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getMinutes()</td>
+<td class="org-left">分を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getSeconds()</td>
+<td class="org-left">秒を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getMilliseconds()</td>
+<td class="org-left">ミリ秒を取得</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge0ce0b4" class="outline-3">
+<h3 id="orge0ce0b4">日付の設定</h3>
+<div class="outline-text-3" id="text-orge0ce0b4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.setFullYear(n)</td>
+<td class="org-left">西暦を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setMonth(n)</td>
+<td class="org-left">月を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setDate(n)</td>
+<td class="org-left">日を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setDay(n)</td>
+<td class="org-left">曜日を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setHours(n)</td>
+<td class="org-left">時を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setMinutes(n)</td>
+<td class="org-left">分を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setSeconds(n)</td>
+<td class="org-left">秒を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setMilliseconds(n)</td>
+<td class="org-left">ミリ秒を設定</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5fd4189" class="outline-3">
+<h3 id="org5fd4189">特殊</h3>
+<div class="outline-text-3" id="text-org5fd4189">
+<p>
+1970年1月1日0時0分0秒からのミリ秒を取得、設定します。この時間は『UTC』と呼ばれる時間です。『UTC』については後述します。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.getTime()</td>
+<td class="org-left">ミリ秒を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.setTime(n)</td>
+<td class="org-left">ミリ秒を設定</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org119527d" class="outline-2">
+<h2 id="org119527d">『UTC』と『GMT』</h2>
+<div class="outline-text-2" id="text-org119527d">
+<p>
+『UTC』（Universal Time, Coordinated）は、『協定世界時』と呼ばれるものです。この時間は、国際協定により人工的に維持されている世界共通の標準時です。<br />
+日本の時間は、この『UTC』より9時間進んでいます。<br />
+『GMT』（Greenwich Mean Time）は、『グリニッジ標準時』と呼ばれるものです。この時間は、ロンドンにあるグリニッジ天文台での平均太陽時です。<br />
+『GMT』は、かつて世界の基準時刻として使われていましたが、今ではその役目は『UTC』が担っています。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb935517" class="outline-2">
+<h2 id="orgb935517">『日付オブジェクト』のメソッド2</h2>
+<div class="outline-text-2" id="text-orgb935517">
+</div>
+<div id="outline-container-orga84a98a" class="outline-3">
+<h3 id="orga84a98a">UTCの取得</h3>
+<div class="outline-text-3" id="text-orga84a98a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.getUTCFullYear()</td>
+<td class="org-left">西暦を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCMonth()</td>
+<td class="org-left">月を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCDate()</td>
+<td class="org-left">日を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCDay()</td>
+<td class="org-left">曜を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCHours()</td>
+<td class="org-left">時を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCMinutes()</td>
+<td class="org-left">分を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCSeconds()</td>
+<td class="org-left">秒を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.getUTCMilliseconds()</td>
+<td class="org-left">ミリ秒を取得</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3b65ab7" class="outline-3">
+<h3 id="org3b65ab7">UTCの設定</h3>
+<div class="outline-text-3" id="text-org3b65ab7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.setUTCFullYear(n)</td>
+<td class="org-left">西暦を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCMonth(n)</td>
+<td class="org-left">月を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCDate(n)</td>
+<td class="org-left">日を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCDay(n)</td>
+<td class="org-left">曜日を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCHours(n)</td>
+<td class="org-left">時を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCMinutes(n)</td>
+<td class="org-left">分を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCSeconds(n)</td>
+<td class="org-left">秒を設定</td>
+</tr>
+
+<tr>
+<td class="org-left">.setUTCMilliseconds(n)</td>
+<td class="org-left">ミリ秒を設定</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org37b710b" class="outline-3">
+<h3 id="org37b710b">特殊</h3>
+<div class="outline-text-3" id="text-org37b710b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.getTimezoneOffset()</td>
+<td class="org-left">UTCへの差分（分単位）を取得。日本は-540(-9時間)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga72a87f" class="outline-3">
+<h3 id="orga72a87f">文字列取得</h3>
+<div class="outline-text-3" id="text-orga72a87f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.toString()</td>
+<td class="org-left">現地時刻を文字列で取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.toLocaleString()</td>
+<td class="org-left">現地時刻を文字列で取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.toVarDate()</td>
+<td class="org-left">現地時刻を文字列で取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.toGMTString()</td>
+<td class="org-left">UTCを文字列で取得</td>
+</tr>
+
+<tr>
+<td class="org-left">.toUTCString()</td>
+<td class="org-left">UTCを文字列で取得</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

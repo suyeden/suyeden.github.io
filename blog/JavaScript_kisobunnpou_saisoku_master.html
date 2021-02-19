@@ -1,0 +1,2915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-02-19 金 23:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JavaScript基礎文法最速マスター</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">JavaScript基礎文法最速マスター</h1>
+<div id="outline-container-org3eadf84" class="outline-2">
+<h2 id="org3eadf84"></h2>
+<div class="outline-text-2" id="text-org3eadf84">
+<hr />
+</div>
+<div id="outline-container-orge0f845d" class="outline-3">
+<h3 id="orge0f845d"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orge0f845d">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1dd567a" class="outline-2">
+<h2 id="org1dd567a">JavaScript の実行</h2>
+<div class="outline-text-2" id="text-org1dd567a">
+<p>
+1行で済むスクリプトを実行する場合，ブラウザのロケーションバーに以下のように打ち込みます。<br />
+</p>
+<pre class="example">
+javascript: 実行したいプログラム
+</pre>
+
+<p>
+複数行の JavaScript を実行させるためには， JavaScript のソースコードだけではなく以下のような HTML を書き，それをブラウザに読み込ませる必要があります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;JavaScript テスト&lt;/title&gt;
+
+    &lt;!-- HTML中に直接ソースコードを書き込む場合 --&gt;
+    &lt;script type="text/javascript"&gt;
+      &lt;!--
+
+      // ここにコードを書く
+
+      //--&gt;
+    &lt;/script&gt;
+
+    &lt;!-- 外部のソースコードファイルを読み込む場合 --&gt;
+    &lt;script type="text/javascript" src="javascriptのファイル名"&gt;&lt;/script&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- script 要素は body 内に置いてもOK --&gt;
+    &lt;script type="text/javascript"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org436219a" class="outline-2">
+<h2 id="org436219a">print文</h2>
+<div class="outline-text-2" id="text-org436219a">
+<p>
+JavaScript の標準ライブラリには入出力に関する関数が一切定義されていません！<br />
+文字列を出力する場合は，ブラウザで実装されている alert 関数を用いる事が多いです。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">alert("Hello, world");
+</pre>
+</div>
+
+<p>
+また，最近は多くのブラウザで console.log がサポートされているので，コンソールウインドウにメッセージを出すこともできます。<br />
+console.log を使うと文字列だけでなく様々なオブジェクトを出力することができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">console.log("Hello, world");
+console.log([1, 2, 3]);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b50161" class="outline-2">
+<h2 id="org7b50161">コメント</h2>
+<div class="outline-text-2" id="text-org7b50161">
+<div class="org-src-container">
+<pre class="src src-js">// 一行のコメント
+/*
+複数行の
+コメント
+*/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga88ab04" class="outline-2">
+<h2 id="orga88ab04">文</h2>
+<div class="outline-text-2" id="text-orga88ab04">
+<p>
+文の最後にはセミコロン ( ; ) を付けます。<br />
+付けない場合は自動的に補われますが，たまに意図せぬ挙動を起こすことがあるので，慣れないうちは付けるようした方が無難でしょう。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d453af" class="outline-2">
+<h2 id="org8d453af">変数の宣言</h2>
+<div class="outline-text-2" id="text-org8d453af">
+<p>
+var で宣言します。変数に型はありません。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var hoge = 1;
+hoge = "a"; // 数字も文字も代入できる
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a8ee55" class="outline-2">
+<h2 id="org2a8ee55">数値</h2>
+<div class="outline-text-2" id="text-org2a8ee55">
+<p>
+JavaScript の数値は全てが実数型です。整数型という概念はありません。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var d = 123456;  // 10進数の整数
+var h = 0xffff;  // 16進数
+var o = 0123;    // 8進数 (Strictモードでは構文エラーになります)
+var f = 12.345;  // 実数
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b2e346" class="outline-2">
+<h2 id="org9b2e346">数値演算</h2>
+<div class="outline-text-2" id="text-org9b2e346">
+<p>
+JavaScript には実数型しかないので，演算の結果も実数型になります。<br />
+ただし， ビット演算の場合は小数点以下を切り捨てて整数に変換してから行われます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = 1 + 2;   // =&gt; 3
+a = 3 - 2;       // =&gt; 1
+a = 1 * 5;       // =&gt; 5
+a = 3 / 2;       // =&gt; 1.5 (整数同士の割り算でも結果は実数)
+a = 3 % 2;       // =&gt; 1   (余り)
+a = 255.1 &amp; 2.1; // == 255 &amp; 2 =&gt; 2   (ビット演算は整数に変換(小数点以下切り捨て)してから行われる)
+a = 12.3 &gt;&gt; 1;   // =&gt; "6" (同上)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8cf5363" class="outline-2">
+<h2 id="org8cf5363">代入演算子とインクリメント・デクリメント</h2>
+<div class="outline-text-2" id="text-org8cf5363">
+<div class="org-src-container">
+<pre class="src src-js">var a = 0;
+a += 3;          // =&gt; 3
+a -= 2;          // =&gt; 1
+a *= 3;          // =&gt; 3
+a /= 3;          // =&gt; 1
+a = 0;
+var b = a++;     // =&gt; a == 1, b == 0
+var c = ++a;     // =&gt; a == 2, c == 2
+var d = a--;     // =&gt; a == 1, d == 2
+var e = --a;     // =&gt; a == 0, e == 0
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2302ba2" class="outline-2">
+<h2 id="org2302ba2">文字列</h2>
+<div class="outline-text-2" id="text-org2302ba2">
+<p>
+文字列はシングルクオート( ' )かダブルクオート ( " )で囲みます。両者は全く等価です。<br />
+シングル・ダブルクオートのどちらの場合でも \t (タブ), \n (改行) などの特殊文字を利用することができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var b = '文字"列" 文字列';    // 『'～'』の中には、『"』を書ける
+var b = "文字'列' 文字列";    // 『"～"』の中には、『'』を書ける
+var b = "文字\"列\" 文字列";  // 『"～"』の中に直接『"』と書きたい場合は『\"』と書く
+var a = "abc\tdef"; // "abc[tab]def" ([tab]はタブ文字)
+var b = 'abc\tdef'; // "abc[tab]def"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd2d1705" class="outline-2">
+<h2 id="orgd2d1705">文字列操作</h2>
+<div class="outline-text-2" id="text-orgd2d1705">
+</div>
+<div id="outline-container-org54d0cfe" class="outline-3">
+<h3 id="org54d0cfe">結合</h3>
+<div class="outline-text-3" id="text-org54d0cfe">
+<div class="org-src-container">
+<pre class="src src-js">var join1 = 'aaa' + 'bbb';
+var join2 = ['aaa', 'bbb', 'ccc'].join(','); // =&gt; 'aaa,bbb,ccc'
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orged4c7da" class="outline-3">
+<h3 id="orged4c7da">分割</h3>
+<div class="outline-text-3" id="text-orged4c7da">
+<div class="org-src-container">
+<pre class="src src-js">var record = 'aaa,bbb,ccc'.split(/,/); // =&gt; ['aaa', 'bbb', 'ccc'] (配列になる)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3d4d952" class="outline-3">
+<h3 id="org3d4d952">長さ</h3>
+<div class="outline-text-3" id="text-org3d4d952">
+<div class="org-src-container">
+<pre class="src src-js">var length = 'abcdef'.length;     // =&gt; 6
+var jplen  = 'あいうえお'.length; // =&gt; 5
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org555ffc5" class="outline-3">
+<h3 id="org555ffc5">n文字目の文字</h3>
+<div class="outline-text-3" id="text-org555ffc5">
+<div class="org-src-container">
+<pre class="src src-js">var a = "ABCDEF".charAt(1);   // =&gt; B
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orged541ed" class="outline-3">
+<h3 id="orged541ed">切り出し (substrは多くの環境でサポートされていますが非標準なメソッドなので一応注意)</h3>
+<div class="outline-text-3" id="text-orged541ed">
+<div class="org-src-container">
+<pre class="src src-js">var substr    = 'abcd'.substr(1, 2);    // =&gt; bc
+var substr    = "ABCDEF".substr(1);     // =&gt; BCDEF
+var substring = 'abcd'.substring(1, 2); // =&gt; b
+var substring = "ABCDEF".substring(1);  // =&gt; BCDEF
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org827f5f4" class="outline-3">
+<h3 id="org827f5f4">検索</h3>
+<div class="outline-text-3" id="text-org827f5f4">
+<div class="org-src-container">
+<pre class="src src-js">// 見つかった場合はその位置，見つからなかった場合は-1が返る
+var result1 = 'abcd'.indexOf('cd');         // =&gt; 2
+var result2 = 'abcd'.indexOf('ef');         // =&gt; -1
+var result3 = "CDEABCDE".indexOf("DE",4);   // =&gt; 6 ('4'を始点に 最初の"DE"位置)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6972f5d" class="outline-3">
+<h3 id="org6972f5d">数値と『文字列』が混ざった計算</h3>
+<div class="outline-text-3" id="text-org6972f5d">
+<p>
+　この場合、全て『文字列』として解釈されます。そのため変数『c』の値は、『先頭102089末尾』となります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = 8;      // 数値変数
+var b = "9";    // 文字列変数
+var c = "先頭" + 10 + 20 + a + b + "末尾";  // 文字列の連結
+document.write(c);      // 『先頭102089末尾』と表示
+</pre>
+</div>
+<p>
+『文字列変数』を数値変数として解釈させる<br />
+　文章を結合する式の中で、数値の計算を行わせたい場合は、その部分を『(～)』のように、丸括弧で囲います。<br />
+　また、文字列変数を数値変数として解釈させたい場合は、その文字列変数に『-0』するか『1』して、数値とします。<br />
+　（『a-0』『a1』のように書くと、文字列変数が数値に変換されます）<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = 8;      // 数値変数
+var b = "9";    // 文字列変数
+var c = "先頭" + (10 + 20 + a + b * 1) + "末尾";  // 文字列の連結
+document.write(c);      // 『先頭47末尾』と表示
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae90c6f" class="outline-3">
+<h3 id="orgae90c6f">特殊な文字</h3>
+<div class="outline-text-3" id="text-orgae90c6f">
+<div class="org-src-container">
+<pre class="src src-js">\n	改行
+\r	復帰
+\t	タブ文字
+\"	『"～"』内で使う『"』
+\'	『'～'』内で使う『'』
+\	『\』
+
+『document.write()』で改行させたい場合は、文章中に『&lt;br&gt;』を書きます。
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgafc05dc" class="outline-2">
+<h2 id="orgafc05dc">改行文字についての補足</h2>
+<div class="outline-text-2" id="text-orgafc05dc">
+<p>
+改行文字をJavaScript内で指定する場合は『\n』と書けばよいです。しかし、外部からプログラムに文字列を読み込む場合には、問題が生じることがあります。<br />
+Windowsでは、普通のテキストファイルの改行は『\r\n』と2つの文字で表されています。<br />
+Unix系のOS（Linux、Macなど）では、テキストファイルの改行は『\n』と1文字になっています。<br />
+『\r』は『キャリッジリターン』（carriage return）で、『復帰』という意味です。<br />
+『\n』は『ニューライン』（newline）で、『改行』という意味です。<br />
+これらの記号はタイプライターの動作に由来しています。『復帰』で印字装置を行頭に戻し、『改行』で1行紙を送るという動作が元になっています。<br />
+ファイルを読み込んだ際に、『\n』を置換して、改行を除去しようとしたとします。<br />
+その際、上手くいかずに改行されたままの場合は、『\r』も置換して除去するようにしてください。<br />
+この方法を頭の片隅に覚えておくと、行き詰らないで済みます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9545d8" class="outline-2">
+<h2 id="orgd9545d8">配列</h2>
+<div class="outline-text-2" id="text-orgd9545d8">
+<div class="org-src-container">
+<pre class="src src-js">var ary1 = [1, 2, 3];          // =&gt; [1, 2, 3]
+var ary2 = new Array(3);       // =&gt; [undefined, undefined, undefined]
+var ary3 = new Array(3, 4, 5); // =&gt; [3, 4, 5]
+
+JavaScriptでは、初期化した配列の大きさよりも、大きな数字を指定した場合は、自動でそのサイズまで『配列』が大きくなります。
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84afdfb" class="outline-2">
+<h2 id="org84afdfb">多次元配列</h2>
+<div class="outline-text-2" id="text-org84afdfb">
+<div class="org-src-container">
+<pre class="src src-js">var nameArray = new Array(2);
+
+nameArray[0] = new Array(3);
+nameArray[0][0] = "足立";
+nameArray[0][1] = "安藤";
+nameArray[0][2] = "内木";
+
+nameArray[1] = new Array(3);
+nameArray[1][0] = "木村";
+nameArray[1][1] = "工藤";
+nameArray[1][2] = "近藤";
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae92a8d" class="outline-2">
+<h2 id="orgae92a8d">配列の参照と代入</h2>
+<div class="outline-text-2" id="text-orgae92a8d">
+<div class="org-src-container">
+<pre class="src src-js">var ary = [1, 2, 3];
+ary[2];               // =&gt; 3   (配列のインデックスは0オリジン)
+ary[0] = 3;           // =&gt; ary == [3, 2, 3]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3712449" class="outline-2">
+<h2 id="org3712449">要素の個数</h2>
+<div class="outline-text-2" id="text-org3712449">
+<div class="org-src-container">
+<pre class="src src-js">ary.length
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org80e8ccc" class="outline-2">
+<h2 id="org80e8ccc">配列の操作</h2>
+<div class="outline-text-2" id="text-org80e8ccc">
+<div class="org-src-container">
+<pre class="src src-js">var ary = [1, 2, 3];
+
+// 先頭を取り出す
+var a = ary.shift(); // =&gt; a == 1, ary == [2, 3]
+
+// 先頭に追加
+ary.unshift(5);      // =&gt; ary == [5, 2, 3] (配列も挿入可能)
+
+// 末尾を取り出す
+var b = ary.pop();   // =&gt; b == 3, ary == [5, 2]
+
+// 末尾に追加
+ary.push(9);         // =&gt; ary == [5, 2, 9] (配列も挿入可能)
+
+// 部分コピーを得る
+var c = ary.slice(1, 2);  // =&gt; c == [2], ary == [5, 2, 9]
+
+// 一部を置き換える
+var d= ary.splice(1, 2, "a", "b", "c");  // =&gt; d == [2, 9], ary == [5, "a", "b", "c"]
+
+// 連結した配列
+var a = ["aa","bb"];
+var b = ["EE","FF"];
+var x = a.concat(b);	  // 変数『x』に『"aa","bb","EE","FF"』が入る
+
+// 小さい順に並び替える
+var c = [1,5,7,3];
+c.sort();	変数『c』が『1,3,5,7』になる
+
+// 逆向きに並び替える
+var c = [1,5,7,3];
+c.reverse();	変数『c』が『3,7,5,1』になる
+
+// 配列を文字列で連結
+var a = ["aa","bb"];
+var x = a.join("/");	  // 変数『x』に『aa/bb』が入る
+
+// 配列を文字列にする
+var a = ["aa","bb"];
+var x = a.toString();  // 変数『x』に『aa,bb』が入る
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc84f449" class="outline-2">
+<h2 id="orgc84f449">制御文</h2>
+<div class="outline-text-2" id="text-orgc84f449">
+</div>
+<div id="outline-container-orgb0affd3" class="outline-3">
+<h3 id="orgb0affd3">if文</h3>
+<div class="outline-text-3" id="text-orgb0affd3">
+<div class="org-src-container">
+<pre class="src src-js">if (条件) {
+  hoge();
+  fuga();
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12f7915" class="outline-3">
+<h3 id="org12f7915">『{～}』を省略した『if』文</h3>
+<div class="outline-text-3" id="text-org12f7915">
+<div class="org-src-container">
+<pre class="src src-js">if (1 &gt; 0) alert("真");
+
+// ○ 以下は有効
+if (1 &lt; 0) alert("真");
+else alert("偽");
+
+// ○ 以下は有効
+if (1 &lt; 0)
+  alert("真");
+else
+  alert("偽");
+
+// × 以下は処理の数が複数なので駄目
+if (1 &lt; 0)
+  alert("真"); alert("真");
+else
+  alert("偽"); alert("偽");
+
+// ○ 処理が複数の場合は『{～}』を付ける
+if (1 &lt; 0) {
+  alert("真"); alert("真");
+} else {
+  alert("偽"); alert("偽");
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org50cd678" class="outline-3">
+<h3 id="org50cd678">比較演算子</h3>
+<div class="outline-text-3" id="text-org50cd678">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">左 == 右</td>
+<td class="org-left">左と右が同じと見なせるなら真（『=』2つなので注意）</td>
+</tr>
+
+<tr>
+<td class="org-left">左 != 右</td>
+<td class="org-left">左と右が違うと見なせるなら真（『!』は否定記号）</td>
+</tr>
+
+<tr>
+<td class="org-left">左 <code>=</code> 右</td>
+<td class="org-left">左と右が同じなら真（『=』3つなので注意）</td>
+</tr>
+
+<tr>
+<td class="org-left">左 !== 右</td>
+<td class="org-left">左と右が違うなら真（『!』は否定記号）</td>
+</tr>
+
+<tr>
+<td class="org-left">左 &lt; 右</td>
+<td class="org-left">左が右より小さいなら真</td>
+</tr>
+
+<tr>
+<td class="org-left">左 &gt; 右</td>
+<td class="org-left">左が右より大きいなら真</td>
+</tr>
+
+<tr>
+<td class="org-left">左 &lt;= 右</td>
+<td class="org-left">左が右より小さいか同じなら真</td>
+</tr>
+
+<tr>
+<td class="org-left">左 &gt;= 右</td>
+<td class="org-left">左が右より大きいか同じなら真</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+『==』『!=』は、数字の『1』と文字列の『"1"』のように、本来は違う型である場合も、同じ型と見なして比較を行ないます。<br />
+『===』『!==』では、そうしたことをせず、型も内容も同じかどうかで比較を行ないます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org042bd6e" class="outline-3">
+<h3 id="org042bd6e">論理演算子</h3>
+<div class="outline-text-3" id="text-org042bd6e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">左 &amp;&amp; 右</td>
+<td class="org-left">左であり、かつ右であるなら真</td>
+</tr>
+
+<tr>
+<td class="org-left">左｜｜右</td>
+<td class="org-left">左または右なら真</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+『真偽値』の前に、否定を表す『!』を書くと、『true』なら『false』に、『false』なら『true』に値が変わります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47c1cd3" class="outline-3">
+<h3 id="org47c1cd3">if-else文</h3>
+<div class="outline-text-3" id="text-org47c1cd3">
+<div class="org-src-container">
+<pre class="src src-js">if (条件) {
+} else {
+}
+</pre>
+</div>
+<p>
+else以下に更に条件分岐を重ねる時は以下のようにも書いたりもします。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">if (条件1) {
+  // 条件1がtrue
+} else if (条件2) {
+  // 条件1がfalseで条件2がtrue
+} else if (条件3) {
+  // 条件1, 2がfalseで条件3がtrue
+} else {
+  // 条件1, 2, 3 がfalse
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf70ff4a" class="outline-3">
+<h3 id="orgf70ff4a">条件演算子</h3>
+<div class="outline-text-3" id="text-orgf70ff4a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">条件式?左:右</td>
+<td class="org-left">条件式が真なら左の値、偽なら右の値</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-js">var tensuu = 65;
+
+var mojiretu = (tensuu &gt;= 60) ? "合格" : "不合格";
+    // 変数『tensuu』が『65』で『60』以上なので、
+    // 変数『mojiretu』には『合格』が入る
+
+alert(mojiretu);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f8ee3f" class="outline-3">
+<h3 id="org0f8ee3f">switch文</h3>
+<div class="outline-text-3" id="text-org0f8ee3f">
+<p>
+構文はCと一緒です。breakが必要。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = 0;
+switch (a) {
+  case 0: alert('zero');
+    break;
+  case 1: alert('one');
+    break;
+  case 2: // fall through
+  case 3: alert('two or three');
+    break;
+  default: alert('many!');
+    break;
+}
+</pre>
+</div>
+<p>
+Cと異なり，caseの後には実行時に評価される値を入れることもできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">switch (a) {
+  case a + '': alert('String');
+    break;
+  case a + 0: alert('Number');
+    break;
+  case !!a: alert('Boolean');
+    break;
+  default: alert('Something');
+    break;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c12ba7" class="outline-3">
+<h3 id="org0c12ba7">while文</h3>
+<div class="outline-text-3" id="text-org0c12ba7">
+<div class="org-src-container">
+<pre class="src src-js">var i = 0;
+while (i &lt; 5) {
+  i++;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68eebdc" class="outline-3">
+<h3 id="org68eebdc">do while文</h3>
+<div class="outline-text-3" id="text-org68eebdc">
+<div class="org-src-container">
+<pre class="src src-js">var i = 0;
+do {
+  document.write(i + ",");
+  i ++;
+} while (i &lt; 10);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgde0d2d9" class="outline-3">
+<h3 id="orgde0d2d9">for文</h3>
+<div class="outline-text-3" id="text-orgde0d2d9">
+<div class="org-src-container">
+<pre class="src src-js">for (var i = 0; i &lt; 5; i++) {
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2a5cae" class="outline-3">
+<h3 id="orgc2a5cae">ループ処理内での特殊な動作</h3>
+<div class="outline-text-3" id="text-orgc2a5cae">
+<p>
+break =&gt; ループ処理を終了します。<br />
+continue =&gt; ループ処理をスキップして、『for (～)』の行に戻ります。<br />
+ラベル =&gt; 『for』文に『ラベル』を付けると、その『for』文を、『break』や『continue』の対象とできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 『*1』の『for』文に
+// 『outer』という『ラベル』を付ける
+outer:
+for (var i = 0; i &lt; 10; i ++) {    // *1
+  for (var j = 0; j &lt; 10; j ++) {    // *2
+    if (j == 7) {
+      // 変数『j』が『7』なら
+      // 『outer』という『ラベル』が付いた
+      // 『*1』のループを抜ける
+      document.write(i + "-" + j + "finish!&lt;br&gt;");
+      break outer;
+    }
+    document.write(i + "-" + j + ", ");
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ddb99d" class="outline-2">
+<h2 id="org4ddb99d">配列の様々なメソッド</h2>
+<div class="outline-text-2" id="text-org4ddb99d">
+</div>
+<div id="outline-container-org99b4433" class="outline-3">
+<h3 id="org99b4433">Array.isArray()</h3>
+<div class="outline-text-3" id="text-org99b4433">
+<p>
+引数が配列かどうかを確認します。配列なら『true』を、配列でないなら『false』を戻します。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbf5532" class="outline-3">
+<h3 id="orgbbf5532">forEach()</h3>
+<div class="outline-text-3" id="text-orgbbf5532">
+<p>
+配列中のそれぞれの要素について関数を呼び出します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">array.forEach(function(x, i, a) {
+    // 配列の各要素ごとに呼び出される処理
+});
+</pre>
+</div>
+<p>
+引数の関数の『x』は配列の各要素、『i』は何番目の要素かの数値、『a』は配列自身になります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var array = [11, 22, 33];
+array.forEach(function(x, i) {
+    console.log(i + ' : ' + x);
+});
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">0 : 11
+1 : 22
+2 : 33
+</pre>
+</div>
+<p>
+『function(x, i)』のように、関数の引数は『(x, i, a)』の全てを書く必要はありません。値しか使わない場合は、『function(x)』でも構いません。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf430cc" class="outline-3">
+<h3 id="orgcf430cc">filter()</h3>
+<div class="outline-text-3" id="text-orgcf430cc">
+<p>
+配列中の要素をフィルタリングして、新しい配列を生成します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">array.filter(function(x, i, a) {
+    // 配列の各要素ごとに呼び出される処理
+    return true;
+});
+</pre>
+</div>
+<p>
+引数の関数の『x』は配列の各要素、『i』は何番目の要素かの数値、『a』は配列自身になります。<br />
+引数の関数が『true』を戻した要素だけを集めた、新しい配列を生成します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var array = [11, 22, 33, 44, 55, 66];
+var array2 = array.filter(function(x) {
+    if (x % 2 === 0) {
+        return true;  // 偶数
+    }
+});
+console.log(array2);
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">[22, 44, 66]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org963cb74" class="outline-3">
+<h3 id="org963cb74">map()</h3>
+<div class="outline-text-3" id="text-org963cb74">
+<p>
+配列内のすべての要素に対して関数を実行して、その戻り値の配列を生成します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">array.map(function(x, i, a) {
+    // 配列の各要素ごとに呼び出される処理
+    return '新しい値';
+});
+</pre>
+</div>
+<p>
+引数の関数の『x』は配列の各要素、『i』は何番目の要素かの数値、『a』は配列自身になります。<br />
+引数の関数の戻り値を集めた、新しい配列を生成します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var array = [11, 22, 33, 44, 55, 66];
+var array2 = array.map(function(x) {
+    return x * 10;
+});
+console.log(array2);
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">[110, 220, 330, 440, 550, 660]
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32919ce" class="outline-2">
+<h2 id="org32919ce">オブジェクト</h2>
+<div class="outline-text-2" id="text-org32919ce">
+<p>
+『配列』は『数字』が添え字のデータセットでしたが、『オブジェクト』は『文字列』が添え字のデータセットです。<br />
+『オブジェクト』は、『.length』で要素の数を知ることはできません。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var tensuuObj = new Object();
+tensuuObj["adachi"] = 65;
+tensuuObj["andou"] = 78;
+tensuuObj["utiki"] = 87;
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">var tensuuObj = {};    // 中身が空のオブジェクトを作る
+tensuuObj["adachi"] = 65;
+tensuuObj["andou"] = 78;
+tensuuObj["utiki"] = 87;
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">var tensuuObj = {"adachi": 65, "andou": 78, "utiki": 87};
+var tensuuObj = {adachi: 65, andou: 78, utiki: 87};
+</pre>
+</div>
+
+<p>
+『オブジェクト』の各要素をループ処理で利用する際には、『for』文ではなく、『for in』文を利用します。<br />
+</p>
+
+<p>
+配列が多次元配列を作れたように、オブジェクトも入れ子のオブジェクトを作れます。<br />
+また、配列の中にオブジェクトを入れたり、オブジェクトの中に配列を入れたりすることもできます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7487af0" class="outline-2">
+<h2 id="org7487af0">連想配列 (のようなもの)</h2>
+<div class="outline-text-2" id="text-org7487af0">
+<p>
+JavaScript には連想配列というものはありませんが，任意のオブジェクトを連想配列のように扱うことができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// オブジェクトの定義。JSON はこの表記法を基にしている
+var a = {a: 123, b: 456};
+a['a'];                // =&gt; 123 (連想配列風アクセス)
+a.b;                   // =&gt; 456 (プロパティ風アクセス)
+a['c'] = 789;          // 要素の追加
+a.d = 123;
+</pre>
+</div>
+<p>
+連想配列風のアクセスとプロパティ風のアクセスは表記が異なるだけで意味上の差はありません。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05b2cb0" class="outline-2">
+<h2 id="org05b2cb0">for in文</h2>
+<div class="outline-text-2" id="text-org05b2cb0">
+<p>
+『for (～)』の括弧内で、『オブジェクト』と、その要素の『要素名』を取得する変数を書きます。<br />
+この『要素名』を取得する変数には、ループが1回行われるごとに、『要素名』が1つずつ代入されていきます。<br />
+ループ処理の中では、この『要素名』を利用して、オブジェクトの各要素の値を取得します。<br />
+そして、全ての『要素名』を処理し終えたあとに、ループを抜けます。<br />
+『要素名』は『キー』とも呼びます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var obj = {a: 1, b: 2};
+for (var i in obj) {
+  alert(obj[i]);  // =&gt; 1, 2
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org657f8b3" class="outline-2">
+<h2 id="org657f8b3">JSON</h2>
+<div class="outline-text-2" id="text-org657f8b3">
+<p>
+『JSON』は『JavaScript Object Notation』の略です。JavaScriptのオブジェクトを、文字列で記述したものです。<br />
+</p>
+
+<p>
+JavaScriptでは、『JSON.parse(文字列)』という命令を使い、文字列からJavaScriptのプログラムで使うオブジェクトを作ることができます。<br />
+また、『JSON.stringify(オブジェクト)』という命令を使い、オブジェクトから文字列を作ることができます。<br />
+</p>
+
+<p>
+『JSON.stringify(オブジェクト)』をそのまま使うと、人間には読みにくい文字列が作成されます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var nestObj = {};
+nestObj.adachi = {kokugo: 65, suugaku: 72};
+nestObj.andou = {kokugo: 87, suugaku: 77};
+console.log(JSON.stringify(nestObj));
+
+// =&gt; {"adachi":{"kokugo":65,"suugaku":72},"andou":{"kokugo":87,"suugaku":77}}
+</pre>
+</div>
+
+<p>
+『JSON.stringify(オブジェクト, null, "インデントに使う文字列")』とすることで、人間が読みにくい文字列にすることができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var nestObj = {};
+nestObj.adachi = {kokugo: 65, suugaku: 72};
+nestObj.andou = {kokugo: 87, suugaku: 77};
+console.log(JSON.stringify(nestObj, null, "  "));
+
+// =&gt; {
+        "adachi": {
+          "kokugo": 65,
+          "suugaku": 72
+        },
+        "andou": {
+          "kokugo": 87,
+          "suugaku": 77
+        }
+      }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99c137f" class="outline-2">
+<h2 id="org99c137f">console</h2>
+<div class="outline-text-2" id="text-org99c137f">
+<p>
+Webブラウザで［F12］を押して開発者ツールを表示して、「コンソール」（Console）タブを選択すると、プログラムからの出力結果を見ることができます。<br />
+プログラム中に、『console.log(文字列)』と書くことで、このコンソール欄に情報を出力できます。<br />
+複数の情報を出力したい場合は、『console.log(文字列1, 文字列2, 文字列3)』のように『,』（カンマ）区切りで書きます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org16782c8" class="outline-2">
+<h2 id="org16782c8">関数</h2>
+<div class="outline-text-2" id="text-org16782c8">
+<p>
+多くの場合，関数の宣言は以下のように書きます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">function sum3a(a, b, c) {
+  return a + b + c;
+}
+</pre>
+</div>
+<p>
+『return』に何も値を指定しなかった場合は、『戻り値』を戻さない『関数』になります。<br />
+『戻り値』を戻さない『関数』ならば、『return』自体を省略することもできます。<br />
+『引数』も『戻り値』もない『関数』も作れます。<br />
+</p>
+
+<p>
+『return』を使って関数の途中終了もできます。<br />
+『引数』の値によって、処理を分岐させれば、より有用な『関数』を作成することができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var kekka1 = menseki(0, 10);    // 関数『menseki』を呼び出し
+var kekka2 = menseki(5, 10);    // 関数『menseki』を呼び出し
+var kekka3 = menseki(10, 10);    // 関数『menseki』を呼び出し
+
+document.write(kekka1 + "&lt;br&gt;");
+document.write(kekka2 + "&lt;br&gt;");
+document.write(kekka3 + "&lt;br&gt;");
+
+function menseki(width, height) {
+    // 『width』（横幅）を引数1として取得
+    // 『height』（高さ）を引数2として取得
+
+    if ((width &lt;= 0) || (height &lt;= 0)) {
+        // 横幅か高さが0以下なら、面積は求められないので終了
+        return "error!";
+    }
+
+    var res = width * height;
+    return res;        // 計算結果を戻して終了
+}
+
+// =&gt;  error!
+//     50
+//     100
+</pre>
+</div>
+
+<p>
+JavaScriptの関数はファーストクラスのオブジェクトなので，変数に代入することもできます（関数式）。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var sum3b = function(a, b, c) {
+  return a + b + c;
+};
+</pre>
+</div>
+<p>
+sum3aはコンパイル時に定義され，sum3bは実行時に定義されます。それ以外の点で両者に差はありません。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf20b9d9" class="outline-2">
+<h2 id="orgf20b9d9">再帰関数</h2>
+<div class="outline-text-2" id="text-orgf20b9d9">
+<div class="org-src-container">
+<pre class="src src-js">// 再帰関数を呼び出し
+saiki(0, 12);
+
+// 再帰関数
+function saiki(no, max) {
+    // 『no』（再帰回数）を引数1として取得
+    // 『max』（終了条件の値）を引数2として取得
+
+    // 終了条件を満たせば終了
+    if (no &gt;= max) return;
+
+    // グラフの作成
+    var str = "";
+    for (var i = 0; i &lt; no; i ++) {
+        for (var j = 0; j &lt;= i; j ++) {
+            str += "+";
+        }
+    }
+    document.write(str + no + "&lt;br&gt;");
+
+    // 再び自分自身を呼び出す
+    saiki(no + 1, max);
+}
+
+/*
+=&gt; 0
+   +1
+   +++2
+   ++++++3
+   ++++++++++4
+   +++++++++++++++5
+   +++++++++++++++++++++6
+   ++++++++++++++++++++++++++++7
+   ++++++++++++++++++++++++++++++++++++8
+   +++++++++++++++++++++++++++++++++++++++++++++9
+   +++++++++++++++++++++++++++++++++++++++++++++++++++++++10
+   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++11
+*/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgabf6cc3" class="outline-2">
+<h2 id="orgabf6cc3">変数のスコープ</h2>
+<div class="outline-text-2" id="text-orgabf6cc3">
+<p>
+『関数』の外側の通常の場所を『グローバル』と呼び、『関数』の内側になる場所を『ローカル』と呼びます。<br />
+また、『グローバル』で宣言された変数を『グローバル変数』、『ローカル』で宣言された変数を『ローカル変数』と呼びます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">【グローバルな領域】
+var globalVar = 1;        // グローバル変数
+
+function kansuu() {
+    【ローカルな領域】
+     var loclalVar = 0;    // ローカル変数
+}
+【グローバルな領域】
+var globalVar2 = 2;       // グローバル変数
+</pre>
+</div>
+<p>
+『ローカル』な領域では、ローカルルールが適用されます。<br />
+このローカルルールは、『ローカルで宣言された変数は、その領域内のみで有効』というものです。<br />
+また、『グローバル』な領域と『ローカル』な領域に、同じ名前の変数があった場合は、『ローカル』な領域の変数の方が優先されます。<br />
+このように、変数にはそれぞれ有効範囲があります。この変数の有効範囲のことを、『変数のスコープ』と言います。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa93d4b" class="outline-2">
+<h2 id="orgaa93d4b">型</h2>
+<div class="outline-text-2" id="text-orgaa93d4b">
+</div>
+<div id="outline-container-org3922799" class="outline-3">
+<h3 id="org3922799">『typeof』関数</h3>
+<div class="outline-text-3" id="text-org3922799">
+<p>
+変数の『型』は、『typeof』関数を使って調べることができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var no = 0;            // 『数値変数』を初期化
+var str = "文字列";    // 『文字列変数』を初期化
+
+// 『typeof』関数で、変数の『型』を調べる
+alert(typeof(no));     // 『number』（数）と表示
+alert(typeof(str));    // 『string』（文字）と表示
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org546a19b" class="outline-3">
+<h3 id="org546a19b">『boolean』型の変数</h3>
+<div class="outline-text-3" id="text-org546a19b">
+<p>
+『boolean』型は、『真偽』を格納する変数です。<br />
+これまで『if』などで利用していた『真偽の判定結果』を、『変数』として利用できます。<br />
+また、『true』（真）『false』（偽）という値で初期化することで、『真の値』『偽の値』を持った変数を作ることもできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var bool = (1 &gt; 0);     // 真偽の判定結果で変数を初期化
+alert(typeof(bool));    // 『boolean』（真偽）と表示
+
+var bool = true;        // 真を表す『true』で変数を初期化
+alert(typeof(bool));    // 『boolean』（真偽）と表示
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49a8a26" class="outline-3">
+<h3 id="org49a8a26">『オブジェクト』型</h3>
+<div class="outline-text-3" id="text-org49a8a26">
+<p>
+『オブジェクト』型の変数は、内部に値を格納しています。<br />
+</p>
+
+<p>
+『オブジェクト』型変数内の値は『オブジェクト.要素名』、関数は『オブジェクト.要素名()』として利用できます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">object.variable;      // 『オブジェクト』型変数内の値を利用
+object.function();    // 『オブジェクト』型変数内の関数を利用
+</pre>
+</div>
+<p>
+『document』は、Webページ内でJavaScripを利用する際に、最初から用意されているオブジェクトです。<br />
+他にも、『window』などのオブジェクトが、用意されています。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">document.title;            // 『document』オブジェクトの『title』変数
+document.write("");        // 『document』オブジェクトの『write』関数
+</pre>
+</div>
+<p>
+『オブジェクト』の要素のことを『プロパティ』と呼びます。『プロパティ』の中でも、関数は特別に『メソッド』と呼びます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org643fbbb" class="outline-3">
+<h3 id="org643fbbb">『function』型</h3>
+<div class="outline-text-3" id="text-org643fbbb">
+<p>
+『関数』を変数として格納したものです。JavaScriptでは、『関数』も数値や文字列と同じように、変数に入れて利用できます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 関数を作成
+var func = function () {
+    alert("関数を変数にしたよ！");
+};
+
+// 関数を実行
+func();       // 変数の後に『()』を付けて実行
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">// 配列に関数を入れて実行
+var arr = new Array(1);
+arr[0] = func;
+arr[0]();    // 配列の要素の後に『()』を付けて実行
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">// オブジェクトの要素に関数を入れて実行
+var obj = new Object();
+obj.func = func;
+obj.func();   // オブジェクトの要素の後に『()』を付けて実行
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0716971" class="outline-2">
+<h2 id="org0716971">無名関数</h2>
+<div class="outline-text-2" id="text-org0716971">
+<p>
+『function () {～}』のように、『function』の後に名前がない関数のことを『無名関数』と呼びます<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 関数を作成
+var func = function () {
+    alert("関数を変数にしたよ！");
+};
+
+// 関数を実行
+func();       // 変数の後に『()』を付けて実行
+</pre>
+</div>
+
+<p>
+以下、2つの利用シーンでの『無名関数』です。<br />
+</p>
+</div>
+
+<div id="outline-container-orgd371733" class="outline-3">
+<h3 id="orgd371733">使い捨ての関数としての『無名関数』</h3>
+<div class="outline-text-3" id="text-orgd371733">
+<p>
+メソッドの引数として、よく利用されます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 『sort』の引数として、使い捨ての関数を作成して利用する
+var no = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];    // 配列作成
+no.sort(function (a, b) {
+    // 偶数を前に、奇数を後ろにソートする
+    if (a % 2 == 0 &amp;&amp; b % 2 != 0) return -1;
+    if (a % 2 != 0 &amp;&amp; b % 2 == 0) return 1;
+    return 0;
+});
+alert(no);    // 『2, 4, 6, 8, 10, 1, 3, 5, 7, 9』と表示
+</pre>
+</div>
+<p>
+『function (a, b) {～}』という『無名関数』を、『sort』メソッドの引数としています。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15e52d7" class="outline-3">
+<h3 id="org15e52d7">変数に格納する『無名関数』</h3>
+<div class="outline-text-3" id="text-org15e52d7">
+<p>
+たとえば、変数に格納しておけば、同じソート方法を、複数の場所で使うことができます。<br />
+以下、ソート用の関数を使い回す例です。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var fnc = function (a, b) {return a - b};
+
+var yosan = [20000, 9000, 12000, 15000];
+yosan.sort(fnc);
+alert(yosan);    // 『9000,12000,15000,20000』と表示
+
+var yosan2 = [80000, 700, 99000, 100000];
+yosan2.sort(fnc);
+alert(yosan2);   // 『700,80000,99000,100000』と表示
+</pre>
+</div>
+
+<p>
+もう1つの例として、『型、オブジェクト、クラス』の章で出てきたプログラムを示します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 生徒クラスを作成
+var Seito = function(namae, tensuu) {
+    this.namae  = namae || "???";
+    this.tensuu = tensuu || 0;
+    this.show = function() {
+        window.alert("名前 : " + this.namae + " / 点数 : " + this.tensuu);
+    };
+};
+</pre>
+</div>
+<p>
+変数『this.show』に、『function() {～}』という『無名関数』を入れています。<br />
+このように、一定の処理を変数として扱いたい時に『無名関数』は威力を発揮します。<br />
+</p>
+
+<p>
+また、『無名関数』は、クラスだけではなく、変数や関数を共通のオブジェクトの配下にまとめたい時にも利用されます。以下、その例です。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var myFunctions = new Object();    // オブジェクトを作成
+
+myFunctions.alertTitle = function () {alert(document.title)};
+        // 『alertTitle』というプロパティに、関数を代入
+
+myFunctions.alertTitle();
+        // 『alertTitle』メソッドを実行して、Webページのタイトルを表示する
+</pre>
+</div>
+<p>
+変数『myFunctions.alertTitle』に、『無名関数』を代入しています。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4be322" class="outline-2">
+<h2 id="orgf4be322">クラス</h2>
+<div class="outline-text-2" id="text-orgf4be322">
+<p>
+『クラス』は、『共通の変数や関数を格納した変数』を作るための仕組みです。<br />
+『function』型の変数を利用して、『クラス』と呼ばれるものを作ります。<br />
+</p>
+
+<p>
+たとえば『生徒』についての情報を扱いたいとします。『生徒』には『名前』や『テストの点数』といった情報を格納することにします。<br />
+また、『生徒』の情報をいつでも簡単に呼び出せる方法も用意しておきます。<br />
+</p>
+
+<p>
+こういった共通した機能を持たせるために、以下のような構造の変数を作ります。<br />
+</p>
+<pre class="example">
+『生徒』変数
+    ・『名前』文字列
+    ・『テストの点数』数値
+    ・『情報を表示する』関数
+</pre>
+<p>
+こういった変数を『オブジェクト』型変数を使って作ると、以下のようになります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var Seito = new Array();
+Seito.namae = "遊";
+Seito.tensuu = 3;
+Seito.show = function() {
+    window.alert("名前 : " + this.namae + " / 点数 : " + this.tensuu);
+};
+</pre>
+</div>
+<p>
+これで1人分の変数を作ることができました。しかし、このやり方で30人分の変数を作ろうとすると大変です。<br />
+この変数は、『名前』変数も『テストの点数』変数も『情報を表示する』関数も共通しているので、一度だけ宣言して再利用したいところです。<br />
+</p>
+
+<p>
+そういった場合には『function』型変数を使って、『クラス』と呼ばれるものを作ります。以下、『生徒』クラスのサンプルです。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 生徒クラスを作成
+var Seito = function(namae, tensuu) {
+    this.namae  = namae || "???";
+    this.tensuu = tensuu || 0;
+    this.show = function() {
+        window.alert("名前 : " + this.namae
+        + " / 点数 : " + this.tensuu);
+    };
+};
+</pre>
+</div>
+<p>
+『this』という文字は、『クラス』自体を現すオブジェクトだと思っていてください。<br />
+『Seito』変数内には、あらかじめ『this.namae』『this.tensuu』『this.show』といった変数や関数が用意されています。<br />
+そして、関数の『引数』として『namae』『tensuu』が設定されています。<br />
+</p>
+
+<p>
+次に、この『Seito』関数を利用して、『生徒 遊』変数を作成します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 生徒クラスを使って『生徒 遊』変数を作成
+var sYuu = new Seito("遊", 3);
+alert(sYuu.namae + " " + sYuu.tensuu);
+sYuu.show();
+</pre>
+</div>
+<p>
+『クラス』のこの仕組みを利用すれば、以下のように手軽に生徒の情報と命令を格納した変数を作れます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var sMamoru = new Seito("守", 95);
+var sRei    = new Seito("麗", 92);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org30321f7" class="outline-2">
+<h2 id="org30321f7">オブジェクト指向</h2>
+<div class="outline-text-2" id="text-org30321f7">
+<p>
+JavaScript言語は、『オブジェクト指向』と呼ばれるプログラミング言語です。<br />
+</p>
+
+<p>
+変数は『オブジェクト』と呼ばれる物として扱われ、その『オブジェクト』の値や関数（プロパティやメソッド）も、また『オブジェクト』として扱えます。<br />
+これらのオブジェクトは『.』（ドット）で連結して、下の階層へとたどれます。<br />
+</p>
+
+<p>
+これまで出てきた『document』は、表記が省略されていますが『window.document』という、『window』オブジェクト内のオブジェクトです。<br />
+そのため、『write()』という命令は、正式には『window.document.write()』となります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd7ccf1" class="outline-2">
+<h2 id="orgdd7ccf1">this</h2>
+<div class="outline-text-2" id="text-orgdd7ccf1">
+<p>
+『this』は、オブジェクト自身を表す特殊な変数です。<br />
+JavaScriptは、オブジェクト指向の言語です。そして、全ての変数はオブジェクトとして、成り立っています。<br />
+そして、このオブジェクトは、何らかのオブジェクトのプロパティやメソッドになっています。<br />
+</p>
+<pre class="example">
+親オブジェクト
+ ┣ 子オブジェクト
+ ┃    ┣ 孫オブジェクト
+ ┃    ┗ 孫オブジェクト
+ ┗ 子オブジェクト
+       ┗ 孫オブジェクト
+</pre>
+<p>
+この構造は、JavaScriptの文法的に、『.』（ドット）を使用して書くと、以下のようになります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// JavaScriptの文法的に . を使用して書く
+
+親オブジェクト.子オブジェクト.孫オブジェクト
+</pre>
+</div>
+<p>
+さてここで、『オブジェクト』の頭に『this.』と付けてみます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">this.オブジェクト
+</pre>
+</div>
+<p>
+何となく分かってきたのではないかと思います。『this』は、そのオブジェクトにとって、親っぽい何かのようです。<br />
+関数の外であれば、この『this』は、『window』を表しています。これまでよく利用してきた『alert()』関数は、正式には『window.alert()』です。<br />
+この『alert()』関数を、『window』の代わりに『this』を頭に付けて実行してみます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">window.alert("");   // 正しく動作する
+this.alert("");     // 『this』でも正しく動作する
+</pre>
+</div>
+
+<p>
+次は関数内の『this』です。関数内であれば、『this』は、関数が呼び出された際に、その関数が格納されていたオブジェクトを表しています。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 生徒クラスを作成
+var Seito = function(namae, tensuu) {
+    this.namae  = namae || "???";
+    this.tensuu = tensuu || 0;
+    this.show = function() {
+        alert("名前 : " + this.namae
+        + " / 点数 : " + this.tensuu);
+    };
+}
+
+// 生徒クラスを使って『生徒 遊』変数を作成
+var sYuu = new Seito("遊", 3);
+sYuu.show();
+</pre>
+</div>
+<p>
+『sYuu.show();』で、『sYuu』オブジェクト内の『show』メソッドを呼び出しています。<br />
+『sYuu』の中身は、『new』で初期化された時に、以下のようになっています。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">sYuu
+    .namae = "遊";
+    .tensuu = 3;
+    .show = function() {
+        window.alert("名前 : " + this.namae + " / 点数 : " + this.tensuu);
+      };
+</pre>
+</div>
+<p>
+『sYuu.show』メソッドが呼び出され時の『this』は、『show』が格納されている『sYuu』というオブジェクトを指しています。<br />
+そのため『this.namae』は、『sYuu.namae』の値になり、『this.tensuu』は、『sYuu.tensuu』の値になります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga3ad38d" class="outline-2">
+<h2 id="orga3ad38d">new</h2>
+<div class="outline-text-2" id="text-orga3ad38d">
+<p>
+『new』は『オブジェクト』を新たに作るという宣言<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var d = new Date();
+
+// =&gt; 変数dに新しいDateオブジェクトを入れる
+//
+// その他にも new array() や new object()
+</pre>
+</div>
+
+<p>
+cf.<br />
+　function型変数を作成するときは new はつかない。<br />
+　var func = function(){～}<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2635e6a" class="outline-2">
+<h2 id="org2635e6a">特別な値</h2>
+<div class="outline-text-2" id="text-org2635e6a">
+<p>
+『真』『偽』を表すのは、『true』『false』という特別な値です。<br />
+この2種類以外にも、JavaScriptには、いくつかの特別な値が存在します。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">true</td>
+<td class="org-left">真</td>
+<td class="org-left">boolean型</td>
+</tr>
+
+<tr>
+<td class="org-left">false</td>
+<td class="org-left">偽</td>
+<td class="org-left">boolean型</td>
+</tr>
+
+<tr>
+<td class="org-left">null</td>
+<td class="org-left">値なし</td>
+<td class="org-left">変数の中身が空であることを示す</td>
+</tr>
+
+<tr>
+<td class="org-left">undefined</td>
+<td class="org-left">未定義</td>
+<td class="org-left">オブジェクトの『存在しないプロパティ』などにアクセスした際に戻る値</td>
+</tr>
+
+<tr>
+<td class="org-left">NaN</td>
+<td class="org-left">数値でない</td>
+<td class="org-left">計算式に文字列が紛れ込んでいた際などに戻る値</td>
+</tr>
+
+<tr>
+<td class="org-left">Infinity</td>
+<td class="org-left">無限</td>
+<td class="org-left">計算結果が極端に大きな場合に戻る値</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgdf16f5c" class="outline-2">
+<h2 id="orgdf16f5c">例外処理</h2>
+<div class="outline-text-2" id="text-orgdf16f5c">
+<p>
+プログラムでは、エラーが発生する可能性のある処理を、どう扱うかという問題があります。<br />
+発生時点で処理を停止させてもよいのですが、エラーが発生したら特別な処理を行ない、処理を継続したいこともあります。<br />
+そうした時のプログラムの書き方が『例外処理』です。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">try {
+    【例外が発生するかもしれない処理】
+} catch(e) {    【eはエラーの詳細を格納したオブジェクト】
+    【例外が発生した場合の処理】
+}
+</pre>
+</div>
+<p>
+『try {（領域A）} catch(e) {（領域B）}』と書きます。<br />
+エラーが起きる場所を『try {（領域A）}』で囲い、エラーが発生した際の処理を、『catch(e) {（領域B）}』内で書きます。<br />
+</p>
+
+<p>
+『try {（領域A）}』の『領域A』でエラーが発生すると、プログラムの処理は『領域A』から抜けます。<br />
+そして、エラーによって処理を停止せずに、『catch(e) {（領域B）}』の『領域B』の部分を実行します。<br />
+エラーが発生しなかった場合は、『領域B』は実行されません。<br />
+またエラーの詳細は、『catch(e) {（領域B）}』の変数『e』内のオブジェクトに格納されます。<br />
+</p>
+
+<p>
+eg.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var str = "abcdef";
+
+// substrで文字列の一部を取り出す
+try {
+    var res = str.substr(2, 3);
+    document.write(res + "&lt;br&gt;");
+} catch(e) {
+    document.write("エラー発生：" + e + "&lt;br&gt;");
+}
+
+// 存在しないメソッドを実行しようとする
+try {
+    var res = str.fake();
+    document.write(res + "&lt;br&gt;");
+} catch(e) {
+    document.write("エラー発生：" + e + "&lt;br&gt;");
+}
+</pre>
+</div>
+<pre class="example">
+cde
+エラー発生：TypeError: str.fake is not a function
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org25840e7" class="outline-2">
+<h2 id="org25840e7">ES6</h2>
+<div class="outline-text-2" id="text-org25840e7">
+</div>
+<div id="outline-container-orgb202dbf" class="outline-3">
+<h3 id="orgb202dbf">let / const</h3>
+<div class="outline-text-3" id="text-orgb202dbf">
+<p>
+『let』『const』は『var』に似ています。<br />
+『var(ローカル変数)』は『function() {～}』の中にスコープを持っていましたが、『let』『const』は『{～}』の間をスコープに持ちます。<br />
+</p>
+
+<p>
+『let』はローカル変数を作る宣言です。<br />
+『const』は定数を作る宣言です。定数とは、書き換えできない変数のことです。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org53d0122" class="outline-3">
+<h3 id="org53d0122">アロー関数</h3>
+<div class="outline-text-3" id="text-org53d0122">
+<p>
+関数を簡略化して書く方法です。<br />
+</p>
+
+<p>
+以下、まずは複数の引数がある場合です。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// これまでの関数
+var fnc = function(a, b) {
+    return a + b;
+};
+document.write(fnc(2, 3) + "&lt;br&gt;");
+
+// アロー関数1
+var arrow1 = (a, b) =&gt; {
+    return a + b;
+};
+document.write(arrow1(3, 4) + "&lt;br&gt;");
+
+// アロー関数2（処理がreturnだけなら、省略可能）
+var arrow2 = (a, b) =&gt; a + b;
+document.write(arrow2(4, 5) + "&lt;br&gt;");
+</pre>
+</div>
+<p>
+次に、引数が1つだけの場合です。引数の『( )』を省略できます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// これまでの関数
+var fnc = function(a) {
+    return a * a;
+};
+document.write(fnc(2) + "&lt;br&gt;");
+
+// アロー関数1
+var arrow1 = a =&gt; {
+    return a * a;
+};
+document.write(arrow1(3) + "&lt;br&gt;");
+
+// アロー関数2（処理がreturnだけなら、省略可能）
+var arrow2 = a =&gt; a * a;
+document.write(arrow2(4) + "&lt;br&gt;");
+</pre>
+</div>
+<p>
+最後は、引数がない場合です。引数がない場合は、引数の『( )』を省略できません。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// これまでの関数
+var fnc = function() {
+    return 3;
+};
+document.write(fnc() + "&lt;br&gt;");
+
+// アロー関数1
+var arrow1 = () =&gt; {
+    return 4;
+};
+document.write(arrow1() + "&lt;br&gt;");
+
+// アロー関数2（処理がreturnだけなら、省略可能）
+var arrow2 = () =&gt; 5;
+document.write(arrow2() + "&lt;br&gt;");
+</pre>
+</div>
+
+<p>
+『アロー関数』を使うと、functionを使った際と、thisが指し示す対象が変わります。<br />
+これは分かりにくいので実例を示します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// これまでの関数
+var printName = function() {
+    document.write(this + "&lt;br&gt;");
+    document.write(this.myName + "&lt;br&gt;");
+};
+var human = {
+    myName: "yuu",
+    print: printName
+}
+human.print();
+
+// アロー関数
+var printNameArrow = () =&gt; {
+    document.write(this + "&lt;br&gt;");
+    document.write(this.myName + "&lt;br&gt;");
+};
+var humanArrow = {
+    myName: "mamoru",
+    print: printNameArrow
+}
+humanArrow.print();
+</pre>
+</div>
+<pre class="example">
+[object Object]
+yuu
+[object Window]
+undefined
+</pre>
+<p>
+これまでの関数では、その関数（function）がぶら下がっているオブジェクト（呼び出し元のオブジェクト）を『this』とします。<br />
+『printName』関数は、『human』オブジェクトの配下なので、『this』は『human』（出力では『[object Object]』）になります。<br />
+そのため、『this.myName』は『"yuu"』になります。<br />
+アロー関数では、その関数が書かれた時点で『this』が決定します。<br />
+ここでは、関数の外で書いているので、ルートに当たるWindowオブジェクト（出力では『[object Window]』）になります。<br />
+『Window.myName』は特に定義していないので、『undefined』（未定義）になります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf7719a" class="outline-3">
+<h3 id="orgaf7719a">テンプレート文字列</h3>
+<div class="outline-text-3" id="text-orgaf7719a">
+<p>
+これまで文字列は『"』（ダブルクオーテーション）や『'』（シングルクォーテーション）で囲ってきました。<br />
+『`』（バッククオート）で囲むと、特殊な文字列を作ることができます。<br />
+</p>
+
+<p>
+この『`』（バッククオート）で囲んだ範囲は、改行を行なうことができます。<br />
+また、『${変数名}』を文字列内に書くことで、プログラムの変数の値を、文字列内に挿入することができます。<br />
+こうした文字列を、『テンプレート文字列』と呼びます。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">var name = "遊";
+var like = "手抜き";
+var message = `私の名前は${name}です。
+好きなことは${like}です。`;
+document.write(message);
+
+// =&gt; 私の名前は遊です。
+//    好きなことは手抜きです。
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga50f7ca" class="outline-3">
+<h3 id="orga50f7ca">分割代入</h3>
+<div class="outline-text-3" id="text-orga50f7ca">
+<p>
+配列の要素を、まとめて変数に代入することができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var arr = [1, 2, 3];
+var [a, b, c] = arr;
+document.write(a + "&lt;br&gt;");
+document.write(b + "&lt;br&gt;");
+document.write(c + "&lt;br&gt;");
+</pre>
+</div>
+<pre class="example">
+1
+2
+3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0d72102" class="outline-3">
+<h3 id="org0d72102">関数のデフォルト引数</h3>
+<div class="outline-text-3" id="text-org0d72102">
+<p>
+関数の引数が指定されていない場合に、デフォルトの値（何も指定されていない場合の初期値）を設定できます。<br />
+以下、例です。引数のあとに『 = 5』『 = 10』としている部分が、デフォルトの値の設定です。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var fnc = function(a = 5, b = 10) {
+    return a * b;
+}
+document.write(fnc(2, 3) + "&lt;br&gt;");
+document.write(fnc(2) + "&lt;br&gt;");
+document.write(fnc() + "&lt;br&gt;");
+</pre>
+</div>
+<pre class="example">
+6
+20
+50
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3847d89" class="outline-2">
+<h2 id="org3847d89">配列の『ソート』</h2>
+<div class="outline-text-2" id="text-org3847d89">
+<p>
+配列オブジェクトには、いくつかのメソッドがあります。<br />
+その中の1つである『sort』メソッドを使えば、配列を辞書順に並べ替えることができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var arr = ["dog", "cat", 900, 1000];  // 配列作成
+arr.sort();  // 辞書順にソート
+alert(arr);  // 配列を表示
+</pre>
+</div>
+<pre class="example">
+1000,900,cat,dog
+</pre>
+<p>
+また、『reverse』メソッドを使うことで、配列を逆の順番に並べ替えることができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">arr.reverse();  // 向きを逆に
+alert(arr);     // 配列を表示
+</pre>
+</div>
+<pre class="example">
+dog,cat,900,1000
+</pre>
+</div>
+
+<div id="outline-container-orgfa65837" class="outline-3">
+<h3 id="orgfa65837">引数を取る『ソート』</h3>
+<div class="outline-text-3" id="text-orgfa65837">
+<p>
+『sort』メソッドは、引数として関数を取ることができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var yosan = [20000, 9000, 12000, 15000];    // 配列作成
+yosan.sort(function (a, b) {/* 要素の比較 */});  // 関数を引数に設定
+</pre>
+</div>
+<p>
+引数に指定した関数『function (a, b) {～}』は、『sort』メソッドが配列を並べ替える際に呼ばれます。<br />
+</p>
+
+<p>
+具体的にどのように呼ばれるのかを、手順として示します。<br />
+</p>
+<ol class="org-ol">
+<li>『sort』メソッドは、並べ替えのために比較したい2つの要素を選ぶ。<br /></li>
+<li>『sort』メソッドは、選んだ2つの要素を引数にして、関数を呼び出す。<br />
+2-1. 呼ばれた関数は、第1引数に1つ目の要素を、第2引数に2つ目の要素を受け取って処理を開始する。<br />
+2-2. 呼ばれた関数は、2つの要素を比較して、どちらが前か後かを、戻り値として戻す。<br /></li>
+<li>『sort』メソッドは、呼んだ関数の戻り値を元に、選んだ2つの要素を並べ替える。<br /></li>
+<li>『sort』メソッドは、次に比較したい要素があるか確認する。<br />
+4-1. ある場合は最初に戻る。<br />
+4-2. ない場合は処理を終了する。<br /></li>
+</ol>
+
+<p>
+引数として指定した関数は、呼び出される際に、2つの引数を取ります。この引き数は、『sort』メソッドが配列から選んだ2つの要素です。<br />
+上記のプログラムの例では、引数『a』『b』として、比較用の2つ要素を受け取ります。関数では、この引数『a』『b』を比較します。<br />
+そして、『aはbの前か』『aはbの後ろか』を決めて、戻り値を戻します。この戻り値に従って、『sort』メソッドは、配列を並び替えていきます。<br />
+関数の戻り値として、『0より小さい値』を戻せば『a』を『b』より前に移動します。<br />
+『0より大きい値』を戻した場合は、『a』を『b』の後ろに移動します。<br />
+『0』を戻した場合は、並び順を変更しません。<br />
+『ソート』は文字列やオブジェクトでも行えます。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">戻り値</th>
+<th scope="col" class="org-left">並べ替え</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">0より小さい値</td>
+<td class="org-left">『a』を『b』より前に移動</td>
+</tr>
+
+<tr>
+<td class="org-left">0</td>
+<td class="org-left">並べ替えなし</td>
+</tr>
+
+<tr>
+<td class="org-left">0より大きい値</td>
+<td class="org-left">『a』を『b』の後ろに移動</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+戻り値として「0より小さいか大きいか」を戻せばよいので、数値の場合は単純に引き算を行なうことでソートできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var yosan = [20000, 9000, 12000, 15000];    // 配列作成
+yosan.sort(function (a, b) {return a - b});
+alert(yosan);
+</pre>
+</div>
+<pre class="example">
+9000,12000,15000,20000
+</pre>
+
+<p>
+&lt; 実践的な例 &gt;<br />
+各部活の予算を予算順に整理<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 変数の初期化
+var yosanArray = [
+     {namae:"野球部", yosan:20000}
+    ,{namae:"サッカー部", yosan:9000}
+    ,{namae:"卓球部", yosan:12000}
+    ,{namae:"写真部", yosan:15000}
+];
+
+// ソート
+yosanArray.sort(
+    function (a, b) {
+        var aYosan = a["yosan"];
+        var bYosan = b["yosan"];
+        if (aYosan &lt; bYosan) return -1;
+        if (aYosan &gt; bYosan) return 1;
+        return 0;
+    }
+);
+</pre>
+</div>
+<p>
+上記プログラムのソートの部分は、単純な数値の比較なので、以下のように短くかこともできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// ソート
+yosanArray.sort(function (a, b) {
+    return a.yosan - b.yosan;
+});
+</pre>
+</div>
+<p>
+ソート用の配列の各要素を、オブジェクトではなく、配列で書くこともできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var yosanArray = [
+     ["野球部",     20000]
+    ,["サッカー部", 9000]
+    ,["卓球部",     12000]
+    ,["写真部",     15000]
+];
+
+// ソート
+// 引数『a』や『b』には『["野球部", 20000]』のような配列が設定される
+// 予算の数値は、配列の2番目の要素なので『a[1]』『b[1]』で参照できる
+yosanArray.sort(function (a, b) {return a[1] - b[1]});
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1074e56" class="outline-2">
+<h2 id="org1074e56">正規表現</h2>
+<div class="outline-text-2" id="text-org1074e56">
+</div>
+<div id="outline-container-orgef14323" class="outline-3">
+<h3 id="orgef14323">置換</h3>
+<div class="outline-text-3" id="text-orgef14323">
+<div class="org-src-container">
+<pre class="src src-js">// 正規表現による置換
+
+文字列オブジェクト.replace(/【検索する文字列】/【フラグ】,【 置換する文字列】)
+</pre>
+</div>
+<p>
+『replace』メソッドでは、最初の引数に『検索文字列』と『フラグ』を、2番目の引数に『置換文字列』を書きます。<br />
+この『検索文字列』と『フラグ』の部分（『/【検索する文字列】/【フラグ】』）が『正規表現』です。<br />
+</p>
+</div>
+
+<div id="outline-container-org6a6bc88" class="outline-4">
+<h4 id="org6a6bc88">『/』のエスケープ</h4>
+<div class="outline-text-4" id="text-org6a6bc88">
+<p>
+検索文字列は『/～/』のようにして、2つの文字で囲います。<br />
+『/～/』の間に『/』を書きたい場合は、『\/』と書きます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf394fe9" class="outline-4">
+<h4 id="orgf394fe9">検索結果の取り出し</h4>
+<div class="outline-text-4" id="text-orgf394fe9">
+<p>
+『検索文字列』中の『(～)』で囲んだ場所は、後で取り出して再利用できます。<br />
+正規表現の中で使用する際は、最初の『(～)』は『\1』というように、『\』のあとに何番目の『(～)』かの『数字』を書いて、取り出すことができます。<br />
+</p>
+
+<p>
+以下の例では、『英数字で構成された文字列 (\w+?)』が、半角スペース後に『もう一度登場したら \1』、『重複』と置換しています。<br />
+（『\w』は英数字を表す正規表現の記号）<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var namae = "dog cat cat monkey rat rat cow";        // 置換前の文字列
+namae = namae.replace(/(\w+) \1/g, "重複");        // 置換
+alert(namae);        // 結果を表示
+</pre>
+</div>
+<pre class="example">
+// dog 重複 monkey 重複 cow
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd022c95" class="outline-4">
+<h4 id="orgd022c95">検索結果の再利用</h4>
+<div class="outline-text-4" id="text-orgd022c95">
+<p>
+『検索文字列』中の『(～)』で囲んだ場所は、置換用の文字列としても再利用できます。<br />
+最初の『(～)』は『\(1』というように、『\)』のあとに何番目の『(～)』かの『数字』を書いて、取り出すことができます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var bunsyou = "安見遊は内木守より強い";        // 置換前の文字列
+bunsyou = bunsyou.replace(/(.+)は(.+)より/g, "$2は$1より");        // 置換
+alert(bunsyou);        // 結果を表示
+</pre>
+</div>
+<pre class="example">
+// 内木守は安見遊より強い
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc63ba70" class="outline-3">
+<h3 id="orgc63ba70">検索文字列</h3>
+<div class="outline-text-3" id="text-orgc63ba70">
+<p>
+正規表現でよく使う記号や書式:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">書き方</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A+</td>
+<td class="org-left">1個以上のA（可能な限り長く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A*</td>
+<td class="org-left">0個以上のA（可能な限り長く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A+?</td>
+<td class="org-left">1個以上のA（可能な限り短く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A*?</td>
+<td class="org-left">0個以上のA（可能な限り短く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A?</td>
+<td class="org-left">0または1個のA</td>
+</tr>
+
+<tr>
+<td class="org-left">A{3}</td>
+<td class="org-left">3個のA</td>
+</tr>
+
+<tr>
+<td class="org-left">A{3,}</td>
+<td class="org-left">3個以上のA</td>
+</tr>
+
+<tr>
+<td class="org-left">A{3,5}</td>
+<td class="org-left">3～5個のA</td>
+</tr>
+
+<tr>
+<td class="org-left">A｜B</td>
+<td class="org-left">AまたはB</td>
+</tr>
+
+<tr>
+<td class="org-left">ABC｜DEF</td>
+<td class="org-left">ABCまたはDEF</td>
+</tr>
+
+<tr>
+<td class="org-left">[ABC]</td>
+<td class="org-left">A,B,Cのいずれか1文字</td>
+</tr>
+
+<tr>
+<td class="org-left">[A-C]</td>
+<td class="org-left">A～Cのいずれか1文字</td>
+</tr>
+
+<tr>
+<td class="org-left">[＾ABC]</td>
+<td class="org-left">A,B,C以外のいずれか1文字</td>
+</tr>
+
+<tr>
+<td class="org-left">.</td>
+<td class="org-left">任意の1文字</td>
+</tr>
+
+<tr>
+<td class="org-left">.+</td>
+<td class="org-left">任意の1以上の文字</td>
+</tr>
+
+<tr>
+<td class="org-left">^A</td>
+<td class="org-left">Aで始まる文字列</td>
+</tr>
+
+<tr>
+<td class="org-left">A$</td>
+<td class="org-left">Aで終わる文字列</td>
+</tr>
+
+<tr>
+<td class="org-left">A.+B</td>
+<td class="org-left">『A（任意の文字列）B』（可能な限り長く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A.+?B</td>
+<td class="org-left">『A（任意の文字列）B』（可能な限り短く）</td>
+</tr>
+
+<tr>
+<td class="org-left">A[^\/]+B</td>
+<td class="org-left">『A（『/』を含まない文字列）B』</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\d</td>
+<td class="org-left">数値（[0-9]と同じ）</td>
+</tr>
+
+<tr>
+<td class="org-left">\D</td>
+<td class="org-left">数値以外（[＾0-9]と同じ）</td>
+</tr>
+
+<tr>
+<td class="org-left">\w</td>
+<td class="org-left">英数（[A-Za-z0-9_]と同じ）</td>
+</tr>
+
+<tr>
+<td class="org-left">\W</td>
+<td class="org-left">英数以外（[＾A-Za-z0-9_]と同じ）</td>
+</tr>
+
+<tr>
+<td class="org-left">\n</td>
+<td class="org-left">改行</td>
+</tr>
+
+<tr>
+<td class="org-left">\r</td>
+<td class="org-left">復帰</td>
+</tr>
+
+<tr>
+<td class="org-left">\t</td>
+<td class="org-left">タブ文字</td>
+</tr>
+
+<tr>
+<td class="org-left">\s</td>
+<td class="org-left">スペース、タブ、改ページ、改行を含む、1つの空白文字</td>
+</tr>
+
+<tr>
+<td class="org-left">&sect;</td>
+<td class="org-left">\s以外の文字</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(?:aaa)</td>
+<td class="org-left">『aaa』に一致するが、後で『$番号』として取り出さない</td>
+</tr>
+
+<tr>
+<td class="org-left">aaa(?=bbb)</td>
+<td class="org-left">『aaa』に『bbb』が続く場合に一致。『bbb』は検索結果に含めない。</td>
+</tr>
+
+<tr>
+<td class="org-left">aaa(?!bbb)</td>
+<td class="org-left">『aaa』に『bbb』が続かない場合に一致。『bbb』は検索結果に含めない。</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+『正規表現』の記号のエスケープ<br />
+『正規表現』の記号を、記号ではなく文字列として扱いたい場合は、文字の直前に『\』を付けます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66a3153" class="outline-3">
+<h3 id="org66a3153">フラグ</h3>
+<div class="outline-text-3" id="text-org66a3153">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">フラグ</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">全部を置換する（gがなければ最初の1つのみを置換）</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">英語の大文字、小文字を区別せずに扱う（iがなければ区別する）</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">文頭『^』や文末『＄』の一致処理を、各行の行頭や行末にも適用する（mがなければ、文頭『^』や文末『$』は文字列の先頭と末尾のみに適用）</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd681f16" class="outline-3">
+<h3 id="orgd681f16">『無名関数』を使った『置換』</h3>
+<div class="outline-text-3" id="text-orgd681f16">
+<p>
+『replace』メソッドの『置換文字列』部分には、文字列だけでなく、関数を指定することができます。<br />
+これは、配列のソート処理の引数に、関数を指定したことに似ています。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 【正規表現の書き方2】
+
+文字列オブジェクト.replace(/【検索する文字列】/【フラグ】,【 置換処理を行う関数オブジェクト】)
+</pre>
+</div>
+
+<p>
+『replace』メソッドの引数に、関数オブジェクトを指定した実例を示します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = "掛け算12 掛け算34 掛け算56";    // 置換前の文字列
+var b = a.replace(/掛け算(\d)(\d)/g, function (str, s1, s2) {
+    var calc = s1 * s2;
+    return "結果" + calc;
+});        // 置換
+document.write(b);        // 結果を表示
+</pre>
+</div>
+<pre class="example">
+// 結果2 結果12 結果30
+</pre>
+
+<p>
+『replace』メソッドの引数に指定した関数オブジェクトの、最初の引数『str』は、検索に一致した全体を表します。<br />
+2つ目の引数『s1』は、最初に『(～)』に一致した部分になります。<br />
+また、3つ目の引数『s2』は、2番目に『(～)』に一致した部分になります。以降、引数を増やせば、『(～)』に対応した引数を1つずつ増やせます。<br />
+これらの2番目以降の引数は、置換文字列で指定した『$1』『$2』などと同じ内容になります。<br />
+</p>
+
+<p>
+上記のプログラムでは、『(\d)』『(\d)』とすることで、『s1』に1文字目の数字を、『s2』に2文字目の数字を格納しています。<br />
+最初の一致部分『掛け算12』では、『s1』が『1』、『s2』が『2』になっています。<br />
+そして、関数内で計算を行い、戻り値として『結果2』という文字列を作成しています。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2d22c9" class="outline-3">
+<h3 id="orga2d22c9">『正規表現』オブジェクト</h3>
+<div class="outline-text-3" id="text-orga2d22c9">
+<p>
+『正規表現』は、『/～/フラグ』と書いてきました。しかし、これは正規表現オブジェクトを簡略化した、特殊な書き方です。<br />
+実際は『RegExp』という正規表現オブジェクトが内部的には使われており、このオブジェクトが、置換や検索の引数として利用されます。<br />
+この『RegExp』は、『new』を使い、オブジェクトとして作成して、変数に格納できます。何度も使う検索式は、変数に入れて再利用するとよいです。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var re = new RegExp("abcd", "ig");  // 正規表現オブジェクトを作成
+var a = "abcd aBCd aXYd";           // 置換前の文字列
+var b = a.replace(re, "----");      // 置換
+document.write(b);    // 結果を表示
+</pre>
+</div>
+<pre class="example">
+---- ---- aXYd
+</pre>
+<p>
+この正規表現オブジェクトは、『/～/フラグ』という書き方で作成することもできます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var re = /abcd/g;     // 正規表現オブジェクトを作成
+var a = "abcd aBCd aXYd";       // 置換前の文字列
+var b = a.replace(re, "----");  // 置換
+document.write(b);    // 結果を表示
+</pre>
+</div>
+<pre class="example">
+---- aBCd aXYd
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5fa7398" class="outline-3">
+<h3 id="org5fa7398">検索</h3>
+<div class="outline-text-3" id="text-org5fa7398">
+<p>
+『正規表現』の検索方法として代表的なものを、以下に示します。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">書き方</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">文字列.match(正規表現)</td>
+<td class="org-left">文字列の『一致した部分の情報』、もしくは『null』を返す</td>
+</tr>
+
+<tr>
+<td class="org-left">文字列.search(正規表現)</td>
+<td class="org-left">文字列の『一致した位置』、もしくは『-1』を返す</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org4c46858" class="outline-4">
+<h4 id="org4c46858">『match』- フラグに『g』がない場合</h4>
+<div class="outline-text-4" id="text-org4c46858">
+<p>
+『match』メソッドの戻り値には、検索結果にまつわる多くの情報が含まれています。その内容は、正規表現に『g』フラグがあるかどうかで変わります。<br />
+まずはフラグに『g』がない場合（一致は1つ）の例を示します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = "mn abcd aBCd aXYd mn";
+var res = a.match(/a(.)(.)d/i);
+if (res !== null) {
+    document.write("入力文字列 : " + res.input + "&lt;br&gt;");
+    document.write("一致位置 : "   + res.index + "&lt;br&gt;");
+    document.write("結果格納数 : " + res.length + "&lt;br&gt;");
+
+    // 0は一致した文字列全体、1以降は丸括弧の中身
+    for (var i = 0; i &lt; res.length; i ++) {
+        document.write("結果" + i + " : " + res[i] + "&lt;br&gt;");
+    }
+}
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">入力文字列 : mn abcd aBCd aXYd mn
+一致位置 : 3
+結果格納数 : 3
+結果0 : abcd
+結果1 : b
+結果2 : c
+</pre>
+</div>
+
+<p>
+検索結果を、『if (res !== null)』のように『if』文で囲っていることも注目してください。<br />
+検索した結果、一致する部分がない場合には、『res』は『null』になります。<br />
+そのため、検索が一致する場合のみ、情報を取り出しています。<br />
+</p>
+
+<p>
+一致した場合、『match』の戻り値は配列です。通常の配列に『input』『index』というプロパティが追加されています。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">書き方</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">res.input</td>
+<td class="org-left">入力文字列</td>
+</tr>
+
+<tr>
+<td class="org-left">res.index</td>
+<td class="org-left">一致の位置</td>
+</tr>
+
+<tr>
+<td class="org-left">res.length</td>
+<td class="org-left">結果格納数</td>
+</tr>
+
+<tr>
+<td class="org-left">res[0]</td>
+<td class="org-left">一致の全体</td>
+</tr>
+
+<tr>
+<td class="org-left">res[1]</td>
+<td class="org-left">最初の丸括弧の中身</td>
+</tr>
+
+<tr>
+<td class="org-left">res[2]</td>
+<td class="org-left">次の丸括弧の中身</td>
+</tr>
+
+<tr>
+<td class="org-left">:</td>
+<td class="org-left">:</td>
+</tr>
+</tbody>
+</table>
+<p>
+以上<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeaf4b79" class="outline-4">
+<h4 id="orgeaf4b79">『match』- フラグに『g』がある場合</h4>
+<div class="outline-text-4" id="text-orgeaf4b79">
+<p>
+次はフラグに『g』がある場合（一致は複数）の例を示します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = "mn abcd aBCd aXYd mn";
+var res = a.match(/a(.)(.)d/ig);
+if (res !== null) {
+    document.write("結果格納数 : " + res.length + "&lt;br&gt;");
+
+    // 一致した文字列全体が順に入っている
+    for (var i = 0; i &lt; res.length; i ++) {
+        document.write("結果" + i + " : " + res[i] + "&lt;br&gt;");
+    }
+}
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-js">結果格納数 : 3
+結果0 : abcd
+結果1 : aBCd
+結果2 : aXYd
+</pre>
+</div>
+
+<p>
+一致した場合、『match』の戻り値は配列です。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">書き方</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">res.length</td>
+<td class="org-left">結果格納数</td>
+</tr>
+
+<tr>
+<td class="org-left">res[0]</td>
+<td class="org-left">最初の一致</td>
+</tr>
+
+<tr>
+<td class="org-left">res[1]</td>
+<td class="org-left">次の一致</td>
+</tr>
+
+<tr>
+<td class="org-left">res[2]</td>
+<td class="org-left">その次の一致</td>
+</tr>
+
+<tr>
+<td class="org-left">:</td>
+<td class="org-left">:</td>
+</tr>
+</tbody>
+</table>
+<p>
+以上<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d67074" class="outline-4">
+<h4 id="org1d67074">search</h4>
+<div class="outline-text-4" id="text-org1d67074">
+<p>
+『search』の戻り値は、一致した位置（0から始まる）になります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">var a = "mn abcd aBCd aXYd mn";
+var pos = a.search(/a(.)(.)d/i);
+document.write("一致位置 : " + pos);
+</pre>
+</div>
+<pre class="example">
+// 一致位置 : 3
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

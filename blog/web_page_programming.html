@@ -1,0 +1,2187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-02-19 金 23:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Webページのプログラミング</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Webページのプログラミング</h1>
+<div id="outline-container-orge16784e" class="outline-2">
+<h2 id="orge16784e"></h2>
+<div class="outline-text-2" id="text-orge16784e">
+<hr />
+</div>
+<div id="outline-container-org00640ba" class="outline-3">
+<h3 id="org00640ba"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org00640ba">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga9f03f9" class="outline-2">
+<h2 id="orga9f03f9">『外部JavaScriptファイル』を作ってみる</h2>
+<div class="outline-text-2" id="text-orga9f03f9">
+<p>
+『外部JavaScriptファイル』をWebページに読み込むための、『&lt;script&gt;』タグの書き方です。<br />
+</p>
+<pre class="example">
+&lt;script src="out.js"&gt;&lt;/script&gt;
+</pre>
+<p>
+このタグを、『&lt;head&gt;』と『&lt;/head&gt;』の間に書くことで、外部に切り離したJavaScriptのプログラムを読み込むことができます。<br />
+以下、このタグを記入した『sample.html』を示します。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script src="out.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+これで、『sample.html』から、プログラム部分のみを取り出して、『out.js』に分離することができました。<br />
+</p>
+
+<p>
+HTMLファイルと『外部JavaScriptファイル』が同じフォルダ内にあるならば、『src="out.js"』のように、ファイル名だけで構いません。<br />
+このとき、同じフォルダであることを明示的に『./』と書くこともあります。<br />
+</p>
+
+<p>
+別のフォルダの場合は、『/』でパスの区切りを書いて、ファイルの場所を指定します。<br />
+</p>
+
+<p>
+『src』に記入するパスは、『http：//』や『https：//』から始まるURLでも構いません。<br />
+この時、HTMLファイルのあるドメインだけでなく、外部のドメインのURLも指定できます。<br />
+たとえば、『src="http：//～/out.js"』のようにURLを指定すれば、指定したURLから『外部JavaScriptファイル』を読み込むことができます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b2f930" class="outline-2">
+<h2 id="org1b2f930">JavaScriptが利用できない場合の処理</h2>
+<div class="outline-text-2" id="text-org1b2f930">
+<p>
+JavaScriptが利用できない場合の処理を書く方法が、HTMLファイルには用意されています。<br />
+この方法には、『&lt;noscript&gt;』というタグを使います。<br />
+『&lt;script&gt;』タグと『&lt;noscript&gt;』タグは、表裏一体の関係になっています。<br />
+JavaScriptが使える環境では、『&lt;script&gt;』タグの中が処理されて、『&lt;noscript&gt;』タグの中が無視されます。<br />
+逆に、JavaScriptが使えない環境では、『&lt;script&gt;』タグの中が無視されて、『&lt;noscript&gt;』タグの中が処理されます。<br />
+</p>
+<pre class="example">
+【JavaScriptが使える環境】
+&lt;script&gt;
+    // 領域A
+    documen.write("領域A");   【処理】
+&lt;/script&gt;
+&lt;noscript&gt;
+    領域B    【無視】
+&lt;/noscript&gt;
+</pre>
+<pre class="example">
+【JavaScriptが使えない環境】
+&lt;script&gt;
+    // 領域A
+    documen.write("領域A");   【無視】
+&lt;/script&gt;
+&lt;noscript&gt;
+    領域B    【処理】
+&lt;/noscript&gt;
+</pre>
+
+<p>
+『&lt;noscript&gt;』タグの中には、プログラムを書いてはいけません。この領域に書いた内容は、JavaScriptが使えない環境で表示されるからです。<br />
+ここには、普通の文章や、HTMLファイルのタグを書きます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org04b113a" class="outline-2">
+<h2 id="org04b113a">Webページの書き換え</h2>
+<div class="outline-text-2" id="text-org04b113a">
+<p>
+JavaScriptから見たWebページは、『window』オブジェクトを頂点とした、階層構造を持っています。<br />
+これらは全てオブジェクトですので、通常のオブジェクトと同じようにプロパティやメソッドを持っており、プログラムで操作できます。<br />
+これまでも『window.alert』や『document.write』メソッド、『document.title』といったプロパティを利用してきました。<br />
+</p>
+<pre class="example">
+○window
+┣○alert
+┣○……
+┗○document
+　┣○write
+　┣○title
+　┣○……
+</pre>
+<p>
+Webページでは、HTMLタグを元に、『DOM』（Document Object Model）と呼ばれる、部品（『element』）の階層構造を作っています。<br />
+『DOM』は、HTMLファイルのタグから作られたWebページの部品（『Element』）にアクセスする方法とも言えます。<br />
+JavaScriptでは、『document』の各種メソッドを利用して、目的の部品を『element』オブジェクトとして取得できます。<br />
+そして、この『element』オブジェクトに対して各種操作を行います。<br />
+</p>
+</div>
+
+<div id="outline-container-org46bc3a0" class="outline-3">
+<h3 id="org46bc3a0">『DOM』でのオブジェクト操作</h3>
+<div class="outline-text-3" id="text-org46bc3a0">
+<p>
+『getElementById』などのメソッドを使い、特定の『Element』オブジェクトを取得できます。<br />
+</p>
+</div>
+
+<div id="outline-container-orgae70bc4" class="outline-4">
+<h4 id="orgae70bc4">『getElementById』メソッド</h4>
+<div class="outline-text-4" id="text-orgae70bc4">
+<pre class="example">
+&lt;div id="target"&gt;目標の文字列&lt;/div&gt;
+</pre>
+<pre class="example">
+// 『id』が『target』の要素（&lt;div id="target"&gt;目標の文字列&lt;/div&gt;）を選択
+var ele = document.getElementById("target");
+
+// 要素の内部のHTML（ここでは『目標の文字列』）を書き換え
+ele.innerHTML = "書き換えたよ！";
+</pre>
+
+<p>
+『id』は、タグの中に書く属性の1つです。この『id』属性の値には、そのWebページでユニークな値（他に同じ値がない値）を記入します。<br />
+ユニークな値を記入しているので、『getElementById』メソッドを使うことで、その要素1つだけを特定して、取り出すことができます。<br />
+</p>
+
+<p>
+上記のプログラムでは、変数『ele』に格納した要素（『element』オブジェクト）の『innerHTML』プロパティの値を書き換えています。<br />
+『innerHTML』プロパティは、その要素の配下にあるHTMLを、テキストとして読み込んだり、書き換えたりするためのプロパティです。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65b6c53" class="outline-4">
+<h4 id="org65b6c53">『src』プロパティ</h4>
+<div class="outline-text-4" id="text-org65b6c53">
+<p>
+要素の中には、画像のように『src』属性を持つものがあります。<br />
+</p>
+<pre class="example">
+&lt;img src="pic/a.gif"&gt;
+&lt;img id="target" src="pic/a.gif"&gt;
+</pre>
+<p>
+『img』タグでは、『Element』オブジェクトの『src』プロパティの値を書き換えることで、画像ファイルのパスを変更できます。<br />
+パスを変更すると、画面に表示される画像が差し替わります。<br />
+</p>
+<pre class="example">
+var ele = document.getElementById("target");
+ele.src = "pic/b.gif";        // 画像ファイルのパスを変更
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7a15a63" class="outline-4">
+<h4 id="org7a15a63">『getElementsByTagName』メソッド</h4>
+<div class="outline-text-4" id="text-org7a15a63">
+<p>
+これまでの例では、要素は全て『getElementById』メソッドを使って取得してきました。<br />
+しかし、HTMLファイルの全てのタグに『ID』属性を指定するのは大変です。実際のHTMLファイルでは、ほとんどのタグには『id』属性を設定していないでしょう。<br />
+</p>
+
+<p>
+こういった場合は、いくつかの方法が用意されています。1つ目は、『タグの種類』から要素を選択する『getElementsByTagName』メソッドです。<br />
+以下のように、タグの名前を引数に設定することで、そのタグの全要素の配列を取得できます。<br />
+</p>
+<pre class="example">
+// 『&lt;img&gt;』タグの要素を、配列として選択
+var imgs = document.getElementsByTagName("img");
+</pre>
+
+<p>
+注意するのは、『Element』が複数形になっていることです。この『s』を忘れる人が多いので注意してください。<br />
+取得した要素の配列は、『for』文で順次処理していくことで操作できます。<br />
+</p>
+<pre class="example">
+// 配列に格納された各要素に対して処理を実行
+for (var i = 0; i &lt; imgs.length; i ++) {
+    // 『width』（横幅）の値を書き換える
+    imgs[i].width = (1 + i) * 32;
+}
+</pre>
+<p>
+ここでは、全ての画像の『width』属性の値を書き換えて、画像の横幅を変更しています。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32be2ad" class="outline-4">
+<h4 id="org32be2ad">『getElementsByClassName』メソッド</h4>
+<div class="outline-text-4" id="text-org32be2ad">
+<p>
+次は、クラス名から要素を選択する『getElementsByClassName』メソッドです。『class』は、タグの中に書く属性の1つです。<br />
+『class』属性は『id』属性と違い、同じWebページ中に複数配置することが可能です。<br />
+</p>
+<pre class="example">
+&lt;div class="target"&gt;目標の文字列1&lt;/div&gt;
+&lt;div class="target"&gt;目標の文字列2&lt;/div&gt;
+&lt;div class="target"&gt;目標の文字列3&lt;/div&gt;
+</pre>
+<pre class="example">
+// 『class』属性が『target』の要素を、配列として選択
+var targets = document.getElementsByClassName("target");
+
+// 配列に格納された各要素に対して処理を実行
+for (var i = 0; i &lt; targets.length; i ++) {
+    // 内部のHTMLを書き換える
+    targets[i].innerHTML = i + ". 書き換え！";
+}
+</pre>
+<p>
+こちらも『Element』が複数形になっています。<br />
+そのため取得した要素の配列は、『for』文で順次処理して操作できます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8073ceb" class="outline-4">
+<h4 id="org8073ceb">『querySelector』『querySelectorAll』メソッド</h4>
+<div class="outline-text-4" id="text-org8073ceb">
+<p>
+次は、『セレクタ』と呼ばれる、特殊な記法で要素を選択する『querySelector』『querySelectorAll』メソッドです。<br />
+『セレクタ』は、『CSS』などで、要素を指定するための書き方です。<br />
+</p>
+
+<p>
+『querySelector』はセレクタにマッチした最初の要素を、『querySelectorAll』は全ての要素を戻します。<br />
+</p>
+<pre class="example">
+&lt;div class="animal"&gt;犬&lt;/div&gt;
+&lt;div class="animal"&gt;猫&lt;/div&gt;
+&lt;div class="animal"&gt;猿&lt;/div&gt;
+</pre>
+<pre class="example">
+// 『class』属性が『animal』の要素を、配列として選択
+var animals = document.querySelectorAll(".animal");
+
+// 配列に格納された各要素に対して処理を実行
+for (var i = 0; i &lt; animals.length; i ++) {
+    // 内部のHTMLを書き換える
+    animals[i].innerHTML = "＼" + animals[i].innerHTML + "／";
+}
+</pre>
+<p>
+こちらも『Element』が複数形になっています。<br />
+そのため取得した要素の配列は、『for』文で順次処理して操作できます。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4e1dd0" class="outline-3">
+<h3 id="orgd4e1dd0">『DOM』で使用できる代表的なメソッド</h3>
+<div class="outline-text-3" id="text-orgd4e1dd0">
+<p>
+以下、『element』と書いてあるオブジェクトは、『document』もしくは『その他の要素』になります。<br />
+</p>
+</div>
+
+<div id="outline-container-org779e545" class="outline-4">
+<h4 id="org779e545">要素の取得</h4>
+<div class="outline-text-4" id="text-org779e545">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">document.getElementById(id)</td>
+<td class="org-left">『document』から、指定『ID』の要素を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.getElementsByTagName(タグ名)</td>
+<td class="org-left">指定タグ名の要素の配列を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.getElementsByName(nameの値)</td>
+<td class="org-left">指定『name』属性の要素の配列を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.getElementsByClassName(classの値)</td>
+<td class="org-left">指定『class』属性の要素の配列を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.querySelector(セレクタ)</td>
+<td class="org-left">指定『セレクタ』の要素の配列を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.parentNode</td>
+<td class="org-left">親要素を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.childNodes</td>
+<td class="org-left">子要素の配列を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.firstChild</td>
+<td class="org-left">最初の子要素を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.lastChild</td>
+<td class="org-left">最後の子要素を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.previousSibling</td>
+<td class="org-left">1つ前の要素を取得</td>
+</tr>
+
+<tr>
+<td class="org-left">element.nextSibling</td>
+<td class="org-left">1つ後の要素を取得</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgb4ad62b" class="outline-4">
+<h4 id="orgb4ad62b">要素内のHTMLやテキストにアクセス</h4>
+<div class="outline-text-4" id="text-orgb4ad62b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">element.innerHTML</td>
+<td class="org-left">要素内のHTMLの文字列</td>
+</tr>
+
+<tr>
+<td class="org-left">element.textContent</td>
+<td class="org-left">要素内の文字列のみ</td>
+</tr>
+</tbody>
+</table>
+<p>
+以下、プログラムのサンプルです。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        aaa&lt;div&gt;bbb&lt;/div&gt;ccc
+
+        &lt;script&gt;
+        alert(document.body.innerHTML);
+        alert(document.body.textContent);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+『document.body.innerHTML』は、HTMLファイルの『&lt;body&gt;』タグ内のHTML文字列です。<br />
+『document.body.textContent』は、HTMLファイルの『&lt;body&gt;』タグ内の内部テキストです。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef75f10" class="outline-4">
+<h4 id="orgef75f10">要素内の属性にアクセス（例は『id』へのアクセス）</h4>
+<div class="outline-text-4" id="text-orgef75f10">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+<th scope="col" class="org-left">使い方</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">element.属性名</td>
+<td class="org-left">属性の参照</td>
+<td class="org-left">a = element.id;</td>
+<td class="org-left">変数『a』に『id』の値を入れる</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">element.id = a;</td>
+<td class="org-left">『id』に変数『a』の値を入れる</td>
+</tr>
+
+<tr>
+<td class="org-left">element.getAttribute(属性名)</td>
+<td class="org-left">属性の取得</td>
+<td class="org-left">a = element.getAttribute("id");</td>
+<td class="org-left">変数『a』に『id』の値を入れる</td>
+</tr>
+
+<tr>
+<td class="org-left">element.setAttribute(属性名, 値)</td>
+<td class="org-left">属性の設定</td>
+<td class="org-left">element.setAttribute("id", a);</td>
+<td class="org-left">『id』に変数『a』の値を入れる</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8d7fff6" class="outline-4">
+<h4 id="org8d7fff6">要素の追加</h4>
+<div class="outline-text-4" id="text-org8d7fff6">
+<p>
+要素の追加は、『innerHTML』の値に、文字列を設定することで行えます。<br />
+また、要素を作成して、『DOM』の要素として追加することもできます。<br />
+</p>
+
+<p>
+以下、2種類の方法で、要素を追加する例を示します。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="a"&gt;&lt;/div&gt;
+        &lt;div id="b"&gt;&lt;/div&gt;
+
+        &lt;script&gt;
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+
+        a.innerHTML = '&lt;div style="color: red"&gt;red&lt;/div&gt;';
+
+        var textEle = document.createTextNode("blue");
+        var newEle = document.createElement("div");
+        newEle.appendChild(textEle);
+        newEle.setAttribute("style", "color: blue;");
+        b.appendChild(newEle);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+ここでは、『createTextNode』『createElement』というメソッドで新しい要素を作成しています。<br />
+また、『appendChild』メソッドで、要素を子要素として、親要素に追加しています。<br />
+</p>
+
+<p>
+以下、それぞれのメソッドの意味を表に示します。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">element.createElement(タグ名)</td>
+<td class="org-left">『タグ名』の要素の作成</td>
+</tr>
+
+<tr>
+<td class="org-left">element.createTextNode(文字列)</td>
+<td class="org-left">文字列要素の作成</td>
+</tr>
+
+<tr>
+<td class="org-left">element.appendChild(要素)</td>
+<td class="org-left">要素を、子要素として追加</td>
+</tr>
+</tbody>
+</table>
+<p>
+『DOM』は、それだけで本になるぐらい、様々なテクニックがあります。詳しく知りたければ、インターネットや書籍で調べてください。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0cb81e6" class="outline-3">
+<h3 id="org0cb81e6">『フォーム』の操作</h3>
+<div class="outline-text-3" id="text-org0cb81e6">
+<p>
+Webページには、『フォーム』と呼ばれるオブジェクトがあります。これは、ボタンやリスト、ラジオボタンや、チェックボックスなどです。<br />
+</p>
+<pre class="example">
+&lt;form name="form1" method="get" action="index.cgi"&gt;
+テキスト：
+&lt;input type="text" name="text1" value="text value" size=30&gt;
+&lt;br&gt;
+テキスト エリア：&lt;br&gt;
+&lt;textarea name="tarea1" cols=40 rows=4&gt;&lt;/textarea&gt;
+&lt;br&gt;
+&lt;input type="checkbox" name="cbox1" checked&gt;チェックボタン１
+&lt;br&gt;
+&lt;input type="radio" name="radio1" value="r1" checked&gt;ラジオボタン１
+&lt;input type="radio" name="radio1" value="r2"&gt;ラジオボタン２
+&lt;br&gt;
+&lt;select name="select1"&gt;
+&lt;option value="1"&gt;セレクト1&lt;/option&gt;
+&lt;option value="2"&gt;セレクト2&lt;/option&gt;
+&lt;option value="3" selected&gt;セレクト3&lt;/option&gt;
+&lt;/select&gt;
+&lt;br&gt;
+&lt;input type="hidden" name="hidden1" value="隠れた値"&gt;
+&lt;br&gt;
+&lt;input type="submit" value="実行"&gt;
+&lt;input type="reset" value="取消"&gt;
+&lt;/form&gt;
+</pre>
+
+<p>
+これらの要素には、『DOM』以外の簡易な方法でもアクセスできます。<br />
+『document.(『フォーム』の『name』の値).（『フォームの部品』の『name』の値）』と書くことで、その要素を取得できます。<br />
+</p>
+<pre class="example">
+var element = document.form1.text1;
+</pre>
+
+<p>
+こうやって取得した要素は、部品の種類によって、操作方法が異なります。<br />
+文字列を入力する部品は、『value』プロパティを使って、内部の文字列を取得したり、書き換えたりできます。<br />
+（『&lt;input type="text"&gt;』『&lt;textarea&gt;』『&lt;input type="hidden"&gt;』など）<br />
+</p>
+<pre class="example">
+var element = document.form1.text1;
+alert("text1 : " + element.value);
+element.value = "新しい値";
+</pre>
+
+<p>
+チェックボタンやラジオボタンは、『checked』プロパティを使って、選択状態を取得したり、変更したりできます。<br />
+（『&lt;input type="checkbox"&gt;』や『&lt;input type="radio"&gt;』）<br />
+</p>
+<pre class="example">
+var ele = document.form1.cbox1;
+alert("cbox1 : " + ele.checked);
+ele.checked = false;
+
+var ele = document.form1.radio1;
+if (ele.length) {
+    // 配列の場合
+    for (var i = 0; i &lt; ele.length; i ++) {
+        alert("radio1[" + i + "] : " + ele[i].checked);
+    }
+} else {
+    // 1つしかない場合
+    alert("radio1 : " + ele.checked);
+}
+</pre>
+
+<p>
+セレクト（『&lt;select&gt;』）は、『selectedIndex』プロパティを使って、選択要素の番号を取得したり、変更したりできます。<br />
+</p>
+<pre class="example">
+var ele = document.form1.select1;
+alert("select1 : " + ele.selectedIndex);
+ele.selectedIndex = 0;
+</pre>
+
+<p>
+また『options』を利用して、セレクト配下の『&lt;option&gt;』の配列を取得できます。<br />
+この配列は、『selected』プロパティを使って、選択状態を取得したり、変更したりできます。<br />
+</p>
+<pre class="example">
+var ele = document.form1.select1;
+for (var i = 0; i &lt; ele.length; i ++) {
+    alert("select1[" + i + "] : " + ele[i].selected);
+}
+</pre>
+
+<p>
+これらの要素には、『DOM』を使ってもアクセスできます。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input type="text" id="input" value="AAA"&gt;&lt;br&gt;
+        &lt;select id="select"&gt;
+            &lt;option&gt;0 : BBB&lt;/option&gt;
+            &lt;option&gt;1 : CCC&lt;/option&gt;
+        &lt;/select&gt;&lt;br&gt;
+        &lt;input type="checkbox" id="check" value="DDD"&gt;
+
+        &lt;script&gt;
+        var input = document.getElementById("input");
+        input.value = "入力";
+
+        var select = document.getElementById("select");
+        select.selectedIndex = 1;
+
+        var check = document.getElementById("check");
+        check.checked = true;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3a46646" class="outline-3">
+<h3 id="org3a46646">『location』オブジェクト</h3>
+<div class="outline-text-3" id="text-org3a46646">
+<p>
+WebページのURLが保持されているオブジェクトです。<br />
+『window.location』『location』のどちらの書き方でも利用できます。<br />
+</p>
+
+<p>
+以下、よく利用するプロパティを示します。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+<th scope="col" class="org-left">中身の例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">location.href</td>
+<td class="org-left">URL</td>
+<td class="org-left"><a href="http://www.google.com/hoge/hoge/index.cgi?q=search#result">http://www.google.com/hoge/hoge/index.cgi?q=search#result</a></td>
+</tr>
+
+<tr>
+<td class="org-left">location.protocol</td>
+<td class="org-left">プロトコル</td>
+<td class="org-left">http:</td>
+</tr>
+
+<tr>
+<td class="org-left">location.host</td>
+<td class="org-left">ホスト</td>
+<td class="org-left">www.google.com:8000</td>
+</tr>
+
+<tr>
+<td class="org-left">location.hostname</td>
+<td class="org-left">ホスト名</td>
+<td class="org-left">www.google.com</td>
+</tr>
+
+<tr>
+<td class="org-left">location.port</td>
+<td class="org-left">ポート</td>
+<td class="org-left">8000</td>
+</tr>
+
+<tr>
+<td class="org-left">location.pathname</td>
+<td class="org-left">パスとファイル名</td>
+<td class="org-left">/hoge/hoge/index.cgi</td>
+</tr>
+
+<tr>
+<td class="org-left">location.search</td>
+<td class="org-left">検索などのCGIの値</td>
+<td class="org-left">?q=search</td>
+</tr>
+
+<tr>
+<td class="org-left">location.hash</td>
+<td class="org-left">#以降の内部リンク</td>
+<td class="org-left">#result</td>
+</tr>
+</tbody>
+</table>
+<p>
+この中で、『location.href』は特殊なプロパティです。『location.href』に新しいURLを代入すれば、そのページに移動することができます。<br />
+</p>
+<pre class="example">
+location.href = "http://crocro.com/";
+</pre>
+<p>
+上記のプログラムを実行すると、WebページのURLが『 <a href="http://crocro.com/">http://crocro.com/</a> 』に変わり、表示されているページが、このページに書き換わります。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcf9214b" class="outline-2">
+<h2 id="orgcf9214b">イベント</h2>
+<div class="outline-text-2" id="text-orgcf9214b">
+<p>
+『イベント』は、HTMLタグ内の、『イベントハンドラ』というところに書きます。<br />
+この『イベントハンドラ』は、『on～』という名前の属性になっています。<br />
+そして、『イベントハンドラ』に対応した『イベント』が起こると、その処理が実行されます。<br />
+</p>
+
+<pre class="example">
+&lt;div onClick="alert('クリックしたよ！');alert('もっとクリックして！');"&gt;
+    クリックしてね
+&lt;/div&gt;
+</pre>
+<p>
+このように、タグに『onClick』属性を設定して、属性の値としてプログラムを書きます。<br />
+こうすれば、そのオブジェクトがクリックされた際に、プログラムを実行することができます。<br />
+</p>
+
+<p>
+この時、『onClick="～"』の中に、『"』（ダブルクォーテーション）が書けないことに注意してください。<br />
+これは、『"～"～"～"』と書くと、2番目の『"』のところで『"～"』『～"～"』のように切れて、属性の値が終わってしまうためです。<br />
+上記の例のように、『"～'～'～"』と、『'』（シングルクォーテーション）を使うことで、この問題を避けることができます。<br />
+</p>
+
+<p>
+この、属性の値には、HTMLファイル内の別の場所に書いた関数を指定することもできます。<br />
+また、外部JavaScriptファイルを読み込んでいる場合は、そのファイル内の関数を使うこともできます。<br />
+</p>
+</div>
+
+<div id="outline-container-orgd0ed143" class="outline-3">
+<h3 id="orgd0ed143">プログラム例</h3>
+<div class="outline-text-3" id="text-orgd0ed143">
+<p>
+『イベントハンドラ』から関数を呼び出すプログラムの解説を行います。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script&gt;
+        function action0() {
+            // 『body』の読み込みが終わった直後
+            alert("実行開始！");
+        }
+
+        var count1 = 1;
+        function action1() {
+            // 『&lt;div id="target1"&gt;』がクリックされた時
+            var ele = document.getElementById("target1");
+            ele.innerHTML = count1 + "回クリック";
+            count1 ++;
+        }
+
+        var count2 = 1;
+        function action2(ele) {
+            // 『&lt;div onMouseOver="～"&gt;』にマウスが乗った時
+            // 引数『this』は2番目の『&lt;div&gt;』
+            ele.innerHTML = count2 + "回マウスオーバー";
+            count2 ++;
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body onLoad="action0();"&gt;
+        &lt;div id="target1" onClick="action1();"&gt;目標1&lt;/div&gt;
+        &lt;div onMouseOver="action2(this);"&gt;目標2&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+このプログラムでは、3つのタグの『イベントハンドラ』に関数を指定することで、『&lt;head&gt;』タグ内の『&lt;script&gt;』タグに書いた関数を呼び出しています。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">3種類のタグ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&lt;body onLoad="action0();"&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;div id="target1" onClick="action1();"&gt;目標1&lt;/div&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;div onMouseOver="action2(this);"&gt;目標2&lt;/div&gt;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+最初の『&lt;body onLoad=""&gt;』は、『&lt;body&gt;』タグ部分の読み込みが終了した際に呼び出される処理です。<br />
+ここでは『action0』関数を呼び出しています。<br />
+</p>
+
+<p>
+次の『&lt;div id="target1" onClick=""&gt;目標1&lt;/div&gt;』は、『&lt;div&gt;』要素内にある文字列『目標1』がクリックされた際に呼び出される処理です。<br />
+ここでは『action1』関数を呼び出しています。<br />
+『action1』関数内では、『id』属性が『target1』の要素（ここではクリックした要素自身の『id』を指定）の中身を書き換えています。<br />
+結果として、『目標1』という文字列が書き換わっています。<br />
+</p>
+
+<p>
+最後の『&lt;div onMouseOver=""&gt;目標2&lt;/div&gt;』は、『&lt;div&gt;』要素内にある文字列『目標2』の上にマウスが乗った際に呼び出される処理です。<br />
+ここでは『action2』関数を呼び出しています。<br />
+この関数は『action2(this)』と『this』を引数に取っています。<br />
+この際の『this』は、イベントが呼び出された『&lt;div&gt;』タグ自身の要素を表します。<br />
+</p>
+
+<p>
+そのため、『function action2(ele)』という関数の引数『ele』は、イベント呼び出し元の『&lt;div&gt;』タグと同じになります。<br />
+そして、この変数『ele』のプロパティ『innerHTML』を変更することで、『目標2』という文字列を書き換えています。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d7dc40" class="outline-2">
+<h2 id="org0d7dc40">『イベント』の詳細な使い方</h2>
+<div class="outline-text-2" id="text-org0d7dc40">
+</div>
+<div id="outline-container-orgde5d0e2" class="outline-3">
+<h3 id="orgde5d0e2">よく使う『イベントハンドラ』</h3>
+<div class="outline-text-3" id="text-orgde5d0e2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">属性</th>
+<th scope="col" class="org-left">発生タイミング</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">onClick</td>
+<td class="org-left">クリックされた時</td>
+</tr>
+
+<tr>
+<td class="org-left">onMouseOver</td>
+<td class="org-left">マウスカーソルが乗った時</td>
+</tr>
+
+<tr>
+<td class="org-left">onMouseOut</td>
+<td class="org-left">マウスカーソルが離れた時</td>
+</tr>
+
+<tr>
+<td class="org-left">onLoad</td>
+<td class="org-left">Webページが読込まれた直後</td>
+</tr>
+
+<tr>
+<td class="org-left">onUnload</td>
+<td class="org-left">他のページに移動する直前</td>
+</tr>
+
+<tr>
+<td class="org-left">onFocus</td>
+<td class="org-left">フォームの部品などが操作対象になった時</td>
+</tr>
+
+<tr>
+<td class="org-left">onBlur</td>
+<td class="org-left">フォームの部品などが操作対象から外れた時</td>
+</tr>
+
+<tr>
+<td class="org-left">onChange</td>
+<td class="org-left">フォームの部品の内容が変更された時</td>
+</tr>
+
+<tr>
+<td class="org-left">onSubmit</td>
+<td class="org-left">フォームの実行がなされた時</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7f21bde" class="outline-3">
+<h3 id="org7f21bde">『イベント』をプログラムから発生させる</h3>
+<div class="outline-text-3" id="text-org7f21bde">
+<p>
+これらの『イベント』は、プログラムから発生させることもできます。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">発生イベント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">element.click()</td>
+<td class="org-left">クリック</td>
+</tr>
+
+<tr>
+<td class="org-left">element.focus()</td>
+<td class="org-left">オブジェクトを操作対象にする</td>
+</tr>
+
+<tr>
+<td class="org-left">element.blur()</td>
+<td class="org-left">オブジェクトを操作対象から外す</td>
+</tr>
+
+<tr>
+<td class="org-left">（フォーム）.submit()</td>
+<td class="org-left">フォームを実行する</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgafc0527" class="outline-3">
+<h3 id="orgafc0527">『イベント』の詳しい情報を得る</h3>
+<div class="outline-text-3" id="text-orgafc0527">
+<p>
+『イベント』が発生したタイミングで、イベントの詳しい情報を入手することもできます。<br />
+『イベント』の情報は、『(window.)event』オブジェクトに格納されています。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">式</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">event.type</td>
+<td class="org-left">イベントの種類（例：クリック時は『click』）</td>
+</tr>
+
+<tr>
+<td class="org-left">event.clientX</td>
+<td class="org-left">イベントが発生したX座標（Webページ内）</td>
+</tr>
+
+<tr>
+<td class="org-left">event.clientY</td>
+<td class="org-left">イベントが発生したY座標（Webページ内）</td>
+</tr>
+
+<tr>
+<td class="org-left">event.screenX</td>
+<td class="org-left">イベントが発生したX座標（デスクトップ内）</td>
+</tr>
+
+<tr>
+<td class="org-left">event.screenY</td>
+<td class="org-left">イベントが発生したY座標（デスクトップ内）</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7819922" class="outline-3">
+<h3 id="org7819922">『イベント』情報取得の実例と、リンクのキャンセル</h3>
+<div class="outline-text-3" id="text-org7819922">
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href="#" onclick="alert(event.type); return false;"&gt;
+            イベント種類
+        &lt;/a&gt;&lt;br&gt;
+        &lt;a href="#" onclick="alert(event.clientX + ' ' + event.clientY); return false;"&gt;
+            クライアント座標
+        &lt;/a&gt;&lt;br&gt;
+        &lt;a href="#" onclick="alert(event.screenX + ' ' + event.screenY); return false;"&gt;
+            スクリーン座標
+        &lt;/a&gt;&lt;br&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+最初の『イベント種類』をクリックすると、『イベント』の種類（この場合は『click』）と表示されます。<br />
+2番目の『クライアント座標』をクリックすると、Webページ内での、イベントが発生したX座標、Y座標が表示されます。<br />
+3番目の『スクリーン座標』をクリックすると、デスクトップ内での、イベントが発生したX座標、Y座標が表示されます。<br />
+さて、このコード中で『return false;』と書いてあるのはなぜでしょうか？<br />
+この『return false;』は、『&lt;a&gt;』タグの本来の処理（リンクを開く）を、『キャンセルする』という意味になります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4bb54f" class="outline-3">
+<h3 id="orgf4bb54f">フォームのキャンセル</h3>
+<div class="outline-text-3" id="text-orgf4bb54f">
+<p>
+『return false;』は、フォームによるデータの送信処理をキャンセルする場合にも使用します。<br />
+以下、フォームの入力内容を確認して、入力が空の場合に、フォームの実行を停止させるプログラムです。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form
+            method="get"
+            action="https://www.google.com/search"
+            onSubmit="return checkValue(this.q);"
+        &gt;
+            検索文字列：
+            &lt;input type="text" name="q" value="" size=30&gt;
+            &lt;input type="hidden" name="ie" value="UTF-8"&gt;
+            &lt;input type="submit" value="実行"&gt;
+        &lt;/form&gt;
+
+        &lt;script&gt;
+        function checkValue(element) {
+            if (element.value == "") {
+                alert("文字列が空です");
+                return false;
+            }
+        }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+『submit』（実行）ボタンがクリックされると、送信処理の前に『form』タグの『onSubmit="～"』が実行されます。<br />
+『this.q』は、『this』（ここではフォーム）の子要素の中で、『name』属性の値が『q』の要素という意味です。<br />
+この『this.q』の『value』属性の値が空の場合は、『return false;』で処理をキャンセルさせています。<br />
+このプログラムでは、『onSubmit』の値が『checkValue(this.q);』ではなく、『return checkValue(this.q);』になっていることに注意してください。<br />
+『return』が抜けていると、正しく動作しません。<br />
+これは、『onSubmit』の実体が、以下のようになっているからです。<br />
+</p>
+
+<pre class="example">
+// 『checkValue(this.q);』の場合
+form.onSubmit = function(){checkValue(this.q);}
+
+// 『return checkValue(this.q);』の場合
+form.onSubmit = function(){return checkValue(this.q);}
+</pre>
+
+<p>
+『checkValue(this.q);』の場合は、『onSubmit』の戻り値はありません。<br />
+この場合、『onSubmit』の中で処理が行われるだけで、戻り値が何も設定されていないからです。<br />
+対して、『return checkValue(this.q);』の場合は、『onSubmit』の戻り値は『checkValue』関数の戻り値になります。<br />
+こちらでは、『checkValue』関数の戻り値を、『onSubmit』メソッドの『return』の値として利用しています。<br />
+そのため、2番目の例のように『return』を付けた場合のみ、『onSubmit』の戻り値として『false』を戻せることになります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9cb16c8" class="outline-3">
+<h3 id="org9cb16c8">『&lt;a&gt;』タグに記述するJavaScript</h3>
+<div class="outline-text-3" id="text-org9cb16c8">
+<p>
+『on』で始まるイベント系の属性以外にも、プログラムを直接書ける属性部分があるので紹介しておきます。<br />
+それは、リンクを行うための『』タグ内の『href』属性です。<br />
+通常、この場所には、リンク先のフィル名やパス、URLなどを書きます。<br />
+</p>
+<pre class="example">
+&lt;a href="http://crocro.com/"&gt;クリックしてね&lt;/a&gt;
+</pre>
+<p>
+この『href』属性の先頭に『javascript:』と書くことで、プログラムを実行させることができます。以下、プログラムを書いた例です。<br />
+</p>
+<pre class="example">
+&lt;a href="javascript:alert('クリック！')"&gt;クリックしてね&lt;/a&gt;
+</pre>
+<p>
+この場合『クリックしてね』というリンク部分をクリックすることで、ダイアログが表示されて、『クリック！』という文字列が現れます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga8cac57" class="outline-3">
+<h3 id="orga8cac57">『イベント』への動的な追加</h3>
+<div class="outline-text-3" id="text-orga8cac57">
+<p>
+これまで説明した方法では、HTMLタグの『イベントハンドラ』に、『イベント』発生時の処理を直接書き込んでいました。<br />
+しかし、状況によっては、プログラムの中からイベント時の処理を追加したいこともあるでしょう。<br />
+その際の書き方を紹介しておきます。<br />
+少し高度な話になるので、ある程度学習が進んでから、再度読み直すとちょうどよいでしょう。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script&gt;
+        // イベント追加関数
+        function addEvent(element, eventType, func){
+            element.addEventListener(eventType, func, false);
+        }
+
+        // イベント追加
+        addEvent(window, "load", init);
+
+        // 初期化処理
+        function init() {
+            // イベント追加
+            var target = document.getElementById("target");
+            addEvent(target, "click", function(){alert("クリック！")});
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="target"&gt;クリックしてね！&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+『element.addEventListener(eventType, func, false);』というのが、要素にイベント発生時の処理を登録する処理です。<br />
+『element』の要素の『eventType』というイベントに対して、関数『func』の処理を追加します。<br />
+最初のイベント追加『addEvent(window, "load", init);』では、『window』が『load』された時に、『init』という関数を実行するように登録しています。<br />
+また、関数『init』では、『id』属性が『target』の要素に対して、『click』した際に『function(){alert("クリック！")}』という無名関数を登録しています。<br />
+こうすることで、『window』のロードが終わったあとに、id『target』にクリック時の処理を追加しています。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org14ad2eb" class="outline-2">
+<h2 id="org14ad2eb">タイマー</h2>
+<div class="outline-text-2" id="text-org14ad2eb">
+<p>
+ページの読み込みタイミングや、ユーザーの操作によって処理を実行する方法以外にも、『特定のタイミングで処理を実行する方法』があります。<br />
+『タイマー』は、一定時間経過したあとに、プログラムを実行させる方法です。<br />
+この『タイマー』の処理は、『window』オブジェクトの『setTimeout』メソッドを利用して行います。<br />
+この『setTimeout』の第1引数に実行したい処理の関数を、第2引数に何ミリ秒後に処理を実行させるかを書きます。<br />
+ミリ秒は、1秒の1/1000の長さです。そのため、1000ミリ秒が1秒になります。<br />
+</p>
+
+<p>
+以下、画面に日時を表示して、1秒ごとに更新していくプログラムの例です。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script&gt;
+        function tokei() {
+            document.body.innerHTML = Date().toLocaleString();
+            window.setTimeout(tokei, 1000);
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body onLoad="tokei();"&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+まず、『』タグの『onLoad』属性で、『tokei』関数を呼んでいます。<br />
+そのため、『body』要素の中に、現在の日時が表示されます。<br />
+そして最後に『window.setTimeout(tokei, 1000);』とタイマー処理が実行されます。<br />
+ここでは、第2引数が『1000』なので、1000ミリ秒後（1秒後）に、第1引数である『tokei』関数が実行されます。<br />
+そして、1秒後に『tokei』関数が実行されて、再び日時が表示されて、再度1秒後に『tokei』関数が実行される……というように、処理が繰り返されます。<br />
+</p>
+</div>
+
+<div id="outline-container-org6e22f47" class="outline-3">
+<h3 id="org6e22f47">『arguments』</h3>
+<div class="outline-text-3" id="text-org6e22f47">
+<p>
+以下は、少し高度な話になるので、読み飛ばしても構わないです。<br />
+特殊な書き方として、呼び出し元の関数オブジェクトを指定する方法もあります。<br />
+</p>
+<pre class="example">
+function tokei() {
+    var ele = document.getElementById("target");
+    ele.innerHTML = Date().toLocaleString();
+    window.setTimeout(arguments.callee, 1000);
+}
+</pre>
+<p>
+『arguments』は、関数のプロパティの1つで、引数を表しています。<br />
+『arguments[0]』『arguments[1]』……とすることで、『1番目の引数』『2番目の引数』……を取り出すことができます。<br />
+この『arguments』には、『callee』という、『呼び出し元』を示す特殊なプロパティがあります。<br />
+上記の例では、呼び出し元が『tokei』という関数になっているので、『arguments.callee』は『tokei』を指します。<br />
+この呼び出し元が『無名関数』だった場合は、『arguments.callee』はその『無名関数』を指します。<br />
+それほど多用する書き方ではないでしょうが、覚えておくと便利な時があります。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaedd193" class="outline-3">
+<h3 id="orgaedd193">『インターバル』</h3>
+<div class="outline-text-3" id="text-orgaedd193">
+<p>
+ここまでのプログラムでは、『setTimeout』を利用して繰り返し処理を書いてきました。<br />
+しかし本来『setTimeout』は、一定時間後に1回だけ処理を行なうための命令です。<br />
+JavaScriptには、定期的に処理を行なう専用の関数『setInterval』が用意されています。<br />
+この『setInterval』を利用して、同じような処理を簡潔に書いてみましょう。<br />
+</p>
+<pre class="example">
+// 時間を1秒ごとに表示
+setInterval(function() {
+    document.body.innerHTML = Date().toLocaleString();
+}, 1000);
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7a47dca" class="outline-3">
+<h3 id="org7a47dca">『タイマー』や『インターバル』の解除</h3>
+<div class="outline-text-3" id="text-org7a47dca">
+<p>
+『setTimeout』や『setInterval』を実行すると、戻り値としてidを戻します。このidを利用して処理を解除させることができます。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">内容</th>
+<th scope="col" class="org-left">セットとidの取得</th>
+<th scope="col" class="org-left">idを使った解除方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">一定時間後の処理</td>
+<td class="org-left">var id = setTimeout(func, tm);</td>
+<td class="org-left">clearTimeout(id);</td>
+</tr>
+
+<tr>
+<td class="org-left">一定時間毎の定期処理</td>
+<td class="org-left">var id = setInterval(func, tm);</td>
+<td class="org-left">clearInterval(id);</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example">
+var count = 0;
+var id = setInterval(function() {
+    document.write(count + "&lt;br&gt;");
+    count ++
+    if (count &gt;= 10) {
+        clearInterval(id);
+        document.write("end.&lt;br&gt;");
+    }
+}, 500);
+</pre>
+
+<pre class="example">
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+end.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7e0272e" class="outline-3">
+<h3 id="org7e0272e">JavaScriptからの『スタイル』の操作</h3>
+<div class="outline-text-3" id="text-org7e0272e">
+</div>
+<div id="outline-container-orga447c21" class="outline-4">
+<h4 id="orga447c21">JavaScriptから『スタイル』を操作する際の注意</h4>
+<div class="outline-text-4" id="text-orga447c21">
+<p>
+この『スタイル』ですが、『スタイルシート』で指定する際と、JavaScriptから操作する際では、名前が少し異なります。<br />
+『スタイルシート』で『font-size』という名前のスタイルは、JavaScriptでは『fontSize』という名前になっています。<br />
+『-』（ハイフン）がなくなり、その後の文字が『大文字』になっています。<br />
+間違いやすいので、注意してください。<br />
+</p>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;style type="text/css"&gt;
+        div {
+            font-size:80%;
+        }
+        &lt;/style&gt;
+        &lt;script&gt;
+        function changeStyle(element) {
+            element.style.fontSize = "200%";
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="target" style="font-size: 150%;" onClick="changeStyle(this)"&gt;
+            クリックしてね！
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3384625" class="outline-2">
+<h2 id="org3384625">クッキーの利用</h2>
+<div class="outline-text-2" id="text-org3384625">
+<p>
+WebページのJavaScriptでは、ローカル（パソコンのハードディスクなどの保存領域）への、データの読み書きはできません。<br />
+これは、セキュリティ上の理由からです。<br />
+ファイルを自由に読み書きできると、OSのシステムファイルや、ユーザーのプライベートなデータを、自由に削除したり、ネット上に送ったりできるからです。<br />
+</p>
+
+<p>
+では、WebページのJavaScriptでは、ローカルにデータの読み書きを一切できないのでしょうか？<br />
+実はその方法が用意されています。Webブラウザには、安全にデータを読み書きする方法として、『クッキー』という仕組みがあります。<br />
+この『クッキー』は、利用できるデータのサイズが小さく、文字列のみしか保存できないという制限がありますが、データの保存と読み込みを行うことができます。<br />
+また、保存したデータの有効期限を設定したり、同じサイト上で、同一のデータを参照したりする仕組みを持っています。<br />
+</p>
+</div>
+
+<div id="outline-container-org8f985af" class="outline-3">
+<h3 id="org8f985af">『クッキー』の保存と読み込み</h3>
+<div class="outline-text-3" id="text-org8f985af">
+</div>
+<div id="outline-container-org5314d11" class="outline-4">
+<h4 id="org5314d11">『クッキー』の保存と読み込み</h4>
+<div class="outline-text-4" id="text-org5314d11">
+<p>
+『クッキー』の保存と読み込みは、『document.cookie』プロパティを使います。<br />
+『クッキー』に値を保存する際は、キーと値のセットを1つずつ『document.cookie』に代入します。<br />
+（「Google Chrome」では、ローカル環境では『クッキー』は利用できません。Webページをサーバーに上げて、Webブラウザで読み込む必要があります）<br />
+</p>
+
+<pre class="example">
+document.cookie = "key1=value1;";
+document.cookie = "key2=value2;";
+</pre>
+<p>
+こうやって書き込んだデータを取り出すと、以下のようになります。<br />
+</p>
+<pre class="example">
+alert(document.cookie);
+</pre>
+<p>
+【結果】<br />
+</p>
+<pre class="example">
+key1=value1; key2=value2;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org052268d" class="outline-4">
+<h4 id="org052268d">『クッキー』の保存と読み込みの違い</h4>
+<div class="outline-text-4" id="text-org052268d">
+<p>
+『document.cookie』を利用した、『クッキー』の保存と読み込みには注意が必要です。<br />
+保存（値を代入した）時の値と、読み込み（値を参照した）時の値が異なるからです。<br />
+</p>
+
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script&gt;
+        function save() {
+            // 対象要素を空に
+            var ele = document.getElementById("view");
+            ele.innerHTML = "";
+
+            // 書き込み1つ目
+            document.cookie = "key1=value1;";
+            ele.innerHTML += document.cookie + "&lt;br&gt;";
+
+            // 書き込み2つ目
+            document.cookie = "key2=value2;";
+            ele.innerHTML += document.cookie + "&lt;br&gt;";
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input type="button" onClick="save();" value="保存"&gt;
+        &lt;br&gt;
+        &lt;div id="view"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+『保存』ボタンをクリックすると、以下の内容が出力されます。<br />
+</p>
+<pre class="example">
+key1=value1
+key1=value1; key2=value2
+</pre>
+
+<p>
+上記プログラムは、『クッキー』に値を2回書き込み、そのたびに、id『view』に『クッキー』の現在の値を出力するものです。<br />
+この結果の、2行目に注目してください。『書き込み2つ目』で、『key2=value2;』という値を『document.cookie』に代入しているにも関わらず、<br />
+『document.cookie』の中身は『key1=value1; key2=value2』になっています。<br />
+このことから、保存時の値と、読み込み時の値が違うことが分かります。<br />
+クッキーの保存時と、読み込み時の処理は、内部的には、以下のような動作になっています。<br />
+</p>
+
+<pre class="example">
+【保存時】
+
+1. 『document.cookie』に新しい値を代入する。
+2.  内部的に『値を書き換える関数』が呼び出される。
+3. 『値を書き換える関数』の中で、与えられた値を解釈する。
+4. 『値を書き換える関数』の中で、解釈した値をブラウザに保存する。
+</pre>
+
+<pre class="example">
+【読み込み時】
+
+1. 『document.cookie』から値を取り出そうとする。
+2.  内部的に『値を読み込む関数』が呼び出される。
+3. 『値を読み込む関数』の中で、ブラウザから全ての値を読み出して、文字列にして返す。
+</pre>
+
+<p>
+この『document.cookie』のように、変数に値を代入した際に特殊な動作が行われるプロパティは他にもあります。<br />
+例えば『location.href』は、そういったプロパティです。『location.href = "<a href="http://crocro.com/">http://crocro.com/</a>"; 』とすると、ブラウザで表示されるWebページが変わります。<br />
+他にも、『DOM』で操作する様々な要素のプロパティも、書き換えと同時に内部処理が発生します。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf469335" class="outline-4">
+<h4 id="orgf469335">『クッキー』の保存条件</h4>
+<div class="outline-text-4" id="text-orgf469335">
+<p>
+『クッキー』に値を保存する際は、キーと値のセットとともに、いくつかの保存条件を設定できます。<br />
+</p>
+
+<pre class="example">
+document.cookie = "key1=value1; expires=Thu, 22 Apr 2010 09:00:26 UTC";
+</pre>
+
+<p>
+『expires』は、有効期限を表すキーです。この値を設定しなかった場合は、ブラウザを閉じた時点で『クッキー』の値は失われます。<br />
+『expires』の値は、『Wdy, DD-Mon-YYYY HH:MM:SS GMT』という形式か、日付オブジェクトの『toGMTString』メソッドの値を記入します。<br />
+</p>
+
+<pre class="example">
+// 有効期限を1年後に
+var d = new Date();
+d.setFullYear(d.getFullYear() + 1);
+
+// クッキーの保存
+document.cookie = "key1=value1; expires=" + d.toGMTString();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1ef92e4" class="outline-3">
+<h3 id="org1ef92e4">プログラム例</h3>
+<div class="outline-text-3" id="text-org1ef92e4">
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;script&gt;
+        function save() {
+            // 『input0』『input1』要素の値を取得して、クッキーに書き込み
+            writeCookie("input0", document.getElementById("input0").value, 1);
+            writeCookie("input1", document.getElementById("input1").value, 1);
+        }
+        function load() {
+            // クッキーから読み込んだ値を、『input0』『input1』要素に設定
+            document.getElementById("input0").value = readCookie("input0");
+            document.getElementById("input1").value = readCookie("input1");
+        }
+        function writeCookie(key, value, hours) {
+            if (key == "") return;
+
+            // 現在時刻に、引数『hours』を加えた時間を作成
+            var d = new Date();
+            d.setHours(d.getHours() + hours * 1);
+
+            // 作成した時間を、設定として配列に格納
+            var options = new Array();
+            options.push("expires=" + d.toGMTString());
+
+            // 引数『key』『value』を元にした設定と、時刻の設定を、
+            // 文字列結合してクッキーに書き込み
+            document.cookie = escape(key) + "=" + escape(value) + "; "
+                + options.join("; ");    // 『key=value; expires=時間』を書き込み
+        }
+        function readCookie(key) {
+            if (key == "") return;
+
+            // クッキーの文字列『key1=value; key2=value; …』から、
+            // 引数の『key』を元に、正規表現で値を検索
+            var re = new RegExp(escape(key) + "=(.*?)(?:;|$)");
+            if (document.cookie.match(re)) return unescape(RegExp.$1);
+            return "";
+        }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input type="text" id="input0" value=""&gt;&lt;br&gt;
+        &lt;input type="text" id="input1" value=""&gt;&lt;br&gt;
+        &lt;input type="button" onClick="save();" value="保存"&gt;
+        &lt;input type="button" onClick="load();" value="読み込み"&gt;&lt;br&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<div id="outline-container-orgdd2b774" class="outline-4">
+<h4 id="orgdd2b774">『』タグ内の解説</h4>
+<div class="outline-text-4" id="text-orgdd2b774">
+<p>
+だいぶ長いので、分割して解説します。まずは、『』タグの中から説明します。<br />
+</p>
+<pre class="example">
+&lt;body&gt;
+    &lt;input type="text" id="input0" value=""&gt;&lt;br&gt;
+    &lt;input type="text" id="input1" value=""&gt;&lt;br&gt;
+    &lt;input type="button" onClick="save();" value="保存"&gt;
+    &lt;input type="button" onClick="load();" value="読み込み"&gt;&lt;br&gt;
+&lt;/body&gt;
+</pre>
+
+<p>
+『保存』ボタンをクリックすると、『save』関数を呼び出します。『読み込み』ボタンをクリックすると、『load』関数を呼び出します。<br />
+『id』の値が『input0』と『input1』の入力欄には、文字列を書き込めます。<br />
+『保存』ボタンをクリックすると、この値を保存して、『読み込み』ボタンをクリックすると、それぞれの入力欄に、この値を読み込みます。<br />
+</p>
+<pre class="example">
+function save() {
+    // 『input0』『input1』要素の値を取得して、クッキーに書き込み
+    writeCookie("input0", document.getElementById("input0").value, 1);
+    writeCookie("input1", document.getElementById("input1").value, 1);
+}
+function load() {
+    // クッキーから読み込んだ値を、『input0』『input1』要素に設定
+    document.getElementById("input0").value = readCookie("input0");
+    document.getElementById("input1").value = readCookie("input1");
+}
+</pre>
+
+<p>
+『save』と『load』関数では、『writeCookie』『readCookie』という関数を使い、『input0』と『input1』の『value』の値を読み書きしています。<br />
+『input0』『input1』の要素の取得は、これまでに出てきた『document.getElementById』メソッドを使っています。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge437a6e" class="outline-4">
+<h4 id="orge437a6e">『writeCookie』関数の解説</h4>
+<div class="outline-text-4" id="text-orge437a6e">
+<pre class="example">
+function writeCookie(key, value, hours) {
+    if (key == "") return;
+
+    // 現在時刻に、引数『hours』を加えた時間を作成
+    var d = new Date();
+    d.setHours(d.getHours() + hours * 1);
+
+    // 作成した時間を、設定として配列に格納
+    var options = new Array();
+    options.push("expires=" + d.toGMTString());
+
+    // 引数『key』『value』を元にした設定と、時刻の設定を、
+    // 文字列結合してクッキーに書き込み
+    document.cookie = escape(key) + "=" + escape(value) + "; "
+        + options.join("; ");    // 『key=value; expires=時間』を書き込み
+}
+</pre>
+
+<p>
+『"expires=" + d.toGMTString()』と時間の文字列を設定しているところは、データの有効期限になります。<br />
+先ほどの『save』関数では、『writeCookie(key, value, '''1''')』と、『hours』の値を『1』として呼び出しています。<br />
+そのため有効期限は、現在の時間の1時間後となります。<br />
+最後に、『document.cookie』に値を設定しています。この時、『key』と『value』の値をエスケープしています。<br />
+『クッキー』に保存できる文字列は、URLに利用できる文字列です。<br />
+そのため、URLに利用できない記号や日本語は、エスケープ（特殊な符合で書き換える）処理をしてやらなければなりません。<br />
+また、『クッキー』に保存する値の末尾に、先ほど作成した有効期限の値を加えています。<br />
+これで、『クッキー』への値の保存は終了です。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org516a26d" class="outline-4">
+<h4 id="org516a26d">『readCookie』関数の解説</h4>
+<div class="outline-text-4" id="text-org516a26d">
+<p>
+『クッキー』からの値の読み込みを見てみましょう。<br />
+</p>
+<pre class="example">
+function readCookie(key) {
+    if (key == "") return;
+
+    // クッキーの文字列『key1=value; key2=value; …』から、
+    // 引数の『key』を元に、正規表現で値を検索
+    var re = new RegExp(escape(key) + "=(.*?)(?:;|$)");
+    if (document.cookie.match(re)) return unescape(RegExp.$1);
+    return "";
+}
+</pre>
+
+<p>
+『クッキー』の文字列は、先ほど説明したように、保存時と読み込み時は異なります。<br />
+読み込み時は『key1=value; key2=value; …』と連なった文字列になっています。<br />
+そこで、正規表現を使って、引数の『key』から、対応する値を取得しようとしています。<br />
+</p>
+
+<p>
+『RegExp(escape(key) + "=(.*?)(?:;|$)")』というのは、「エスケープ処理した引数『key』の値」＋「最短一致の任意の文字列」＋「『;』もしくは『末尾』（ただし、この文字は含まない）」という意味です。<br />
+少し難しいですが、分からなければ、『正規表現』の章を復習してください。<br />
+『正規表現』はパズルのようなものです。使いこなせると、複雑な検索条件を短いプログラムで実現できます。<br />
+</p>
+
+<p>
+次の行では、『document.cookie』の文字列を、『match』メソッドを使い、検索を行っています。<br />
+その際、先ほど作成した正規表現の変数『re』を引数にしています。<br />
+そして、検索に一致する値があった場合（戻り値が『true』の場合）に、『if』文の右側の処理を実行させています。<br />
+</p>
+
+<p>
+検索の『if』文の右側では、『RegExp.$1』という値をアンエスケープ（エスケープした文字を『元に戻す処理』）しています。<br />
+『RegExp.$1』は、検索した文字列の中で、最初の『(～)』内の文字列です。ここでは、『key=～』の『～』部分になります。<br />
+</p>
+
+<p>
+こうして取得した値を、『return』を使い、『readCookie』関数の戻り値として戻しています。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org40ecc0a" class="outline-3">
+<h3 id="org40ecc0a">『escape』と『unescape』</h3>
+<div class="outline-text-3" id="text-org40ecc0a">
+<p>
+『escape』関数で行われるエスケープ処理は、URLに利用できない記号や日本語を、特殊な符合で書き換えるものです。<br />
+また、『unescape』関数は、エスケープ処理された文字列を、元の文字列に復号するものです。<br />
+この2つの関数は、『クッキー』にデータを保存する時以外にも利用されます。<br />
+たとえば、リンクのURLを利用して、サーバーにデータを送信する際などに使います。<br />
+</p>
+
+<pre class="example">
+var str = escape("あいう");
+document.write(str + "&lt;br&gt;");
+
+str = unescape(str);
+document.write(str + "&lt;br&gt;");
+</pre>
+
+<pre class="example">
+%u3042%u3044%u3046
+あいう
+</pre>
+
+<p>
+『escape』関数を使うと、文字列が『%u3042%u3044%u3046』といった形式に変換されます。<br />
+また、『unescape』関数を使うと、エスケープされた文字列が『あいう』と復号されます。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c5f084" class="outline-3">
+<h3 id="org1c5f084">サーバー上のWebページの『クッキー』</h3>
+<div class="outline-text-3" id="text-org1c5f084">
+<p>
+以下、サーバー上でWebページを使用する際の話です。ローカルだけでWebページを使用する際には関係のない話なので、読み飛ばしてもらって構いません。<br />
+『クッキー』の保存条件は、『expires』だけでなく、以下のようなものもあります。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">キー</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">expires</td>
+<td class="org-left">有効期限</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">domain</td>
+<td class="org-left">クッキーがサーバーに送られるURLのドメイン</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">省略時は、Webページが保存されているサイトのドメイン</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">例：『<a href="http://www.google.com/hoge/hoge/index.cgi%E3%80%8F%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%8E'''www.google.com">http://www.google.com/hoge/hoge/index.cgi%E3%80%8F%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%8E'''www.google.com</a>'''』</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">path</td>
+<td class="org-left">クッキーがサーバーに送られるパス</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">省略時は現在のパス</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">例：『<a href="http://www.google.com/hoge/hoge/index.cgi%E3%80%8F%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%8E'''/hoge/hoge/">http://www.google.com/hoge/hoge/index.cgi%E3%80%8F%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%8E'''/hoge/hoge/</a>'''』</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">secure</td>
+<td class="org-left"><a href="https://の安全なサイトのみにクッキーを送信するフラグ">https://の安全なサイトのみにクッキーを送信するフラグ</a></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">キーのみで、値はなし</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+以下、例です。<br />
+</p>
+<pre class="example">
+document.cookie = "key1=value1; expires=Thu, 22 Apr 2010 09:00:26 UTC; domain=www.google.com; path=/hoge/hoge/; secure";
+</pre>
+
+<p>
+さて、『クッキー』をインターネット上で使う際に、もう1つ知っておいた方がよいことがあります。<br />
+それは、『クッキー』は、JavaScriptのプログラム以外でも使用されるということです。<br />
+Webブラウザは、Webページを読み込んだ際に、サーバーの要求に従って『クッキー』をサーバーに送信します。<br />
+そして、サーバーからの指示があれば、データを『クッキー』に書き込みます。<br />
+たとえばサーバーでは、この値を見ることで、訪問者が誰かを判断して、処理を分岐させます。<br />
+</p>
+
+<p>
+『クッキー』は、WebブラウザのJavaScript内だけで使う仕組みではありません。<br />
+これは、サーバーと連携したプログラムを作成する際などに、必要な知識となるので、覚えておくとよいでしょう。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7d9528" class="outline-3">
+<h3 id="orgd7d9528">『js-cookie』の利用</h3>
+<div class="outline-text-3" id="text-orgd7d9528">
+<p>
+『cookie』の利用は面倒なので、実はライブラリ（公開されている外部JavaScript）を使った方が楽です。<br />
+『js-cookie』は、『cookie』を手軽に扱うためのライブラリです。<br />
+</p>
+
+<p>
+まず、『js-cookie』を外部JavaScriptファイルとして読み込みます。<br />
+</p>
+<pre class="example">
+&lt;script src="js.cookie.js"&gt;&lt;/script&gt;
+</pre>
+
+<p>
+基本的な使い方は、以下の通りです。『expires』などの設定は、引数のオブジェクトとして指定します。<br />
+</p>
+
+<p>
+【cookieの設定】<br />
+</p>
+<pre class="example">
+// cookieの設定 - 現在のサイト
+Cookies.set('name', 'value');
+
+// cookieの設定 - 期限7日、現在のサイト
+Cookies.set('name', 'value', { expires: 7 });
+
+// cookieの設定 - 期限7日、パス''（現在のページ）
+Cookies.set('name', 'value', { expires: 7, path: '' });
+</pre>
+
+<p>
+【cookieの読み取り】<br />
+</p>
+<pre class="example">
+// cookieの読み取り
+Cookies.get('name');     // 戻り値として「'value'」の文字列が得られる
+Cookies.get('nothing');  // 未定義なので戻り値は「undefined」になる
+
+// cookieの読み取り - 全て
+Cookies.get();    // 戻り値として「{ name: 'value' }」のオブジェクトが得られる
+</pre>
+
+<p>
+【cookieの削除】<br />
+</p>
+<pre class="example">
+// cookieの削除
+Cookies.remove('name');
+
+// 現在のページにパスが設定されている場合は注意
+Cookies.set('name', 'value', { path: '' });
+Cookies.remove('name');    // 失敗する
+Cookies.remove('name', { path: '' });  // きちんと削除できる
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
