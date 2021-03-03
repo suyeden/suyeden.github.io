@@ -6,7 +6,7 @@
 <!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Git</title>
+<title>Gitコミット作法</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -241,37 +241,144 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Git</h1>
-<div id="outline-container-orgeeaf45f" class="outline-2">
-<h2 id="orgeeaf45f"></h2>
-<div class="outline-text-2" id="text-orgeeaf45f">
+<h1 class="title">Gitコミット作法</h1>
+<div id="outline-container-orgb1d91a8" class="outline-2">
+<h2 id="orgb1d91a8"></h2>
+<div class="outline-text-2" id="text-orgb1d91a8">
 <hr />
 </div>
-<div id="outline-container-org9d5bec2" class="outline-3">
-<h3 id="org9d5bec2"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9d5bec2">
+<div id="outline-container-org824878b" class="outline-3">
+<h3 id="org824878b"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org824878b">
 <hr />
 </div>
 </div>
-
-<div id="outline-container-org896dbc6" class="outline-3">
-<h3 id="org896dbc6"><a href="git_tutorial.html">Git チュートリアル</a></h3>
 </div>
 
-<div id="outline-container-org7db9fe2" class="outline-3">
-<h3 id="org7db9fe2"><a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h3>
+<div id="outline-container-orgc57228b" class="outline-2">
+<h2 id="orgc57228b">Gitコミット prefix 一覧</h2>
+<div class="outline-text-2" id="text-orgc57228b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">prefix</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">fix</td>
+<td class="org-left">バグ修正・クリティカルなバグ修正なら hotfix</td>
+</tr>
+
+<tr>
+<td class="org-left">add</td>
+<td class="org-left">新規機能・新規ファイル追加</td>
+</tr>
+
+<tr>
+<td class="org-left">feat</td>
+<td class="org-left">feat は feature の略</td>
+</tr>
+
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">バグではない機能修正</td>
+</tr>
+
+<tr>
+<td class="org-left">change</td>
+<td class="org-left">仕様変更による機能修正</td>
+</tr>
+
+<tr>
+<td class="org-left">clean・refactor・improve</td>
+<td class="org-left">整理 (リファクタリング等)</td>
+</tr>
+
+<tr>
+<td class="org-left">disable</td>
+<td class="org-left">無効化 (コメントアウト等)</td>
+</tr>
+
+<tr>
+<td class="org-left">remove・delete</td>
+<td class="org-left">ファイル削除、コードの一部を取り除く</td>
+</tr>
+
+<tr>
+<td class="org-left">rename</td>
+<td class="org-left">ファイル名の変更</td>
+</tr>
+
+<tr>
+<td class="org-left">move</td>
+<td class="org-left">ファイル移動</td>
+</tr>
+
+<tr>
+<td class="org-left">upgrade</td>
+<td class="org-left">バージョンアップ</td>
+</tr>
+
+<tr>
+<td class="org-left">revert</td>
+<td class="org-left">修正取り消し</td>
+</tr>
+
+<tr>
+<td class="org-left">docs</td>
+<td class="org-left">ドキュメントのみ修正</td>
+</tr>
+
+<tr>
+<td class="org-left">style</td>
+<td class="org-left">空白、セミコロン、行、コーディングフォーマットなどの修正</td>
+</tr>
+
+<tr>
+<td class="org-left">perf</td>
+<td class="org-left">性能向上する修正・perf は perfomance の略</td>
+</tr>
+
+<tr>
+<td class="org-left">test</td>
+<td class="org-left">テスト追加や間違っていたテストの修正</td>
+</tr>
+
+<tr>
+<td class="org-left">chore</td>
+<td class="org-left">ビルドツールやライブラリで自動生成されたものをコミットするとき</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
-<div id="outline-container-orgbe45043" class="outline-3">
-<h3 id="orgbe45043"><a href="github_pages.html">GitHub Pages</a></h3>
-</div>
-
-<div id="outline-container-org695001b" class="outline-3">
-<h3 id="org695001b"><a href="git_koneta.html">Git 小ネタ集</a></h3>
-</div>
-
-<div id="outline-container-orgd066fe2" class="outline-3">
-<h3 id="orgd066fe2"><a href="git_commit_manner.html">Gitコミット作法</a></h3>
+<div id="outline-container-orge1e5a23" class="outline-2">
+<h2 id="orge1e5a23">Git 作法</h2>
+<div class="outline-text-2" id="text-orge1e5a23">
+<ol class="org-ol">
+<li>コミットは出来るだけ細かい粒度で行う<br /></li>
+<li>コミット作成後、即プッシュするのはやめよう (冷静になろう)<br /></li>
+<li>機能でまとめられそうなコミットは Rebase してからプッシュしよう<br /></li>
+<li>誤字脱字・インデント修正レベルなら <code>git commit --amend</code> で前回コミットにまとめよう<br /></li>
+<li>複数のバグ修正をひとつのコミットにまとめるのはやめよう<br /></li>
+<li>コミットメッセージは英語で書くのが好ましい<br />
+<ul class="org-ul">
+<li>文頭を大文字にする<br /></li>
+<li>主語不要、命令形の形式で書く<br /></li>
+<li>時制は現在系にする<br /></li>
+<li>句読点・ピリオドは不要<br /></li>
+</ul></li>
+</ol>
 </div>
 </div>
 </div>

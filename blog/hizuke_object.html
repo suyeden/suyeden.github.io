@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-02-19 金 23:52 -->
+<!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>日付オブジェクト</title>
@@ -242,22 +242,22 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">日付オブジェクト</h1>
-<div id="outline-container-orgf6dfadf" class="outline-2">
-<h2 id="orgf6dfadf"></h2>
-<div class="outline-text-2" id="text-orgf6dfadf">
+<div id="outline-container-org5feab2c" class="outline-2">
+<h2 id="org5feab2c"></h2>
+<div class="outline-text-2" id="text-org5feab2c">
 <hr />
 </div>
-<div id="outline-container-orgfb44b08" class="outline-3">
-<h3 id="orgfb44b08"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orgfb44b08">
+<div id="outline-container-orga783dce" class="outline-3">
+<h3 id="orga783dce"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orga783dce">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org92505de" class="outline-2">
-<h2 id="org92505de">『日付オブジェクト』の作成</h2>
-<div class="outline-text-2" id="text-org92505de">
+<div id="outline-container-org4a38424" class="outline-2">
+<h2 id="org4a38424">『日付オブジェクト』の作成</h2>
+<div class="outline-text-2" id="text-org4a38424">
 <p>
 『日付オブジェクト』は、『new Date()』と初期化することで、現在時刻で新しいオブジェクトを作成します。<br />
 </p>
@@ -273,9 +273,9 @@ var d = new Date(1999, 11, 31);
 </div>
 </div>
 
-<div id="outline-container-org7dd46b6" class="outline-2">
-<h2 id="org7dd46b6">『日付オブジェクト』からの日時の取得</h2>
-<div class="outline-text-2" id="text-org7dd46b6">
+<div id="outline-container-org405648f" class="outline-2">
+<h2 id="org405648f">『日付オブジェクト』からの日時の取得</h2>
+<div class="outline-text-2" id="text-org405648f">
 <p>
 作成した『日付オブジェクト』からは、様々なメソッドで年月日や時間を取得することができます。<br />
 </p>
@@ -289,18 +289,18 @@ alert(d.getHours() + "時" + d.getMinutes() + "分");
 </p>
 </div>
 
-<div id="outline-container-orge7bc371" class="outline-3">
-<h3 id="orge7bc371">『年』を取得する場合の注意</h3>
-<div class="outline-text-3" id="text-orge7bc371">
+<div id="outline-container-org2f2409a" class="outline-3">
+<h3 id="org2f2409a">『年』を取得する場合の注意</h3>
+<div class="outline-text-3" id="text-org2f2409a">
 <p>
 『年』を取り出すメソッドには『getFullYear』と『getYear』の2種類がありますが、『getFullYear』を利用してください。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga8414e9" class="outline-3">
-<h3 id="orga8414e9">『月』を取得する場合の注意</h3>
-<div class="outline-text-3" id="text-orga8414e9">
+<div id="outline-container-org4c1db38" class="outline-3">
+<h3 id="org4c1db38">『月』を取得する場合の注意</h3>
+<div class="outline-text-3" id="text-org4c1db38">
 <p>
 『月』は普通、『1月』『2月』『3月』……『12月』のように、数字の『1』から順番に数を増やしていき『12』まで数えます。<br />
 しかし、プログラムの世界では、『月』は『0』から始まり『11』までの数字で表されます。<br />
@@ -313,9 +313,9 @@ var month = d.getMonth() + 1;
 </div>
 </div>
 
-<div id="outline-container-org536da60" class="outline-2">
-<h2 id="org536da60">ある時間からの経過時間を知る</h2>
-<div class="outline-text-2" id="text-org536da60">
+<div id="outline-container-org9d96442" class="outline-2">
+<h2 id="org9d96442">ある時間からの経過時間を知る</h2>
+<div class="outline-text-2" id="text-org9d96442">
 <p>
 プログラムでは、ある瞬間からの経過時間を知りたい時がよくあります。<br />
 こういった場合は、『日付オブジェクト』の『getTime』メソッドを利用します。<br />
@@ -355,17 +355,17 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-org5b366f4" class="outline-2">
-<h2 id="org5b366f4">『日付オブジェクト』のメソッド</h2>
-<div class="outline-text-2" id="text-org5b366f4">
+<div id="outline-container-orgcaba6e4" class="outline-2">
+<h2 id="orgcaba6e4">『日付オブジェクト』のメソッド</h2>
+<div class="outline-text-2" id="text-orgcaba6e4">
 <p>
 以下、『日付オブジェクト』を使ったメソッドを紹介します。<br />
 </p>
 </div>
 
-<div id="outline-container-org8d3fc7f" class="outline-3">
-<h3 id="org8d3fc7f">日付の取得</h3>
-<div class="outline-text-3" id="text-org8d3fc7f">
+<div id="outline-container-orgcc05df7" class="outline-3">
+<h3 id="orgcc05df7">日付の取得</h3>
+<div class="outline-text-3" id="text-orgcc05df7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -419,9 +419,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-orge0ce0b4" class="outline-3">
-<h3 id="orge0ce0b4">日付の設定</h3>
-<div class="outline-text-3" id="text-orge0ce0b4">
+<div id="outline-container-orgc1e9959" class="outline-3">
+<h3 id="orgc1e9959">日付の設定</h3>
+<div class="outline-text-3" id="text-orgc1e9959">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -475,9 +475,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-org5fd4189" class="outline-3">
-<h3 id="org5fd4189">特殊</h3>
-<div class="outline-text-3" id="text-org5fd4189">
+<div id="outline-container-orge7cb1cf" class="outline-3">
+<h3 id="orge7cb1cf">特殊</h3>
+<div class="outline-text-3" id="text-orge7cb1cf">
 <p>
 1970年1月1日0時0分0秒からのミリ秒を取得、設定します。この時間は『UTC』と呼ばれる時間です。『UTC』については後述します。<br />
 </p>
@@ -505,9 +505,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-org119527d" class="outline-2">
-<h2 id="org119527d">『UTC』と『GMT』</h2>
-<div class="outline-text-2" id="text-org119527d">
+<div id="outline-container-org0e0b6fe" class="outline-2">
+<h2 id="org0e0b6fe">『UTC』と『GMT』</h2>
+<div class="outline-text-2" id="text-org0e0b6fe">
 <p>
 『UTC』（Universal Time, Coordinated）は、『協定世界時』と呼ばれるものです。この時間は、国際協定により人工的に維持されている世界共通の標準時です。<br />
 日本の時間は、この『UTC』より9時間進んでいます。<br />
@@ -517,13 +517,13 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-orgb935517" class="outline-2">
-<h2 id="orgb935517">『日付オブジェクト』のメソッド2</h2>
-<div class="outline-text-2" id="text-orgb935517">
+<div id="outline-container-orgbcb778d" class="outline-2">
+<h2 id="orgbcb778d">『日付オブジェクト』のメソッド2</h2>
+<div class="outline-text-2" id="text-orgbcb778d">
 </div>
-<div id="outline-container-orga84a98a" class="outline-3">
-<h3 id="orga84a98a">UTCの取得</h3>
-<div class="outline-text-3" id="text-orga84a98a">
+<div id="outline-container-org8ed3d23" class="outline-3">
+<h3 id="org8ed3d23">UTCの取得</h3>
+<div class="outline-text-3" id="text-org8ed3d23">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -577,9 +577,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-org3b65ab7" class="outline-3">
-<h3 id="org3b65ab7">UTCの設定</h3>
-<div class="outline-text-3" id="text-org3b65ab7">
+<div id="outline-container-org8a19c64" class="outline-3">
+<h3 id="org8a19c64">UTCの設定</h3>
+<div class="outline-text-3" id="text-org8a19c64">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -633,9 +633,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-org37b710b" class="outline-3">
-<h3 id="org37b710b">特殊</h3>
-<div class="outline-text-3" id="text-org37b710b">
+<div id="outline-container-org1a80275" class="outline-3">
+<h3 id="org1a80275">特殊</h3>
+<div class="outline-text-3" id="text-org1a80275">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -654,9 +654,9 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 
-<div id="outline-container-orga72a87f" class="outline-3">
-<h3 id="orga72a87f">文字列取得</h3>
-<div class="outline-text-3" id="text-orga72a87f">
+<div id="outline-container-orgbc79a8c" class="outline-3">
+<h3 id="orgbc79a8c">文字列取得</h3>
+<div class="outline-text-3" id="text-orgbc79a8c">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -697,7 +697,7 @@ alert("経過ミリ秒は" + elapseMilliSeconds);      // 経過秒をダイア�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="date">Created: 2021-03-03 水 15:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

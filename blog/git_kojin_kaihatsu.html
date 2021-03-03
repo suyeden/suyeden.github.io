@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-02-19 金 23:52 -->
+<!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git による個人開発フロー</title>
@@ -242,21 +242,138 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Git による個人開発フロー</h1>
-<div id="outline-container-orgfc87cd5" class="outline-2">
-<h2 id="orgfc87cd5"></h2>
-<div class="outline-text-2" id="text-orgfc87cd5">
+<div id="outline-container-org9227e89" class="outline-2">
+<h2 id="org9227e89"></h2>
+<div class="outline-text-2" id="text-org9227e89">
 <hr />
 </div>
-<div id="outline-container-orga336d16" class="outline-3">
-<h3 id="orga336d16"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orga336d16">
+<div id="outline-container-org40d5204" class="outline-3">
+<h3 id="org40d5204"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org40d5204">
 <hr />
+
+<p>
+必要なのはmasterとfeatureの2つだけ<br />
+</p>
+
+<ol class="org-ol">
+<li>GitHubにてタスクごとにIssueを作成する<br />
+まず、該当のGitHubリポジトリでIssueを作成します。例えば、「Usersテーブルにnameカラムを追加」などです。<br />
+Issueを作成することで、それがそのままTodoリストになるので便利です。<br /></li>
+
+<li><p>
+ローカル環境にてIssueに対応する名前でmasterからブランチを作成<br />
+ローカル環境にて先程作成したIssueに対応する名前でブランチを作成します。<br />
+日本語で作成すると文字コードの関係でエラーの原因にもなるため、英数字+記号でブランチを作成するのが無難です。<br />
+また、現場にもよりますが改修時は「feature/」というプレフィックス付きでブランチを作成することもあるので、ここでも採用します。<br />
+-b オプションによって、ブランチの作成と同時にそのブランチに移動します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git checkout -b feature/grate_hogehoge
+</pre>
 </div>
+<p>
+機能開発ではなくバグフィックスの場合は、feature/ではなくbugfix/としてもよいです。<br />
+この辺りは好みなのでお好きに書きましょう。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># バグフィックスの場合
+git checkout -b bugfix/unko_hogehoge
+</pre>
+</div></li>
+
+<li><p>
+作業終了後、コミット前に変更したファイルと差分を確認する<br />
+上記が完了した後は作業に取り掛かり、完了後は下記のコマンドを実行して変更されているファイルの一覧を確認します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git status
+</pre>
+</div>
+<p>
+変更する予定のないファイルが紛れ込んでいたら、この段階で変更を取り消しておきます。<br />
+また、変更の内容をファイルごとに確認する場合は下記のコマンドを実行します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff ファイル名
+</pre>
+</div></li>
+
+<li><p>
+問題がなければ(featureブランチへ)コミットしてリモートブランチにプッシュする<br />
+「-m（–message）」オプションをつけてそのままコミットメッセージを書いてもいいのですが、長々書く場合はオプションをつけずにエディタを開きます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># gitにファイル追加
+git add &lt;ファイル名&gt;
+# コミット
+git commit -m "#4 最高の改修を圧倒的に生産してやったぜ"
+# リモートにプッシュ (以下どちらか)
+git push origin HEAD
+git push origin feature/grate_hogehoge
+</pre>
+</div>
+<p>
+ブランチ名ではなくHEAD（現在の作業場所を示すポインタ）とすることで、ブランチ名を指定しなくてもカレントブランチをリモートブランチにプッシュできます。<br />
+個人開発ではプッシュのタイミングにこだわる必要はありません。<br />
+GithubではプッシュすることでIssuesに紐付けたコミットコメントが表示されたりするので、モチベーションを高めるためにこまめにプッシュしたりします。<br />
+</p></li>
+
+<li>自分に向けてプルリクエストを作成する<br />
+プッシュした後はGitHubの該当リポジトリを開き、プッシュしたブランチからプルリクエストを作成します。<br />
+「close #Issue番号」と記載してプルリクエストを作成します。<br />
+例えば「close #1」とすることで、プルリクエストがマージされたときに#1のIssueが自動的にクローズします。<br />
+数字は最初に作成したIssueの番号を指定します。<br /></li>
+
+<li>内容を確認後マージする<br />
+レビュワーが自分一人の場合はそのまま自分でマージすることになります。事前に差分は確認していると思うので、ここでは特に何もせずマージしてしまいます。<br />
+マージ後は作業ブランチが必要なくなるので削除します。<br />
+事前に該当のGitHubリポジトリの「Settings &gt; Options &gt; Merge button」から「Automatically delete head branches」にチェックを入れておくことで、マージされるときに自動的に作業ブランチが削除されます。<br /></li>
+
+<li><p>
+マージ完了後、ローカル環境にてmasterブランチをプルしておく<br />
+GitHub上でマージが完了した後は、ローカル環境で下記のコマンドを実行して、masterブランチに移動します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git checkout master
+</pre>
+</div>
+<p>
+そして、下記コマンドを実行してmasterブランチを更新します。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git pull origin master
+</pre>
+</div>
+<p>
+ローカルの作業ブランチも必要なくなる場合が多いので、下記のコマンドを実行して削除して完了です！<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git branch -d feature/add_name_column
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8120808" class="outline-2">
+<h2 id="org8120808">Git運用ルールまとめ</h2>
+<div class="outline-text-2" id="text-org8120808">
+<ol class="org-ol">
+<li>GitHubにてタスクごとにIssueを作成する<br /></li>
+<li>ローカル環境にてIssueに対応する名前でブランチを切る<br /></li>
+<li>作業終了後、コミット前に変更したファイルと差分を確認する<br /></li>
+<li>問題がなければコミットしてリモートブランチにプッシュする<br /></li>
+<li>自分に向けてプルリクエストを作成する<br /></li>
+<li>内容を確認後マージする<br /></li>
+<li>マージ完了後、ローカル環境にてmasterブランチをプルしておく<br /></li>
+</ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="date">Created: 2021-03-03 水 15:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

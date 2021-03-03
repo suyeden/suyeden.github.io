@@ -6,7 +6,7 @@
 <!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Git</title>
+<title>Emmet記法</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -241,37 +241,289 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Git</h1>
-<div id="outline-container-orgeeaf45f" class="outline-2">
-<h2 id="orgeeaf45f"></h2>
-<div class="outline-text-2" id="text-orgeeaf45f">
+<h1 class="title">Emmet記法</h1>
+<div id="outline-container-org2fbed0a" class="outline-2">
+<h2 id="org2fbed0a"></h2>
+<div class="outline-text-2" id="text-org2fbed0a">
 <hr />
 </div>
-<div id="outline-container-org9d5bec2" class="outline-3">
-<h3 id="org9d5bec2"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9d5bec2">
+<div id="outline-container-orgdd46887" class="outline-3">
+<h3 id="orgdd46887"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgdd46887">
 <hr />
 </div>
 </div>
-
-<div id="outline-container-org896dbc6" class="outline-3">
-<h3 id="org896dbc6"><a href="git_tutorial.html">Git チュートリアル</a></h3>
 </div>
 
-<div id="outline-container-org7db9fe2" class="outline-3">
-<h3 id="org7db9fe2"><a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h3>
+<div id="outline-container-org374a33d" class="outline-2">
+<h2 id="org374a33d">Emmet記法 HTMLチートシート</h2>
+<div class="outline-text-2" id="text-org374a33d">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">記法</th>
+<th scope="col" class="org-left">機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">！</td>
+<td class="org-left">HTMLのテンプレートを展開</td>
+</tr>
+
+<tr>
+<td class="org-left">div</td>
+<td class="org-left">＜div＞＜/div＞</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">＜a href=""＞＜/a＞・「a:」以降に"link"や"blank"等を付け加えられる</td>
+</tr>
+
+<tr>
+<td class="org-left">#id</td>
+<td class="org-left">div#id名 → ＜div id="id名"＞＜/div＞</td>
+</tr>
+
+<tr>
+<td class="org-left">.class</td>
+<td class="org-left">div.クラス名 → ＜div class="クラス名"＞＜/div＞</td>
+</tr>
+
+<tr>
+<td class="org-left">[id・クラス以外の属性]</td>
+<td class="org-left">a[title="My Site"] → ＜a href="" title="My Site"＞＜/a＞</td>
+</tr>
+
+<tr>
+<td class="org-left">{テキスト}</td>
+<td class="org-left">要素にテキストを入れる</td>
+</tr>
+
+<tr>
+<td class="org-left">＊個数</td>
+<td class="org-left">同じ要素を複数作成</td>
+</tr>
+
+<tr>
+<td class="org-left">＄＊個数</td>
+<td class="org-left">連番の指定・＄の個数で連番の桁数を指定</td>
+</tr>
+
+<tr>
+<td class="org-left">＆@数字＊個数</td>
+<td class="org-left">開始数字を指定した上で連番の指定</td>
+</tr>
+
+<tr>
+<td class="org-left">＞</td>
+<td class="org-left">階層(ネスト)の表現</td>
+</tr>
+
+<tr>
+<td class="org-left">＞要素1+要素2</td>
+<td class="org-left">同階層の要素の表現</td>
+</tr>
+
+<tr>
+<td class="org-left">要素1＞要素2<sup>要素3</sup></td>
+<td class="org-left">要素3を要素1と同階層に戻す</td>
+</tr>
+
+<tr>
+<td class="org-left">(要素)</td>
+<td class="org-left">要素のグループ化 eg. (ul＞li＊3)＊2</td>
+</tr>
+
+<tr>
+<td class="org-left">form</td>
+<td class="org-left">フォームタグの挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">input:t</td>
+<td class="org-left">インプットタイプテキストの挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">input:r</td>
+<td class="org-left">ラジオボタンの挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">input:c</td>
+<td class="org-left">チェックボックスの挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">select</td>
+<td class="org-left">セレクトボックスを挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">lorem</td>
+<td class="org-left">ダミー文章の挿入</td>
+</tr>
+
+<tr>
+<td class="org-left">img</td>
+<td class="org-left">イメージタグの挿入</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+要素名でタグに展開できる<br />
+出てくる候補の右端の！マークでどのように展開されるかを見ることができる (VS Code)<br />
+</p>
+
+<p>
+div#reset.id.btn.disabled → ＜div id="reset" class="btn disabled"＞＜/div＞<br />
+div[data-id="5" title="My Site"] → ＜div data-id="5" title="My Site"＞＜/div＞<br />
+p{hello} → ＜p＞hello＜/p＞<br />
+div.item*10 → ＜div class="item"＞＜/div＞ が10個<br />
+div.item$$$*10 → ＜div class="item001"＞＜/div＞から＜div class="item010"＞＜/div＞まで連番で作成<br />
+</p>
+</div>
 </div>
 
-<div id="outline-container-orgbe45043" class="outline-3">
-<h3 id="orgbe45043"><a href="github_pages.html">GitHub Pages</a></h3>
+<div id="outline-container-org5b9a237" class="outline-2">
+<h2 id="org5b9a237">暗黙的な補完機能</h2>
+<div class="outline-text-2" id="text-org5b9a237">
+<p>
+.container → ＜div class="container"＞＜/div＞<br />
+ul＞.item → ＜ul＞＜li class="item"＞＜/li＞＜/ul＞<br />
+table＞.row＞.col → ＜table＞＜tr class="row"＞＜td class="col"＞＜/td＞＜/tr＞＜/table＞<br />
+</p>
+</div>
 </div>
 
-<div id="outline-container-org695001b" class="outline-3">
-<h3 id="org695001b"><a href="git_koneta.html">Git 小ネタ集</a></h3>
+<div id="outline-container-orgd829a91" class="outline-2">
+<h2 id="orgd829a91">テキストを囲う</h2>
+<div class="outline-text-2" id="text-orgd829a91">
+<p>
+後からタブを上層に追加(選択範囲を別タブで囲う)する時に便利<br />
+</p>
+<ol class="org-ol">
+<li>コマンドパレットを起動 (Ctrl + Shift + p)<br /></li>
+<li>"＞wrap"と挿入し、"Wrap with Abbreviation"を選択<br /></li>
+<li>emmet記法でタブを指定できる<br /></li>
+</ol>
+
+<p>
+選択範囲内の各行についてタブで囲いたい時は"Wrap Indivisual Lines with Abbreviation"を選択<br />
+eg.<br />
+</p>
+<pre class="example">
+- red
+- blue
+- pink
+</pre>
+<p>
+<code>ul＞li*|t</code> と挿入することで<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;ul&gt;
+  &lt;li&gt;red&lt;/li&gt;
+  &lt;li&gt;blue&lt;/li&gt;
+  &lt;li&gt;pink&lt;/pink&gt;
+&lt;/ul&gt;
+</pre>
+</div>
+<p>
+となる<br />
+</p>
+</div>
 </div>
 
-<div id="outline-container-orgd066fe2" class="outline-3">
-<h3 id="orgd066fe2"><a href="git_commit_manner.html">Gitコミット作法</a></h3>
+<div id="outline-container-org1b6421a" class="outline-2">
+<h2 id="org1b6421a">画像に関する情報の取得</h2>
+<div class="outline-text-2" id="text-org1b6421a">
+<ul class="org-ul">
+<li>画像サイズの取得<br />
+カーソルがイメージタグにあることを確認してから、<br />
+コマンドパレットを開いて <code>＞update</code> と挿入して <code>Update Image Size</code> を選択する<br />
+width と height が挿入される<br /></li>
+<li>画像サイズの変更<br />
+<code>width="650"</code> を <code>width="650*2"</code> とし、<br />
+コマンドパレットを開いて <code>＞evaluate</code> と挿入して <code>Evaluate Math Expression</code> を選択すると、<br />
+<code>width="1300"</code> となっている<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org281affa" class="outline-2">
+<h2 id="org281affa">Emmet記法 CSSチートシート</h2>
+<div class="outline-text-2" id="text-org281affa">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">記法</th>
+<th scope="col" class="org-left">機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">margin の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">padding の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">m数字</td>
+<td class="org-left">margin: 数字px; の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">m数字p</td>
+<td class="org-left">margin: 数字%; の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">m数字r</td>
+<td class="org-left">margin: 数字rem; の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">m数字p数字p</td>
+<td class="org-left">margin: 数字% 数字%; の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">m数字-数字</td>
+<td class="org-left">margin: 数字px 数字px; の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">mb数字</td>
+<td class="org-left">margin-bottom: 数字px; (方向の指定) の展開</td>
+</tr>
+
+<tr>
+<td class="org-left">適当な略字の挿入</td>
+<td class="org-left">プロパティの展開</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

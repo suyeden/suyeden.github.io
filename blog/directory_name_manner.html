@@ -6,7 +6,7 @@
 <!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Git</title>
+<title>ディレクトリ名の作法</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -241,37 +241,63 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Git</h1>
-<div id="outline-container-orgeeaf45f" class="outline-2">
-<h2 id="orgeeaf45f"></h2>
-<div class="outline-text-2" id="text-orgeeaf45f">
+<h1 class="title">ディレクトリ名の作法</h1>
+<div id="outline-container-orga813dcb" class="outline-2">
+<h2 id="orga813dcb"></h2>
+<div class="outline-text-2" id="text-orga813dcb">
 <hr />
 </div>
-<div id="outline-container-org9d5bec2" class="outline-3">
-<h3 id="org9d5bec2"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9d5bec2">
+<div id="outline-container-orgf098039" class="outline-3">
+<h3 id="orgf098039"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgf098039">
 <hr />
-</div>
-</div>
 
-<div id="outline-container-org896dbc6" class="outline-3">
-<h3 id="org896dbc6"><a href="git_tutorial.html">Git チュートリアル</a></h3>
-</div>
+<ul class="org-ul">
+<li>bin<br />
+プロジェクトで使用するコマンドの実行ファイル等があるディレクトリ<br /></li>
 
-<div id="outline-container-org7db9fe2" class="outline-3">
-<h3 id="org7db9fe2"><a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h3>
-</div>
+<li>build<br />
+最終的にビルドして自動生成された成果物置き場<br />
+以下２つもほぼ同じ意味:<br />
+<ul class="org-ul">
+<li>dist<br />
+distribution 配付するもの<br /></li>
+<li>dest<br />
+destination 出力されたもの<br /></li>
+</ul></li>
 
-<div id="outline-container-orgbe45043" class="outline-3">
-<h3 id="orgbe45043"><a href="github_pages.html">GitHub Pages</a></h3>
-</div>
+<li>src<br />
+(ObjectsやTools等の)ソースファイルのディレクトリ<br />
+<ul class="org-ul">
+<li>Config<br />
+ソースファイルをコンパイルするためのホストタイプ毎の環境を設定しているディレクトリ<br />
+コンパイルのための各ディレクトリのMakefileのテンプレートも存在<br /></li>
+<li>Objects<br />
+Objects(ライブラリ)のソースコードがあるディレクトリ<br /></li>
+<li>Tools<br />
+コマンドのソースコードがあるディレクトリ<br />
+ここでコンパイル・リンクされたコマンドは、binのディレクトリにインストールされる<br /></li>
+</ul></li>
 
-<div id="outline-container-org695001b" class="outline-3">
-<h3 id="org695001b"><a href="git_koneta.html">Git 小ネタ集</a></h3>
-</div>
+<li>test<br />
+テスト<br /></li>
 
-<div id="outline-container-orgd066fe2" class="outline-3">
-<h3 id="orgd066fe2"><a href="git_commit_manner.html">Gitコミット作法</a></h3>
+<li>docs<br />
+ドキュメント<br /></li>
+
+<li>demo<br />
+デモ<br /></li>
+
+<li>lib<br />
+ライブラリが格納されているディレクトリ<br /></li>
+
+<li>include<br />
+コンパイルするためのincludeファイルが格納されているディレクトリ<br /></li>
+
+<li>util<br />
+必要な他のシステムのライブラリが格納されている。<br /></li>
+</ul>
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-03-03 水 15:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PHP 小ネタ集</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">PHP 小ネタ集</h1>
+<div id="outline-container-orgfcaa0c5" class="outline-2">
+<h2 id="orgfcaa0c5"></h2>
+<div class="outline-text-2" id="text-orgfcaa0c5">
+<hr />
+</div>
+<div id="outline-container-org1453145" class="outline-3">
+<h3 id="org1453145"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org1453145">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1b9e3d" class="outline-2">
+<h2 id="orgc1b9e3d">XAMPP について</h2>
+<div class="outline-text-2" id="text-orgc1b9e3d">
+<p>
+X : Windows or Linux<br />
+A : Apache HTTP Server<br />
+M : MySQL<br />
+P : PHP<br />
+P : Perl<br />
+</p>
+</div>
+<div id="outline-container-orgd3423ab" class="outline-3">
+<h3 id="orgd3423ab">Apache HTTP Server, MySQL の起動</h3>
+<div class="outline-text-3" id="text-orgd3423ab">
+<ol class="org-ol">
+<li>管理者権限でXAMPPコントロールパネルのアイコン（右下のタスクバー等にある）をクリック<br />
+管理者権限で開かなければ、終了の際に <code>"Error:Cannot create file "C:\xampp\xampp-control.ini". Access denied.</code> のようなエラーメッセージが出る。<br /></li>
+<li>「Apache」と「MySQL」の横にある[Start]ボタンをそれぞれクリック<br />
+正常に起動すると、ApacheとMySQLの背景が緑色に変化する<br /></li>
+<li>終了する際はコントロールパネル横の「Quit」を押す。<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgddcb135" class="outline-3">
+<h3 id="orgddcb135">公開フォルダ（WWWサーバーのルートディレクトリ）</h3>
+<div class="outline-text-3" id="text-orgddcb135">
+<p>
+XAMPPコントロールパネルの[Explorer]ボタンをクリックすると、XAMPPをインストールしたフォルダが表示される。<br />
+その中に [htdocs] というフォルダがある<br />
+このフォルダは公開フォルダと呼ばれ、プログラムやWebページを置く場所となる。（フォルダの右クリック→送る→デスクトップで、ショートカットの作成が可能）<br />
+公開フォルダ直下においたファイルは <code>http://localhost/ファイル名</code> でアクセスできる。<br />
+公開フォルダ以下にフォルダを作成し、そこにファイルを置きたい場合は <code>http://localhost/フォルダ名/ファイル名</code> のようにスラッシュで区切られる。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org8fac236" class="outline-3">
+<h3 id="org8fac236">PHPの日本語環境の設定</h3>
+<div class="outline-text-3" id="text-org8fac236">
+<p>
+「php.ini」を編集してphpの日本語環境を設定する。また文字コードも「UTF-8」に統一する。<br />
+php.iniの保存場所は「C:\xampp\php」。<br />
+「php.ini」をテキストエディタで開き、次表の通りに変更する。なお、行の先頭に「;」がある場合は「;」を削除する。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ディレクティブ</th>
+<th scope="col" class="org-left">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">date.timezone</td>
+<td class="org-left">Asia/Tokyo</td>
+</tr>
+
+<tr>
+<td class="org-left">default<sub>charset</sub></td>
+<td class="org-left">"UTF-8"</td>
+</tr>
+
+<tr>
+<td class="org-left">mbstring.language</td>
+<td class="org-left">Japanese</td>
+</tr>
+
+<tr>
+<td class="org-left">mbstring.internal<sub>encoding</sub></td>
+<td class="org-left">UTF-8</td>
+</tr>
+
+<tr>
+<td class="org-left">mbstring.substitute<sub>character</sub></td>
+<td class="org-left">none;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7b4fcee" class="outline-3">
+<h3 id="org7b4fcee">MySQLへの接続</h3>
+<div class="outline-text-3" id="text-org7b4fcee">
+<p>
+MySQL5.7以降では、rootユーザーでログインする⼿順が少し変わっている。これは、セキュリティに対してより厳しくなったことによる変更である。<br />
+rootユーザーには必ずパスワードを設定しなければいけない仕様になっており、MySQL8.0以降にrootユーザーでログインするためにはパスワードの初期設定が必要。<br />
+</p>
+
+<p>
+phpMyAdminでMySQLの「root」パスワードを設定し、そのパスワードを「config.inc.php」に記述する。<br />
+</p>
+<ol class="org-ol">
+<li>ブラウザで <code>http://localhost/phpmyadmin/</code> にアクセスし、phpMyAdminを開く。<br />
+なお、言語が日本語になっていない場合は、日本語に変更する。<br /></li>
+<li>「特権」タブをクリックし、ホストが「localhost」の「root」の「特権を編集」をクリックする。<br /></li>
+<li>「パスワードを変更する」の「パスワード」と「もう一度入力してください」にパスワードを入力し、[実行する]ボタンをクリックする。<br /></li>
+<li>「config.inc.php」をテキストエディタで開く。<br />
+「config.inc.php」の保存場所は <code>C:\xampp\phpMyAdmin</code> 。<br /></li>
+<li>「$cfg['Servers'][$i]['password'] = ";」という記述を検索し、「"」内に 4 で設定したパスワードを記述し、上書き保存する。<br /></li>
+</ol>
+
+<p>
+上記設定を行った上で、MySQLへの接続を行う。<br />
+接続を行うには、管理者権限でXAMPPコントロールパネルを開き、コントロールパネル横の「Shell」をクリックして下記コマンドを実行する。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">mysql -u root -p
+# コマンド実行後、自分で設定したパスワードを入力する
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd9e2aa0" class="outline-2">
+<h2 id="orgd9e2aa0">リモートホストとローカルホスト</h2>
+<div class="outline-text-2" id="text-orgd9e2aa0">
+<ul class="org-ul">
+<li>リモートホスト<br />
+インターネット上のサーバーのこと。<br />
+プログラムを修正するたびにインターネット上のサーバーへプログラムを置くのは手間がかかる。<br />
+また致命的なエラーの時に、同じサーバーにプログラムを置いている他人に迷惑がかかる。<br /></li>
+<li>ローカルホスト<br />
+PHPでプログラムを書く時は、自分のパソコンにApache HTTP ServerなどのサーバーソフトウェアをインストールしてWebサーバー機能を持たせる。<br />
+そのパソコンでPHPのプログラムを書き、ブラウザから自分自身のWebサーバーにアクセスする。<br />
+インターネットを経由せず、自分のパソコンの中だけでクライアントとサーバーのやりとりが完結している状態である。<br />
+こうすることで開発スピードが上がるとともに、致命的なエラーが出ても自分のパソコン内の出来事なので誰にも迷惑をかけない。<br />
+このように自分のパソコン内に配置したWebサーバーのことをローカルホストと呼ぶ。<br />
+自分のパソコンにWebサーバー機能を持たせることを「ローカルホストを立てる」という。<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9f72bbd" class="outline-2">
+<h2 id="org9f72bbd">Webアプリケーションとは</h2>
+<div class="outline-text-2" id="text-org9f72bbd">
+<p>
+インターネットを通じて利用できる、ある機能を持ったWebサイトのこと。<br />
+ブラウザで表示(閲覧)・操作する。<br />
+</p>
+</div>
+<div id="outline-container-orga39fafd" class="outline-3">
+<h3 id="orga39fafd">クライアントとサーバー</h3>
+<div class="outline-text-3" id="text-orga39fafd">
+<pre class="example">
+                                       リクエスト
+                      http://blog.example.com のブログを見せてください
+クライアント   ------------------------------------------------------------&gt;  サーバー
+（ブラウザ）   &lt;------------------------------------------------------------
+  |                                    レスポンス
+  |                                  ブログのHTMLです
+  |
+  |
+  v
+HTMLとして解釈してWebページとして表示する
+</pre>
+<p>
+URLの「http」はプロトコルで、通信手段を表す。<br />
+上記例のURLだとhttpというプロトコルでblog.example.comという場所に行く、と言うことを示す。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgcdcf70a" class="outline-3">
+<h3 id="orgcdcf70a">IPアドレスと名前解決</h3>
+<div class="outline-text-3" id="text-orgcdcf70a">
+<p>
+サーバーの住所は、実際のところIPアドレスという数字でできている。<br />
+URLをIPアドレスに変更するDNSというシステムが存在し、このシステムが動いているサーバーのことをDNSサーバーという。<br />
+世界中のドメイン(○.com、○.com.jpなど)をIPアドレスに対応づけるデータベースを持っている。<br />
+</p>
+<pre class="example">
+
+                           名前解決
+          http://blog.example.com のIPアドレスを教えて
+    --------------------------------------------------------&gt;  DNSサーバー
+    | -------------------------------------------------------
+    | |              xxx.xxx.xxx.xxx です
+    | |
+    | |   
+    | v                                リクエスト
+                      http://blog.example.com のブログを見せてください
+クライアント   ------------------------------------------------------------&gt;  サーバー
+（ブラウザ）   &lt;------------------------------------------------------------
+                                       レスポンス
+                                     ブログのHTMLです
+</pre>
+</div>
+</div>
+<div id="outline-container-orgeb91737" class="outline-3">
+<h3 id="orgeb91737">サーバーの仕事と動作</h3>
+<div class="outline-text-3" id="text-orgeb91737">
+<p>
+リクエストは、そのWebページを持つサーバー(通信や処理を行うコンピュータ, 受け取ったリクエストを解釈し返答であるレスポンスを返す,Server:給仕人)に到着する。<br />
+サーバーではさまざまな処理を経てHTMLをレスポンスとしてする。<br />
+</p>
+<pre class="example">
+   リクエスト    -----------------------------------------------------------------
+---------------&gt; |   Webサーバー       ----------------&gt;    プログラムファイル   |
+&lt;--------------- |                                                  |            |
+   レスポンス    |       ^                                          |            |
+                 |       |                                          |            |
+                 |       | 実行結果 (HTML)                          |            |
+                 |       |                                          |            |
+                 |       |                                          |            |
+                 |                                                  |            |
+                 | PHP実行エンジン   &lt;-------------------------------            |
+                 |   |                                                           |
+                 |   |                                                           |
+                 |   -----プログラムファイルに書かれた通りに処理する             |
+                 |                                                               |
+                 ------------------------ サーバー -------------------------------
+
+Webサーバー : クライアントとやりとりを行う機能
+PHP実行エンジン : 処理を行う機能
+</pre>
+<p>
+リクエストを受け取っているのは、Webサーバーと呼ばれる機能である。<br />
+Webサーバーはリクエストの内容から、どのファイルをレスポンスとして送り返せば良いか解釈する。<br />
+</p>
+</div>
+<div id="outline-container-org298d787" class="outline-4">
+<h4 id="org298d787">リクエストの判別</h4>
+<div class="outline-text-4" id="text-org298d787">
+<p>
+URLが「～.html」で終わっているファイル (HTMLファイル) がリクエストされた時には、数あるファイルの中から該当するHTMLファイルを取り出してレスポンスとする。<br />
+レスポンスにはHTMLや画像を送ることになっているので、見つけたHTMLファイルをそのままクライアントに送る。<br />
+このようなそのまま送れば良いHTMLのことを静的Webページという。<br />
+URLが「～.php」で終わっている場合には、PHP実行エンジンと呼ばれる機能に該当するプログラムファイルを渡す。<br />
+PHP実行エンジンは、ファイルの内容を解釈して処理を行い、HTMLを作成してレスポンスとして送信する。<br />
+このような処理を経てレスポンスとして返ってくるWebページのことを動的Webページという。<br />
+静的Webページがいつも決まったHTMLをレスポンスとするのに対し、動的WebページはPHP実行エンジンの処理結果のページである。<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc6119e7" class="outline-3">
+<h3 id="orgc6119e7">クライアント(ブラウザ)の仕事</h3>
+<div class="outline-text-3" id="text-orgc6119e7">
+<p>
+ブラウザは、リクエストを送ったりレスポンスを受け取ったりするだけでなく、レスポンスとして受け取ったHTMLを解釈し、Webページとして表示を行う機能を持つ。<br />
+この世にたくさんのブラウザが存在するが、HTMLの解釈に違いがあったり、ブラウザごとに独自の機能があったりする。<br />
+Webページを見たり作成したりする場合には、文字コードが重要になってくる。<br />
+ブラウザは見た目の表示だけで無く、文字を正しく表示する仕事も受け持っている。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-03-03 水 15:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

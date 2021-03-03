@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-03-02 火 16:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PHP基礎文法最速マスター</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">PHP基礎文法最速マスター</h1>
+<div id="outline-container-orgbbf4a88" class="outline-2">
+<h2 id="orgbbf4a88"></h2>
+<div class="outline-text-2" id="text-orgbbf4a88">
+<hr />
+</div>
+<div id="outline-container-org9f51d0e" class="outline-3">
+<h3 id="org9f51d0e"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org9f51d0e">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94291e8" class="outline-2">
+<h2 id="org94291e8">基本文法</h2>
+<div class="outline-text-2" id="text-org94291e8">
+</div>
+<div id="outline-container-org2220a28" class="outline-3">
+<h3 id="org2220a28">コードブロック</h3>
+<div class="outline-text-3" id="text-org2220a28">
+<p>
+PHPコードは開始タグ <code>&lt;?php</code> から始まり、終了タグ <code>?&gt;</code> で終了します。<br />
+ただし、終了タグは省略することが推奨されています。<br />
+</p>
+<pre class="example">
+&lt;?php
+echo 'piyo';
+</pre>
+</div>
+</div>
+<div id="outline-container-org0b4686c" class="outline-3">
+<h3 id="org0b4686c">文の終わり</h3>
+<div class="outline-text-3" id="text-org0b4686c">
+<p>
+PHPコードは、 <code>;</code> で一文の終わりを示します。<br />
+</p>
+<pre class="example">
+echo 'hoge';
+</pre>
+</div>
+</div>
+<div id="outline-container-orga1eb292" class="outline-3">
+<h3 id="orga1eb292">コメント</h3>
+<div class="outline-text-3" id="text-orga1eb292">
+<pre class="example">
+// 一行コメント
+# 一行コメント
+/*
+複数行コメント
+複数行コメント
+*/
+</pre>
+</div>
+</div>
+<div id="outline-container-org0c508ba" class="outline-3">
+<h3 id="org0c508ba">変数の宣言</h3>
+<div class="outline-text-3" id="text-org0c508ba">
+<p>
+型はPHPが自動で決定するので、宣言する必要はありません。<br />
+</p>
+<pre class="example">
+$a = 'hoge'; // string
+$b = 1; // integer
+$c = true; // boolean
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org19f03a3" class="outline-2">
+<h2 id="org19f03a3">数値の表現</h2>
+<div class="outline-text-2" id="text-org19f03a3">
+</div>
+<div id="outline-container-org6dd71eb" class="outline-3">
+<h3 id="org6dd71eb">四則演算</h3>
+<div class="outline-text-3" id="text-org6dd71eb">
+<pre class="example">
+$i = 1 + 1; // 2
+$i = 1 - 1; // 0
+$i = 1 * 1; // 1
+$i = 4 / 2; // 2
+$i = 5 % 2; // 1
+</pre>
+</div>
+</div>
+<div id="outline-container-orgea0ee52" class="outline-3">
+<h3 id="orgea0ee52">インクリメント・デクリメント</h3>
+<div class="outline-text-3" id="text-orgea0ee52">
+<pre class="example">
+$i++;
+$i--;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org43f4c62" class="outline-2">
+<h2 id="org43f4c62">文字列操作</h2>
+<div class="outline-text-2" id="text-org43f4c62">
+<p>
+文字列はシングルクォートかダブルクォートで囲みます。<br />
+</p>
+<pre class="example">
+$s = 'hoge';
+$s = "fuga";
+</pre>
+</div>
+<div id="outline-container-org06c5933" class="outline-3">
+<h3 id="org06c5933">特殊文字</h3>
+<div class="outline-text-3" id="text-org06c5933">
+<p>
+ダブルクォートの中では特殊文字を利用できます。<br />
+</p>
+<pre class="example">
+$s = "hoge\nfuga"; // \nは改行
+$s = 'hoge\nfuga'; // \nは文字列
+</pre>
+</div>
+</div>
+<div id="outline-container-orgbd3d332" class="outline-3">
+<h3 id="orgbd3d332">変数展開</h3>
+<div class="outline-text-3" id="text-orgbd3d332">
+<p>
+ダブルクォートの中では変数展開ができます。<br />
+</p>
+<pre class="example">
+$x = hoge;
+$string1 = "$x fuga";
+$string2 = "{$x} fuga";
+</pre>
+</div>
+</div>
+<div id="outline-container-orgdefc245" class="outline-3">
+<h3 id="orgdefc245">結合</h3>
+<div class="outline-text-3" id="text-orgdefc245">
+<pre class="example">
+$string1 = 'hoge';
+$string2 = 'fuga';
+$s = $string1 . $string2; // hogefuga
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org719f627" class="outline-2">
+<h2 id="org719f627">配列</h2>
+<div class="outline-text-2" id="text-org719f627">
+</div>
+<div id="outline-container-org4579b04" class="outline-3">
+<h3 id="org4579b04">初期化</h3>
+<div class="outline-text-3" id="text-org4579b04">
+<pre class="example">
+$array = [];
+</pre>
+</div>
+</div>
+<div id="outline-container-orgb301a37" class="outline-3">
+<h3 id="orgb301a37">リスト</h3>
+<div class="outline-text-3" id="text-orgb301a37">
+<p>
+リストは、キーが数値の連想配列として表現されます。<br />
+</p>
+<pre class="example">
+$array = ['apple', 'melon', 'banana'];
+echo $array[0]; // apple
+</pre>
+<p>
+配列の値を変数に入れることもできます。<br />
+</p>
+<pre class="example">
+$array = ['apple', 'melon', 'banana'];
+[$x, $y, $z] = $array; // $x = 'apple', $y = 'melon', $z = 'banana'
+</pre>
+</div>
+</div>
+<div id="outline-container-org5fd5b5c" class="outline-3">
+<h3 id="org5fd5b5c">連想配列</h3>
+<div class="outline-text-3" id="text-org5fd5b5c">
+<pre class="example">
+$array = [
+  'apple' =&gt; 'red',
+  'melon' =&gt; 'green',
+  'banana' =&gt; 'yellow',
+];
+echo $array['banana']; // yellow
+</pre>
+<p>
+配列の最後の要素の後ろにカンマ,を置いてもいいです。<br />
+最後の要素の後にカンマを置くかどうかについては、時々論争が起きます。<br />
+カンマを置いていると、新しい要素の追加があった時に、カンマ忘れでエラーになりにくいですし、Git上での差分も少なくてすみます。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5d13370" class="outline-3">
+<h3 id="org5d13370">要素の追加</h3>
+<div class="outline-text-3" id="text-org5d13370">
+<pre class="example">
+$array = ['apple', 'melon'];
+$array[] = 'banana'; // $arrayは['apple', 'melon', 'banana']
+</pre>
+<p>
+連想配列の追加はキーを指定します。<br />
+</p>
+<pre class="example">
+$array = ['apple' =&gt; 'red', 'melon' =&gt; 'green'];
+$array['banana'] = 'yellow'; // $arrayは['apple' =&gt; 'red', 'melon' =&gt; 'green', 'banana' =&gt; 'yellow']
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f4fadb" class="outline-2">
+<h2 id="org2f4fadb">特殊な演算子</h2>
+<div class="outline-text-2" id="text-org2f4fadb">
+</div>
+<div id="outline-container-org2ba5b5f" class="outline-3">
+<h3 id="org2ba5b5f">エルビス演算子</h3>
+<div class="outline-text-3" id="text-org2ba5b5f">
+<p>
+$xがtrueであれば、$hogeにxを代入。そうでなければ、$hogeにyを代入する。<br />
+</p>
+<pre class="example">
+$hoge = $x ?: $y;
+</pre>
+</div>
+</div>
+<div id="outline-container-org5bb3360" class="outline-3">
+<h3 id="org5bb3360">Null合体演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org5bb3360">
+<p>
+Nullの判定をする演算子です。<br />
+</p>
+<pre class="example">
+$hoge = $x ?? $y;
+</pre>
+</div>
+</div>
+<div id="outline-container-orga527911" class="outline-3">
+<h3 id="orga527911">宇宙船演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-orga527911">
+<p>
+左辺（a）と右辺（b）を比較し、aが大きい場合は 1、 aとb が等しい場合は 0、 bが大きい場合は -1 をそれぞれ返します。<br />
+</p>
+<pre class="example">
+switch (1 &lt;=&gt; 2) {
+    case 1:
+      echo '左辺の方が大きいです。';
+      break;
+    case -1:
+      echo '右辺の方が大きいです。';
+      break;
+    case 0:
+      echo '両辺は等しいです。';
+      break;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32f0242" class="outline-2">
+<h2 id="org32f0242">スーパーグローバル変数</h2>
+<div class="outline-text-2" id="text-org32f0242">
+<p>
+PHPの定義済み変数です。<br />
+サーバーの設定値やフォームからポストされたデータなど外部から渡された値が格納されています。<br />
+</p>
+<pre class="example">
+$GLOBALS
+$_SERVER
+$_GET
+$_POST
+$_FILES
+$_COOKIE
+$_SESSION
+$_REQUEST
+$_ENV
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb25cf14" class="outline-2">
+<h2 id="orgb25cf14">定数</h2>
+<div class="outline-text-2" id="text-orgb25cf14">
+<p>
+定数には配列も定義できます。定数は慣習的に大文字で書くことになっています。<br />
+</p>
+<pre class="example">
+define('ANIMALS', [
+    'dog',
+    'cat',
+    'bird',
+]);
+echo ANIMALS[1]; // cat
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org74cccc8" class="outline-2">
+<h2 id="org74cccc8">制御文</h2>
+<div class="outline-text-2" id="text-org74cccc8">
+</div>
+<div id="outline-container-org348a76d" class="outline-3">
+<h3 id="org348a76d">if文</h3>
+<div class="outline-text-3" id="text-org348a76d">
+<pre class="example">
+if ( 条件 ) {
+    式
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc7886ae" class="outline-3">
+<h3 id="orgc7886ae">if-else文</h3>
+<div class="outline-text-3" id="text-orgc7886ae">
+<pre class="example">
+if ( 条件 ) {
+    式1
+} else {
+    式2
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org3e741a7" class="outline-3">
+<h3 id="org3e741a7">elseif文</h3>
+<div class="outline-text-3" id="text-org3e741a7">
+<pre class="example">
+if ( 条件1 ) {
+    式1
+} elseif ( 条件2 ) {
+    式2
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org74ec92b" class="outline-3">
+<h3 id="org74ec92b">while文</h3>
+<div class="outline-text-3" id="text-org74ec92b">
+<p>
+条件がtrueの間、ループします。<br />
+</p>
+<pre class="example">
+while ( 条件 ) {
+    式
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org1190520" class="outline-3">
+<h3 id="org1190520">for文</h3>
+<div class="outline-text-3" id="text-org1190520">
+<pre class="example">
+for ($i = 0; $i &lt; 100; $i++) {
+    式
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org69af390" class="outline-3">
+<h3 id="org69af390">foreach文</h3>
+<div class="outline-text-3" id="text-org69af390">
+<pre class="example">
+// 配列の値だけ取り出す場合
+foreach ($array as $value) {
+    式
+}
+// 配列のキーも取り出す場合
+foreach ($array as $key =&gt; $value) {
+    式
+}
+</pre>
+<p>
+多次元配列の場合、複数の変数に値を渡すことができます。(PHP7.1〜)<br />
+</p>
+<pre class="example">
+$array = [
+    ['hoge', 'hogehoge'],
+    ['fuga', 'fugafuga'],
+    ['piyo', 'piyopiyo'],
+];
+foreach ($array as [$single, $double]) {
+    echo $single;
+}
+// hogefugapiyo
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge5e0e4d" class="outline-2">
+<h2 id="orge5e0e4d">例外処理</h2>
+<div class="outline-text-2" id="text-orge5e0e4d">
+<p>
+例外を処理したい場合は、 <code>try-catch</code> 構文で処理します。<br />
+</p>
+<pre class="example">
+try {
+    処理
+} catch(Exception $e) {
+    処理
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5f68e16" class="outline-2">
+<h2 id="org5f68e16">関数</h2>
+<div class="outline-text-2" id="text-org5f68e16">
+</div>
+<div id="outline-container-org5c039bb" class="outline-3">
+<h3 id="org5c039bb">定義</h3>
+<div class="outline-text-3" id="text-org5c039bb">
+<p>
+<code>return</code> で返り値を返します。<br />
+呼び出し時に引数が立ちない場合、 <code>ArgumentCountError</code> の例外が発生します。（PHP7.1〜）<br />
+</p>
+<pre class="example">
+function sum($x, $y) {
+    return $x + $y;
+}
+$total = sum(1, 2); // $total = 3
+</pre>
+<p>
+配列を使えば複数の値を返せます。<br />
+</p>
+<pre class="example">
+function plus_minus($x, $y) {
+    return [$x + $y, $x - $y];
+}
+[$add, $sub] = plus_minus(10, 3); // $add = 13, $sub = 7
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf6e2763" class="outline-3">
+<h3 id="orgf6e2763">型宣言</h3>
+<div class="outline-text-3" id="text-orgf6e2763">
+<p>
+引数と返り値にも型が指定ができる。<br />
+</p>
+<pre class="example">
+function hoge(string $s, int $x): bool {
+    return true;
+}
+</pre>
+<p>
+nullableな型も宣言できます。（PHP7.1〜）<br />
+</p>
+<pre class="example">
+function hoge(?string $s, ?int $x): ?bool {
+    return null;
+}
+</pre>
+<p>
+返り値がない場合、voidを指定することもできます。（PHP7.1〜）<br />
+</p>
+<pre class="example">
+function hoge(string $s): void {
+    $GLOBAL['hoge'] = $s;
+}
+</pre>
+</div>
+<div id="outline-container-org70a4b31" class="outline-4">
+<h4 id="org70a4b31">宣言可能な型</h4>
+<div class="outline-text-4" id="text-org70a4b31">
+<pre class="example">
+string
+int
+bool
+array
+float
+callable
+クラス名 / インターフェイス名
+iterable （PHP7.1〜）
+void （PHP7.1〜）
+object （PHP7.2〜）
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org314e20d" class="outline-3">
+<h3 id="org314e20d">無名関数</h3>
+<div class="outline-text-3" id="text-org314e20d">
+<p>
+関数に名前をつけずに関数を定義することができます。<br />
+</p>
+<pre class="example">
+$bar = 'world';
+$hoge = function($foo) use ($bar) {
+    var_dump($foo . ': ' . $bar);
+};
+$hoge('hello'); // string(12) "hello: world"
+</pre>
+<p>
+即時実行もできます。<br />
+</p>
+<pre class="example">
+(function($foo) use ($bar) {
+    var_dump($foo . ': ' . $bar);
+})('hello'); // string(12) "hello: world"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6454ad2" class="outline-2">
+<h2 id="org6454ad2">クラス</h2>
+<div class="outline-text-2" id="text-org6454ad2">
+</div>
+<div id="outline-container-org3847832" class="outline-3">
+<h3 id="org3847832">定義</h3>
+<div class="outline-text-3" id="text-org3847832">
+<p>
+アクセス修飾子はpublic、protected、privateが使えます。<br />
+</p>
+<pre class="example">
+class Human {
+    public $age = 20;
+    private $name = 'hoge';
+    public function getName() {
+        return $this-&gt;melon;
+    }
+}
+$hoge = new Human();
+echo $hoge-&gt;age; // 20
+echo $hoge-&gt;getName(); // hoge
+</pre>
+</div>
+</div>
+<div id="outline-container-org654cfa3" class="outline-3">
+<h3 id="org654cfa3">継承</h3>
+<div class="outline-text-3" id="text-org654cfa3">
+<pre class="example">
+class Fuga extends Hoge {
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-orgfb31d0a" class="outline-3">
+<h3 id="orgfb31d0a">無名クラス（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-orgfb31d0a">
+<pre class="example">
+$class = new class{
+    public $msg;
+    public function logging() {
+        echo $this-&gt;msg;
+    }
+};
+var_dump($class);
+/*
+object(class@anonymous)#1 (1) {
+  ["msg"]=&gt;
+  NULL
+}
+*/
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-03-02 火 16:25</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

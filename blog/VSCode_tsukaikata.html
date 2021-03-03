@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-02-19 金 23:52 -->
+<!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VSCodeの使い方</title>
@@ -242,31 +242,156 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">VSCodeの使い方</h1>
-<div id="outline-container-orga26cd2d" class="outline-2">
-<h2 id="orga26cd2d"></h2>
-<div class="outline-text-2" id="text-orga26cd2d">
+<div id="outline-container-org5c0ffa9" class="outline-2">
+<h2 id="org5c0ffa9"></h2>
+<div class="outline-text-2" id="text-org5c0ffa9">
 <hr />
 </div>
-<div id="outline-container-org3704a91" class="outline-3">
-<h3 id="org3704a91"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org3704a91">
+<div id="outline-container-org323016f" class="outline-3">
+<h3 id="org323016f"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org323016f">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge814b8d" class="outline-2">
-<h2 id="orge814b8d">サイドバーの表示／非表示</h2>
-<div class="outline-text-2" id="text-orge814b8d">
+<div id="outline-container-org4c92f43" class="outline-2">
+<h2 id="org4c92f43">キーボードから手を離さずにVS Codeで開発</h2>
+<div class="outline-text-2" id="text-org4c92f43">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ショートカットキー</th>
+<th scope="col" class="org-left">機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alt</td>
+<td class="org-left">ツールバーにアクセスできる</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Shift + P</td>
+<td class="org-left">コマンドパレットが開く</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Shift + E</td>
+<td class="org-left">ファイルエクスプローラーを探索</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Q</td>
+<td class="org-left">各領域に移動</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + B</td>
+<td class="org-left">サイドバーの開閉</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + @</td>
+<td class="org-left">ターミナルを開く・Ctrl + Shift + @で新しいターミナル・Ctrl + @で閉じる</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Tab</td>
+<td class="org-left">開いているタブから選んで移動できる・Shiftまぜれば逆順に移動</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + 1</td>
+<td class="org-left">エディタが分割されているとき、最初の分割にフォーカスする</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + W</td>
+<td class="org-left">タブを閉じる</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ctrl + Z</td>
+<td class="org-left">Undo</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Shift + Z</td>
+<td class="org-left">Redo</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Shift + \</td>
+<td class="org-left">対応するカッコに飛ぶ</td>
+</tr>
+
+<tr>
+<td class="org-left">Ctrl + Click</td>
+<td class="org-left">リンク先に飛ぶ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3a44c39" class="outline-2">
+<h2 id="org3a44c39">VS Code 使用の流れ</h2>
+<div class="outline-text-2" id="text-org3a44c39">
+<ul class="org-ul">
+<li>ファイルの編集<br />
+アクティビティーバーからエクスプローラーを開き、フォルダーを追加する。<br />
+エクスプローラー画面で新規ファイルやフォルダーを作成できる。<br />
+右クリックでセーブやリネーム、新規ファイルやフォルダーの作成もできる。<br /></li>
+<li>Emmet記法<br />
+! Return :  HTMLのテンプレートを呼び出す<br />
+ul&gt;li*3 : &lt;ul&gt;直下に&lt;li&gt;を3つ作成する<br />
+等といった独自の記法を利用できる<br /></li>
+<li>css, javascript の読み込み<br />
+css:src でテンプレートを挿入できる。<br />
+作成したリンクにマウスホバーしてCtrl+clickすることでファイルをopen/createできる<br />
+マウスでタブをドラッグすることで画面分割もできる<br /></li>
+<li>CSSの編集<br />
+色を書くと見本が出てき、マウスホバーするとカラーピッカーも出てくる。<br />
+セレクターにマウスホバーすると要素を例示してくれる。<br /></li>
+<li>設定の変更<br />
+Ctrl+, で設定画面を開ける。<br /></li>
+<li>コマンドパレットを使う<br />
+Ctrl + Shift + P で起動、ESCで抜ける<br />
+theme と入力することでカラーテーマが選択できたり、<br />
+minimap と入力することでミニマップ関連の設定を行える。<br />
+ショートカットキーの検索にも使える。<br />
+shortcut と入力して キーボード ショートカットの設定を開ける<br />
+検索して様々な操作を行える。<br /></li>
+<li>マルチカーソルを使う<br />
+クリックした箇所にカーソルを増やす → Alt + Click<br />
+同じ単語を選択する → Ctrl + D<br />
+同じ単語をいっきに選択する → Ctrl + Shift + L<br />
+カーソルを垂直方向に増やす → Ctrl + Alt + 上下矢印<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeccb826" class="outline-2">
+<h2 id="orgeccb826">サイドバーの表示／非表示</h2>
+<div class="outline-text-2" id="text-orgeccb826">
 <p>
 例えば［エクスプローラー］ビューがサイドバーに表示されている状態で、これに対応するアイコンをアクティビティーバーでクリックするとサイドバーが非表示になる。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb795d6e" class="outline-2">
-<h2 id="orgb795d6e">エクスプローラー</h2>
-<div class="outline-text-2" id="text-orgb795d6e">
+<div id="outline-container-orgfe85636" class="outline-2">
+<h2 id="orgfe85636">エクスプローラー</h2>
+<div class="outline-text-2" id="text-orgfe85636">
 <p>
 [開いているエディター]<br />
 ユーザーが現在開いているエディタ（タブ）がエディタグループごとに表示される。<br />
@@ -299,9 +424,9 @@ VS Codeで現在オープンしているフォルダを表す。<br />
 </div>
 </div>
 
-<div id="outline-container-orgb78bd6d" class="outline-2">
-<h2 id="orgb78bd6d">エディタ</h2>
-<div class="outline-text-2" id="text-orgb78bd6d">
+<div id="outline-container-org0875b8f" class="outline-2">
+<h2 id="org0875b8f">エディタ</h2>
+<div class="outline-text-2" id="text-org0875b8f">
 <p>
 1つ1つのタブのことを「エディタ」と呼び、それらを論理的なグループにまとめたもののことを「エディタグループ」と呼ぶ。<br />
 ［エクスプローラー］ビューで「シングルクリック」すると、そのファイルがプレビューエディタに表示される。<br />
@@ -311,13 +436,13 @@ VS Codeで現在オープンしているフォルダを表す。<br />
 </div>
 </div>
 
-<div id="outline-container-org5fa4e4f" class="outline-2">
-<h2 id="org5fa4e4f">クイックオープンとコマンドパレット</h2>
-<div class="outline-text-2" id="text-org5fa4e4f">
+<div id="outline-container-org39d2537" class="outline-2">
+<h2 id="org39d2537">クイックオープンとコマンドパレット</h2>
+<div class="outline-text-2" id="text-org39d2537">
 </div>
-<div id="outline-container-org3a9e473" class="outline-3">
-<h3 id="org3a9e473">クイックオープン</h3>
-<div class="outline-text-3" id="text-org3a9e473">
+<div id="outline-container-org78b4d2e" class="outline-3">
+<h3 id="org78b4d2e">クイックオープン</h3>
+<div class="outline-text-3" id="text-org78b4d2e">
 <p>
 キーボードで［Ctrl］＋［P］キーを押すと、VS Codeの上部にクイックオープンウィンドウが表示される。<br />
 ここからはファイルを開いたり、指定した番号の行に移動したり、エディタグループを切り替えたり、何らかのコマンドを実行したりすることが可能。キーボード主体でVS Codeを使いたければ覚えておこう。<br />
@@ -325,9 +450,9 @@ VS Codeで現在オープンしているフォルダを表す。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org56afdc2" class="outline-3">
-<h3 id="org56afdc2">コマンドパレット</h3>
-<div class="outline-text-3" id="text-org56afdc2">
+<div id="outline-container-org9d24950" class="outline-3">
+<h3 id="org9d24950">コマンドパレット</h3>
+<div class="outline-text-3" id="text-org9d24950">
 <p>
 キーボードで［Ctrl］＋［Shift］＋［P］キーを押すとVS Codeの上部に「コマンドパレット」が表示される（実際には上で紹介したクイックオープンウィンドウで「&gt;」を入力してもよい）。<br />
 VS Codeで実行できる各種コマンドには名前が付いていて、その名前をこのコマンドパレットに入力することでそれらを実行できる。<br />
@@ -336,9 +461,9 @@ VS Codeで実行できる各種コマンドには名前が付いていて、そ�
 </div>
 </div>
 
-<div id="outline-container-orgb3b1930" class="outline-2">
-<h2 id="orgb3b1930">文字コード／行末コード／ファイルの種類を選択する</h2>
-<div class="outline-text-2" id="text-orgb3b1930">
+<div id="outline-container-orge317289" class="outline-2">
+<h2 id="orge317289">文字コード／行末コード／ファイルの種類を選択する</h2>
+<div class="outline-text-2" id="text-orge317289">
 <p>
 ステータスバーの右下には、現在編集中のファイルの文字コードが表示される。ここをマウスでクリックすると、上記のコマンドパレットと同じ位置に「アクションの選択」と書かれたボックスが表示される。選択できるのは［エンコード付きで再度開く］（Reopen with Encoding）と［エンコード付きで保存］（Save with Encoding）だ。カーソルキーを使って、いずれかを選択するか、英字表記にマッチするように文字列を入力して［Enter］キーを押す。どちらを選択した場合も続いて文字コードを指定するドロップダウンが表示されるので、文字コードを選択すると、指定した文字コードでのファイルの再オープンもしくはファイルの保存が行われる。<br />
 </p>
@@ -346,7 +471,7 @@ VS Codeで実行できる各種コマンドには名前が付いていて、そ�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="date">Created: 2021-03-03 水 15:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

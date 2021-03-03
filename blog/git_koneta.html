@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-02-19 金 23:52 -->
+<!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git 小ネタ集</title>
@@ -242,31 +242,428 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Git 小ネタ集</h1>
-<div id="outline-container-orgf6b234b" class="outline-2">
-<h2 id="orgf6b234b"></h2>
-<div class="outline-text-2" id="text-orgf6b234b">
+<div id="outline-container-org341c9f6" class="outline-2">
+<h2 id="org341c9f6"></h2>
+<div class="outline-text-2" id="text-org341c9f6">
 <hr />
 </div>
-<div id="outline-container-orge95c940" class="outline-3">
-<h3 id="orge95c940"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orge95c940">
+<div id="outline-container-org22f1182" class="outline-3">
+<h3 id="org22f1182"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org22f1182">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org79ed7bd" class="outline-2">
-<h2 id="org79ed7bd">git rm とは</h2>
-<div class="outline-text-2" id="text-org79ed7bd">
+<div id="outline-container-orgcad91c2" class="outline-2">
+<h2 id="orgcad91c2">.gitignoreに記載したのに反映されない</h2>
+<div class="outline-text-2" id="text-orgcad91c2">
+<p>
+開発途中で.gitignoreを設定しても、今までgit管理下に置かれていたファイルやディレクトリは消えません。<br />
+なので、過去にアップロードした画像ファイルなどはレポジトリに残っています。<br />
+今回はそれらをレポジトリから消し去り、今後のgit管理対象からも外していきます。<br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+キャッシュを削除<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git rm -r --cached . //ファイル全体キャッシュ削除
+git rm -r --cached [ファイル名/ディレクトリ名]  //ファイルやディレクトリを指定してキャッシュ削除
+</pre>
+</div>
+<p>
+キャッシュの削除でなくとも、 <code>git rm</code> でファイルの追跡から外せる。<br />
+</p></li>
+<li>commit &amp; push<br /></li>
+</ol>
+
+<p>
+キャッシュ削除の際、ファイルを削除しているわけではないのでご安心を。<br />
+また、pushした際に大量のremoveログが出るが、ローカルのファイルが消えたわけではないのでご安心を。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge104e97" class="outline-2">
+<h2 id="orge104e97">git 管理に含めない設定について (.gitignore)</h2>
+<div class="outline-text-2" id="text-orge104e97">
+<p>
+.gitignore を作業ディレクトリに作成<br />
+設定の有効範囲は .gitignore ファイルの有るフォルダ内全部<br />
+</p>
+
+<ul class="org-ul">
+<li><p>
+sample1.rbファイルをGit管理下から除外する<br />
+</p>
+<pre class="example">
+sample1.rb
+</pre></li>
+<li><p>
+コメント<br />
+</p>
+<pre class="example">
+# "#" で始まる行はコメント
+</pre></li>
+<li><p>
+特定の拡張子を無視する<br />
+</p>
+<pre class="example">
+# exe ファイルは要らない
+*.exe
+</pre></li>
+<li><p>
+特定のフォルダの中身全てを無視する<br />
+</p>
+<pre class="example">
+# bin フォルダは要らない
+bin/
+</pre></li>
+<li><p>
+特定のパターンを無視しない<br />
+</p>
+<pre class="example">
+# nuget.exe は必用なファイル
+!/.nuget/nuget.exe
+</pre></li>
+<li><p>
+フォルダ内の特定拡張子を無視<br />
+</p>
+<pre class="example">
+# パッケージフォルダ内の .ts ファイルは要らない
+package/**/*.ts
+</pre></li>
+<li>フォルダそのものを残したい場合<br />
+Git はファイルを管理しているだけなので、空のディレクトリのディレクトリ構造を保存できない。<br />
+残しておきたいフォルダの中に .gitkeep というファイル名で空のファイルを作成すしてディレクトリを残す方法がある。(このファイル名は何でもいい)<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbd4a9b3" class="outline-2">
+<h2 id="orgbd4a9b3">git log</h2>
+<div class="outline-text-2" id="text-orgbd4a9b3">
+<p>
+git log &#x2013;oneline : git log をコンパクトに出力。ざっと履歴を見る時に<br />
+git log -p : git log に加えて、変更箇所も出力<br />
+git log &#x2013;stat : git log に加えて、どのファイルがどれくらい変更されたかを出力<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgccd1c13" class="outline-2">
+<h2 id="orgccd1c13">差分を見る git diff</h2>
+<div class="outline-text-2" id="text-orgccd1c13">
+<ul class="org-ul">
+<li><p>
+git pull する前にリモートとの変更点を見る<br />
+ここでいうリモート名は origin とか<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff HEAD..リモート名/ブランチ名
+</pre>
+</div></li>
+<li><p>
+git push する前にリモートとの変更点を見る<br />
+.. の右側が時系列的に最新とみなされるので、この場合は git commit した後にリモートリポジトリとそのこれから push したい箇所を表示したい場合に使える<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff リモート名/ブランチ名..HEAD
+</pre>
+</div></li>
+<li><p>
+git add する前に変更点を見る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff
+</pre>
+</div></li>
+<li><p>
+git add した後に変更点を見る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># 同じ結果
+git diff --cached
+git diff --staged
+</pre>
+</div></li>
+<li><p>
+今回コミットした変更点を見る<br />
+本来は git diff HEAD<sup>..HEAD</sup> と書くのが正しいが、.. の右側を省略すると暗示的に現在のブランチのHEADを示すことになるので、この書き方で問題なし<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff HEAD^
+</pre>
+</div></li>
+<li><p>
+前回コミット(HEAD)からの差分<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff HEAD
+</pre>
+</div></li>
+<li><p>
+コミット同士を比較する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff 変更前のSHA..変更後のSHA
+</pre>
+</div></li>
+<li><p>
+あるコミットの変更点を見る<br />
+確認したいコミットの SHA だけ分かれば、^ を使うことでそのコミットで変更されたファイルも確認できます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff 確認したいコミットのSHA^..確認したいコミットのSHA
+</pre>
+</div></li>
+<li><p>
+ブランチ同士を比較する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff ブランチA..ブランチB
+</pre>
+</div></li>
+<li><p>
+別ファイル同士を比較する<br />
+&#x2013; の後は常にパスとして認識されます。<br />
+で、それを2つ並べるとそのパス同士の比較になります。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff -- ファイルパスA ファイルパスB
+</pre>
+</div></li>
+<li><p>
+どれくらい変更したかだけを見る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff --stat
+</pre>
+</div></li>
+<li><p>
+ファイル名だけ見る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git diff --name-only
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf5e4cc0" class="outline-2">
+<h2 id="orgf5e4cc0">既存リポジトリでの git init</h2>
+<div class="outline-text-2" id="text-orgf5e4cc0">
+<p>
+誤って git init してしまっても取り消し操作は不要。この操作は非常に安全な操作である。<br />
+<code>Reinitialized existing Git repository in ...</code> というメッセージが出るが心配不要。<br />
+以下ネット上のドキュメンテーションより<br />
+</p>
+<pre class="example">
+Running git init in an existing repository is safe. 
+It will not overwrite things that are already there. 
+The primary reason for rerunning git init is to pick up newly added templates.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf72cdc1" class="outline-2">
+<h2 id="orgf72cdc1">コミットはせずに変更を退避する (git stash)</h2>
+<div class="outline-text-2" id="text-orgf72cdc1">
+<ul class="org-ul">
+<li><p>
+変更を退避する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git stash
+</pre>
+</div></li>
+<li><p>
+退避した作業の一覧を見る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git stash list
+</pre>
+</div></li>
+<li><p>
+退避した作業を戻す<br />
+<code>stash apply stash名</code><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">// stash@{0}の作業をもとに戻すとき
+git stash apply stash@{0}
+</pre>
+</div>
+<p>
+上記コマンドだと、addしていた変更もaddされていない状態で戻る。addした状態そのままに戻したい時は、上記のコマンドに&#x2013;indexオプションを付けて実行<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git stash apply stash@{0} --index
+</pre>
+</div></li>
+<li><p>
+退避した作業を消す<br />
+stashを使用して退避した作業を元に戻しても、退避した作業はそのまま残る。退避した作業を消すには、以下のコマンドを使用。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">// stash@{0}を削除します
+git stash drop stash@{0}
+</pre>
+</div></li>
+<li><p>
+退避した作業を元に戻すと同時に、stashのリストから消す<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">// stash@{0}の作業をもとに戻すと同時に、退避作業の中から削除します
+git stash pop stash@{0}
+</pre>
+</div></li>
+<li><p>
+addした変更以外を退避させる<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git stash -k
+</pre>
+</div></li>
+<li><p>
+退避した作業をすべて消す<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git stash clear
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4cf61e2" class="outline-2">
+<h2 id="org4cf61e2">コミット日時を修正する方法</h2>
+<div class="outline-text-2" id="text-org4cf61e2">
+<p>
+<code>amend</code> して <code>rebase</code> するので、push 前のワーキングブランチでやること<br />
+基本的に <code>git push -f</code> でリモートブランチの過去を改変したりはしないこと<br />
+</p>
+
+<ul class="org-ul">
+<li>直前のコミット日時を修正 (直前コミットの修正と基本は同じ)<br />
+<ol class="org-ol">
+<li><p>
+現状のコミット日時を確認<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git log --pretty=fuller
+</pre>
+</div></li>
+<li><p>
+AuthorDate を修正する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git commit --amend --date="Sat Sep 21 15:00:00 2019 +0900"
+</pre>
+</div>
+<p>
+エディタが立ち上がるので保存して終了する<br />
+</p></li>
+<li><p>
+CommitDate を AuthorDate に合わせて修正する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git rebase HEAD~1 --committer-date-is-author-date
+</pre>
+</div></li>
+<li><p>
+CommitDate, AuthorDate 共に日時が変更されていることを確認<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git log --pretty=fuller
+</pre>
+</div></li>
+</ol></li>
+
+<li>２つ以上前のコミット日時を修正<br />
+<ol class="org-ol">
+<li><p>
+現状のコミット日時を確認<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git log --pretty=fuller
+</pre>
+</div></li>
+<li><p>
+3つ分のコミット時間を修正することにする<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git rebase -i HEAD~3
+</pre>
+</div>
+<p>
+エディタが立ち上がるので、変更したいコミットに対して pick を edit に変えて保存<br />
+</p>
+<pre class="example">
+1 pick 7b92777 Second commit
+2 pick 1338ca6 Third commit
+3 pick a505b00 Foyrth commit
+
+↓
+
+1 edit 7b92777 Second commit
+2 edit 1338ca6 Third commit
+3 edit a505b00 Foyrth commit
+</pre></li>
+<li><p>
+edit にしたコミットを、古いものから修正していく<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git commit --amend --date="Sat Sep 21 16:00:00 2019 +0900"
+</pre>
+</div>
+<p>
+エディタが立ち上がるので保存して終了<br />
+</p></li>
+<li><p>
+これで <code>7b92777 Second commit</code> は修正できたので、次のコミットに移る<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git rebase --continue
+</pre>
+</div>
+<p>
+残り2つのコミットも同じように修正<br />
+最後のコミットで <code>git rebase --continue</code> すると、 <code>Successdfully rebased and updated refs/heads/master.</code> と表示されて完了<br />
+</p></li>
+<li><p>
+3つ分のコミットについて、 CommitDate を AuthorDate に合わせて修正する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git rebase HEAD~3 --committer-date-is-author-date
+</pre>
+</div></li>
+<li><p>
+CommitDate, AuthorDate 共に日時が変更されていることを確認<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git log --pretty=fuller
+</pre>
+</div></li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org77c5929" class="outline-2">
+<h2 id="org77c5929">git rm とは</h2>
+<div class="outline-text-2" id="text-org77c5929">
 <p>
 rmコマンドと違い、ステージングエリアに反映させるので、いちいちステージングエリアにaddしなくてもそのままgit commitできる。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgcb6ca1b" class="outline-2">
-<h2 id="orgcb6ca1b">ローカルブランチを削除する</h2>
-<div class="outline-text-2" id="text-orgcb6ca1b">
+<div id="outline-container-org4a6fae6" class="outline-2">
+<h2 id="org4a6fae6">ローカルブランチを削除する</h2>
+<div class="outline-text-2" id="text-org4a6fae6">
 <ol class="org-ol">
 <li><p>
 ローカルブランチの確認<br />
@@ -296,9 +693,9 @@ git branch -d [ブランチ名]
 </div>
 </div>
 
-<div id="outline-container-org98457e8" class="outline-2">
-<h2 id="org98457e8">git で誤って push してしまったときの push の取り消し方法</h2>
-<div class="outline-text-2" id="text-org98457e8">
+<div id="outline-container-org1d68fdd" class="outline-2">
+<h2 id="org1d68fdd">誤って commit/push してしまったときの commit/push の取り消し方法 (修正ではなく無かったことにする)</h2>
+<div class="outline-text-2" id="text-org1d68fdd">
 <p>
 push したこと自体をなかったことにしたい場合は、誤って push した分のコミットを戻してファイルの変更もコミットもなかったことにし、強制PUSHを行う。<br />
 </p>
@@ -306,7 +703,11 @@ push したこと自体をなかったことにしたい場合は、誤って pu
 <ul class="org-ul">
 <li><p>
 戻したいコミットが直前だけの場合<br />
-ローカルでの直前のコミットを取り消して、リモートブランチへ強制pushすることで修正する。<br />
+ローカルでの直前のコミットを取り消して、リモートブランチへ強制pushすることで取り消す。<br />
+</p>
+
+<p>
+コミットの取り消し<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-bash"># ローカルの直前のコミットを取り消す
@@ -314,6 +715,7 @@ git reset --hard HEAD^
 </pre>
 </div>
 <p>
+プッシュの取り消し<br />
 ブランチ名の前に+をつけることで強制PUSHになる。<br />
 </p>
 <div class="org-src-container">
@@ -363,9 +765,32 @@ git branch
 </div>
 </div>
 
-<div id="outline-container-org40276a2" class="outline-2">
-<h2 id="org40276a2">git で誤って削除・編集したファイルを復元する方法</h2>
-<div class="outline-text-2" id="text-org40276a2">
+<div id="outline-container-org3557e8d" class="outline-2">
+<h2 id="org3557e8d">直前のコミットを(軽く)修正する方法</h2>
+<div class="outline-text-2" id="text-org3557e8d">
+<p>
+コミットメッセージを直したい or 前回のコミット内容を少し修正したい(新たにコミットはしたくない) ときに有効<br />
+<code>git commit --amend</code> で直前のコミットを変更できる<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># ファイルの修正を行ってから (無修正でも可)
+# ファイルの修正を行った場合は git add して
+git add ～
+# 以下コマンドで直前のコミット内容を現在のものに変更する
+git commit --amend
+# エディタが立ち上がるため、コミットメッセージを修正したい場合はここで修正する
+# git commit --amend --no-edit とすれば、前回のコミットメッセージのままコミットする
+</pre>
+</div>
+<p>
+強制pushすればリモートも修正される<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f004fc" class="outline-2">
+<h2 id="org6f004fc">誤って削除・編集したファイルを復元する方法</h2>
+<div class="outline-text-2" id="text-org6f004fc">
 <ul class="org-ul">
 <li>commit する前<br />
 <ul class="org-ul">
@@ -385,9 +810,9 @@ git branch
 </div></li>
 </ul></li>
 
-<li>commit した後<br />
-<ul class="org-ul">
-<li>特定のコミット地点にファイルを戻す方法<br />
+<li><p>
+commit した後 (特定のコミット地点にファイルを戻す)<br />
+</p>
 <ul class="org-ul">
 <li><p>
 ファイルを削除してしまった場合<br />
@@ -405,15 +830,41 @@ git branch
 <pre class="src src-bash">git checkout コミットID (ファイル名)
 </pre>
 </div></li>
-</ul></li>
-</ul></li>
+</ul>
+<p>
+push する場合はもう少し操作が必要<br />
+このままだと、HEADにいる状態になっているため、ブランチ名をリネームして置き換える。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># 今いる場所がHEADになっていることがわかる
+git branch
+# (HEAD detached at b08a643)
+
+# 元のmasterブランチをリネームする
+git branch -m master master_old
+
+# 今のHEADを元にmasterブランチを作成し、移動する
+git checkout -b master
+
+git branch
+# * master
+#   master_old
+</pre>
+</div>
+<p>
+強制PUSHで状態を元に戻す。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git push origin +master
+</pre>
+</div></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org69be984" class="outline-2">
-<h2 id="org69be984">git add を取り消す</h2>
-<div class="outline-text-2" id="text-org69be984">
+<div id="outline-container-orgaf18c09" class="outline-2">
+<h2 id="orgaf18c09">git add を取り消す</h2>
+<div class="outline-text-2" id="text-orgaf18c09">
 <ul class="org-ul">
 <li><p>
 はじめてのgit add を取り消す<br />
@@ -440,9 +891,153 @@ git reset HEAD file_name
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgcace199" class="outline-2">
+<h2 id="orgcace199">reset と checkout の違い</h2>
+<div class="outline-text-2" id="text-orgcace199">
+<ol class="org-ol">
+<li>コミットレベルの時<br />
+<ul class="org-ul">
+<li><p>
+reset<br />
+<code>git reset [--soft|--mixed|--hard] &lt;commit&gt;</code><br />
+指定された &lt;commit&gt; まで HEAD を移動させ, それまでのコミットを破棄します.<br />
+</p>
+<pre class="example">
+                 HEAD
+                  |
+                  v
+                 master
+                  |
+                  v
+A --- B --- C --- D
+</pre>
+<p>
+C と D を破棄して B からやり直したいという場合, 次のようになります:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git reset HEAD~2
+</pre>
+</div>
+<pre class="example">
+     HEAD
+      |
+      v
+     master
+      |
+      v
+A --- B
+</pre>
+<p>
+今回は &#x2013;soft, &#x2013;mixed, &#x2013;hard いずれかのオプションを付け加えなかったので, デフォルトの &#x2013;mixed が暗黙的に付け加えられます.<br />
+&#x2013;mixed は Working Directory は D の状態のまま維持しますが, Staging Area は C の状態に変更します.<br />
+オプションの違いは次のようになります:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Working Directory</th>
+<th scope="col" class="org-left">Staging Area</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#x2013;soft</td>
+<td class="org-left">Keeped</td>
+<td class="org-left">Keeped</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;mixed</td>
+<td class="org-left">Keeped</td>
+<td class="org-left">Changed</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;hard</td>
+<td class="org-left">Changed</td>
+<td class="org-left">Changed</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>checkout<br />
+<ul class="org-ul">
+<li><p>
+指定したコミットに HEAD を移動させる<br />
+<code>git checkout &lt;commit-or-branch&gt;</code><br />
+次のようなコミットをしてきたとして:<br />
+</p>
+<pre class="example">
+                HEAD
+                 |
+                 v
+                master
+                 |
+                 v
+A --- B ---C --- D
+</pre>
+<p>
+次のようにすると:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git checkout HEAD~2
+</pre>
+</div>
+<p>
+次のようになります:<br />
+</p>
+<pre class="example">
+     HEAD       master
+      |          |
+      v          v
+A --- B ---C --- D
+</pre>
+<p>
+Working Directory の状態が B に変更され, B のファイルを調べることができます.<br />
+また HEAD が master から離れ B に移動したことによって ‘detached HEAD’ という状態になりました.<br />
+この状態だと実験的なコミットを作って破棄したり, 新しくブランチを作って, そこから作る新たなコミットを保持することもできます.<br />
+</p></li>
+
+<li>指定したブランチに HEAD を移動させる<br />
+<code>git checkout master</code><br />
+HEAD や HEAD~2 といったコミットではく, master などとブランチを指定するとその指定したブランチに HEAD を移動させることができます.<br />
+そしてコミットを指定した時と同じように Working Directory を指定したブランチのものに変更します.<br /></li>
+</ul></li>
+</ul></li>
+
+<li>ファイルレベルの時<br />
+<ul class="org-ul">
+<li>reset<br />
+git reset がファイルレベルで使われると, コミットレベルで使われる場合とうって変わり, プライベートレポジトリでも使うことができるようになります.<br />
+また &#x2013;soft, &#x2013;mixed, &#x2013;hard といったオプションを付け加えることができなくなります.<br />
+<code>git reset &lt;commit&gt; &lt;file&gt;</code><br />
+指定した &lt;commit&gt; の &lt;file&gt; を現在の Staging Area に持ってきます.<br />
+ステージしたファイルをアンステージする場合にも使える<br /></li>
+
+<li>checkout<br />
+<code>git checkout &lt;commit&gt; &lt;file&gt;...</code><br />
+コミットレベルの場合と異なりファイルレベルの checkout は HEAD が移動しません.<br />
+指定した &lt;commit&gt; の指定した &lt;file&gt; を現在の Working Directory と Staging Area に持ってきます.<br />
+git reset のファイルレベルも同じような働きをしますが, そっちの方は Staging Area のみ変更し,<br />
+git checkout のファイルレベルは Staging Area に加えて Working Directory も変更します.<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="date">Created: 2021-03-03 水 15:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

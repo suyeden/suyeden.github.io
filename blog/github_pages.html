@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-02-19 金 23:52 -->
+<!-- 2021-03-03 水 15:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Github Pages</title>
+<title>GitHub Pages</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -241,23 +241,111 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Github Pages</h1>
-<div id="outline-container-orgb2a66f4" class="outline-2">
-<h2 id="orgb2a66f4"></h2>
-<div class="outline-text-2" id="text-orgb2a66f4">
+<h1 class="title">GitHub Pages</h1>
+<div id="outline-container-org3d65d05" class="outline-2">
+<h2 id="org3d65d05"></h2>
+<div class="outline-text-2" id="text-org3d65d05">
 <hr />
 </div>
-<div id="outline-container-org82b9a20" class="outline-3">
-<h3 id="org82b9a20"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org82b9a20">
+<div id="outline-container-org4fe1935" class="outline-3">
+<h3 id="org4fe1935"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org4fe1935">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9f6437d" class="outline-2">
-<h2 id="org9f6437d">GitHub Pagesを使ったWebページでREADME.mdが初期表示されないようにする</h2>
-<div class="outline-text-2" id="text-org9f6437d">
+<div id="outline-container-org75cb8ba" class="outline-2">
+<h2 id="org75cb8ba">GitHub Pages とは</h2>
+<div class="outline-text-2" id="text-org75cb8ba">
+<p>
+GitHub が持つ静的なウェブページをホスティングする機能<br />
+ウェブぺージを Git/GitHub を使って簡単に作成できる<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81fc62a" class="outline-2">
+<h2 id="org81fc62a">GitHub Pages 作成の手順</h2>
+<div class="outline-text-2" id="text-org81fc62a">
+<ol class="org-ol">
+<li>ユーザサイト用リポジトリの作成<br />
+GitHub にてページ右上の「+」をクリックし、「New Repository」をクリック<br /></li>
+<li>「Repository name」欄に「ユーザー名.github.io」と入力し、「Create repository」ボタンをクリック<br />
+この際「Description」は任意で入力、「Public」にチェック、「Initialize this repository with a README」にチェックする<br /></li>
+<li>以下3通りの方法によりローカルリポジトリを用意<br />
+
+<ul class="org-ul">
+<li><p>
+全く新しいリポジトリを作成する場合<br />
+「username.github.io」ディレクトリを作成し、README.mdファイルを作成。<br />
+</p>
+<pre class="example">
+# username.github.io
+
+This is my Github Pages site.
+</pre>
+<p>
+のように README.md に書き込み、以下の操作を行う。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># 以下ローカルリポジトリの準備操作
+git init
+git add README.md
+git commit -m "Initial commit"
+# 以下リモート情報の追加操作
+# 現在のブランチを master と名付ける
+git branch -M master
+git remote add origin https://github.com/username/username.github.io.git
+git push -u origin master
+</pre>
+</div></li>
+
+<li><p>
+すでに作成したリポジトリをプッシュする場合<br />
+ローカルリポジトリがすでに存在している場合、以下のようにしてリモート情報を追加する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git remote add origin https://github.com/username/username.github.io.git
+# 現在のブランチを master と名付ける
+git branch -M master
+git push -u origin master
+</pre>
+</div>
+<p>
+必要に応じて以下のように README.md に書き込み、commit -&gt; push する<br />
+</p>
+<pre class="example">
+# username.github.io
+
+This is my Github Pages site.
+</pre></li>
+
+<li><p>
+git clone<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git clone https://github.com/username/username.github.io
+cd username.github.io
+</pre>
+</div>
+<p>
+とし、必要に応じて README.md を更新<br />
+最初の push の時は以下のように行うことで、次からは git push だけで同じことを実施できるようになる<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># git branch -M master が必要かも
+git push -u origin master
+</pre>
+</div></li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org176e52f" class="outline-2">
+<h2 id="org176e52f">GitHub Pagesを使ったWebページでREADME.mdが初期表示されないようにする</h2>
+<div class="outline-text-2" id="text-org176e52f">
 <ol class="org-ol">
 <li>.githubフォルダ（フォルダ名のドットを忘れずに）を作る。<br /></li>
 <li>そこにREADME.mdを突っ込む。<br /></li>
@@ -268,7 +356,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-02-19 金 23:52</p>
+<p class="date">Created: 2021-03-03 水 15:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
