@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2021-03-17 水 15:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>オープンソースライセンス</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">オープンソースライセンス</h1>
+<div id="outline-container-org703010f" class="outline-2">
+<h2 id="org703010f"></h2>
+<div class="outline-text-2" id="text-org703010f">
+<hr />
+</div>
+<div id="outline-container-org35eeb3c" class="outline-3">
+<h3 id="org35eeb3c"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org35eeb3c">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7a92c64" class="outline-2">
+<h2 id="org7a92c64">オープンソースを使用する際の注意点</h2>
+<div class="outline-text-2" id="text-org7a92c64">
+<ul class="org-ul">
+<li>オープンソース＝無償ではない<br /></li>
+<li>派生物もオープンソースになる<br />
+OSSにおける派生物とは、改良・再配布された二次的著作物を指します。<br />
+基本的に、OSSを使用すると派生物も元の書作物と同じ条件で配布しなければならない、という義務を負います。<br />
+特に、GPLのOSSを使用した場合はソースコードをすべて開示しなければなりません。<br />
+そのため、コピーレフト型のOSSを使用する際は影響を検討したうえで、適用する範囲を調整するなどの対応が必要になります。<br /></li>
+<li>異なるライセンス間での互換性<br />
+複数のOSSを組み合わる場合には、ライセンス間の互換性について注意しなければなりません。<br />
+例えば、先述したOLD BSD LicenseとGPLv2です。OLD BSD Licenseには、宣伝媒体に所定の謝辞を記載する条件があります。<br />
+この条件が、GPLv2にある「GPLv2以上の条件を求めてはいけない」に反することになるため、この2つのライセンスは、共存できません。<br />
+このような状態を「両立性がない」といいます。<br />
+そのため、通常はコピーレフト型同士、あるいは非コピーレフト型同士のように、同じライセンスが適用されるOSSを使用します。<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org84117bc" class="outline-2">
+<h2 id="org84117bc">オープンソースライセンスの3つの分類</h2>
+<div class="outline-text-2" id="text-org84117bc">
+<ul class="org-ul">
+<li><p>
+コピーレフト型<br />
+代表的なライセンス：GPL（GNU General Public License version2、version3）<br />
+</p>
+<pre class="example">
+・著作権表示を保持する
+・無保証
+・誰でも自由に複製、改変、配布することができる
+・GPLライセンスを使用した場合は、その制作物もGPLライセンスで配布する
+</pre>
+<p>
+コピーレフト型ライセンスにはGPLのほか、AGPL（GNU Affero General Public License version 3）やSleepycat Licenseがあります。<br />
+GPLは派生したソフトウェアにもGPLライセンスであることを求めるため、GPLのソースが1行でもコードに混入した場合、そのソースはすべてGPLとして公開する義務が発生します。<br />
+この条件により、GPLプログラムと他のプログラムをリンクや結合した場合、他のプログラムにもGPLの条件を適用する必要があります。<br />
+これは、GPLが適用されているOSSの権利を保護するためになくてはならない規約ですが、一度GPLとなった場合、あとからライセンスを変更することはほぼ不可能なので、ソースの制限の追加に大きな制約が発生します。ソースを公開しないソフトウェアを開発したい一般的なソフトウェア開発会社や、ほかのライセンスの支持者からは、不治の病に例えて「GPL汚染」と呼ばれています。<br />
+</p></li>
+
+<li><p>
+準コピーレフト型<br />
+代表的なライセンス：MPL（Mozilla Public License）<br />
+FirefoxやThunderbirdなどのMozillaソフトで採用されている、コピーレフト型から制限を緩めたライセンスです。<br />
+</p>
+<pre class="example">
+・再配布の際には著作権表示を残す
+この点はコピーレフト型と同じですが、特徴は以下の2点です。
+・派生ソフトウェアまでは同じライセンスの適用をおこなう
+・OSSをほかのソフトウェアと組み合わせた場合、組み合わせ先のソフトウェアまではライセンスの適用を要求しない
+</pre>
+<p>
+このため、コピーレフト性を有しながらも、伝播性は弱くなっています。<br />
+</p></li>
+
+<li>非コピーレフト型<br />
+<ul class="org-ul">
+<li><p>
+代表的なライセンス1：BSD License<br />
+最も有名な非コピーレフト型ライセンスは、カリフォルニア州立バークレイ大学によって作成されたBSDライセンスで、特徴は以下の2点です。<br />
+</p>
+<pre class="example">
+・派生物にまで同じライセンスの適用を要求しない
+・ほかのプログラムと組み合わせた場合も、組み合わせ先のソフトウェアにまで同じライセンスの適用を要求しない
+</pre>
+<p>
+この特徴によって、OSSを利用した派生物を配布する場合、ソースコードを非公開にすることができます。<br />
+</p></li>
+<li>代表的なライセンス2：MIT License<br />
+マサチューセッツ工科大学で作成されたライセンスです。<br />
+制限は緩く、著作権表示と許諾表示を記載する義務があります。<br />
+BSD License（2-Clause）と利用条件は類似していますが、MIT Licenseでは、サブライセンスの許諾など、著作権者が許諾する内容が細かく記載されています。<br /></li>
+</ul></li>
+</ul>
+
+<p>
+オープンソースライセンスは、ソースの提供者の権利と名誉を守り、同時にソフトウェアの発展に貢献するために生まれた概念です。<br />
+そのため、悪意のある利用や不正を抑制する目的で、コピーレフト型には非常に厳しい条件が設けられています。<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">OSS のソースコードを提供する義務</th>
+<th scope="col" class="org-left">派生著作物全体のソースコードを提供する義務</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">GPL</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+</tr>
+
+<tr>
+<td class="org-left">LGPL</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">AGPL</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+</tr>
+
+<tr>
+<td class="org-left">CPL</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">EPL</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">MPL</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">CDDL</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">Apache License</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">BSD License</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">MIT License</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+</tr>
+
+<tr>
+<td class="org-left">CC License</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ライセンスの種類</th>
+<th scope="col" class="org-left">著作権表示義務</th>
+<th scope="col" class="org-left">ライセンスの承継</th>
+<th scope="col" class="org-left">OSSのソースコード提供義務</th>
+<th scope="col" class="org-left">結合する他コードへの伝搬性</th>
+<th scope="col" class="org-left">保証免責責任制限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">GPLv3</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無保証で配布</td>
+</tr>
+
+<tr>
+<td class="org-left">GPLv2</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">同上</td>
+</tr>
+
+<tr>
+<td class="org-left">LGPLv2.01</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+<td class="org-left">同上</td>
+</tr>
+
+<tr>
+<td class="org-left">MPL v.1.1,v.2.0</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+<td class="org-left">同上</td>
+</tr>
+
+<tr>
+<td class="org-left">Apache Ver.2.0</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+<td class="org-left">同上</td>
+</tr>
+
+<tr>
+<td class="org-left">修正版 BSD</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+<td class="org-left">同上</td>
+</tr>
+
+<tr>
+<td class="org-left">MIT License</td>
+<td class="org-left">有</td>
+<td class="org-left">有</td>
+<td class="org-left">無</td>
+<td class="org-left">無</td>
+<td class="org-left">同上</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgdff78fb" class="outline-2">
+<h2 id="orgdff78fb">ライセンス関連用語</h2>
+<div class="outline-text-2" id="text-orgdff78fb">
+<ul class="org-ul">
+<li>オープンソース・ソフトウェア（Open Source Software, OSS）<br />
+ソースコードが無償で公開されており、誰でも複製・配布・改良できるソフトウェアのこと。<br /></li>
+<li>派生ソフトウェア（derived works）<br />
+あるソフトウェアを引用または改変して作成されたソフトウェアのこと。<br />
+著作権法における「二次的著作物」を示す。<br /></li>
+<li>頒布（distribution）<br />
+ソフトウェアを第三者へ提供すること。<br />
+「配布」と同義。<br /></li>
+<li>再頒布（redistribution)<br />
+誰かが頒布したソフトウェアを入手し、別の場所で頒布すること。<br />
+派生ソフトウェアを第三者へ提供すること。<br /></li>
+<li>使用（use）<br />
+ソフトウェアを実行したり、ソースコードを閲読・コンパイルすること。<br />
+OSSの場合、ソフトウェアの使用は自由である。<br /></li>
+<li>利用（exploit）<br />
+対象のソフトウェアを複写・改変・再頒布すること。<br />
+新たに作成したソフトウェアの一部として、対象のソフトウェアを同梱すること。<br />
+ソフトウェアの利用は著作権法によって制限されている。OSSの場合はそのライセンスに従う限り利用が可能である。<br /></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">種別</th>
+<th scope="col" class="org-left">使用</th>
+<th scope="col" class="org-left">利用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">プロプライエタリ・ソフトウェア</td>
+<td class="org-left">使用許諾書や独自のライセンスによって制限</td>
+<td class="org-left">禁止</td>
+</tr>
+
+<tr>
+<td class="org-left">オープンソース・ソフトウェア</td>
+<td class="org-left">自由</td>
+<td class="org-left">オープンソース・ライセンスによって制限</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-03-17 水 15:49</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

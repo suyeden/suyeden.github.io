@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-03 水 15:42 -->
+<!-- 2021-03-17 水 15:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org-mode</title>
@@ -242,22 +242,43 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Org-mode</h1>
-<div id="outline-container-orgc0d6564" class="outline-2">
-<h2 id="orgc0d6564"></h2>
-<div class="outline-text-2" id="text-orgc0d6564">
+<div id="outline-container-org0f94069" class="outline-2">
+<h2 id="org0f94069"></h2>
+<div class="outline-text-2" id="text-org0f94069">
 <hr />
 </div>
-<div id="outline-container-org2a16545" class="outline-3">
-<h3 id="org2a16545"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org2a16545">
+<div id="outline-container-org88b96c0" class="outline-3">
+<h3 id="org88b96c0"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org88b96c0">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc72f454" class="outline-2">
-<h2 id="orgc72f454">Markdown 文法</h2>
-<div class="outline-text-2" id="text-orgc72f454">
+<div id="outline-container-org0141563" class="outline-2">
+<h2 id="org0141563">ファイルへのリンクの作成</h2>
+<div class="outline-text-2" id="text-org0141563">
+<p>
+リンクしたいファイルの該当箇所へ行き、org-store-link を行う。<br />
+リンクを貼り付けたいファイルに戻り、C-c C-l をタイプする。<br />
+「Link:」と表示され、保存したリンクの選択画面が出るので、Up や Down でリンクを選んで Enter。<br />
+「Description:」と出てくるので、リンクにつける名前を書く。<br />
+</p>
+<pre class="example">
+[[ファイルのリンク::テキスト情報][ファイルにつけたDescription]]
+</pre>
+<p>
+のようにリンクが貼り付けられる。<br />
+こうすることで、単なるファイルへのリンクだけでなく、ファイル中の該当箇所へのリンク（テキスト検索機能付きのリンク）を作成することができる。<br />
+ただ、デフォルトでは、リンクジャンプした際に検索できるファイル中のテキストは heading 部分（見出し部分）のみに限られている。<br />
+見出し部分以外の検索（a fuzzy text search）も有効にしたい場合は、org-link-search-must-match-exact-headline の値を nil にする必要がある。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91321d9" class="outline-2">
+<h2 id="org91321d9">Markdown 文法</h2>
+<div class="outline-text-2" id="text-org91321d9">
 <ol class="org-ol">
 <li><p>
 コードブロック<br />
@@ -276,7 +297,7 @@ function hello(){
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-03 水 15:42</p>
+<p class="date">Created: 2021-03-17 水 15:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

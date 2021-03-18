@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-17 水 15:58 -->
+<!-- 2021-03-17 水 15:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Git</title>
+<title>シンボリックリンク</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -238,45 +238,205 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Git</h1>
-<div id="outline-container-org8785185" class="outline-2">
-<h2 id="org8785185"></h2>
-<div class="outline-text-2" id="text-org8785185">
+<h1 class="title">シンボリックリンク</h1>
+<div id="outline-container-org69d4bd7" class="outline-2">
+<h2 id="org69d4bd7"></h2>
+<div class="outline-text-2" id="text-org69d4bd7">
 <hr />
 </div>
-<div id="outline-container-org03d440f" class="outline-3">
-<h3 id="org03d440f"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org03d440f">
+<div id="outline-container-orgb30c03f" class="outline-3">
+<h3 id="orgb30c03f"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgb30c03f">
 <hr />
 </div>
 </div>
-
-<div id="outline-container-orgc680571" class="outline-3">
-<h3 id="orgc680571"><a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h3>
 </div>
 
-<div id="outline-container-orgdc60df8" class="outline-3">
-<h3 id="orgdc60df8"><a href="git_koneta.html">Git 小ネタ集</a></h3>
+<div id="outline-container-orgd2e9a33" class="outline-2">
+<h2 id="orgd2e9a33">シンボリックリンクとは</h2>
+<div class="outline-text-2" id="text-orgd2e9a33">
+<p>
+Windowsではファイルやフォルダへのリンク（参照）を行う機能として、ショートカット以外にも様々なリンクがあります。<br />
+その一つが「シンボリックリンク」です。<br />
+一見似たような機能ですが、少なくともショートカットの様に本体のファイルやフォルダを直接開くのとは違います。<br />
+シンボリックリンクは一般に「ソフトリンク」と呼ばれています。<br />
+ソフトリンクは、PCディスク上で扱うファイルやディレクトリを本来の位置に残しつつ、それとは別の場所から或いは別名を付けてアクセスする手段です。<br />
+</p>
+
+<p>
+シンボリックリンクを開くと、元ファイルの場所へジャンプするのではありません。<br />
+シンボリックリンクの中に元ファイルの「擬態」が構成されるようなイメージです。<br />
+複製とは違い擬態しているだけなのですが、開いたファイルへの操作が元ファイルにも反映されます。<br />
+</p>
+
+<p>
+シンボリックリンクはリンク先の元（実体）ファイルが削除されるとリンク先が無くなってしまいます。<br />
+しかしシンボリックリンク自体を削除しても、元ファイルは削除されません。<br />
+シンボリックリンク内のファイルを削除すると元ファイルも削除されてしまいます。<br />
+</p>
+
+<p>
+特徴<br />
+</p>
+<pre class="example">
+・リンク先はファイルでもフォルダでもOK
+・相対パスでも指定できる
+・存在しないファイルに対しても事前に作れる
+・ローカルのPC以外の場所（リモートPCの共有フォルダやその中にあるデータ）へもリンクできる
+・ファイルサイズが小さくて済む
+</pre>
+</div>
 </div>
 
-<div id="outline-container-org3ae7239" class="outline-3">
-<h3 id="org3ae7239"><a href="github_pages.html">GitHub Pages</a></h3>
+<div id="outline-container-orgdae2d3f" class="outline-2">
+<h2 id="orgdae2d3f">シンボリックリンクの注意点</h2>
+<div class="outline-text-2" id="text-orgdae2d3f">
+<p>
+シンボリックリンクでは「ファイル」へのリンクと「フォルダ」へのリンクは異なります。<br />
+</p>
+<pre class="example">
+・ファイルへのリンクは、本体ファイルへ直接アクセスします。
+・フォルダへのリンクは、シンボリックリンク自体からのアクセスになります。
+</pre>
+<p>
+これを踏まえるとシンボリックリンクはフォルダ自体に設置した方が便利だと個人的に思いますね。<br />
+</p>
+</div>
 </div>
 
-<div id="outline-container-orgf191ecf" class="outline-3">
-<h3 id="orgf191ecf"><a href="git_commit_manner.html">Gitコミット作法</a></h3>
+<div id="outline-container-org88a4ad9" class="outline-2">
+<h2 id="org88a4ad9">シンボリックリンクの作り方</h2>
+<div class="outline-text-2" id="text-org88a4ad9">
+<p>
+コマンドプロンプトを管理者権限で起動して「mklink」というコマンドを使って作成する必要があります。<br />
+</p>
+
+<p>
+ショートカットとシンボリックリンクは、フォルダやファイルを開いた時の「ファイルパス」がそれぞれ違います。<br />
+通常のショートカットを開けた場合「Cドライブから対象ファイルまで」がパスになります。<br />
+シンボリックリンクの場合「Cドライブからシンボリックリンクまで」がパスになっています。<br />
+</p>
 </div>
 
-<div id="outline-container-org34d49e4" class="outline-3">
-<h3 id="org34d49e4"><a href="git_tutorial.html">Git チュートリアル</a></h3>
+<div id="outline-container-org8aaba4e" class="outline-3">
+<h3 id="org8aaba4e">コマンドプロンプトで作成できるリンクのコマンドと種類</h3>
+<div class="outline-text-3" id="text-org8aaba4e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">目的</th>
+<th scope="col" class="org-left">コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ファイルにシンボリックリンクを作成</td>
+<td class="org-left">mklink リンク先パス ファイル元パス</td>
+</tr>
+
+<tr>
+<td class="org-left">フォルダにシンボリックリンクを作成</td>
+<td class="org-left">mklink /d リンク先パス フォルダ元パス</td>
+</tr>
+
+<tr>
+<td class="org-left">ファイルにハードリンクを作成</td>
+<td class="org-left">mklink /h リンク先パス ファイル元パス</td>
+</tr>
+
+<tr>
+<td class="org-left">フォルダにジャンクションを作成</td>
+<td class="org-left">mklink /j リンク先パス フォルダ元パス</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+eg.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bat">mklink /d C:\Users\lpeg\Desktop\メモ C:\Users\lpeg\Desktop\webdata\memo
+</pre>
+</div>
+<p>
+上記コマンドを入力する事で、C:\Users\lpeg\Desktop\webdata\memo というフォルダ位置へのシンボリックリンクを C:\Users\lpeg\Desktop\メモ に作る事ができます。<br />
+コードを入れてEnterすると「リンクが作成されました」と出ます。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcae9bcd" class="outline-2">
+<h2 id="orgcae9bcd">シンボリックリンクとショートカットの違い</h2>
+<div class="outline-text-2" id="text-orgcae9bcd">
+<p>
+そもそもショートカットはアクセスするファイルやアプリケーションまでの経路をショートカットします。<br />
+しかしシンボリックリンクはユーザー近道をする事が目的ではありません。<br />
+</p>
+
+<p>
+シンボリックリンクは別の位置から別名でファイルにアクセスできる様にする事が目的です。<br />
+例えば稼働しているプログラム上でこのシンボリックリンクを「パス」として含める事ができます。<br />
+どんなに奥の階層にあるパス（パスが長くなる）でも、シンボリックリンクで身近なところにリンクしておけば、その短くなったパスが使えるのですね。<br />
+</p>
+
+<p>
+そもそもショートカット自体は「.link」が付く拡張子のファイルです。<br />
+PCがその拡張子ファイルをどのように扱うかはデスクトップアプリケーションの仕様によります。<br />
+</p>
+</div>
+
+<div id="outline-container-orgd2ec204" class="outline-3">
+<h3 id="orgd2ec204">参照パス自体が違う</h3>
+<div class="outline-text-3" id="text-orgd2ec204">
+<p>
+ショートカットとシンボリックリンクは、フォルダやファイルを開いた時の「ファイルパス」がそれぞれ違います。<br />
+通常のショートカットを開けた場合「Cドライブから対象ファイルまで」がパスになります。<br />
+シンボリックリンクの場合「Cドライブからシンボリックリンクまで」がパスになっています。<br />
+</p>
+
+<p>
+シンボリックリンクはリンク先が移動するとリンク切れしてしまいます。<br />
+しかしショートカットは多くの場合、リンク先を追随してくれます。ここは便利ですよね。<br />
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-17 水 15:58</p>
+<p class="date">Created: 2021-03-17 水 15:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

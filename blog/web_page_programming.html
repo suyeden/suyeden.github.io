@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-03 水 15:42 -->
+<!-- 2021-03-17 水 15:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Webページのプログラミング</title>
@@ -242,22 +242,22 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Webページのプログラミング</h1>
-<div id="outline-container-orgc58fcd2" class="outline-2">
-<h2 id="orgc58fcd2"></h2>
-<div class="outline-text-2" id="text-orgc58fcd2">
+<div id="outline-container-org78b0bd6" class="outline-2">
+<h2 id="org78b0bd6"></h2>
+<div class="outline-text-2" id="text-org78b0bd6">
 <hr />
 </div>
-<div id="outline-container-org9cc9574" class="outline-3">
-<h3 id="org9cc9574"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9cc9574">
+<div id="outline-container-org3bdb7e1" class="outline-3">
+<h3 id="org3bdb7e1"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org3bdb7e1">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc01eaef" class="outline-2">
-<h2 id="orgc01eaef">『外部JavaScriptファイル』を作ってみる</h2>
-<div class="outline-text-2" id="text-orgc01eaef">
+<div id="outline-container-org8227441" class="outline-2">
+<h2 id="org8227441">『外部JavaScriptファイル』を作ってみる</h2>
+<div class="outline-text-2" id="text-org8227441">
 <p>
 『外部JavaScriptファイル』をWebページに読み込むための、『&lt;script&gt;』タグの書き方です。<br />
 </p>
@@ -300,9 +300,9 @@ HTMLファイルと『外部JavaScriptファイル』が同じフォルダ内に
 </div>
 </div>
 
-<div id="outline-container-org234482d" class="outline-2">
-<h2 id="org234482d">JavaScriptが利用できない場合の処理</h2>
-<div class="outline-text-2" id="text-org234482d">
+<div id="outline-container-org0279aac" class="outline-2">
+<h2 id="org0279aac">JavaScriptが利用できない場合の処理</h2>
+<div class="outline-text-2" id="text-org0279aac">
 <p>
 JavaScriptが利用できない場合の処理を書く方法が、HTMLファイルには用意されています。<br />
 この方法には、『&lt;noscript&gt;』というタグを使います。<br />
@@ -338,9 +338,9 @@ JavaScriptが使える環境では、『&lt;script&gt;』タグの中が処理�
 </div>
 </div>
 
-<div id="outline-container-org42a2621" class="outline-2">
-<h2 id="org42a2621">Webページの書き換え</h2>
-<div class="outline-text-2" id="text-org42a2621">
+<div id="outline-container-org122f1d7" class="outline-2">
+<h2 id="org122f1d7">Webページの書き換え</h2>
+<div class="outline-text-2" id="text-org122f1d7">
 <p>
 JavaScriptから見たWebページは、『window』オブジェクトを頂点とした、階層構造を持っています。<br />
 これらは全てオブジェクトですので、通常のオブジェクトと同じようにプロパティやメソッドを持っており、プログラムで操作できます。<br />
@@ -363,17 +363,17 @@ JavaScriptでは、『document』の各種メソッドを利用して、目的�
 </p>
 </div>
 
-<div id="outline-container-org3d764ec" class="outline-3">
-<h3 id="org3d764ec">『DOM』でのオブジェクト操作</h3>
-<div class="outline-text-3" id="text-org3d764ec">
+<div id="outline-container-orge713413" class="outline-3">
+<h3 id="orge713413">『DOM』でのオブジェクト操作</h3>
+<div class="outline-text-3" id="text-orge713413">
 <p>
 『getElementById』などのメソッドを使い、特定の『Element』オブジェクトを取得できます。<br />
 </p>
 </div>
 
-<div id="outline-container-orgbcf0e33" class="outline-4">
-<h4 id="orgbcf0e33">『getElementById』メソッド</h4>
-<div class="outline-text-4" id="text-orgbcf0e33">
+<div id="outline-container-org6fead49" class="outline-4">
+<h4 id="org6fead49">『getElementById』メソッド</h4>
+<div class="outline-text-4" id="text-org6fead49">
 <pre class="example">
 &lt;div id="target"&gt;目標の文字列&lt;/div&gt;
 </pre>
@@ -397,9 +397,9 @@ ele.innerHTML = "書き換えたよ！";
 </div>
 </div>
 
-<div id="outline-container-org7b4cbcc" class="outline-4">
-<h4 id="org7b4cbcc">『src』プロパティ</h4>
-<div class="outline-text-4" id="text-org7b4cbcc">
+<div id="outline-container-orgacbddb9" class="outline-4">
+<h4 id="orgacbddb9">『src』プロパティ</h4>
+<div class="outline-text-4" id="text-orgacbddb9">
 <p>
 要素の中には、画像のように『src』属性を持つものがあります。<br />
 </p>
@@ -418,9 +418,9 @@ ele.src = "pic/b.gif";        // 画像ファイルのパスを変更
 </div>
 </div>
 
-<div id="outline-container-org7b02ce6" class="outline-4">
-<h4 id="org7b02ce6">『getElementsByTagName』メソッド</h4>
-<div class="outline-text-4" id="text-org7b02ce6">
+<div id="outline-container-orgbd4d5e3" class="outline-4">
+<h4 id="orgbd4d5e3">『getElementsByTagName』メソッド</h4>
+<div class="outline-text-4" id="text-orgbd4d5e3">
 <p>
 これまでの例では、要素は全て『getElementById』メソッドを使って取得してきました。<br />
 しかし、HTMLファイルの全てのタグに『ID』属性を指定するのは大変です。実際のHTMLファイルでは、ほとんどのタグには『id』属性を設定していないでしょう。<br />
@@ -452,9 +452,9 @@ for (var i = 0; i &lt; imgs.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-orgc63d351" class="outline-4">
-<h4 id="orgc63d351">『getElementsByClassName』メソッド</h4>
-<div class="outline-text-4" id="text-orgc63d351">
+<div id="outline-container-org2723fca" class="outline-4">
+<h4 id="org2723fca">『getElementsByClassName』メソッド</h4>
+<div class="outline-text-4" id="text-org2723fca">
 <p>
 次は、クラス名から要素を選択する『getElementsByClassName』メソッドです。『class』は、タグの中に書く属性の1つです。<br />
 『class』属性は『id』属性と違い、同じWebページ中に複数配置することが可能です。<br />
@@ -481,9 +481,9 @@ for (var i = 0; i &lt; targets.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org87a6857" class="outline-4">
-<h4 id="org87a6857">『querySelector』『querySelectorAll』メソッド</h4>
-<div class="outline-text-4" id="text-org87a6857">
+<div id="outline-container-org34b7697" class="outline-4">
+<h4 id="org34b7697">『querySelector』『querySelectorAll』メソッド</h4>
+<div class="outline-text-4" id="text-org34b7697">
 <p>
 次は、『セレクタ』と呼ばれる、特殊な記法で要素を選択する『querySelector』『querySelectorAll』メソッドです。<br />
 『セレクタ』は、『CSS』などで、要素を指定するための書き方です。<br />
@@ -515,17 +515,17 @@ for (var i = 0; i &lt; animals.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org286121a" class="outline-3">
-<h3 id="org286121a">『DOM』で使用できる代表的なメソッド</h3>
-<div class="outline-text-3" id="text-org286121a">
+<div id="outline-container-org7e7080c" class="outline-3">
+<h3 id="org7e7080c">『DOM』で使用できる代表的なメソッド</h3>
+<div class="outline-text-3" id="text-org7e7080c">
 <p>
 以下、『element』と書いてあるオブジェクトは、『document』もしくは『その他の要素』になります。<br />
 </p>
 </div>
 
-<div id="outline-container-org9cd1a7f" class="outline-4">
-<h4 id="org9cd1a7f">要素の取得</h4>
-<div class="outline-text-4" id="text-org9cd1a7f">
+<div id="outline-container-org11247c6" class="outline-4">
+<h4 id="org11247c6">要素の取得</h4>
+<div class="outline-text-4" id="text-org11247c6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -600,9 +600,9 @@ for (var i = 0; i &lt; animals.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org85ba32f" class="outline-4">
-<h4 id="org85ba32f">要素内のHTMLやテキストにアクセス</h4>
-<div class="outline-text-4" id="text-org85ba32f">
+<div id="outline-container-org93e848b" class="outline-4">
+<h4 id="org93e848b">要素内のHTMLやテキストにアクセス</h4>
+<div class="outline-text-4" id="text-org93e848b">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -655,9 +655,9 @@ for (var i = 0; i &lt; animals.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org5e8f2a1" class="outline-4">
-<h4 id="org5e8f2a1">要素内の属性にアクセス（例は『id』へのアクセス）</h4>
-<div class="outline-text-4" id="text-org5e8f2a1">
+<div id="outline-container-org5972b0d" class="outline-4">
+<h4 id="org5972b0d">要素内の属性にアクセス（例は『id』へのアクセス）</h4>
+<div class="outline-text-4" id="text-org5972b0d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -711,9 +711,9 @@ for (var i = 0; i &lt; animals.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-orge054c8a" class="outline-4">
-<h4 id="orge054c8a">要素の追加</h4>
-<div class="outline-text-4" id="text-orge054c8a">
+<div id="outline-container-org5cf1981" class="outline-4">
+<h4 id="org5cf1981">要素の追加</h4>
+<div class="outline-text-4" id="text-org5cf1981">
 <p>
 要素の追加は、『innerHTML』の値に、文字列を設定することで行えます。<br />
 また、要素を作成して、『DOM』の要素として追加することもできます。<br />
@@ -793,9 +793,9 @@ for (var i = 0; i &lt; animals.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org853c94c" class="outline-3">
-<h3 id="org853c94c">『フォーム』の操作</h3>
-<div class="outline-text-3" id="text-org853c94c">
+<div id="outline-container-org76b7d58" class="outline-3">
+<h3 id="org76b7d58">『フォーム』の操作</h3>
+<div class="outline-text-3" id="text-org76b7d58">
 <p>
 Webページには、『フォーム』と呼ばれるオブジェクトがあります。これは、ボタンやリスト、ラジオボタンや、チェックボックスなどです。<br />
 </p>
@@ -918,9 +918,9 @@ for (var i = 0; i &lt; ele.length; i ++) {
 </div>
 </div>
 
-<div id="outline-container-org4c7b807" class="outline-3">
-<h3 id="org4c7b807">『location』オブジェクト</h3>
-<div class="outline-text-3" id="text-org4c7b807">
+<div id="outline-container-orga2c053a" class="outline-3">
+<h3 id="orga2c053a">『location』オブジェクト</h3>
+<div class="outline-text-3" id="text-orga2c053a">
 <p>
 WebページのURLが保持されているオブジェクトです。<br />
 『window.location』『location』のどちらの書き方でも利用できます。<br />
@@ -1009,9 +1009,9 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-orga3bbb32" class="outline-2">
-<h2 id="orga3bbb32">イベント</h2>
-<div class="outline-text-2" id="text-orga3bbb32">
+<div id="outline-container-org7c4a1ee" class="outline-2">
+<h2 id="org7c4a1ee">イベント</h2>
+<div class="outline-text-2" id="text-org7c4a1ee">
 <p>
 『イベント』は、HTMLタグ内の、『イベントハンドラ』というところに書きます。<br />
 この『イベントハンドラ』は、『on～』という名前の属性になっています。<br />
@@ -1040,9 +1040,9 @@ location.href = "http://crocro.com/";
 </p>
 </div>
 
-<div id="outline-container-org30b28a8" class="outline-3">
-<h3 id="org30b28a8">プログラム例</h3>
-<div class="outline-text-3" id="text-org30b28a8">
+<div id="outline-container-orgf2b98b4" class="outline-3">
+<h3 id="orgf2b98b4">プログラム例</h3>
+<div class="outline-text-3" id="text-orgf2b98b4">
 <p>
 『イベントハンドラ』から関数を呼び出すプログラムの解説を行います。<br />
 </p>
@@ -1137,13 +1137,13 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-orga731035" class="outline-2">
-<h2 id="orga731035">『イベント』の詳細な使い方</h2>
-<div class="outline-text-2" id="text-orga731035">
+<div id="outline-container-orgefd492f" class="outline-2">
+<h2 id="orgefd492f">『イベント』の詳細な使い方</h2>
+<div class="outline-text-2" id="text-orgefd492f">
 </div>
-<div id="outline-container-orgfccc892" class="outline-3">
-<h3 id="orgfccc892">よく使う『イベントハンドラ』</h3>
-<div class="outline-text-3" id="text-orgfccc892">
+<div id="outline-container-org030987d" class="outline-3">
+<h3 id="org030987d">よく使う『イベントハンドラ』</h3>
+<div class="outline-text-3" id="text-org030987d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1208,9 +1208,9 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-org645f106" class="outline-3">
-<h3 id="org645f106">『イベント』をプログラムから発生させる</h3>
-<div class="outline-text-3" id="text-org645f106">
+<div id="outline-container-orgee03ab0" class="outline-3">
+<h3 id="orgee03ab0">『イベント』をプログラムから発生させる</h3>
+<div class="outline-text-3" id="text-orgee03ab0">
 <p>
 これらの『イベント』は、プログラムから発生させることもできます。<br />
 </p>
@@ -1253,9 +1253,9 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-orgcefb344" class="outline-3">
-<h3 id="orgcefb344">『イベント』の詳しい情報を得る</h3>
-<div class="outline-text-3" id="text-orgcefb344">
+<div id="outline-container-org918fc2a" class="outline-3">
+<h3 id="org918fc2a">『イベント』の詳しい情報を得る</h3>
+<div class="outline-text-3" id="text-org918fc2a">
 <p>
 『イベント』が発生したタイミングで、イベントの詳しい情報を入手することもできます。<br />
 『イベント』の情報は、『(window.)event』オブジェクトに格納されています。<br />
@@ -1304,9 +1304,9 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-org7538cdf" class="outline-3">
-<h3 id="org7538cdf">『イベント』情報取得の実例と、リンクのキャンセル</h3>
-<div class="outline-text-3" id="text-org7538cdf">
+<div id="outline-container-org5069536" class="outline-3">
+<h3 id="org5069536">『イベント』情報取得の実例と、リンクのキャンセル</h3>
+<div class="outline-text-3" id="text-org5069536">
 <pre class="example">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ja"&gt;
@@ -1336,9 +1336,9 @@ location.href = "http://crocro.com/";
 </div>
 </div>
 
-<div id="outline-container-org8462ee6" class="outline-3">
-<h3 id="org8462ee6">フォームのキャンセル</h3>
-<div class="outline-text-3" id="text-org8462ee6">
+<div id="outline-container-org3cc0cf5" class="outline-3">
+<h3 id="org3cc0cf5">フォームのキャンセル</h3>
+<div class="outline-text-3" id="text-org3cc0cf5">
 <p>
 『return false;』は、フォームによるデータの送信処理をキャンセルする場合にも使用します。<br />
 以下、フォームの入力内容を確認して、入力が空の場合に、フォームの実行を停止させるプログラムです。<br />
@@ -1400,9 +1400,9 @@ form.onSubmit = function(){return checkValue(this.q);}
 </div>
 </div>
 
-<div id="outline-container-org5e8dfef" class="outline-3">
-<h3 id="org5e8dfef">『&lt;a&gt;』タグに記述するJavaScript</h3>
-<div class="outline-text-3" id="text-org5e8dfef">
+<div id="outline-container-org71424f6" class="outline-3">
+<h3 id="org71424f6">『&lt;a&gt;』タグに記述するJavaScript</h3>
+<div class="outline-text-3" id="text-org71424f6">
 <p>
 『on』で始まるイベント系の属性以外にも、プログラムを直接書ける属性部分があるので紹介しておきます。<br />
 それは、リンクを行うための『』タグ内の『href』属性です。<br />
@@ -1423,9 +1423,9 @@ form.onSubmit = function(){return checkValue(this.q);}
 </div>
 </div>
 
-<div id="outline-container-org1f0488c" class="outline-3">
-<h3 id="org1f0488c">『イベント』への動的な追加</h3>
-<div class="outline-text-3" id="text-org1f0488c">
+<div id="outline-container-org2c713cd" class="outline-3">
+<h3 id="org2c713cd">『イベント』への動的な追加</h3>
+<div class="outline-text-3" id="text-org2c713cd">
 <p>
 これまで説明した方法では、HTMLタグの『イベントハンドラ』に、『イベント』発生時の処理を直接書き込んでいました。<br />
 しかし、状況によっては、プログラムの中からイベント時の処理を追加したいこともあるでしょう。<br />
@@ -1470,9 +1470,9 @@ form.onSubmit = function(){return checkValue(this.q);}
 </div>
 </div>
 
-<div id="outline-container-org7abee19" class="outline-2">
-<h2 id="org7abee19">タイマー</h2>
-<div class="outline-text-2" id="text-org7abee19">
+<div id="outline-container-orgeb1b88d" class="outline-2">
+<h2 id="orgeb1b88d">タイマー</h2>
+<div class="outline-text-2" id="text-orgeb1b88d">
 <p>
 ページの読み込みタイミングや、ユーザーの操作によって処理を実行する方法以外にも、『特定のタイミングで処理を実行する方法』があります。<br />
 『タイマー』は、一定時間経過したあとに、プログラムを実行させる方法です。<br />
@@ -1510,9 +1510,9 @@ form.onSubmit = function(){return checkValue(this.q);}
 </p>
 </div>
 
-<div id="outline-container-org714379d" class="outline-3">
-<h3 id="org714379d">『arguments』</h3>
-<div class="outline-text-3" id="text-org714379d">
+<div id="outline-container-org4dc2af4" class="outline-3">
+<h3 id="org4dc2af4">『arguments』</h3>
+<div class="outline-text-3" id="text-org4dc2af4">
 <p>
 以下は、少し高度な話になるので、読み飛ばしても構わないです。<br />
 特殊な書き方として、呼び出し元の関数オブジェクトを指定する方法もあります。<br />
@@ -1535,9 +1535,9 @@ function tokei() {
 </div>
 </div>
 
-<div id="outline-container-orgbbd4862" class="outline-3">
-<h3 id="orgbbd4862">『インターバル』</h3>
-<div class="outline-text-3" id="text-orgbbd4862">
+<div id="outline-container-orgf47a511" class="outline-3">
+<h3 id="orgf47a511">『インターバル』</h3>
+<div class="outline-text-3" id="text-orgf47a511">
 <p>
 ここまでのプログラムでは、『setTimeout』を利用して繰り返し処理を書いてきました。<br />
 しかし本来『setTimeout』は、一定時間後に1回だけ処理を行なうための命令です。<br />
@@ -1553,9 +1553,9 @@ setInterval(function() {
 </div>
 </div>
 
-<div id="outline-container-orgf018249" class="outline-3">
-<h3 id="orgf018249">『タイマー』や『インターバル』の解除</h3>
-<div class="outline-text-3" id="text-orgf018249">
+<div id="outline-container-org60a8e27" class="outline-3">
+<h3 id="org60a8e27">『タイマー』や『インターバル』の解除</h3>
+<div class="outline-text-3" id="text-org60a8e27">
 <p>
 『setTimeout』や『setInterval』を実行すると、戻り値としてidを戻します。このidを利用して処理を解除させることができます。<br />
 </p>
@@ -1619,13 +1619,13 @@ end.
 </div>
 </div>
 
-<div id="outline-container-org675db13" class="outline-3">
-<h3 id="org675db13">JavaScriptからの『スタイル』の操作</h3>
-<div class="outline-text-3" id="text-org675db13">
+<div id="outline-container-org7fa3f4e" class="outline-3">
+<h3 id="org7fa3f4e">JavaScriptからの『スタイル』の操作</h3>
+<div class="outline-text-3" id="text-org7fa3f4e">
 </div>
-<div id="outline-container-org5b69974" class="outline-4">
-<h4 id="org5b69974">JavaScriptから『スタイル』を操作する際の注意</h4>
-<div class="outline-text-4" id="text-org5b69974">
+<div id="outline-container-org900528f" class="outline-4">
+<h4 id="org900528f">JavaScriptから『スタイル』を操作する際の注意</h4>
+<div class="outline-text-4" id="text-org900528f">
 <p>
 この『スタイル』ですが、『スタイルシート』で指定する際と、JavaScriptから操作する際では、名前が少し異なります。<br />
 『スタイルシート』で『font-size』という名前のスタイルは、JavaScriptでは『fontSize』という名前になっています。<br />
@@ -1660,9 +1660,9 @@ end.
 </div>
 </div>
 
-<div id="outline-container-org6bca0d9" class="outline-2">
-<h2 id="org6bca0d9">クッキーの利用</h2>
-<div class="outline-text-2" id="text-org6bca0d9">
+<div id="outline-container-orgf5378dd" class="outline-2">
+<h2 id="orgf5378dd">クッキーの利用</h2>
+<div class="outline-text-2" id="text-orgf5378dd">
 <p>
 WebページのJavaScriptでは、ローカル（パソコンのハードディスクなどの保存領域）への、データの読み書きはできません。<br />
 これは、セキュリティ上の理由からです。<br />
@@ -1677,13 +1677,13 @@ WebページのJavaScriptでは、ローカル（パソコンのハードディ�
 </p>
 </div>
 
-<div id="outline-container-org6ca0cbc" class="outline-3">
-<h3 id="org6ca0cbc">『クッキー』の保存と読み込み</h3>
-<div class="outline-text-3" id="text-org6ca0cbc">
+<div id="outline-container-org896d4e0" class="outline-3">
+<h3 id="org896d4e0">『クッキー』の保存と読み込み</h3>
+<div class="outline-text-3" id="text-org896d4e0">
 </div>
-<div id="outline-container-org132d147" class="outline-4">
-<h4 id="org132d147">『クッキー』の保存と読み込み</h4>
-<div class="outline-text-4" id="text-org132d147">
+<div id="outline-container-org4628fa6" class="outline-4">
+<h4 id="org4628fa6">『クッキー』の保存と読み込み</h4>
+<div class="outline-text-4" id="text-org4628fa6">
 <p>
 『クッキー』の保存と読み込みは、『document.cookie』プロパティを使います。<br />
 『クッキー』に値を保存する際は、キーと値のセットを1つずつ『document.cookie』に代入します。<br />
@@ -1709,9 +1709,9 @@ key1=value1; key2=value2;
 </div>
 </div>
 
-<div id="outline-container-orgcc6ae48" class="outline-4">
-<h4 id="orgcc6ae48">『クッキー』の保存と読み込みの違い</h4>
-<div class="outline-text-4" id="text-orgcc6ae48">
+<div id="outline-container-org0b7293a" class="outline-4">
+<h4 id="org0b7293a">『クッキー』の保存と読み込みの違い</h4>
+<div class="outline-text-4" id="text-org0b7293a">
 <p>
 『document.cookie』を利用した、『クッキー』の保存と読み込みには注意が必要です。<br />
 保存（値を代入した）時の値と、読み込み（値を参照した）時の値が異なるからです。<br />
@@ -1787,9 +1787,9 @@ key1=value1; key2=value2
 </div>
 </div>
 
-<div id="outline-container-org489451b" class="outline-4">
-<h4 id="org489451b">『クッキー』の保存条件</h4>
-<div class="outline-text-4" id="text-org489451b">
+<div id="outline-container-org2930470" class="outline-4">
+<h4 id="org2930470">『クッキー』の保存条件</h4>
+<div class="outline-text-4" id="text-org2930470">
 <p>
 『クッキー』に値を保存する際は、キーと値のセットとともに、いくつかの保存条件を設定できます。<br />
 </p>
@@ -1815,9 +1815,9 @@ document.cookie = "key1=value1; expires=" + d.toGMTString();
 </div>
 </div>
 
-<div id="outline-container-org982f741" class="outline-3">
-<h3 id="org982f741">プログラム例</h3>
-<div class="outline-text-3" id="text-org982f741">
+<div id="outline-container-orgeb34f15" class="outline-3">
+<h3 id="orgeb34f15">プログラム例</h3>
+<div class="outline-text-3" id="text-orgeb34f15">
 <pre class="example">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ja"&gt;
@@ -1871,9 +1871,9 @@ document.cookie = "key1=value1; expires=" + d.toGMTString();
 </pre>
 </div>
 
-<div id="outline-container-org8ec585d" class="outline-4">
-<h4 id="org8ec585d">『』タグ内の解説</h4>
-<div class="outline-text-4" id="text-org8ec585d">
+<div id="outline-container-org9ab754a" class="outline-4">
+<h4 id="org9ab754a">『』タグ内の解説</h4>
+<div class="outline-text-4" id="text-org9ab754a">
 <p>
 だいぶ長いので、分割して解説します。まずは、『』タグの中から説明します。<br />
 </p>
@@ -1911,9 +1911,9 @@ function load() {
 </div>
 </div>
 
-<div id="outline-container-org2cd0393" class="outline-4">
-<h4 id="org2cd0393">『writeCookie』関数の解説</h4>
-<div class="outline-text-4" id="text-org2cd0393">
+<div id="outline-container-org7b21cb4" class="outline-4">
+<h4 id="org7b21cb4">『writeCookie』関数の解説</h4>
+<div class="outline-text-4" id="text-org7b21cb4">
 <pre class="example">
 function writeCookie(key, value, hours) {
     if (key == "") return;
@@ -1946,9 +1946,9 @@ function writeCookie(key, value, hours) {
 </div>
 </div>
 
-<div id="outline-container-org12dcebb" class="outline-4">
-<h4 id="org12dcebb">『readCookie』関数の解説</h4>
-<div class="outline-text-4" id="text-org12dcebb">
+<div id="outline-container-org50c6d96" class="outline-4">
+<h4 id="org50c6d96">『readCookie』関数の解説</h4>
+<div class="outline-text-4" id="text-org50c6d96">
 <p>
 『クッキー』からの値の読み込みを見てみましょう。<br />
 </p>
@@ -1994,9 +1994,9 @@ function readCookie(key) {
 </div>
 </div>
 
-<div id="outline-container-orgfb035e0" class="outline-3">
-<h3 id="orgfb035e0">『escape』と『unescape』</h3>
-<div class="outline-text-3" id="text-orgfb035e0">
+<div id="outline-container-orgb08c684" class="outline-3">
+<h3 id="orgb08c684">『escape』と『unescape』</h3>
+<div class="outline-text-3" id="text-orgb08c684">
 <p>
 『escape』関数で行われるエスケープ処理は、URLに利用できない記号や日本語を、特殊な符合で書き換えるものです。<br />
 また、『unescape』関数は、エスケープ処理された文字列を、元の文字列に復号するものです。<br />
@@ -2024,9 +2024,9 @@ document.write(str + "&lt;br&gt;");
 </div>
 </div>
 
-<div id="outline-container-org3efc492" class="outline-3">
-<h3 id="org3efc492">サーバー上のWebページの『クッキー』</h3>
-<div class="outline-text-3" id="text-org3efc492">
+<div id="outline-container-orgfb5f566" class="outline-3">
+<h3 id="orgfb5f566">サーバー上のWebページの『クッキー』</h3>
+<div class="outline-text-3" id="text-orgfb5f566">
 <p>
 以下、サーバー上でWebページを使用する際の話です。ローカルだけでWebページを使用する際には関係のない話なので、読み飛ばしてもらって構いません。<br />
 『クッキー』の保存条件は、『expires』だけでなく、以下のようなものもあります。<br />
@@ -2118,9 +2118,9 @@ Webブラウザは、Webページを読み込んだ際に、サーバーの要�
 </div>
 </div>
 
-<div id="outline-container-orgbc8d70d" class="outline-3">
-<h3 id="orgbc8d70d">『js-cookie』の利用</h3>
-<div class="outline-text-3" id="text-orgbc8d70d">
+<div id="outline-container-org6762021" class="outline-3">
+<h3 id="org6762021">『js-cookie』の利用</h3>
+<div class="outline-text-3" id="text-org6762021">
 <p>
 『cookie』の利用は面倒なので、実はライブラリ（公開されている外部JavaScript）を使った方が楽です。<br />
 『js-cookie』は、『cookie』を手軽に扱うためのライブラリです。<br />
@@ -2180,7 +2180,7 @@ Cookies.remove('name', { path: '' });  // きちんと削除できる
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-03 水 15:42</p>
+<p class="date">Created: 2021-03-17 水 15:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

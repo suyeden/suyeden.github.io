@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-06 土 23:33 -->
+<!-- 2021-03-17 水 15:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git 小ネタ集</title>
@@ -242,22 +242,394 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Git 小ネタ集</h1>
-<div id="outline-container-org91a1087" class="outline-2">
-<h2 id="org91a1087"></h2>
-<div class="outline-text-2" id="text-org91a1087">
+<div id="outline-container-orgff5babe" class="outline-2">
+<h2 id="orgff5babe"></h2>
+<div class="outline-text-2" id="text-orgff5babe">
 <hr />
 </div>
-<div id="outline-container-org09a2cab" class="outline-3">
-<h3 id="org09a2cab"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org09a2cab">
+<div id="outline-container-org9f84358" class="outline-3">
+<h3 id="org9f84358"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org9f84358">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga515b87" class="outline-2">
-<h2 id="orga515b87">.gitignoreに記載したのに反映されない</h2>
-<div class="outline-text-2" id="text-orga515b87">
+<div id="outline-container-org877df4d" class="outline-2">
+<h2 id="org877df4d">プルリクエスト</h2>
+<div class="outline-text-2" id="text-org877df4d">
+<ol class="org-ol">
+<li>マスターブランチ以外のブランチでpushします。<br /></li>
+<li>GitHubにて「Compare ＆ pull request」ボタンが表示されるのでこれをクリックし、プルリクエスト作成ページへ移動します。<br /></li>
+<li>プルリクエストのタイトルを入力します。<br />
+「close #issueの番号」を入れると、該当するissueをマージされたタイミングで自動でクローズしてくれます。<br />
+複数のIssueをクローズしたい場合は、「close #issueの番号 close #issueの番号」とします。<br /></li>
+<li>変更点、関連するイシューや資料へのリンクなど、レビュー担当者(プルリクエストを確認する人)へ伝えておきたいことをここに書きます。<br />
+Markdown形式で記述すれば、文章を構造化することができます。<br /></li>
+<li>「Create pull request」ボタンを押してプルリクエストを作成します。<br /></li>
+</ol>
+</div>
+
+<div id="outline-container-org38e93f3" class="outline-3">
+<h3 id="org38e93f3">プルリクエストのマージ</h3>
+<div class="outline-text-3" id="text-org38e93f3">
+<p>
+筆者が所属するチームの場合、プルリクエストは以下のフローで行うことが多いです。<br />
+</p>
+<ol class="org-ol">
+<li>実装者（ファイルへの変更を行った人）がプルリクエストを作成する<br /></li>
+<li>レビュー担当者（実装者以外）が変更内容をレビューする<br /></li>
+<li>必要に応じて実装者は修正を行う<br /></li>
+<li>マージできる状態になったら、実装者が「Merge pull request」ボタンを押してマージを行う<br /></li>
+</ol>
+
+<p>
+1人チームであれば、問題なければ自分でマージしてしまいましょう。「Merge pull request」ボタンをクリックしてください。<br />
+マージ確認状態になります。マージして問題なければ「Confirm merge」をクリックします。<br />
+マージが完了します。<br />
+「Delete branch」をクリックすると、プルリクエストに使用したブランチを削除できます。<br />
+作業ブランチを自動で削除するようにするには設定が必要です。詳しくは <a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a> の 6 を参照。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73a8c5a" class="outline-2">
+<h2 id="org73a8c5a">GitHubのissueとcommitを紐付ける</h2>
+<div class="outline-text-2" id="text-org73a8c5a">
+<p>
+commitメッセージに「#issue番号」とすることで自動的にそのissueへのリンクを貼ってくれる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git commit -m "README.md #2 修正 "
+</pre>
+</div>
+<p>
+GitHubリポジトリtopやcommitのタブにてみると「#issue番号」のところにリンクが付与されていることが確認できる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge6a3944" class="outline-2">
+<h2 id="orge6a3944">GitHub Issues</h2>
+<div class="outline-text-2" id="text-orge6a3944">
+<p>
+リポジトリのトップページから <code>Issues</code> タブを選択し、 <code>New issue</code> をクリックしましょう。<br />
+Issueにはタイトルとコメントを入力します。<br />
+タイトルは課題の内容(〜の機能が欲しい、〜という問題がある)や達成したいタスクを端的に表現して、コメントの部分で仕様やバグの再現手順などを詳細に書いていくといいでしょう<br />
+</p>
+</div>
+<div id="outline-container-org67e78d3" class="outline-3">
+<h3 id="org67e78d3">他にも設定できる項目</h3>
+<div class="outline-text-3" id="text-org67e78d3">
+<ul class="org-ul">
+<li>担当者を明確にする「Assignee」機能<br />
+Issueに担当者を割り当てる機能です。<br />
+Issue画面のサイドバーにある <code>Assignee</code> という文字をクリックすると、ユーザーの選択画面が出てきます。<br /></li>
+<li>スケジュールを管理する「Milestone」機能<br />
+GitHubでは、Issueごとに期日を切るのではなく、マイルストンを先に置いて、それにIssueを紐付けます。<br />
+まずはIssueの一覧画面からマイルストンの一覧画面に遷移します。そこから <code>New milestone</code> で新しいマイルストンを作成します。<br />
+マイルストンの設定画面ではタイトル、概要、期日を入力します。<br />
+タイトルの付け方はチームごとに分かりやすいように定めると良いですね。<br />
+<code>Create milestone</code> をクリックすると作成完了です。<br /></li>
+<li>増えたIssueを整理する「Label」機能<br />
+Issueにラベルを付けて分類できます。<br />
+Issues一覧からラベル一覧を確認できますが、デフォルトでもbugやduplicate(重複したIssueなど、結構な数のラベルが揃っています。<br />
+ラベルは1つのIssueに複数つけることができます。<br />
+任意の色で表示できるので、一覧画面での視認性が増しますね。もちろんラベルでフィルタリングすることも出来ます。<br /></li>
+<li>その他にファイルを添付することもできます。<br /></li>
+</ul>
+<p>
+どのツールを使う時も同じですが、まずはゆるやかに始めてみて、徐々にチームに合った形に運用方法を固めていくといいでしょう。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd100952" class="outline-3">
+<h3 id="orgd100952">Issue の削除</h3>
+<div class="outline-text-3" id="text-orgd100952">
+<p>
+リポジトリの管理者権限がある人は、リポジトリから Issue を完全に削除できます。<br />
+削除できる Issue は自分のユーザアカウントが所有するリポジトリのものだけです。<br />
+別のユーザアカウントが所有するリポジトリの Issue は、仮にあなたがコラボレーターであったとしても、削除することはできません。<br />
+Issue を削除してもコラボレータには通知されません。<br />
+削除された Issue の URL にコラボレータがアクセスすると、その Issue が削除された旨のメッセージが表示されます。<br />
+</p>
+<ol class="org-ol">
+<li>削除対象の Issue に移動します。<br /></li>
+<li>右側のバーの <code>Notifications</code> の下で、 <code>Delete issue</code> をクリックします。<br /></li>
+<li>削除を確定するには、 <code>Delete this issue</code> をクリックします。<br /></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06c626c" class="outline-2">
+<h2 id="org06c626c">ライセンスを設定する</h2>
+<div class="outline-text-2" id="text-org06c626c">
+<p>
+実は、GitHubにはライセンスを設定する機能がはじめから付いています。<br />
+ライセンス詳細については <a href="open_source_license.html">オープンソースライセンス</a><br />
+リポジトリを作成するときに、「Add a license: None」というセレクトボックスがあります。<br />
+ここから、設定したいライセンスを選んでリポジトリを作成するだけで、LICENSEというファイルが出来ます。<br />
+LICENSEファイルには自動でCopyrightの日付と所有者が記載されるので、あとは必要であればorganizationを埋めるだけです。<br />
+</p>
+
+<p>
+ライセンスを明記しない場合は、どのような扱いになるのでしょうか。<br />
+ライセンスが明記されていないソースコードに対しては、デフォルトの著作権法が適用されます。<br />
+つまり、ソフトウェアの複製、改変、（複製物または二次的著作物の）再頒布が認められません。（No License）<br />
+（ただし、forkした場合は上記を認める記述がGitHubの利用規約中にあり、GitHubの利用者はそれに同意したことになります）<br />
+改変せずにそのまま使用することだけを認めたいなら、ライセンスは明記しなくてもOKということです。<br />
+</p>
+</div>
+
+<div id="outline-container-orgefc84b7" class="outline-3">
+<h3 id="orgefc84b7">GitHubで後からライセンスを指定する方法</h3>
+<div class="outline-text-3" id="text-orgefc84b7">
+<ol class="org-ol">
+<li>GitHubの当該リポジトリを表示し、リポジトリのトップディレクトリで <code>Create New File</code><br /></li>
+<li>ファイル名を指定できるので、そこに <code>LICENSE</code> と入力<br />
+すると右側に <code>Choose a license template</code> というライセンス選択のプルダウンが現れる<br /></li>
+<li>ページの左側 <code>Add a license to your project</code> の下で、利用可能なライセンスをレビューして、リストからライセンスを選択<br />
+リポジトリに合ったライセンスを選ぶと、本文にライセンス文面が適用される（テンプレートでファイルを埋めてくれる）<br />
+eg.<br />
+Redmineのプラグインでは、そもそもRedmineがGPLv2なことと、プラグイン自体Redmineがないと動かないので、GPLv2に揃える<br /></li>
+<li><code>Review and submit</code> をクリックします。<br /></li>
+<li>ページの下部で、ファイルに対して行った変更を説明する短く分かりやすいコミットメッセージを入力<br />
+コミットメッセージでは、複数の作者にコミットを関連づけることができる<br /></li>
+<li>コミットメッセージフィールドの下で、コミットを追加を現在のブランチか新しいブランチから選択<br /></li>
+<li><code>Commit new file</code> をクリック<br /></li>
+<li>必要に応じて <code>git pull</code> を行う<br /></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33830c8" class="outline-2">
+<h2 id="org33830c8">Githubにバッチを適用する</h2>
+<div class="outline-text-2" id="text-org33830c8">
+<p>
+<a href="https://shields.io">https://shields.io</a> を使う。<br />
+表示されているURLにリポジトリ情報などを入れるとsvgが返ってくるのでそれをつかうだけ。<br />
+<code>Copy Badge URL</code> 横の下矢印を押して、 <code>Copy Markdown</code> を押し、コピーされた文字列を md ファイルにペーストする。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa893d7" class="outline-2">
+<h2 id="orgaa893d7">git pull実行時にローカルで未コミットの変更を保持する方法</h2>
+<div class="outline-text-2" id="text-orgaa893d7">
+<p>
+git pullを実行する際に、ローカルで未コミットの変更をリモートに反映させずローカルでだけ保持したい場合があります。<br />
+しかし、この状態でgit pullをするとエラーとなり、プル操作が行えません。<br />
+</p>
+
+<p>
+例えば、hoge.txtの変更がローカルで行われていますが、この変更はリモートには反映したくないため、未コミットとしています。<br />
+</p>
+
+<p>
+以下の２通りの対処方法をご紹介します。<br />
+</p>
+<ul class="org-ul">
+<li>リモートの変更で上書きせず、ローカルでの変更を保持したい場合<br /></li>
+<li>やっぱりリモートの変更で上書きしたくなった場合<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-orge643c91" class="outline-3">
+<h3 id="orge643c91">リモートの変更で上書きせず、ローカルでの変更を保持したい場合</h3>
+<div class="outline-text-3" id="text-orge643c91">
+<ol class="org-ol">
+<li>事前に、ローカルでだけ保持したい変更以外の変更をすべてコミットしておきます。<br />
+ローカルでだけ保持したい変更をgit stashで退避させ、ローカルをクリーンな状態にします。<br /></li>
+<li>この状態でgit pullをします。ローカルのhoge.txtがリモートでの変更で上書きされます。<br /></li>
+<li><p>
+退避させた変更をstashから戻します。このときhoge.txtは競合状態となります。<br />
+</p>
+<pre class="example">
+$ git stash apply stash@{0}
+Auto-merging hoge.txt
+CONFLICT (content): Merge conflict in hoge.txt
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+ Unmerged paths:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+  (use "git add &lt;file&gt;..." to mark resolution)
+         both modified:   hoge.txt
+ no changes added to commit (use "git add" and/or "git commit -a")
+$ cat hoge.txt
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
+リモートでの変更
+=======
+ローカルでの変更
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
+</pre></li>
+<li><p>
+競合した変更のうちstashから戻した方の変更を適用します。状態としてはhoge.txtはまだ競合状態にあります。<br />
+</p>
+<pre class="example">
+$ git checkout --theirs .
+$ cat hoge.txt
+ローカルでの変更
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+ Unmerged paths:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+  (use "git add &lt;file&gt;..." to mark resolution)
+         both modified:   hoge.txt
+ no changes added to commit (use "git add" and/or "git commit -a")
+</pre></li>
+<li><p>
+hoge.txtを一旦ステージングして競合状態を解消します。<br />
+</p>
+<pre class="example">
+$ git add .
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+ Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+         modified:   hoge.txt
+</pre></li>
+<li><p>
+hoge.txtのステージングを取り消します。これでローカルで未コミットの変更を保持したままgit pullを行うことができました。<br />
+</p>
+<pre class="example">
+$ git reset HEAD
+Unstaged changes after reset:
+M       hoge.txt
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+ Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+         modified:   hoge.txt
+ no changes added to commit (use "git add" and/or "git commit -a")
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org213f8da" class="outline-3">
+<h3 id="org213f8da">リモートの変更で上書きして良い場合</h3>
+<div class="outline-text-3" id="text-org213f8da">
+<p>
+ローカルで未コミットのまま作業してきた変更を、git pull時に「やっぱりリモートの変更で上書きしてもいいや」となった場合の対処方法です。<br />
+</p>
+<ol class="org-ol">
+<li><p>
+変更を未コミットとしているhoge.txtに対してチェックアウトを行い、ローカルでの最後のコミット内容を適用してローカルをクリーンにします。<br />
+</p>
+<pre class="example">
+$ git checkout hoge.txt
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+</pre></li>
+<li><p>
+git pullを実行してリモートの変更で上書きします。<br />
+</p>
+<pre class="example">
+$ git pull origin master
+From https://github.com/account/test
+ * branch            master     -&gt; FETCH_HEAD
+Updating c79d59e..37b80c5
+Fast-forward
+ hoge.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ cat hoge.txt
+リモートでの変更
+</pre></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5ab3415" class="outline-2">
+<h2 id="org5ab3415">ローカルのブランチ名の変更</h2>
+<div class="outline-text-2" id="text-org5ab3415">
+<p>
+<code>git branch -m &lt;古いブランチ名&gt; &lt;新しいブランチ名&gt;</code><br />
+今開いているブランチをリネームする場合は、単純に新しいブランチ名を指定するだけです。<br />
+<code>git branch -m &lt;新しいブランチ名&gt;</code><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org36cfd2d" class="outline-2">
+<h2 id="org36cfd2d">シンボリックリンクを扱えるようにする</h2>
+<div class="outline-text-2" id="text-org36cfd2d">
+<p>
+[注意!] リンク先の内容まではリポジトリに格納されない! 実体はリンク先が書かれたただのファイル<br />
+</p>
+
+<p>
+参照<br />
+<a href="https://www.quora.com/Learning-programming-How-does-Git-handle-symbolic-links/">https://www.quora.com/Learning-programming-How-does-Git-handle-symbolic-links/</a><br />
+<a href="https://qiita.com/ngyuki/items/621830bc53aaf2923f73">https://qiita.com/ngyuki/items/621830bc53aaf2923f73</a><br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+.gitconfigの設定が足りていない<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git config --global core.symlinks true
+</pre>
+</div>
+<p>
+このコマンドを実行すると、.gitconfigに<br />
+</p>
+<pre class="example">
+[user]
+        name = ユーザ名
+        email = メールアドレス
+[core]
+        quotepath = false
+        symlinks = true
+</pre>
+<p>
+こんな感じで追記されます。<br />
+コマンドを実行しても追記されない場合は、直接編集しても問題ありません。<br />
+</p></li>
+
+<li>Windows一般ユーザにシンボリックリンク作成の権限が足りていない<br />
+<ol class="org-ol">
+<li>まず、windows左下にある検索欄から「ローカルセキュリティーポリシー」と検索を行います。<br /></li>
+<li><p>
+開いた後で<br />
+</p>
+<pre class="example">
+ローカルポリシー ＞ ユーザ権限の割り当て ＞ シンボリックリンクの作成
+</pre>
+<p>
+という順に押下します。<br />
+画面が表示されますが、通常は「Administrators」しか書かれていないと思います。<br />
+</p></li>
+<li><code>ユーザまたはグループを追加する</code> を押下。<br /></li>
+<li><code>オブジェクトの種類</code> を押下。<br /></li>
+<li>初期状態では、「グループ」にチェックが入っていないと思うので、チェックを入れてやり、OKを押下します。<br /></li>
+<li><code>選択するオブジェクトを入力してください</code> の欄に「Users」と入力し、OKを押下します。<br /></li>
+</ol></li>
+</ol>
+
+<p>
+これにて設定完了です。<br />
+この変更を反映させるには、一度サインアウトし、再度サインインする必要があるので、Ctrl + Alt + Del を同時押しし、メニューからサインアウトを選択しましょう。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7abbb62" class="outline-2">
+<h2 id="org7abbb62">.gitignoreに記載したのに反映されない</h2>
+<div class="outline-text-2" id="text-org7abbb62">
 <p>
 開発途中で.gitignoreを設定しても、今までgit管理下に置かれていたファイルやディレクトリは消えません。<br />
 なので、過去にアップロードした画像ファイルなどはレポジトリに残っています。<br />
@@ -286,9 +658,9 @@ git rm -r --cached [ファイル名/ディレクトリ名]  //ファイルやデ
 </div>
 </div>
 
-<div id="outline-container-org6a04076" class="outline-2">
-<h2 id="org6a04076">git 管理に含めない設定について (.gitignore)</h2>
-<div class="outline-text-2" id="text-org6a04076">
+<div id="outline-container-org89cc920" class="outline-2">
+<h2 id="org89cc920">git 管理に含めない設定について (.gitignore)</h2>
+<div class="outline-text-2" id="text-org89cc920">
 <p>
 .gitignore を作業ディレクトリに作成<br />
 設定の有効範囲は .gitignore ファイルの有るフォルダ内全部<br />
@@ -342,9 +714,9 @@ Git はファイルを管理しているだけなので、空のディレクト�
 </div>
 </div>
 
-<div id="outline-container-org68717f7" class="outline-2">
-<h2 id="org68717f7">git log</h2>
-<div class="outline-text-2" id="text-org68717f7">
+<div id="outline-container-orgfdc02de" class="outline-2">
+<h2 id="orgfdc02de">git log</h2>
+<div class="outline-text-2" id="text-orgfdc02de">
 <p>
 git log &#x2013;oneline : git log をコンパクトに出力。ざっと履歴を見る時に<br />
 git log -p : git log に加えて、変更箇所も出力<br />
@@ -353,9 +725,9 @@ git log &#x2013;stat : git log に加えて、どのファイルがどれくら�
 </div>
 </div>
 
-<div id="outline-container-org8e8a400" class="outline-2">
-<h2 id="org8e8a400">差分を見る git diff</h2>
-<div class="outline-text-2" id="text-org8e8a400">
+<div id="outline-container-org152e14d" class="outline-2">
+<h2 id="org152e14d">git diff 差分を見る</h2>
+<div class="outline-text-2" id="text-org152e14d">
 <ul class="org-ul">
 <li><p>
 git pull する前にリモートとの変更点を見る<br />
@@ -453,9 +825,9 @@ git diff --staged
 </div>
 </div>
 
-<div id="outline-container-org8684da9" class="outline-2">
-<h2 id="org8684da9">既存リポジトリでの git init</h2>
-<div class="outline-text-2" id="text-org8684da9">
+<div id="outline-container-orgabdc36c" class="outline-2">
+<h2 id="orgabdc36c">既存リポジトリでの git init</h2>
+<div class="outline-text-2" id="text-orgabdc36c">
 <p>
 誤って git init してしまっても取り消し操作は不要。この操作は非常に安全な操作である。<br />
 <code>Reinitialized existing Git repository in ...</code> というメッセージが出るが心配不要。<br />
@@ -469,9 +841,9 @@ The primary reason for rerunning git init is to pick up newly added templates.
 </div>
 </div>
 
-<div id="outline-container-orgd9422ce" class="outline-2">
-<h2 id="orgd9422ce">コミットはせずに変更を退避する (git stash)</h2>
-<div class="outline-text-2" id="text-orgd9422ce">
+<div id="outline-container-org05bd3ae" class="outline-2">
+<h2 id="org05bd3ae">コミットはせずに変更を退避する (git stash)</h2>
+<div class="outline-text-2" id="text-org05bd3ae">
 <ul class="org-ul">
 <li><p>
 変更を退避する<br />
@@ -538,9 +910,9 @@ addした変更以外を退避させる<br />
 </div>
 </div>
 
-<div id="outline-container-org5508ffe" class="outline-2">
-<h2 id="org5508ffe">コミット日時を修正する方法</h2>
-<div class="outline-text-2" id="text-org5508ffe">
+<div id="outline-container-org1c4d872" class="outline-2">
+<h2 id="org1c4d872">コミット日時を修正する方法</h2>
+<div class="outline-text-2" id="text-org1c4d872">
 <p>
 <code>amend</code> して <code>rebase</code> するので、push 前のワーキングブランチでやること<br />
 基本的に <code>git push -f</code> でリモートブランチの過去を改変したりはしないこと<br />
@@ -652,18 +1024,18 @@ CommitDate, AuthorDate 共に日時が変更されていることを確認<br />
 </div>
 </div>
 
-<div id="outline-container-orgd127b90" class="outline-2">
-<h2 id="orgd127b90">git rm とは</h2>
-<div class="outline-text-2" id="text-orgd127b90">
+<div id="outline-container-orgf767778" class="outline-2">
+<h2 id="orgf767778">git rm とは</h2>
+<div class="outline-text-2" id="text-orgf767778">
 <p>
 rmコマンドと違い、ステージングエリアに反映させるので、いちいちステージングエリアにaddしなくてもそのままgit commitできる。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5047578" class="outline-2">
-<h2 id="org5047578">ローカルブランチを削除する</h2>
-<div class="outline-text-2" id="text-org5047578">
+<div id="outline-container-org94b934d" class="outline-2">
+<h2 id="org94b934d">ローカルブランチを削除する</h2>
+<div class="outline-text-2" id="text-org94b934d">
 <ol class="org-ol">
 <li><p>
 ローカルブランチの確認<br />
@@ -693,9 +1065,9 @@ git branch -d [ブランチ名]
 </div>
 </div>
 
-<div id="outline-container-org2c0bb40" class="outline-2">
-<h2 id="org2c0bb40">誤って commit/push してしまったときの commit/push の取り消し方法 (修正ではなく無かったことにする)</h2>
-<div class="outline-text-2" id="text-org2c0bb40">
+<div id="outline-container-org8b0f099" class="outline-2">
+<h2 id="org8b0f099">誤って commit/push してしまったときの commit/push の取り消し方法 (修正ではなく無かったことにする)</h2>
+<div class="outline-text-2" id="text-org8b0f099">
 <p>
 push したこと自体をなかったことにしたい場合は、誤って push した分のコミットを戻してファイルの変更もコミットもなかったことにし、強制PUSHを行う。<br />
 </p>
@@ -765,9 +1137,9 @@ git branch
 </div>
 </div>
 
-<div id="outline-container-orgaa30215" class="outline-2">
-<h2 id="orgaa30215">直前のコミットを(軽く)修正する方法</h2>
-<div class="outline-text-2" id="text-orgaa30215">
+<div id="outline-container-orgb814e15" class="outline-2">
+<h2 id="orgb814e15">直前のコミットを(軽く)修正する方法</h2>
+<div class="outline-text-2" id="text-orgb814e15">
 <p>
 コミットメッセージを直したい or 前回のコミット内容を少し修正したい(新たにコミットはしたくない) ときに有効<br />
 <code>git commit --amend</code> で直前のコミットを変更できる<br />
@@ -788,9 +1160,9 @@ git commit --amend
 </div>
 </div>
 
-<div id="outline-container-org7438908" class="outline-2">
-<h2 id="org7438908">誤って削除・編集したファイルを復元する方法</h2>
-<div class="outline-text-2" id="text-org7438908">
+<div id="outline-container-org077a185" class="outline-2">
+<h2 id="org077a185">誤って削除・編集したファイルを復元する方法</h2>
+<div class="outline-text-2" id="text-org077a185">
 <ul class="org-ul">
 <li>commit する前<br />
 <ul class="org-ul">
@@ -862,9 +1234,9 @@ git branch
 </div>
 </div>
 
-<div id="outline-container-org034ad91" class="outline-2">
-<h2 id="org034ad91">git add を取り消す</h2>
-<div class="outline-text-2" id="text-org034ad91">
+<div id="outline-container-org5d9ea02" class="outline-2">
+<h2 id="org5d9ea02">git add を取り消す</h2>
+<div class="outline-text-2" id="text-org5d9ea02">
 <ul class="org-ul">
 <li><p>
 はじめてのgit add を取り消す<br />
@@ -892,9 +1264,9 @@ git reset HEAD file_name
 </div>
 </div>
 
-<div id="outline-container-org22f4401" class="outline-2">
-<h2 id="org22f4401">reset と checkout の違い</h2>
-<div class="outline-text-2" id="text-org22f4401">
+<div id="outline-container-org58f83b3" class="outline-2">
+<h2 id="org58f83b3">reset と checkout の違い</h2>
+<div class="outline-text-2" id="text-org58f83b3">
 <ol class="org-ol">
 <li>コミットレベルの時<br />
 <ul class="org-ul">
@@ -1037,7 +1409,7 @@ git checkout のファイルレベルは Staging Area に加えて Working Direc
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-06 土 23:33</p>
+<p class="date">Created: 2021-03-17 水 15:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
