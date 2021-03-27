@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-24 水 00:03 -->
+<!-- 2021-03-26 金 01:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs 小ネタ集</title>
@@ -192,6 +192,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -264,22 +265,22 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacs 小ネタ集</h1>
-<div id="outline-container-orga29b149" class="outline-2">
-<h2 id="orga29b149"></h2>
-<div class="outline-text-2" id="text-orga29b149">
+<div id="outline-container-orga6ff04d" class="outline-2">
+<h2 id="orga6ff04d"></h2>
+<div class="outline-text-2" id="text-orga6ff04d">
 <hr />
 </div>
-<div id="outline-container-orgd6a3f4f" class="outline-3">
-<h3 id="orgd6a3f4f"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orgd6a3f4f">
+<div id="outline-container-orgb5a96de" class="outline-3">
+<h3 id="orgb5a96de"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgb5a96de">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc776d58" class="outline-2">
-<h2 id="orgc776d58">正規表現とバックスラッシュ</h2>
-<div class="outline-text-2" id="text-orgc776d58">
+<div id="outline-container-orgcb786bf" class="outline-2">
+<h2 id="orgcb786bf">正規表現とバックスラッシュ</h2>
+<div class="outline-text-2" id="text-orgcb786bf">
 <p>
 <b>最重要概念！</b><br />
 <span class="underline">Emacs Lisp では正規表現は「文字列」として表記する。</span><br />
@@ -376,9 +377,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-org7e678d1" class="outline-2">
-<h2 id="org7e678d1">Emacs で自動作成されるファイルの種類</h2>
-<div class="outline-text-2" id="text-org7e678d1">
+<div id="outline-container-orgd4e9b11" class="outline-2">
+<h2 id="orgd4e9b11">Emacs で自動作成されるファイルの種類</h2>
+<div class="outline-text-2" id="text-orgd4e9b11">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -425,9 +426,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orgac69b16" class="outline-2">
-<h2 id="orgac69b16">画面スクロール</h2>
-<div class="outline-text-2" id="text-orgac69b16">
+<div id="outline-container-orgf5b4936" class="outline-2">
+<h2 id="orgf5b4936">画面スクロール</h2>
+<div class="outline-text-2" id="text-orgf5b4936">
 <p>
 <code>C-u C-v</code> : 4行スクロール<br />
 <code>C-u C-u C-v</code> : 16行スクロール<br />
@@ -435,9 +436,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orgeeea2e0" class="outline-2">
-<h2 id="orgeeea2e0">ディレクトリ名の補完 (read-directory-name)</h2>
-<div class="outline-text-2" id="text-orgeeea2e0">
+<div id="outline-container-org1184d31" class="outline-2">
+<h2 id="org1184d31">ディレクトリ名の補完 (read-directory-name)</h2>
+<div class="outline-text-2" id="text-org1184d31">
 <p>
 <code>read-directory-name prompt &amp;optional directory default require-match initial</code><br />
 この関数はread-file-nameと似ているが、補完候補としてディレクトリーだけを許す。<br />
@@ -445,18 +446,18 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orga21a6a6" class="outline-2">
-<h2 id="orga21a6a6">カレントバッファのディレクトリ取得</h2>
-<div class="outline-text-2" id="text-orga21a6a6">
+<div id="outline-container-orgff3c356" class="outline-2">
+<h2 id="orgff3c356">カレントバッファのディレクトリ取得</h2>
+<div class="outline-text-2" id="text-orgff3c356">
 <p>
 変数 <code>default-directory</code> に格納されている。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org00245c0" class="outline-2">
-<h2 id="org00245c0">OSの判定</h2>
-<div class="outline-text-2" id="text-org00245c0">
+<div id="outline-container-org5774b05" class="outline-2">
+<h2 id="org5774b05">OSの判定</h2>
+<div class="outline-text-2" id="text-org5774b05">
 <p>
 変数 <code>system-type</code> にOS情報が格納されている。<br />
 eg.<br />
@@ -495,9 +496,9 @@ eg.<br />
 </div>
 </div>
 
-<div id="outline-container-org4c3a221" class="outline-2">
-<h2 id="org4c3a221">Undo &amp; Redo</h2>
-<div class="outline-text-2" id="text-org4c3a221">
+<div id="outline-container-orgfea0fc9" class="outline-2">
+<h2 id="orgfea0fc9">Undo &amp; Redo</h2>
+<div class="outline-text-2" id="text-orgfea0fc9">
 <p>
 C-/ : Undo（元に戻す）<br />
 C-g C-/ : Redo（やり直し）<br />
@@ -505,9 +506,9 @@ C-g C-/ : Redo（やり直し）<br />
 </div>
 </div>
 
-<div id="outline-container-orgf6f707a" class="outline-2">
-<h2 id="orgf6f707a">The Region</h2>
-<div class="outline-text-2" id="text-orgf6f707a">
+<div id="outline-container-org8cb2968" class="outline-2">
+<h2 id="org8cb2968">The Region</h2>
+<div class="outline-text-2" id="text-org8cb2968">
 <p>
 region-beginning : この関数は、リージョンの先頭位置を、(整数として)リターンする。これは、ポイントかマークのいずれか小さいほうの位置である。<br />
 region-end : この関数は、リージョンの終端位置を、(整数として)リターンする。これは、ポイントかマークのいずれか大きいほうの位置である。<br />
@@ -516,9 +517,9 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-orgb7fbaf4" class="outline-2">
-<h2 id="orgb7fbaf4">文字列内のテキスト属性とbuffer-substring-no-properties</h2>
-<div class="outline-text-2" id="text-orgb7fbaf4">
+<div id="outline-container-orgde07fe8" class="outline-2">
+<h2 id="orgde07fe8">文字列内のテキスト属性とbuffer-substring-no-properties</h2>
+<div class="outline-text-2" id="text-orgde07fe8">
 <p>
 文字列は, 文字そのものに加えて, 文字の属性も保持できる<br />
 </p>
@@ -530,9 +531,9 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-orgc5cb111" class="outline-2">
-<h2 id="orgc5cb111">unless</h2>
-<div class="outline-text-2" id="text-orgc5cb111">
+<div id="outline-container-orgcfb7bac" class="outline-2">
+<h2 id="orgcfb7bac">unless</h2>
+<div class="outline-text-2" id="text-orgcfb7bac">
 <p>
 <code>unless condition forms…</code><br />
 これはthen-formがない、ifの変種です:<br />
@@ -552,17 +553,17 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-org754065f" class="outline-2">
-<h2 id="org754065f">ウィンドウ操作</h2>
-<div class="outline-text-2" id="text-org754065f">
+<div id="outline-container-org5afdded" class="outline-2">
+<h2 id="org5afdded">ウィンドウ操作</h2>
+<div class="outline-text-2" id="text-org5afdded">
 <p>
 display-buffer : 別のウィンドウでバッファbufnameを表示するが, そのウィンドウもそのバッファも選択しない<br />
 fit-window-to-buffer : その関数のオプションの引数preserve-sizeが非nilの場合、その関数によって確立されたサイズが保持される<br />
 </p>
 </div>
-<div id="outline-container-org6adae82" class="outline-3">
-<h3 id="org6adae82">ウィンドウの開始位置</h3>
-<div class="outline-text-3" id="text-org6adae82">
+<div id="outline-container-org9a73704" class="outline-3">
+<h3 id="org9a73704">ウィンドウの開始位置</h3>
+<div class="outline-text-3" id="text-org9a73704">
 <ul class="org-ul">
 <li>window-start<br />
 ウィンドウwindowの表示開始位置を返す<br /></li>
@@ -577,9 +578,9 @@ eg.<br />
 </div>
 </div>
 
-<div id="outline-container-orgc99f5ae" class="outline-2">
-<h2 id="orgc99f5ae">エラーの発生の検知 (ignore-errors)</h2>
-<div class="outline-text-2" id="text-orgc99f5ae">
+<div id="outline-container-org5325795" class="outline-2">
+<h2 id="org5325795">エラーの発生の検知 (ignore-errors)</h2>
+<div class="outline-text-2" id="text-org5325795">
 <p>
 <code>ingore-errors</code><br />
 エラーが返るとそのブロックからは nilが返る<br />
@@ -600,9 +601,9 @@ do-somethingで errorが発生すると、エラーの発生を抑制し、 resu
 </div>
 </div>
 
-<div id="outline-container-org9721b3b" class="outline-2">
-<h2 id="org9721b3b">キーバインドを調べる</h2>
-<div class="outline-text-2" id="text-org9721b3b">
+<div id="outline-container-orgc284984" class="outline-2">
+<h2 id="orgc284984">キーバインドを調べる</h2>
+<div class="outline-text-2" id="text-orgc284984">
 <p>
 M-x describe-bindings (C-h b) : 現在のモードで使えるキーバインドの一覧を表示<br />
 M-x describe-key (C-h k) : キーバインドが実行するコマンド名とそのドキュメントを表示<br />
@@ -610,9 +611,9 @@ M-x describe-key (C-h k) : キーバインドが実行するコマンド名と�
 </div>
 </div>
 
-<div id="outline-container-orgad4fa7e" class="outline-2">
-<h2 id="orgad4fa7e">対応する括弧へ移動</h2>
-<div class="outline-text-2" id="text-orgad4fa7e">
+<div id="outline-container-org871f45a" class="outline-2">
+<h2 id="org871f45a">対応する括弧へ移動</h2>
+<div class="outline-text-2" id="text-org871f45a">
 <p>
 C-M-p : 対応する開き括弧へ<br />
 C-M-n : 対応する閉じ括弧へ<br />
@@ -620,9 +621,9 @@ C-M-n : 対応する閉じ括弧へ<br />
 </div>
 </div>
 
-<div id="outline-container-org09a6662" class="outline-2">
-<h2 id="org09a6662">置換操作</h2>
-<div class="outline-text-2" id="text-org09a6662">
+<div id="outline-container-org0ed0308" class="outline-2">
+<h2 id="org0ed0308">置換操作</h2>
+<div class="outline-text-2" id="text-org0ed0308">
 <p>
 M-%<br />
 スペースキーか'y'を押せば置換が行われ、'n'を押すと置換は行わず、次の候補に移動します。<br />
@@ -637,9 +638,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-org0ce92cb" class="outline-2">
-<h2 id="org0ce92cb">local-set-key</h2>
-<div class="outline-text-2" id="text-org0ce92cb">
+<div id="outline-container-org507b615" class="outline-2">
+<h2 id="org507b615">local-set-key</h2>
+<div class="outline-text-2" id="text-org507b615">
 <p>
 キーバインドに矢印キーを用いる時や、ある特定のモードが有効になったタイミングで設定したい時<br />
 </p>
@@ -650,9 +651,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-orgdc29870" class="outline-2">
-<h2 id="orgdc29870">特定キーマップへのキーバインドの設定</h2>
-<div class="outline-text-2" id="text-orgdc29870">
+<div id="outline-container-org8547005" class="outline-2">
+<h2 id="org8547005">特定キーマップへのキーバインドの設定</h2>
+<div class="outline-text-2" id="text-org8547005">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;;; keymap
 (defvar org-mode-map (make-keymap))
@@ -667,9 +668,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-orga2b0b84" class="outline-2">
-<h2 id="orga2b0b84">キーマップの継承</h2>
-<div class="outline-text-2" id="text-orga2b0b84">
+<div id="outline-container-org733a0d4" class="outline-2">
+<h2 id="org733a0d4">キーマップの継承</h2>
+<div class="outline-text-2" id="text-org733a0d4">
 <p>
 キーマップkeymapの親キーマップとしてparentを設定する。<br />
 </p>
@@ -682,9 +683,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-org6a8bf6e" class="outline-2">
-<h2 id="org6a8bf6e">dired</h2>
-<div class="outline-text-2" id="text-org6a8bf6e">
+<div id="outline-container-org1ac1d34" class="outline-2">
+<h2 id="org1ac1d34">dired</h2>
+<div class="outline-text-2" id="text-org1ac1d34">
 <p>
 diredはディレクトリ一覧をバッファに作成し、一覧中にあるファイルを操作できます。<br />
 </p>
@@ -758,9 +759,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-org08f86b4" class="outline-2">
-<h2 id="org08f86b4">変更内容による Emacs キーバインディングの設定方法</h2>
-<div class="outline-text-2" id="text-org08f86b4">
+<div id="outline-container-org672443c" class="outline-2">
+<h2 id="org672443c">変更内容による Emacs キーバインディングの設定方法</h2>
+<div class="outline-text-2" id="text-org672443c">
 <ul class="org-ul">
 <li><p>
 既存のコマンドを引数を与えないで割り当てる -&gt; そのまま<br />
@@ -796,9 +797,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-org882e929" class="outline-2">
-<h2 id="org882e929">メジャーモードとマイナーモード</h2>
-<div class="outline-text-2" id="text-org882e929">
+<div id="outline-container-orgd869ee9" class="outline-2">
+<h2 id="orgd869ee9">メジャーモードとマイナーモード</h2>
+<div class="outline-text-2" id="text-orgd869ee9">
 <p>
 メジャーモードは一つのバッファに対して同時に一つしか設定できない。<br />
 一方マイナーモードはメジャーモードとも他のマイナーモードとも併用することができる。<br />
@@ -807,9 +808,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-orgc12dc80" class="outline-2">
-<h2 id="orgc12dc80">アドバイス定義 (defadvice)</h2>
-<div class="outline-text-2" id="text-orgc12dc80">
+<div id="outline-container-org76e74e1" class="outline-2">
+<h2 id="org76e74e1">アドバイス定義 (defadvice)</h2>
+<div class="outline-text-2" id="text-org76e74e1">
 <p>
 定義済みの関数に処理を付け足すことができる。<br />
 </p>
@@ -825,9 +826,9 @@ class では、 after か before か around を指定する。<br />
 </p>
 </div>
 
-<div id="outline-container-orgfc3f95e" class="outline-3">
-<h3 id="orgfc3f95e">包囲アドバイス</h3>
-<div class="outline-text-3" id="text-orgfc3f95e">
+<div id="outline-container-org898daff" class="outline-3">
+<h3 id="org898daff">包囲アドバイス</h3>
+<div class="outline-text-3" id="text-org898daff">
 <p>
 包囲アドバイスにより, 関数の元定義を包み込むLisp式を書けます.<br />
 このとき関数の元定義を実行する場所を特別なシンボルad-do-itで指定します.<br />
@@ -853,9 +854,9 @@ class では、 after か before か around を指定する。<br />
 </div>
 </div>
 
-<div id="outline-container-orga83fbc7" class="outline-2">
-<h2 id="orga83fbc7">OSの違いを判定する</h2>
-<div class="outline-text-2" id="text-orga83fbc7">
+<div id="outline-container-org531f204" class="outline-2">
+<h2 id="org531f204">OSの違いを判定する</h2>
+<div class="outline-text-2" id="text-org531f204">
 <p>
 変数 system-type を用いる。<br />
 </p>
@@ -863,7 +864,7 @@ class では、 after か before か around を指定する。<br />
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-24 水 00:03</p>
+<p class="date">Created: 2021-03-26 金 01:37</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

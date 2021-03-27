@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+a {
+    color: blue;
+}
+a:hover {
+    text-decoration: none;
+}
+h2 {
+    color: rgb(245, 69, 0);
+}
+h3 {
+    color: rgb(11, 78, 221);
+}
+h4 {
+    color: green;
+}
