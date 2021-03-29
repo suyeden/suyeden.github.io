@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-26 金 01:37 -->
+<!-- 2021-03-29 月 23:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org-mode</title>
@@ -239,26 +239,327 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">Org-mode</h1>
-<div id="outline-container-orgb2c2324" class="outline-2">
-<h2 id="orgb2c2324"></h2>
-<div class="outline-text-2" id="text-orgb2c2324">
+<div id="outline-container-org142f9cf" class="outline-2">
+<h2 id="org142f9cf"></h2>
+<div class="outline-text-2" id="text-org142f9cf">
 <hr />
 </div>
-<div id="outline-container-org9951479" class="outline-3">
-<h3 id="org9951479"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9951479">
+<div id="outline-container-org11c6864" class="outline-3">
+<h3 id="org11c6864"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org11c6864">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org10de5f7" class="outline-2">
-<h2 id="org10de5f7">ファイルへのリンクの作成</h2>
-<div class="outline-text-2" id="text-org10de5f7">
+<div id="outline-container-org6e01375" class="outline-2">
+<h2 id="org6e01375">エクスポートオプション一覧</h2>
+<div class="outline-text-2" id="text-org6e01375">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">キーワード</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">#+TITLE:</td>
+<td class="org-left">タイトルを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+AUTHOR:</td>
+<td class="org-left">著者名を指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+DATE:</td>
+<td class="org-left">日付を指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EMAIL:</td>
+<td class="org-left">メールアドレスを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+DESCRIPTION:</td>
+<td class="org-left">文書の説明を記述する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+KEYWORDS:</td>
+<td class="org-left">文書のキーワードを記述する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LANGUAGE:</td>
+<td class="org-left">文書の言語を記述する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+TEXT:</td>
+<td class="org-left">文書の最初に現れる文章を記述する(複数行可)</td>
+</tr>
+
+<tr>
+<td class="org-left">#+OPTIONS:</td>
+<td class="org-left">オプションを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+BIND:</td>
+<td class="org-left">エクスポート時に実行するLisp変数への割当て</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LINK<sub>UP</sub>:</td>
+<td class="org-left">「UP」リンクを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LINK<sub>HOME</sub>:</td>
+<td class="org-left">「HOME」リンクを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LATEX<sub>HEADER</sub>:</td>
+<td class="org-left">LaTeXヘッダを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EXPORT<sub>SELECT</sub><sub>TAGS</sub>:</td>
+<td class="org-left">エクスポートするタグを指定する</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EXPORT<sub>EXCLUDE</sub><sub>TAGS</sub>:</td>
+<td class="org-left">エクスポートしないタグを指定する</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<code>#+OPTIONS</code> で指定するオプションは以下の通りである．<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">オプション</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">H:</td>
+<td class="org-left">エクスポートする見出しの深さ</td>
+</tr>
+
+<tr>
+<td class="org-left">num:</td>
+<td class="org-left">章番号のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">toc:</td>
+<td class="org-left">目次のオン/オフ，あるいは深さ</td>
+</tr>
+
+<tr>
+<td class="org-left">\n:</td>
+<td class="org-left">改行保持のオン/オフ(無効)</td>
+</tr>
+
+<tr>
+<td class="org-left">@:</td>
+<td class="org-left">@&lt;tag&gt;のHTMLタグのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">::</td>
+<td class="org-left">固定幅の章のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">｜:</td>
+<td class="org-left">表のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">^:</td>
+<td class="org-left">TeX風の上付き下付き記法のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">-:</td>
+<td class="org-left">特殊な文字列の変換のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">f:</td>
+<td class="org-left">脚注のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">todo:</td>
+<td class="org-left">TODOキーワードのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">pri:</td>
+<td class="org-left">プライオリティのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">tags:</td>
+<td class="org-left">タグのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;:</td>
+<td class="org-left">DEADLINE等の日時のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">*:</td>
+<td class="org-left">太字，斜体，下線のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">TeX:</td>
+<td class="org-left">&alpha; 等のTeX風記法のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">LaTeX:</td>
+<td class="org-left">LaTeX表記のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">skip:</td>
+<td class="org-left">最初の見出しより前の部分のスキップのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">author:</td>
+<td class="org-left">著者名とメールアドレスのオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">creator:</td>
+<td class="org-left">作成情報のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">timestamp:</td>
+<td class="org-left">作成日時のオン/オフ</td>
+</tr>
+
+<tr>
+<td class="org-left">d:</td>
+<td class="org-left">ドローワのオン/オフ</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+HTMLエクスポートのキーワード<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">キーワード</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">#+HTML:</td>
+<td class="org-left">HTML記法の行</td>
+</tr>
+
+<tr>
+<td class="org-left">#+BEGIN<sub>HTML</sub> &#x2026; #+END<sub>HTML</sub></td>
+<td class="org-left">HTML記法のブロック</td>
+</tr>
+
+<tr>
+<td class="org-left">#+ATTR<sub>HTML</sub>:</td>
+<td class="org-left">表，イメージ，リンク等に対する設定</td>
+</tr>
+
+<tr>
+<td class="org-left">#+STYLE:</td>
+<td class="org-left">スタイルファイルの指定</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbff1f6b" class="outline-2">
+<h2 id="orgbff1f6b">出力したHTMLに対してCSSを適用するには</h2>
+<div class="outline-text-2" id="text-orgbff1f6b">
+<pre class="example">
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style1.css" /&gt;
+#+HTML_HEAD_EXTRA: &lt;link rel="alternate stylesheet" type="text/css" href="style2.css" /&gt;
+
+※ 行頭の "," は無視する
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgce0c7e6" class="outline-2">
+<h2 id="orgce0c7e6">ファイルへのリンクの作成</h2>
+<div class="outline-text-2" id="text-orgce0c7e6">
 <p>
 リンクしたいファイルの該当箇所へ行き、org-store-link を行う。<br />
 リンクを貼り付けたいファイルに戻り、C-c C-l をタイプする。<br />
@@ -277,9 +578,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga35bc43" class="outline-2">
-<h2 id="orga35bc43">Markdown 文法</h2>
-<div class="outline-text-2" id="text-orga35bc43">
+<div id="outline-container-orga3e4711" class="outline-2">
+<h2 id="orga3e4711">Markdown 文法</h2>
+<div class="outline-text-2" id="text-orga3e4711">
 <ol class="org-ol">
 <li><p>
 コードブロック<br />
@@ -298,7 +599,7 @@ function hello(){
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-26 金 01:37</p>
+<p class="date">Created: 2021-03-29 月 23:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

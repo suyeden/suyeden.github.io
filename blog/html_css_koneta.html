@@ -6,7 +6,7 @@
 <!-- 2021-03-29 月 23:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Update History</title>
+<title>HTML&amp;CSS 小ネタ集</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -242,110 +242,97 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Update History</h1>
-<div id="outline-container-org556e9bb" class="outline-2">
-<h2 id="org556e9bb"></h2>
-<div class="outline-text-2" id="text-org556e9bb">
+<h1 class="title">HTML&amp;CSS 小ネタ集</h1>
+<div id="outline-container-org441eb85" class="outline-2">
+<h2 id="org441eb85"></h2>
+<div class="outline-text-2" id="text-org441eb85">
 <hr />
 </div>
-<div id="outline-container-orgee7251f" class="outline-3">
-<h3 id="orgee7251f"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orgee7251f">
+<div id="outline-container-org195e602" class="outline-3">
+<h3 id="org195e602"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org195e602">
 <hr />
 </div>
-<div id="outline-container-org36ff969" class="outline-4">
-<h4 id="org36ff969">2021/03/27 - <a href="php_kisobunnpou_saisoku_master.html">PHP基礎文法最速マスター</a></h4>
 </div>
-<div id="outline-container-org0345904" class="outline-4">
-<h4 id="org0345904">2021/03/27 - <a href="chrome_keyboard_shortcut.html">Chrome のキーボードショートカット</a></h4>
 </div>
-<div id="outline-container-org00ed167" class="outline-4">
-<h4 id="org00ed167">2021/03/27 - <a href="computer_words.html">コンピュータ用語</a></h4>
+
+<div id="outline-container-org62ea0cd" class="outline-2">
+<h2 id="org62ea0cd">メディアクエリとviewportの使い方</h2>
+<div class="outline-text-2" id="text-org62ea0cd">
+<p>
+MediaQueriesとviewportは一緒じゃないと無意味<br />
+</p>
+
+<p>
+スマートフォンやタブレットの主要機種には、PCでの閲覧を目的として作られたサイトがきちんと収まるようデフォルトで幅980pxで表示する仕組みが備わっている。<br />
+つまりスマホ内で擬似的な画面幅980pxの表示が展開されている（実機の画面幅ではない）。<br />
+</p>
+
+<p>
+viewportとはデバイス、ブラウザウインドウなどの表示領域のこと。<br />
+viewportによって擬似的な980pxの画面幅を上書きして、閲覧しているデバイスの物理的な画面幅（本当の大きさ）を取得する。<br />
+</p>
+
+<p>
+メディアクエリはレスポンシブwebデザインを構成する際に必要なもの。<br />
+閲覧しているデバイスの幅からメディアクエリで振り分けられたどのスタイルが適用されるかが決まる。<br />
+この幅を指定するのがviewport。<br />
+viewportのみを指定してメディアクエリの記述が無い場合、PC用のレイアウトはスマホの画面幅からはみ出して表示される。<br />
+</p>
 </div>
-<div id="outline-container-org44448aa" class="outline-4">
-<h4 id="org44448aa">2021/03/27 - <a href="html_css_koneta.html">HTML&amp;CSS 小ネタ集</a></h4>
 </div>
-<div id="outline-container-orgeb029c2" class="outline-4">
-<h4 id="orgeb029c2">2021/03/23 - <a href="paint_circle_cut.html">ペイントで画像を丸く切り取る方法</a></h4>
+
+<div id="outline-container-org855f709" class="outline-2">
+<h2 id="org855f709">ファーストビューの高さは何pxにするといいか</h2>
+<div class="outline-text-2" id="text-org855f709">
+<p>
+ファーストビューとは、ユーザーがWebページにアクセスした時に最初に表示される部分、スクロールせずに画面に表示される部分のことです。<br />
+</p>
+<ul class="org-ul">
+<li>パソコンからは幅1000px(960px〜1080px)・高さ550px<br /></li>
+<li>スマホからは幅360px(Retinaディスプレイを考慮して倍サイズの750px)・高さ600px<br /></li>
+</ul>
+<p>
+が良いでしょう。<br />
+</p>
 </div>
-<div id="outline-container-org4ee862e" class="outline-4">
-<h4 id="org4ee862e">2021/03/23 - <a href="PowerShell.html">PowerShell</a></h4>
 </div>
-<div id="outline-container-orgabab5c5" class="outline-4">
-<h4 id="orgabab5c5">2021/03/23 - <a href="command_prompt.html">コマンドプロンプト</a></h4>
+
+<div id="outline-container-org246334b" class="outline-2">
+<h2 id="org246334b">background-attachment:fixed がスマホだけ効かない原因と対処法</h2>
+<div class="outline-text-2" id="text-org246334b">
+<p>
+iOS Safariでbackground-attachment:fixedが効かなくなる不具合があります。<br />
+この現象は <code>background-attachment: fixed</code> と <code>background-size: ...</code> を同時に指定していることで起こります。<br />
+</p>
+
+<p>
+この不具合を回避するには、次のように疑似要素を使い、その疑似要素に対して背景を指定することで回避できます。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-css">body::before {
+  background: url(./images/bg.png) no-repeat center;/* 画像（ここにfixedは入れない） */
+  background-size: cover;/* cover指定できる */
+  content: "";
+  display: block;
+  position: fixed;/* 擬似要素ごと固定 */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;/* 横幅いっぱい */
+  height: 100vh;/* 縦幅いっぱい */
+}
+</pre>
 </div>
-<div id="outline-container-org64a24f0" class="outline-4">
-<h4 id="org64a24f0">2021/03/17 - <a href="english.html">英語</a></h4>
-</div>
-<div id="outline-container-orgc61a47f" class="outline-4">
-<h4 id="orgc61a47f">2021/03/13 - <a href="open_source_license.html">オープンソースライセンス</a></h4>
-</div>
-<div id="outline-container-org6077870" class="outline-4">
-<h4 id="org6077870">2021/03/12 - <a href="settei_file_hikitsugi.html">設定ファイルの引き継ぎ</a></h4>
-</div>
-<div id="outline-container-org188acd1" class="outline-4">
-<h4 id="org188acd1">2021/03/12 - <a href="symbolic_link.html">シンボリックリンク</a></h4>
-</div>
-<div id="outline-container-org5ec618f" class="outline-4">
-<h4 id="org5ec618f">2021/03/02 - <a href="php_konetashuu.html">PHP 小ネタ集</a></h4>
-</div>
-<div id="outline-container-org3c37a13" class="outline-4">
-<h4 id="org3c37a13">2021/03/01 - <a href="emmet_kihou.html">Emmet記法</a></h4>
-</div>
-<div id="outline-container-org2b7c375" class="outline-4">
-<h4 id="org2b7c375">2021/02/27 - <a href="directory_name_manner.html">ディレクトリ名の作法</a></h4>
-</div>
-<div id="outline-container-orgc793293" class="outline-4">
-<h4 id="orgc793293">2021/02/27 - <a href="git_commit_manner.html">Gitコミット作法</a></h4>
-</div>
-<div id="outline-container-org378308a" class="outline-4">
-<h4 id="org378308a">2021/02/27 - <a href="github_pages.html">GitHub Pages</a></h4>
-</div>
-<div id="outline-container-org747c07b" class="outline-4">
-<h4 id="org747c07b">2021/02/18 - <a href="git_koneta.html">Git 小ネタ集</a></h4>
-</div>
-<div id="outline-container-org963d51a" class="outline-4">
-<h4 id="org963d51a">2021/02/18 - <a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h4>
-</div>
-<div id="outline-container-org6a60842" class="outline-4">
-<h4 id="org6a60842">2021/02/15 - <a href="Org-mode.html">Org-mode</a></h4>
-</div>
-<div id="outline-container-orgd3be908" class="outline-4">
-<h4 id="orgd3be908">2021/02/12 - <a href="git_tutorial.html">Git チュートリアル</a></h4>
-</div>
-<div id="outline-container-org05215f5" class="outline-4">
-<h4 id="org05215f5">2021/02/10 - <a href="Emacs_koneta.html">Emacs 小ネタ集</a></h4>
-</div>
-<div id="outline-container-orgb96c41a" class="outline-4">
-<h4 id="orgb96c41a">2021/02/10 - <a href="Emacs-Lisp-syntax.html">優しい Emacs-Lisp 講座</a></h4>
-</div>
-<div id="outline-container-org688d7c9" class="outline-4">
-<h4 id="org688d7c9">2020/10/09 - <a href="web_page_programming.html">Webページのプログラミング</a></h4>
-</div>
-<div id="outline-container-orga503415" class="outline-4">
-<h4 id="orga503415">2020/10/09 - <a href="hizuke_object.html">日付オブジェクト</a></h4>
-</div>
-<div id="outline-container-orgee0b356" class="outline-4">
-<h4 id="orgee0b356">2020/10/08 - <a href="JavaScript_kisobunnpou_saisoku_master.html">JavaScript基礎文法最速マスター</a></h4>
-</div>
-<div id="outline-container-org0186806" class="outline-4">
-<h4 id="org0186806">2020/10/07 - <a href="kakutyoukinou_setsumei.html">拡張機能 説明</a></h4>
-</div>
-<div id="outline-container-org8cf72b8" class="outline-4">
-<h4 id="org8cf72b8">2020/09/27 - <a href="VSCode_tsukaikata.html">VSCodeの使い方</a></h4>
-</div>
-<div id="outline-container-org4be4d8e" class="outline-4">
-<h4 id="org4be4d8e">2020/08/28 - <a href="base_css.html">base.css</a></h4>
-</div>
-<div id="outline-container-orga4eed7d" class="outline-4">
-<h4 id="orga4eed7d">2020/08/28 - <a href="base_html.html">base.html</a></h4>
-</div>
-<div id="outline-container-org2486608" class="outline-4">
-<h4 id="org2486608">2020/08/18 - <a href="CSS_CheatSheet.html">CSSチートシート</a></h4>
-</div>
-<div id="outline-container-orgc471612" class="outline-4">
-<h4 id="orgc471612">2020/08/16 - <a href="HTML_CheatSheet.html">HTMLチートシート</a></h4>
-</div>
+
+<p>
+擬似要素にbackgroundで画像を表示させます（ここではfixedは指定しないでください）。またbackground-size: cover;を指定しておきます。<br />
+擬似要素そのものを固定するのでposition: fixed;を使って固定します。<br />
+あとは画面幅いっぱいになるようにwidth: 100%;とheight: 100vh;を指定すればokです。<br />
+画像が表示されない場合はcontent: "";などが指定されているか確認してみてください。<br />
+また固定表示する疑似要素の重なり順を『z-index:-1;』にすること、固定表示する疑似要素の高さを『height:100vh;』にすることを忘れずに！<br />
+固定するのは「擬似要素」！要素本体に上のスタイル指定するとおかしくなってしまうので注意！<br />
+</p>
 </div>
 </div>
 </div>

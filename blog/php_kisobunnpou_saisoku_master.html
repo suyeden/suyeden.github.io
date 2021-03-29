@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-02 火 16:25 -->
+<!-- 2021-03-29 月 23:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PHP基礎文法最速マスター</title>
@@ -192,6 +192,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -242,26 +243,26 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">PHP基礎文法最速マスター</h1>
-<div id="outline-container-orgbbf4a88" class="outline-2">
-<h2 id="orgbbf4a88"></h2>
-<div class="outline-text-2" id="text-orgbbf4a88">
+<div id="outline-container-orgf075120" class="outline-2">
+<h2 id="orgf075120"></h2>
+<div class="outline-text-2" id="text-orgf075120">
 <hr />
 </div>
-<div id="outline-container-org9f51d0e" class="outline-3">
-<h3 id="org9f51d0e"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9f51d0e">
+<div id="outline-container-org5c5480b" class="outline-3">
+<h3 id="org5c5480b"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org5c5480b">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org94291e8" class="outline-2">
-<h2 id="org94291e8">基本文法</h2>
-<div class="outline-text-2" id="text-org94291e8">
+<div id="outline-container-orgace1e7b" class="outline-2">
+<h2 id="orgace1e7b">基本文法</h2>
+<div class="outline-text-2" id="text-orgace1e7b">
 </div>
-<div id="outline-container-org2220a28" class="outline-3">
-<h3 id="org2220a28">コードブロック</h3>
-<div class="outline-text-3" id="text-org2220a28">
+<div id="outline-container-orga8653c2" class="outline-3">
+<h3 id="orga8653c2">コードブロック</h3>
+<div class="outline-text-3" id="text-orga8653c2">
 <p>
 PHPコードは開始タグ <code>&lt;?php</code> から始まり、終了タグ <code>?&gt;</code> で終了します。<br />
 ただし、終了タグは省略することが推奨されています。<br />
@@ -272,20 +273,20 @@ echo 'piyo';
 </pre>
 </div>
 </div>
-<div id="outline-container-org0b4686c" class="outline-3">
-<h3 id="org0b4686c">文の終わり</h3>
-<div class="outline-text-3" id="text-org0b4686c">
+<div id="outline-container-orgfe94161" class="outline-3">
+<h3 id="orgfe94161">文の終わり</h3>
+<div class="outline-text-3" id="text-orgfe94161">
 <p>
-PHPコードは、 <code>;</code> で一文の終わりを示します。<br />
+PHPコードは、 ; で一文の終わりを示します。<br />
 </p>
 <pre class="example">
 echo 'hoge';
 </pre>
 </div>
 </div>
-<div id="outline-container-orga1eb292" class="outline-3">
-<h3 id="orga1eb292">コメント</h3>
-<div class="outline-text-3" id="text-orga1eb292">
+<div id="outline-container-org9242cc0" class="outline-3">
+<h3 id="org9242cc0">コメント</h3>
+<div class="outline-text-3" id="text-org9242cc0">
 <pre class="example">
 // 一行コメント
 # 一行コメント
@@ -296,9 +297,9 @@ echo 'hoge';
 </pre>
 </div>
 </div>
-<div id="outline-container-org0c508ba" class="outline-3">
-<h3 id="org0c508ba">変数の宣言</h3>
-<div class="outline-text-3" id="text-org0c508ba">
+<div id="outline-container-org5e56f0a" class="outline-3">
+<h3 id="org5e56f0a">変数の宣言</h3>
+<div class="outline-text-3" id="text-org5e56f0a">
 <p>
 型はPHPが自動で決定するので、宣言する必要はありません。<br />
 </p>
@@ -311,13 +312,13 @@ $c = true; // boolean
 </div>
 </div>
 
-<div id="outline-container-org19f03a3" class="outline-2">
-<h2 id="org19f03a3">数値の表現</h2>
-<div class="outline-text-2" id="text-org19f03a3">
+<div id="outline-container-org5bc743e" class="outline-2">
+<h2 id="org5bc743e">数値の表現</h2>
+<div class="outline-text-2" id="text-org5bc743e">
 </div>
-<div id="outline-container-org6dd71eb" class="outline-3">
-<h3 id="org6dd71eb">四則演算</h3>
-<div class="outline-text-3" id="text-org6dd71eb">
+<div id="outline-container-org04c68ad" class="outline-3">
+<h3 id="org04c68ad">四則演算</h3>
+<div class="outline-text-3" id="text-org04c68ad">
 <pre class="example">
 $i = 1 + 1; // 2
 $i = 1 - 1; // 0
@@ -327,9 +328,9 @@ $i = 5 % 2; // 1
 </pre>
 </div>
 </div>
-<div id="outline-container-orgea0ee52" class="outline-3">
-<h3 id="orgea0ee52">インクリメント・デクリメント</h3>
-<div class="outline-text-3" id="text-orgea0ee52">
+<div id="outline-container-org25880ad" class="outline-3">
+<h3 id="org25880ad">インクリメント・デクリメント</h3>
+<div class="outline-text-3" id="text-org25880ad">
 <pre class="example">
 $i++;
 $i--;
@@ -338,9 +339,9 @@ $i--;
 </div>
 </div>
 
-<div id="outline-container-org43f4c62" class="outline-2">
-<h2 id="org43f4c62">文字列操作</h2>
-<div class="outline-text-2" id="text-org43f4c62">
+<div id="outline-container-orgfa4a963" class="outline-2">
+<h2 id="orgfa4a963">文字列操作</h2>
+<div class="outline-text-2" id="text-orgfa4a963">
 <p>
 文字列はシングルクォートかダブルクォートで囲みます。<br />
 </p>
@@ -349,9 +350,9 @@ $s = 'hoge';
 $s = "fuga";
 </pre>
 </div>
-<div id="outline-container-org06c5933" class="outline-3">
-<h3 id="org06c5933">特殊文字</h3>
-<div class="outline-text-3" id="text-org06c5933">
+<div id="outline-container-org9df4c78" class="outline-3">
+<h3 id="org9df4c78">特殊文字</h3>
+<div class="outline-text-3" id="text-org9df4c78">
 <p>
 ダブルクォートの中では特殊文字を利用できます。<br />
 </p>
@@ -361,9 +362,9 @@ $s = 'hoge\nfuga'; // \nは文字列
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbd3d332" class="outline-3">
-<h3 id="orgbd3d332">変数展開</h3>
-<div class="outline-text-3" id="text-orgbd3d332">
+<div id="outline-container-org36968f9" class="outline-3">
+<h3 id="org36968f9">変数展開</h3>
+<div class="outline-text-3" id="text-org36968f9">
 <p>
 ダブルクォートの中では変数展開ができます。<br />
 </p>
@@ -374,9 +375,9 @@ $string2 = "{$x} fuga";
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdefc245" class="outline-3">
-<h3 id="orgdefc245">結合</h3>
-<div class="outline-text-3" id="text-orgdefc245">
+<div id="outline-container-orgabd15fe" class="outline-3">
+<h3 id="orgabd15fe">結合</h3>
+<div class="outline-text-3" id="text-orgabd15fe">
 <pre class="example">
 $string1 = 'hoge';
 $string2 = 'fuga';
@@ -386,21 +387,21 @@ $s = $string1 . $string2; // hogefuga
 </div>
 </div>
 
-<div id="outline-container-org719f627" class="outline-2">
-<h2 id="org719f627">配列</h2>
-<div class="outline-text-2" id="text-org719f627">
+<div id="outline-container-org9e1ee89" class="outline-2">
+<h2 id="org9e1ee89">配列</h2>
+<div class="outline-text-2" id="text-org9e1ee89">
 </div>
-<div id="outline-container-org4579b04" class="outline-3">
-<h3 id="org4579b04">初期化</h3>
-<div class="outline-text-3" id="text-org4579b04">
+<div id="outline-container-org60a2a5b" class="outline-3">
+<h3 id="org60a2a5b">初期化</h3>
+<div class="outline-text-3" id="text-org60a2a5b">
 <pre class="example">
 $array = [];
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb301a37" class="outline-3">
-<h3 id="orgb301a37">リスト</h3>
-<div class="outline-text-3" id="text-orgb301a37">
+<div id="outline-container-orgbd86862" class="outline-3">
+<h3 id="orgbd86862">リスト</h3>
+<div class="outline-text-3" id="text-orgbd86862">
 <p>
 リストは、キーが数値の連想配列として表現されます。<br />
 </p>
@@ -417,9 +418,9 @@ $array = ['apple', 'melon', 'banana'];
 </pre>
 </div>
 </div>
-<div id="outline-container-org5fd5b5c" class="outline-3">
-<h3 id="org5fd5b5c">連想配列</h3>
-<div class="outline-text-3" id="text-org5fd5b5c">
+<div id="outline-container-orga5e6649" class="outline-3">
+<h3 id="orga5e6649">連想配列</h3>
+<div class="outline-text-3" id="text-orga5e6649">
 <pre class="example">
 $array = [
   'apple' =&gt; 'red',
@@ -435,9 +436,9 @@ echo $array['banana']; // yellow
 </p>
 </div>
 </div>
-<div id="outline-container-org5d13370" class="outline-3">
-<h3 id="org5d13370">要素の追加</h3>
-<div class="outline-text-3" id="text-org5d13370">
+<div id="outline-container-org4cd37c0" class="outline-3">
+<h3 id="org4cd37c0">要素の追加</h3>
+<div class="outline-text-3" id="text-org4cd37c0">
 <pre class="example">
 $array = ['apple', 'melon'];
 $array[] = 'banana'; // $arrayは['apple', 'melon', 'banana']
@@ -453,13 +454,13 @@ $array['banana'] = 'yellow'; // $arrayは['apple' =&gt; 'red', 'melon' =&gt; 'gr
 </div>
 </div>
 
-<div id="outline-container-org2f4fadb" class="outline-2">
-<h2 id="org2f4fadb">特殊な演算子</h2>
-<div class="outline-text-2" id="text-org2f4fadb">
+<div id="outline-container-org3aeeb42" class="outline-2">
+<h2 id="org3aeeb42">特殊な演算子</h2>
+<div class="outline-text-2" id="text-org3aeeb42">
 </div>
-<div id="outline-container-org2ba5b5f" class="outline-3">
-<h3 id="org2ba5b5f">エルビス演算子</h3>
-<div class="outline-text-3" id="text-org2ba5b5f">
+<div id="outline-container-orgff40998" class="outline-3">
+<h3 id="orgff40998">エルビス演算子</h3>
+<div class="outline-text-3" id="text-orgff40998">
 <p>
 $xがtrueであれば、$hogeにxを代入。そうでなければ、$hogeにyを代入する。<br />
 </p>
@@ -468,9 +469,9 @@ $hoge = $x ?: $y;
 </pre>
 </div>
 </div>
-<div id="outline-container-org5bb3360" class="outline-3">
-<h3 id="org5bb3360">Null合体演算子（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-org5bb3360">
+<div id="outline-container-org31ba42b" class="outline-3">
+<h3 id="org31ba42b">Null合体演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org31ba42b">
 <p>
 Nullの判定をする演算子です。<br />
 </p>
@@ -479,9 +480,9 @@ $hoge = $x ?? $y;
 </pre>
 </div>
 </div>
-<div id="outline-container-orga527911" class="outline-3">
-<h3 id="orga527911">宇宙船演算子（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-orga527911">
+<div id="outline-container-org19ad465" class="outline-3">
+<h3 id="org19ad465">宇宙船演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org19ad465">
 <p>
 左辺（a）と右辺（b）を比較し、aが大きい場合は 1、 aとb が等しい場合は 0、 bが大きい場合は -1 をそれぞれ返します。<br />
 </p>
@@ -502,9 +503,9 @@ switch (1 &lt;=&gt; 2) {
 </div>
 </div>
 
-<div id="outline-container-org32f0242" class="outline-2">
-<h2 id="org32f0242">スーパーグローバル変数</h2>
-<div class="outline-text-2" id="text-org32f0242">
+<div id="outline-container-orga4474d9" class="outline-2">
+<h2 id="orga4474d9">スーパーグローバル変数</h2>
+<div class="outline-text-2" id="text-orga4474d9">
 <p>
 PHPの定義済み変数です。<br />
 サーバーの設定値やフォームからポストされたデータなど外部から渡された値が格納されています。<br />
@@ -523,9 +524,9 @@ $_ENV
 </div>
 </div>
 
-<div id="outline-container-orgb25cf14" class="outline-2">
-<h2 id="orgb25cf14">定数</h2>
-<div class="outline-text-2" id="text-orgb25cf14">
+<div id="outline-container-org3221c5d" class="outline-2">
+<h2 id="org3221c5d">定数</h2>
+<div class="outline-text-2" id="text-org3221c5d">
 <p>
 定数には配列も定義できます。定数は慣習的に大文字で書くことになっています。<br />
 </p>
@@ -540,13 +541,13 @@ echo ANIMALS[1]; // cat
 </div>
 </div>
 
-<div id="outline-container-org74cccc8" class="outline-2">
-<h2 id="org74cccc8">制御文</h2>
-<div class="outline-text-2" id="text-org74cccc8">
+<div id="outline-container-orge1354f8" class="outline-2">
+<h2 id="orge1354f8">制御文</h2>
+<div class="outline-text-2" id="text-orge1354f8">
 </div>
-<div id="outline-container-org348a76d" class="outline-3">
-<h3 id="org348a76d">if文</h3>
-<div class="outline-text-3" id="text-org348a76d">
+<div id="outline-container-org21b3e56" class="outline-3">
+<h3 id="org21b3e56">if文</h3>
+<div class="outline-text-3" id="text-org21b3e56">
 <pre class="example">
 if ( 条件 ) {
     式
@@ -554,9 +555,9 @@ if ( 条件 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc7886ae" class="outline-3">
-<h3 id="orgc7886ae">if-else文</h3>
-<div class="outline-text-3" id="text-orgc7886ae">
+<div id="outline-container-orgc934e90" class="outline-3">
+<h3 id="orgc934e90">if-else文</h3>
+<div class="outline-text-3" id="text-orgc934e90">
 <pre class="example">
 if ( 条件 ) {
     式1
@@ -566,9 +567,9 @@ if ( 条件 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org3e741a7" class="outline-3">
-<h3 id="org3e741a7">elseif文</h3>
-<div class="outline-text-3" id="text-org3e741a7">
+<div id="outline-container-org2754f2a" class="outline-3">
+<h3 id="org2754f2a">elseif文</h3>
+<div class="outline-text-3" id="text-org2754f2a">
 <pre class="example">
 if ( 条件1 ) {
     式1
@@ -578,9 +579,9 @@ if ( 条件1 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org74ec92b" class="outline-3">
-<h3 id="org74ec92b">while文</h3>
-<div class="outline-text-3" id="text-org74ec92b">
+<div id="outline-container-orgc6a676b" class="outline-3">
+<h3 id="orgc6a676b">while文</h3>
+<div class="outline-text-3" id="text-orgc6a676b">
 <p>
 条件がtrueの間、ループします。<br />
 </p>
@@ -591,9 +592,9 @@ while ( 条件 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org1190520" class="outline-3">
-<h3 id="org1190520">for文</h3>
-<div class="outline-text-3" id="text-org1190520">
+<div id="outline-container-orgbe0ef24" class="outline-3">
+<h3 id="orgbe0ef24">for文</h3>
+<div class="outline-text-3" id="text-orgbe0ef24">
 <pre class="example">
 for ($i = 0; $i &lt; 100; $i++) {
     式
@@ -601,9 +602,9 @@ for ($i = 0; $i &lt; 100; $i++) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org69af390" class="outline-3">
-<h3 id="org69af390">foreach文</h3>
-<div class="outline-text-3" id="text-org69af390">
+<div id="outline-container-org4214773" class="outline-3">
+<h3 id="org4214773">foreach文</h3>
+<div class="outline-text-3" id="text-org4214773">
 <pre class="example">
 // 配列の値だけ取り出す場合
 foreach ($array as $value) {
@@ -632,9 +633,9 @@ foreach ($array as [$single, $double]) {
 </div>
 </div>
 
-<div id="outline-container-orge5e0e4d" class="outline-2">
-<h2 id="orge5e0e4d">例外処理</h2>
-<div class="outline-text-2" id="text-orge5e0e4d">
+<div id="outline-container-org7a22adc" class="outline-2">
+<h2 id="org7a22adc">例外処理</h2>
+<div class="outline-text-2" id="text-org7a22adc">
 <p>
 例外を処理したい場合は、 <code>try-catch</code> 構文で処理します。<br />
 </p>
@@ -648,13 +649,13 @@ try {
 </div>
 </div>
 
-<div id="outline-container-org5f68e16" class="outline-2">
-<h2 id="org5f68e16">関数</h2>
-<div class="outline-text-2" id="text-org5f68e16">
+<div id="outline-container-org9fd0ddd" class="outline-2">
+<h2 id="org9fd0ddd">関数</h2>
+<div class="outline-text-2" id="text-org9fd0ddd">
 </div>
-<div id="outline-container-org5c039bb" class="outline-3">
-<h3 id="org5c039bb">定義</h3>
-<div class="outline-text-3" id="text-org5c039bb">
+<div id="outline-container-org654ed09" class="outline-3">
+<h3 id="org654ed09">定義</h3>
+<div class="outline-text-3" id="text-org654ed09">
 <p>
 <code>return</code> で返り値を返します。<br />
 呼び出し時に引数が立ちない場合、 <code>ArgumentCountError</code> の例外が発生します。（PHP7.1〜）<br />
@@ -676,9 +677,9 @@ function plus_minus($x, $y) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf6e2763" class="outline-3">
-<h3 id="orgf6e2763">型宣言</h3>
-<div class="outline-text-3" id="text-orgf6e2763">
+<div id="outline-container-org99e73d0" class="outline-3">
+<h3 id="org99e73d0">型宣言</h3>
+<div class="outline-text-3" id="text-org99e73d0">
 <p>
 引数と返り値にも型が指定ができる。<br />
 </p>
@@ -704,9 +705,9 @@ function hoge(string $s): void {
 }
 </pre>
 </div>
-<div id="outline-container-org70a4b31" class="outline-4">
-<h4 id="org70a4b31">宣言可能な型</h4>
-<div class="outline-text-4" id="text-org70a4b31">
+<div id="outline-container-orga34ec45" class="outline-4">
+<h4 id="orga34ec45">宣言可能な型</h4>
+<div class="outline-text-4" id="text-orga34ec45">
 <pre class="example">
 string
 int
@@ -722,9 +723,9 @@ object （PHP7.2〜）
 </div>
 </div>
 </div>
-<div id="outline-container-org314e20d" class="outline-3">
-<h3 id="org314e20d">無名関数</h3>
-<div class="outline-text-3" id="text-org314e20d">
+<div id="outline-container-org2fff1ca" class="outline-3">
+<h3 id="org2fff1ca">無名関数</h3>
+<div class="outline-text-3" id="text-org2fff1ca">
 <p>
 関数に名前をつけずに関数を定義することができます。<br />
 </p>
@@ -747,13 +748,13 @@ $hoge('hello'); // string(12) "hello: world"
 </div>
 </div>
 
-<div id="outline-container-org6454ad2" class="outline-2">
-<h2 id="org6454ad2">クラス</h2>
-<div class="outline-text-2" id="text-org6454ad2">
+<div id="outline-container-org9584e0b" class="outline-2">
+<h2 id="org9584e0b">クラス</h2>
+<div class="outline-text-2" id="text-org9584e0b">
 </div>
-<div id="outline-container-org3847832" class="outline-3">
-<h3 id="org3847832">定義</h3>
-<div class="outline-text-3" id="text-org3847832">
+<div id="outline-container-orge3d1945" class="outline-3">
+<h3 id="orge3d1945">定義</h3>
+<div class="outline-text-3" id="text-orge3d1945">
 <p>
 アクセス修飾子はpublic、protected、privateが使えます。<br />
 </p>
@@ -771,18 +772,18 @@ echo $hoge-&gt;getName(); // hoge
 </pre>
 </div>
 </div>
-<div id="outline-container-org654cfa3" class="outline-3">
-<h3 id="org654cfa3">継承</h3>
-<div class="outline-text-3" id="text-org654cfa3">
+<div id="outline-container-org41898a9" class="outline-3">
+<h3 id="org41898a9">継承</h3>
+<div class="outline-text-3" id="text-org41898a9">
 <pre class="example">
 class Fuga extends Hoge {
 }
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfb31d0a" class="outline-3">
-<h3 id="orgfb31d0a">無名クラス（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-orgfb31d0a">
+<div id="outline-container-org6151994" class="outline-3">
+<h3 id="org6151994">無名クラス（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org6151994">
 <pre class="example">
 $class = new class{
     public $msg;
@@ -803,7 +804,7 @@ object(class@anonymous)#1 (1) {
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-02 火 16:25</p>
+<p class="date">Created: 2021-03-29 月 23:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
