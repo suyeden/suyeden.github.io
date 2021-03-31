@@ -48,6 +48,10 @@ header h1 {
     color: rgb(247, 183, 66);
     text-decoration: none;
 }
+header h1 a {
+    color: rgb(247, 183, 66);
+    text-decoration: none;
+}
 #global_navi {
     width: 980px;
     margin: 16px auto;
