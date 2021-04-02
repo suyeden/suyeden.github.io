@@ -3,7 +3,6 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-<!-- 2021-03-29 月 23:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org-mode</title>
@@ -265,22 +264,46 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Org-mode</h1>
-<div id="outline-container-org142f9cf" class="outline-2">
-<h2 id="org142f9cf"></h2>
-<div class="outline-text-2" id="text-org142f9cf">
+<div id="outline-container-orgf64f7e5" class="outline-2">
+<h2 id="orgf64f7e5"></h2>
+<div class="outline-text-2" id="text-orgf64f7e5">
 <hr />
 </div>
-<div id="outline-container-org11c6864" class="outline-3">
-<h3 id="org11c6864"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org11c6864">
+<div id="outline-container-org0d08b28" class="outline-3">
+<h3 id="org0d08b28"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org0d08b28">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6e01375" class="outline-2">
-<h2 id="org6e01375">エクスポートオプション一覧</h2>
-<div class="outline-text-2" id="text-org6e01375">
+<div id="outline-container-org43948bd" class="outline-2">
+<h2 id="org43948bd">HTMLエクスポート時に "Validate" を出力しない</h2>
+<div class="outline-text-2" id="text-org43948bd">
+<p>
+以下のように変数を設定する。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-export-html-validation-link nil)
+;; org version 8.0 以降では
+(setq org-html-validation-link nil)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc33d7dd" class="outline-2">
+<h2 id="orgc33d7dd">HTMLエクスポート時にタイムスタンプを出力しない</h2>
+<div class="outline-text-2" id="text-orgc33d7dd">
+<p>
+orgファイルに <code>#+options: timestamp:nil</code> を追加する。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49efa5e" class="outline-2">
+<h2 id="org49efa5e">エクスポートオプション一覧</h2>
+<div class="outline-text-2" id="text-org49efa5e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -545,9 +568,9 @@ HTMLエクスポートのキーワード<br />
 </div>
 </div>
 
-<div id="outline-container-orgbff1f6b" class="outline-2">
-<h2 id="orgbff1f6b">出力したHTMLに対してCSSを適用するには</h2>
-<div class="outline-text-2" id="text-orgbff1f6b">
+<div id="outline-container-org679450e" class="outline-2">
+<h2 id="org679450e">出力したHTMLに対してCSSを適用するには</h2>
+<div class="outline-text-2" id="text-org679450e">
 <pre class="example">
 #+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style1.css" /&gt;
 #+HTML_HEAD_EXTRA: &lt;link rel="alternate stylesheet" type="text/css" href="style2.css" /&gt;
@@ -557,9 +580,9 @@ HTMLエクスポートのキーワード<br />
 </div>
 </div>
 
-<div id="outline-container-orgce0c7e6" class="outline-2">
-<h2 id="orgce0c7e6">ファイルへのリンクの作成</h2>
-<div class="outline-text-2" id="text-orgce0c7e6">
+<div id="outline-container-org43ba27e" class="outline-2">
+<h2 id="org43ba27e">ファイルへのリンクの作成</h2>
+<div class="outline-text-2" id="text-org43ba27e">
 <p>
 リンクしたいファイルの該当箇所へ行き、org-store-link を行う。<br />
 リンクを貼り付けたいファイルに戻り、C-c C-l をタイプする。<br />
@@ -578,9 +601,9 @@ HTMLエクスポートのキーワード<br />
 </div>
 </div>
 
-<div id="outline-container-orga3e4711" class="outline-2">
-<h2 id="orga3e4711">Markdown 文法</h2>
-<div class="outline-text-2" id="text-orga3e4711">
+<div id="outline-container-org5415a28" class="outline-2">
+<h2 id="org5415a28">Markdown 文法</h2>
+<div class="outline-text-2" id="text-org5415a28">
 <ol class="org-ol">
 <li><p>
 コードブロック<br />
@@ -597,10 +620,6 @@ function hello(){
 </ol>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Created: 2021-03-29 月 23:49</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
