@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Update History</title>
+<title>ffmpeg</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -241,116 +241,170 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Update History</h1>
-<div id="outline-container-org5c91618" class="outline-2">
-<h2 id="org5c91618"></h2>
-<div class="outline-text-2" id="text-org5c91618">
+<h1 class="title">ffmpeg</h1>
+<div id="outline-container-orge1706bb" class="outline-2">
+<h2 id="orge1706bb"></h2>
+<div class="outline-text-2" id="text-orge1706bb">
 <hr />
 </div>
-<div id="outline-container-org9478bbd" class="outline-3">
-<h3 id="org9478bbd"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org9478bbd">
+<div id="outline-container-orge996c30" class="outline-3">
+<h3 id="orge996c30"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orge996c30">
 <hr />
 </div>
-<div id="outline-container-org4d61d2d" class="outline-4">
-<h4 id="org4d61d2d">2021/05/22 - <a href="ffmpeg.html">ffmpeg</a></h4>
 </div>
-<div id="outline-container-orgbf151cc" class="outline-4">
-<h4 id="orgbf151cc">2021/05/22 - <a href="windows_pc_mirroring.html">Windows PC へのミラーリング</a></h4>
 </div>
-<div id="outline-container-org857f8cc" class="outline-4">
-<h4 id="org857f8cc">2021/03/27 - <a href="php_kisobunnpou_saisoku_master.html">PHP基礎文法最速マスター</a></h4>
+
+<div id="outline-container-org5a1c590" class="outline-2">
+<h2 id="org5a1c590">動画を結合する</h2>
+<div class="outline-text-2" id="text-org5a1c590">
+<p>
+以下のようにして複数ファイルを無劣化で結合できる<br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+インデックスファイルを作成する<br />
+インデックスファイルには、下記のフォーマットで記入します。ファイル件数分改行して記載します。記述した順序でファイルが連結されます。<br />
+</p>
+<pre class="example">
+file 'ファイル名1.mp4'
+file 'ファイル名2.mp4'
+</pre>
+<p>
+特に Windows では、動画ファイルとインデックスファイルは同階層におくこと。<br />
+</p></li>
+
+<li><p>
+インデックスファイルを指定して無劣化コピーする<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ffmpeg (-safe 0) -f concat -i インデックスファイル.txt -c copy output.mp4
+</pre>
 </div>
-<div id="outline-container-org93e875a" class="outline-4">
-<h4 id="org93e875a">2021/03/27 - <a href="chrome_keyboard_shortcut.html">Chrome のキーボードショートカット</a></h4>
+<p>
+あるいは以下のようにも記述できる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ffmpeg (-safe 0) -f concat -i インデックスファイル.txt -c:v copy -c:a copy -map 0:v -map 0:a output.mp4
+</pre>
 </div>
-<div id="outline-container-org9f8a815" class="outline-4">
-<h4 id="org9f8a815">2021/03/27 - <a href="computer_words.html">コンピュータ用語</a></h4>
+
+<ul class="org-ul">
+<li><p>
+オプション解説<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">-safe 0</td>
+<td class="org-left">セーフモード解除（インデックスファイルのパスを絶対パスで指定しない場合は不要らしい）</td>
+</tr>
+
+<tr>
+<td class="org-left">-f concat</td>
+<td class="org-left">結合する指示を出す</td>
+</tr>
+
+<tr>
+<td class="org-left">-i files.txt</td>
+<td class="org-left">インデックスファイルを指定</td>
+</tr>
+
+<tr>
+<td class="org-left">-c copy</td>
+<td class="org-left">オリジナルファイルのコーデックを再エンコードすることなく処理する</td>
+</tr>
+
+<tr>
+<td class="org-left">-c:v copy</td>
+<td class="org-left">ビデオコーデックをコピーする（無劣化）</td>
+</tr>
+
+<tr>
+<td class="org-left">-c:a copy</td>
+<td class="org-left">オーディオコーデックをコピーする（無劣化）</td>
+</tr>
+
+<tr>
+<td class="org-left">-map 0:v</td>
+<td class="org-left">ビデオファイルが複数存在する場合は全てのものを同梱する</td>
+</tr>
+
+<tr>
+<td class="org-left">-map 0:a</td>
+<td class="org-left">オーディオファイルが複数存在する場合は、全てのものを同梱する</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+※ <code>-c copy</code><br />
+高速に処理できるが、fileA.mp4、fileB.mp4のコーデックが異なる場合はこの方法では結合できない。<br />
+異なるコーデックの動画を結合したい場合は、-c copyを外す（デフォルトのコーデックが使われる）かコーデックを指定してエンコードすること。<br />
+</p>
+
+<p>
+※ <code>-safe 0</code><br />
+「Unsafe file name '/path/to/a.mov' mylist.txt: Operation not permitted」というエラーが出て実行できない時に有効。<br />
+</p>
+
+<p>
+動画を連結する場合は再エンコードしたほうが間違いないらしい。<br />
+</p></li>
+</ul></li>
+</ol>
 </div>
-<div id="outline-container-org4c38580" class="outline-4">
-<h4 id="org4c38580">2021/03/27 - <a href="html_css_koneta.html">HTML&amp;CSS 小ネタ集</a></h4>
 </div>
-<div id="outline-container-org5978210" class="outline-4">
-<h4 id="org5978210">2021/03/23 - <a href="paint_circle_cut.html">ペイントで画像を丸く切り取る方法</a></h4>
+
+<div id="outline-container-orgfff2d42" class="outline-2">
+<h2 id="orgfff2d42">秒数を指定して動画を切り出す</h2>
+<div class="outline-text-2" id="text-orgfff2d42">
+<div class="org-src-container">
+<pre class="src src-bash">ffmpeg -ss [スタート秒数] -i [元ファイル] -t [長さ] -c copy [出力ファイル]
+</pre>
 </div>
-<div id="outline-container-orgd2e7216" class="outline-4">
-<h4 id="orgd2e7216">2021/03/23 - <a href="PowerShell.html">PowerShell</a></h4>
+<p>
+秒数は 00:00:00.000 （時間:分:秒.ミリ秒）のように記述する。<br />
+</p>
+
+<p>
+また以下のように記述することも可能。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ffmpeg -ss 120 -i src.mp4 -t 30 -c copy dst.mp4
+</pre>
 </div>
-<div id="outline-container-orgd1f5d62" class="outline-4">
-<h4 id="orgd1f5d62">2021/03/23 - <a href="command_prompt.html">コマンドプロンプト</a></h4>
+<p>
+上記の例だと 120 秒から 30 秒だけ切り出します。<br />
+</p>
+
+<p>
+-c copy によりトランスコードせずに出力しているため爆速です。<br />
+もし開始タイミングや動画の長さがズレる場合は -c copy オプションを外してトランスコードすると良くなるかと思います。<br />
+スタート秒数、長さは指定しなければ冒頭、末尾になります。<br />
+</p>
 </div>
-<div id="outline-container-orgb826b2d" class="outline-4">
-<h4 id="orgb826b2d">2021/03/17 - <a href="english.html">英語</a></h4>
 </div>
-<div id="outline-container-orgc384c5a" class="outline-4">
-<h4 id="orgc384c5a">2021/03/13 - <a href="open_source_license.html">オープンソースライセンス</a></h4>
+
+<div id="outline-container-org0befe99" class="outline-2">
+<h2 id="org0befe99">映像と音声を結合する</h2>
+<div class="outline-text-2" id="text-org0befe99">
+<div class="org-src-container">
+<pre class="src src-bash">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4
+</pre>
 </div>
-<div id="outline-container-org53f8dd7" class="outline-4">
-<h4 id="org53f8dd7">2021/03/12 - <a href="settei_file_hikitsugi.html">設定ファイルの引き継ぎ</a></h4>
-</div>
-<div id="outline-container-org43c575e" class="outline-4">
-<h4 id="org43c575e">2021/03/12 - <a href="symbolic_link.html">シンボリックリンク</a></h4>
-</div>
-<div id="outline-container-org6a42153" class="outline-4">
-<h4 id="org6a42153">2021/03/02 - <a href="php_konetashuu.html">PHP 小ネタ集</a></h4>
-</div>
-<div id="outline-container-orgac14d69" class="outline-4">
-<h4 id="orgac14d69">2021/03/01 - <a href="emmet_kihou.html">Emmet記法</a></h4>
-</div>
-<div id="outline-container-org5765687" class="outline-4">
-<h4 id="org5765687">2021/02/27 - <a href="directory_name_manner.html">ディレクトリ名の作法</a></h4>
-</div>
-<div id="outline-container-org0360374" class="outline-4">
-<h4 id="org0360374">2021/02/27 - <a href="git_commit_manner.html">Gitコミット作法</a></h4>
-</div>
-<div id="outline-container-org704e22c" class="outline-4">
-<h4 id="org704e22c">2021/02/27 - <a href="github_pages.html">GitHub Pages</a></h4>
-</div>
-<div id="outline-container-orgedf0b63" class="outline-4">
-<h4 id="orgedf0b63">2021/02/18 - <a href="git_koneta.html">Git 小ネタ集</a></h4>
-</div>
-<div id="outline-container-orgcfe1575" class="outline-4">
-<h4 id="orgcfe1575">2021/02/18 - <a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h4>
-</div>
-<div id="outline-container-org2803b05" class="outline-4">
-<h4 id="org2803b05">2021/02/15 - <a href="Org-mode.html">Org-mode</a></h4>
-</div>
-<div id="outline-container-org9d50b89" class="outline-4">
-<h4 id="org9d50b89">2021/02/12 - <a href="git_tutorial.html">Git チュートリアル</a></h4>
-</div>
-<div id="outline-container-orgcdb2347" class="outline-4">
-<h4 id="orgcdb2347">2021/02/10 - <a href="Emacs_koneta.html">Emacs 小ネタ集</a></h4>
-</div>
-<div id="outline-container-org83d0f3f" class="outline-4">
-<h4 id="org83d0f3f">2021/02/10 - <a href="Emacs-Lisp-syntax.html">優しい Emacs-Lisp 講座</a></h4>
-</div>
-<div id="outline-container-org2ded0ea" class="outline-4">
-<h4 id="org2ded0ea">2020/10/09 - <a href="web_page_programming.html">Webページのプログラミング</a></h4>
-</div>
-<div id="outline-container-org44ad51f" class="outline-4">
-<h4 id="org44ad51f">2020/10/09 - <a href="hizuke_object.html">日付オブジェクト</a></h4>
-</div>
-<div id="outline-container-org111741d" class="outline-4">
-<h4 id="org111741d">2020/10/08 - <a href="JavaScript_kisobunnpou_saisoku_master.html">JavaScript基礎文法最速マスター</a></h4>
-</div>
-<div id="outline-container-org51c572b" class="outline-4">
-<h4 id="org51c572b">2020/10/07 - <a href="kakutyoukinou_setsumei.html">拡張機能 説明</a></h4>
-</div>
-<div id="outline-container-orgfe4d4f4" class="outline-4">
-<h4 id="orgfe4d4f4">2020/09/27 - <a href="VSCode_tsukaikata.html">VSCodeの使い方</a></h4>
-</div>
-<div id="outline-container-org47c64cf" class="outline-4">
-<h4 id="org47c64cf">2020/08/28 - <a href="base_css.html">base.css</a></h4>
-</div>
-<div id="outline-container-org1719a28" class="outline-4">
-<h4 id="org1719a28">2020/08/28 - <a href="base_html.html">base.html</a></h4>
-</div>
-<div id="outline-container-orgfcbc446" class="outline-4">
-<h4 id="orgfcbc446">2020/08/18 - <a href="CSS_CheatSheet.html">CSSチートシート</a></h4>
-</div>
-<div id="outline-container-org543146c" class="outline-4">
-<h4 id="org543146c">2020/08/16 - <a href="HTML_CheatSheet.html">HTMLチートシート</a></h4>
-</div>
+<p>
+ポイントは-c:v copyを指定して動画を再エンコードしないようにしていることと、-map 0:v:0 -map 1:a:0を指定して元の動画ファイルに音声トラックが含まれている場合でも確実に音声ファイルの音声トラックを利用するようにしているところです。<br />
+元の動画ファイルに音声が含まれていないのであれば、-mapの指定はなくても良いです。<br />
+</p>
 </div>
 </div>
 </div>
