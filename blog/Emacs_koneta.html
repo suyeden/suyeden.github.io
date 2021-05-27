@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,50 +193,26 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -264,22 +240,59 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacs 小ネタ集</h1>
-<div id="outline-container-org649fee5" class="outline-2">
-<h2 id="org649fee5"></h2>
-<div class="outline-text-2" id="text-org649fee5">
+<div id="outline-container-org8e4c745" class="outline-2">
+<h2 id="org8e4c745"></h2>
+<div class="outline-text-2" id="text-org8e4c745">
 <hr />
 </div>
-<div id="outline-container-orgc58161a" class="outline-3">
-<h3 id="orgc58161a"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orgc58161a">
+<div id="outline-container-org527812f" class="outline-3">
+<h3 id="org527812f"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org527812f">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2db350e" class="outline-2">
-<h2 id="org2db350e">日本語文字コードの設定</h2>
-<div class="outline-text-2" id="text-org2db350e">
+<div id="outline-container-orgca15bed" class="outline-2">
+<h2 id="orgca15bed">Linux での最新版のビルド</h2>
+<div class="outline-text-2" id="text-orgca15bed">
+<ol class="org-ol">
+<li><p>
+必要なパッケージのインストール<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo apt install git gcc make ncurses-dev xorg-dev libjpeg-dev libgif-dev libtiff-dev gnutls-dev
+</pre>
+</div></li>
+<li>Emacs 本体のダウンロード<br />
+<a href="https://ftp.jaist.ac.jp/pub/GNU/emacs/">https://ftp.jaist.ac.jp/pub/GNU/emacs/</a> にて最新版の tar.gz ファイルをダウンロードする<br /></li>
+<li><p>
+ビルド<br />
+もし既にosパッケージでEmacsをインストールしている場合は、念の為削除しておく。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo apt remove emacs emacs-gtk emacs-lucid emacs-nox
+sudo apt autoremove
+</pre>
+</div>
+<p>
+先程落としてきたファイルがあるディレクトリ（どこでもいい）に移動した後に、以下コマンドを実行<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">tar xvf emacs-xx.x.tar.gz
+cd emacs-xx.x
+./configure
+sudo make
+sudo make install
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org7569692" class="outline-2">
+<h2 id="org7569692">日本語文字コードの設定</h2>
+<div class="outline-text-2" id="text-org7569692">
 <ol class="org-ol">
 <li>まず、文字コードの設定で最初に行うのは、言語環境を日本語(Japanese)に設定することです。<br />
 「何故、文字コードの設定で言語環境を設定するか」というと、 言語環境を設定すれば最低限の文字コードの設定が行われるからです。<br />
@@ -491,9 +504,9 @@ Windows では Shift-JIS 、Unix 系では EUC-JP などユーザーが環境と
 </div>
 </div>
 
-<div id="outline-container-org1b7f8e0" class="outline-2">
-<h2 id="org1b7f8e0">定義ファイルのパス関連</h2>
-<div class="outline-text-2" id="text-org1b7f8e0">
+<div id="outline-container-orgf20e0f8" class="outline-2">
+<h2 id="orgf20e0f8">定義ファイルのパス関連</h2>
+<div class="outline-text-2" id="text-orgf20e0f8">
 <ul class="org-ul">
 <li>invocation-name<br />
 Emacsの実行に使用されたプログラム名。ディレクトリ名は省略されます。<br />
@@ -506,7 +519,7 @@ Emacs実行可能ファイルが見つかったディレクトリ。分からな
 <li><p>
 ロード済みのライブラリ, 変数, 関数の定義場所を調べる<br />
 </p>
-<pre class="example">
+<pre class="example" id="org9f32227">
 (find-library-name "url")
 "/Users/gongo/.homebrew/Cellar/emacs/24.2/share/emacs/24.2/lisp/url/url.el.gz"
 
@@ -528,9 +541,9 @@ Emacs実行可能ファイルが見つかったディレクトリ。分からな
 </div>
 </div>
 
-<div id="outline-container-orgab03cc5" class="outline-2">
-<h2 id="orgab03cc5">バイトコンパイル</h2>
-<div class="outline-text-2" id="text-orgab03cc5">
+<div id="outline-container-orga895143" class="outline-2">
+<h2 id="orga895143">バイトコンパイル</h2>
+<div class="outline-text-2" id="text-orga895143">
 <ul class="org-ul">
 <li>エラーメッセージ<br />
 <ul class="org-ul">
@@ -551,9 +564,9 @@ declare-function をすればよい。<br />
 </div>
 </div>
 
-<div id="outline-container-orgb3a0f69" class="outline-2">
-<h2 id="orgb3a0f69">グローバル変数</h2>
-<div class="outline-text-2" id="text-orgb3a0f69">
+<div id="outline-container-org265146a" class="outline-2">
+<h2 id="org265146a">グローバル変数</h2>
+<div class="outline-text-2" id="text-org265146a">
 <ul class="org-ul">
 <li><p>
 変数宣言<br />
@@ -573,9 +586,9 @@ symbolの値が空でありvalueを指定してあると、defvarはvalueを評�
 </div>
 </div>
 
-<div id="outline-container-org84cac29" class="outline-2">
-<h2 id="org84cac29">ミニバッファー入力あれこれ</h2>
-<div class="outline-text-2" id="text-org84cac29">
+<div id="outline-container-org1fa7f2f" class="outline-2">
+<h2 id="org1fa7f2f">ミニバッファー入力あれこれ</h2>
+<div class="outline-text-2" id="text-org1fa7f2f">
 <ul class="org-ul">
 <li><code>read-from-minibuffer prompt &amp;optional initial keymap read history default inherit-input-method</code><br />
 この関数は、ミニバッファーから入力を取得するもっとも一般的な手段である。<br />
@@ -639,18 +652,18 @@ minibuffer-local-map<br />
 </div>
 </div>
 
-<div id="outline-container-org2c337c9" class="outline-2">
-<h2 id="org2c337c9">読出し専用と書込み可能の切り替え</h2>
-<div class="outline-text-2" id="text-org2c337c9">
+<div id="outline-container-org10dd52d" class="outline-2">
+<h2 id="org10dd52d">読出し専用と書込み可能の切り替え</h2>
+<div class="outline-text-2" id="text-org10dd52d">
 <p>
 関数 (toggle-read-only) を実行、あるいは 変数 buffer-read-only の値を切り替える<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga458d3b" class="outline-2">
-<h2 id="orga458d3b">変数/関数定義を削除する</h2>
-<div class="outline-text-2" id="text-orga458d3b">
+<div id="outline-container-org1a2e8eb" class="outline-2">
+<h2 id="org1a2e8eb">変数/関数定義を削除する</h2>
+<div class="outline-text-2" id="text-org1a2e8eb">
 <p>
 変数/関数そのものを削除したい時に使える。<br />
 </p>
@@ -664,7 +677,7 @@ minibuffer-local-map<br />
 <p>
 以下例<br />
 </p>
-<pre class="example">
+<pre class="example" id="org65c96ee">
 (setq foo 42)
 &gt;&gt; 42
 foo
@@ -677,7 +690,7 @@ foo
 <p>
 また、 <code>boundp</code> はシンボル variable に対する現在の束縛が空でなければtを返す. さもなければnilを返す.<br />
 </p>
-<pre class="example">
+<pre class="example" id="org85425a1">
 (boundp 'abracadabra)          ; 空で始める
      ⇒ nil
 (let ((abracadabra 5))         ; ローカルに束縛する
@@ -693,9 +706,9 @@ foo
 </div>
 </div>
 
-<div id="outline-container-orgea27719" class="outline-2">
-<h2 id="orgea27719">バッファ内容の変更（編集）を検知する</h2>
-<div class="outline-text-2" id="text-orgea27719">
+<div id="outline-container-orgd776499" class="outline-2">
+<h2 id="orgd776499">バッファ内容の変更（編集）を検知する</h2>
+<div class="outline-text-2" id="text-orgd776499">
 <p>
 <code>buffer-modified-p &amp;optional buffer</code><br />
 この関数は、バッファーbufferが最後にファイルから読み込まれた、あるいは保存されてから変更されていればt、それ以外ではnilをリターンする。<br />
@@ -704,9 +717,9 @@ bufferが与えられない場合は、カレントバッファーがテスト�
 </div>
 </div>
 
-<div id="outline-container-org8de2c7f" class="outline-2">
-<h2 id="org8de2c7f">正規表現とバックスラッシュ</h2>
-<div class="outline-text-2" id="text-org8de2c7f">
+<div id="outline-container-orge69d363" class="outline-2">
+<h2 id="orge69d363">正規表現とバックスラッシュ</h2>
+<div class="outline-text-2" id="text-orge69d363">
 <p>
 <b>最重要概念！</b><br />
 <span class="underline">Emacs Lisp では正規表現は「文字列」として表記する。</span><br />
@@ -803,9 +816,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-org1b6aa28" class="outline-2">
-<h2 id="org1b6aa28">Emacs で自動作成されるファイルの種類</h2>
-<div class="outline-text-2" id="text-org1b6aa28">
+<div id="outline-container-orga67aa4f" class="outline-2">
+<h2 id="orga67aa4f">Emacs で自動作成されるファイルの種類</h2>
+<div class="outline-text-2" id="text-orga67aa4f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -852,9 +865,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orgffa460a" class="outline-2">
-<h2 id="orgffa460a">画面スクロール</h2>
-<div class="outline-text-2" id="text-orgffa460a">
+<div id="outline-container-org144f04b" class="outline-2">
+<h2 id="org144f04b">画面スクロール</h2>
+<div class="outline-text-2" id="text-org144f04b">
 <p>
 <code>C-u C-v</code> : 4行スクロール<br />
 <code>C-u C-u C-v</code> : 16行スクロール<br />
@@ -862,9 +875,9 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orgc6b1ae5" class="outline-2">
-<h2 id="orgc6b1ae5">ディレクトリ名の補完 (read-directory-name)</h2>
-<div class="outline-text-2" id="text-orgc6b1ae5">
+<div id="outline-container-orgf9a95a2" class="outline-2">
+<h2 id="orgf9a95a2">ディレクトリ名の補完 (read-directory-name)</h2>
+<div class="outline-text-2" id="text-orgf9a95a2">
 <p>
 <code>read-directory-name prompt &amp;optional directory default require-match initial</code><br />
 この関数はread-file-nameと似ているが、補完候補としてディレクトリーだけを許す。<br />
@@ -872,18 +885,18 @@ cf. (re-search-forward "\\\\\\*") → \* を検索<br />
 </div>
 </div>
 
-<div id="outline-container-orge1a98b4" class="outline-2">
-<h2 id="orge1a98b4">カレントバッファのディレクトリ取得</h2>
-<div class="outline-text-2" id="text-orge1a98b4">
+<div id="outline-container-orgba61d95" class="outline-2">
+<h2 id="orgba61d95">カレントバッファのディレクトリ取得</h2>
+<div class="outline-text-2" id="text-orgba61d95">
 <p>
 変数 <code>default-directory</code> に格納されている。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6987083" class="outline-2">
-<h2 id="org6987083">OSの判定</h2>
-<div class="outline-text-2" id="text-org6987083">
+<div id="outline-container-orgd0eb840" class="outline-2">
+<h2 id="orgd0eb840">OSの判定</h2>
+<div class="outline-text-2" id="text-orgd0eb840">
 <p>
 変数 <code>system-type</code> にOS情報が格納されている。<br />
 eg.<br />
@@ -922,9 +935,9 @@ eg.<br />
 </div>
 </div>
 
-<div id="outline-container-orgd995fa0" class="outline-2">
-<h2 id="orgd995fa0">Undo &amp; Redo</h2>
-<div class="outline-text-2" id="text-orgd995fa0">
+<div id="outline-container-orgc58e131" class="outline-2">
+<h2 id="orgc58e131">Undo &amp; Redo</h2>
+<div class="outline-text-2" id="text-orgc58e131">
 <p>
 C-/ : Undo（元に戻す）<br />
 C-g C-/ : Redo（やり直し）<br />
@@ -932,9 +945,9 @@ C-g C-/ : Redo（やり直し）<br />
 </div>
 </div>
 
-<div id="outline-container-orga26719f" class="outline-2">
-<h2 id="orga26719f">The Region</h2>
-<div class="outline-text-2" id="text-orga26719f">
+<div id="outline-container-org93bf800" class="outline-2">
+<h2 id="org93bf800">The Region</h2>
+<div class="outline-text-2" id="text-org93bf800">
 <p>
 region-beginning : この関数は、リージョンの先頭位置を、(整数として)リターンする。これは、ポイントかマークのいずれか小さいほうの位置である。<br />
 region-end : この関数は、リージョンの終端位置を、(整数として)リターンする。これは、ポイントかマークのいずれか大きいほうの位置である。<br />
@@ -943,9 +956,9 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-orgda9a053" class="outline-2">
-<h2 id="orgda9a053">文字列内のテキスト属性とbuffer-substring-no-properties</h2>
-<div class="outline-text-2" id="text-orgda9a053">
+<div id="outline-container-org180ac42" class="outline-2">
+<h2 id="org180ac42">文字列内のテキスト属性とbuffer-substring-no-properties</h2>
+<div class="outline-text-2" id="text-org180ac42">
 <p>
 文字列は, 文字そのものに加えて, 文字の属性も保持できる<br />
 </p>
@@ -957,9 +970,9 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-orgf20fef0" class="outline-2">
-<h2 id="orgf20fef0">unless</h2>
-<div class="outline-text-2" id="text-orgf20fef0">
+<div id="outline-container-orgb9e7a11" class="outline-2">
+<h2 id="orgb9e7a11">unless</h2>
+<div class="outline-text-2" id="text-orgb9e7a11">
 <p>
 <code>unless condition forms…</code><br />
 これはthen-formがない、ifの変種です:<br />
@@ -979,17 +992,17 @@ use-region-p : この関数は、Transient Markモードが有効でマークが
 </div>
 </div>
 
-<div id="outline-container-orgdaa600e" class="outline-2">
-<h2 id="orgdaa600e">ウィンドウ操作</h2>
-<div class="outline-text-2" id="text-orgdaa600e">
+<div id="outline-container-org3052523" class="outline-2">
+<h2 id="org3052523">ウィンドウ操作</h2>
+<div class="outline-text-2" id="text-org3052523">
 <p>
 display-buffer : 別のウィンドウでバッファbufnameを表示するが, そのウィンドウもそのバッファも選択しない<br />
 fit-window-to-buffer : その関数のオプションの引数preserve-sizeが非nilの場合、その関数によって確立されたサイズが保持される<br />
 </p>
 </div>
-<div id="outline-container-org4e19d90" class="outline-3">
-<h3 id="org4e19d90">ウィンドウの開始位置</h3>
-<div class="outline-text-3" id="text-org4e19d90">
+<div id="outline-container-org5217782" class="outline-3">
+<h3 id="org5217782">ウィンドウの開始位置</h3>
+<div class="outline-text-3" id="text-org5217782">
 <ul class="org-ul">
 <li>window-start<br />
 ウィンドウwindowの表示開始位置を返す<br /></li>
@@ -1004,9 +1017,9 @@ eg.<br />
 </div>
 </div>
 
-<div id="outline-container-org98433ae" class="outline-2">
-<h2 id="org98433ae">エラーの発生の検知 (ignore-errors)</h2>
-<div class="outline-text-2" id="text-org98433ae">
+<div id="outline-container-org5c67069" class="outline-2">
+<h2 id="org5c67069">エラーの発生の検知 (ignore-errors)</h2>
+<div class="outline-text-2" id="text-org5c67069">
 <p>
 <code>ingore-errors</code><br />
 エラーが返るとそのブロックからは nilが返る<br />
@@ -1027,9 +1040,9 @@ do-somethingで errorが発生すると、エラーの発生を抑制し、 resu
 </div>
 </div>
 
-<div id="outline-container-org9d08678" class="outline-2">
-<h2 id="org9d08678">キーバインドを調べる</h2>
-<div class="outline-text-2" id="text-org9d08678">
+<div id="outline-container-org8c35902" class="outline-2">
+<h2 id="org8c35902">キーバインドを調べる</h2>
+<div class="outline-text-2" id="text-org8c35902">
 <p>
 M-x describe-bindings (C-h b) : 現在のモードで使えるキーバインドの一覧を表示<br />
 M-x describe-key (C-h k) : キーバインドが実行するコマンド名とそのドキュメントを表示<br />
@@ -1037,9 +1050,9 @@ M-x describe-key (C-h k) : キーバインドが実行するコマンド名と�
 </div>
 </div>
 
-<div id="outline-container-org4185ca3" class="outline-2">
-<h2 id="org4185ca3">対応する括弧へ移動</h2>
-<div class="outline-text-2" id="text-org4185ca3">
+<div id="outline-container-org6f95b9c" class="outline-2">
+<h2 id="org6f95b9c">対応する括弧へ移動</h2>
+<div class="outline-text-2" id="text-org6f95b9c">
 <p>
 C-M-p : 対応する開き括弧へ<br />
 C-M-n : 対応する閉じ括弧へ<br />
@@ -1047,9 +1060,9 @@ C-M-n : 対応する閉じ括弧へ<br />
 </div>
 </div>
 
-<div id="outline-container-orge008703" class="outline-2">
-<h2 id="orge008703">置換操作</h2>
-<div class="outline-text-2" id="text-orge008703">
+<div id="outline-container-orgfc92f62" class="outline-2">
+<h2 id="orgfc92f62">置換操作</h2>
+<div class="outline-text-2" id="text-orgfc92f62">
 <p>
 M-%<br />
 スペースキーか'y'を押せば置換が行われ、'n'を押すと置換は行わず、次の候補に移動します。<br />
@@ -1064,9 +1077,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-orge93fb8c" class="outline-2">
-<h2 id="orge93fb8c">local-set-key</h2>
-<div class="outline-text-2" id="text-orge93fb8c">
+<div id="outline-container-org55a5b91" class="outline-2">
+<h2 id="org55a5b91">local-set-key</h2>
+<div class="outline-text-2" id="text-org55a5b91">
 <p>
 キーバインドに矢印キーを用いる時や、ある特定のモードが有効になったタイミングで設定したい時<br />
 </p>
@@ -1077,9 +1090,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-org160a9db" class="outline-2">
-<h2 id="org160a9db">特定キーマップへのキーバインドの設定</h2>
-<div class="outline-text-2" id="text-org160a9db">
+<div id="outline-container-org6cb840b" class="outline-2">
+<h2 id="org6cb840b">特定キーマップへのキーバインドの設定</h2>
+<div class="outline-text-2" id="text-org6cb840b">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;;; keymap
 (defvar org-mode-map (make-keymap))
@@ -1094,9 +1107,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-orgbfbaaa2" class="outline-2">
-<h2 id="orgbfbaaa2">キーマップの継承</h2>
-<div class="outline-text-2" id="text-orgbfbaaa2">
+<div id="outline-container-orgc29a270" class="outline-2">
+<h2 id="orgc29a270">キーマップの継承</h2>
+<div class="outline-text-2" id="text-orgc29a270">
 <p>
 キーマップkeymapの親キーマップとしてparentを設定する。<br />
 </p>
@@ -1109,9 +1122,9 @@ M-x replace-string<br />
 </div>
 </div>
 
-<div id="outline-container-org50bd52f" class="outline-2">
-<h2 id="org50bd52f">dired</h2>
-<div class="outline-text-2" id="text-org50bd52f">
+<div id="outline-container-org8a6e04a" class="outline-2">
+<h2 id="org8a6e04a">dired</h2>
+<div class="outline-text-2" id="text-org8a6e04a">
 <p>
 diredはディレクトリ一覧をバッファに作成し、一覧中にあるファイルを操作できます。<br />
 </p>
@@ -1185,9 +1198,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-org1695ed2" class="outline-2">
-<h2 id="org1695ed2">変更内容による Emacs キーバインディングの設定方法</h2>
-<div class="outline-text-2" id="text-org1695ed2">
+<div id="outline-container-orgc7835b9" class="outline-2">
+<h2 id="orgc7835b9">変更内容による Emacs キーバインディングの設定方法</h2>
+<div class="outline-text-2" id="text-orgc7835b9">
 <ul class="org-ul">
 <li><p>
 既存のコマンドを引数を与えないで割り当てる -&gt; そのまま<br />
@@ -1223,9 +1236,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-org33f3943" class="outline-2">
-<h2 id="org33f3943">メジャーモードとマイナーモード</h2>
-<div class="outline-text-2" id="text-org33f3943">
+<div id="outline-container-org962b55d" class="outline-2">
+<h2 id="org962b55d">メジャーモードとマイナーモード</h2>
+<div class="outline-text-2" id="text-org962b55d">
 <p>
 メジャーモードは一つのバッファに対して同時に一つしか設定できない。<br />
 一方マイナーモードはメジャーモードとも他のマイナーモードとも併用することができる。<br />
@@ -1234,9 +1247,9 @@ diredはディレクトリ一覧をバッファに作成し、一覧中にある
 </div>
 </div>
 
-<div id="outline-container-org5e6c90c" class="outline-2">
-<h2 id="org5e6c90c">アドバイス定義 (defadvice)</h2>
-<div class="outline-text-2" id="text-org5e6c90c">
+<div id="outline-container-orgd85b1a7" class="outline-2">
+<h2 id="orgd85b1a7">アドバイス定義 (defadvice)</h2>
+<div class="outline-text-2" id="text-orgd85b1a7">
 <p>
 定義済みの関数に処理を付け足すことができる。<br />
 </p>
@@ -1252,9 +1265,9 @@ class では、 after か before か around を指定する。<br />
 </p>
 </div>
 
-<div id="outline-container-orgad38c7c" class="outline-3">
-<h3 id="orgad38c7c">包囲アドバイス</h3>
-<div class="outline-text-3" id="text-orgad38c7c">
+<div id="outline-container-orgdf1a058" class="outline-3">
+<h3 id="orgdf1a058">包囲アドバイス</h3>
+<div class="outline-text-3" id="text-orgdf1a058">
 <p>
 包囲アドバイスにより, 関数の元定義を包み込むLisp式を書けます.<br />
 このとき関数の元定義を実行する場所を特別なシンボルad-do-itで指定します.<br />
@@ -1280,9 +1293,9 @@ class では、 after か before か around を指定する。<br />
 </div>
 </div>
 
-<div id="outline-container-org4af588a" class="outline-2">
-<h2 id="org4af588a">OSの違いを判定する</h2>
-<div class="outline-text-2" id="text-org4af588a">
+<div id="outline-container-org5afcf33" class="outline-2">
+<h2 id="org5afcf33">OSの違いを判定する</h2>
+<div class="outline-text-2" id="text-org5afcf33">
 <p>
 変数 system-type を用いる。<br />
 </p>

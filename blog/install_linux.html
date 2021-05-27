@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>インストール手順</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">インストール手順</h1>
+<div id="outline-container-orgcf4ab0c" class="outline-2">
+<h2 id="orgcf4ab0c"></h2>
+<div class="outline-text-2" id="text-orgcf4ab0c">
+<hr />
+</div>
+<div id="outline-container-org6a10153" class="outline-3">
+<h3 id="org6a10153"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org6a10153">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc40fa4" class="outline-2">
+<h2 id="orgcc40fa4">Debian GNU/Linux</h2>
+<div class="outline-text-2" id="text-orgcc40fa4">
+<p>
+参考：<a href="https://toshio-web.com/debian10-buster-install">https://toshio-web.com/debian10-buster-install</a>  <br />
+</p>
+<ol class="org-ol">
+<li>Ubuntu 同様にインストール用メディアを用意し、これを起動する。<br /></li>
+<li>「Debian GNU/Linux installer menu」が立ち上がったら、「Graphical install」をクリック。<br /></li>
+<li>「Japanese - 日本語」を選択し、「continue」をクリック。<br /></li>
+<li>「日本」を選択し、「続ける」をクリック。<br /></li>
+<li>「日本語」を選択し、「続ける」をクリック。<br /></li>
+<li>「ホスト名」に任意の名前を入力し、「続ける」をクリック。（個人なら Debian で可）<br /></li>
+<li>「ドメイン名」に任意の値を入力して、「続ける」をクリック。（個人ならユーザー名と一緒で可。Webサーバーとして使うときは結局ドメイン取得する）<br /></li>
+<li>rootユーザーのパスワードは未入力のまま、「続ける」をクリック。<br />
+未入力の場合、このあと設定する初期ユーザーアカウントでsudoコマンドを実行すればroot権限を与えられる。（最近の主流？）<br /></li>
+<li>「ユーザーアカウント（フルネーム）」を入力して、「続ける」をクリック。（個人ならユーザー名と一緒で可）<br /></li>
+<li>ユーザー名を入力して「続ける」をクリック。<br /></li>
+<li>ユーザーパスワードを入力して、「続ける」をクリック。<br /></li>
+<li>「ガイド-ディスク全体を使う」を選択し、「続ける」をクリック。<br /></li>
+<li>インストール先のディスクを選択して、「続ける」をクリック。<br /></li>
+<li>「すべてのファイルを1つのパーティションに（初心者ユーザには推奨）」を選択して、「続ける」をクリック。<br /></li>
+<li>「パーティショニングの終了とディスクへの変更の書き込み」を選択して、「続ける」をクリック。<br /></li>
+<li>"ディスクのパーティショニング"にて、「ディスクに変更を書き込みますか？」に対して「はい」を選択して、「続ける」をクリック。<br /></li>
+<li>インストールが行われるので、しばらく待つ。<br /></li>
+<li>"パッケージマネージャの設定"にて、「別のCDやDVDを検査しますか？」に対して「いいえ」を選択して、「続ける」をクリック。<br /></li>
+<li>"パッケージマネージャの設定"にて、「ネットワークミラーを使いますか？」に対して「はい」を選択して、「続ける」をクリック。<br /></li>
+<li>「日本」を選択して、「続ける」をクリック。<br /></li>
+<li>任意のアーカイブミラーを選択して、「続ける」をクリック。（deb.debian.org で大丈夫）<br /></li>
+<li>プロキシ情報未入力のまま「続ける」をクリック。<br /></li>
+<li>パッケージマネージャの設定が行われるので、しばらく待つ。<br /></li>
+<li>「Debian パッケージ利用調査に参加しますか？」に対しては「いいえ」を選択して、「続ける」をクリック。<br /></li>
+<li>インストールするデスクトップ環境にチェックを入れ、「続ける」をクリック。<br />
+（LXDE を選択。軽量性、カスタマイズ性（柔軟性）、安定性、デザイン（アイコン）等を考慮。）<br /></li>
+<li>インストールが行われるので、しばらく待つ。<br /></li>
+<li>「マスターブートレコードに GRUB ブートローダをインストールしますか？」に対して「はい」を選択して、「続ける」をクリック。<br /></li>
+<li>ブートローダのインストール先のディスクを選択して、「続ける」をクリック。<br /></li>
+<li>"インストールの完了"にて「続ける」をクリック。<br /></li>
+<li>再起動後、ログインしてデスクトップ画面が表示されればインストールは完了。<br /></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org091457c" class="outline-2">
+<h2 id="org091457c">Ubuntu</h2>
+<div class="outline-text-2" id="text-org091457c">
+<ol class="org-ol">
+<li>「Ubuntu Japanese Team (Japan Remix)」から isoファイル をダウンロード（保存）する。<br /></li>
+<li>イメージファイル（isoファイル）をUSBメモリに書き込むためのソフトをダウンロードする。<br />
+オススメ：Universal USB Installer<br /></li>
+<li>イメージファイルをUSBメモリに書き込む。<br />
+<ol class="org-ol">
+<li>「License Agreement」にて「I agree」をクリック<br /></li>
+<li>「OSの種類」から「Ubuntu」を選択<br /></li>
+<li>「Browse」ボタンをクリック<br /></li>
+<li>ダウンロードしたisoファイルを選択し「開く」をクリック<br /></li>
+<li>「Select Your USB Flash Drive」にて書き込み先のUSBを選択し、「Create」ボタンを押すと書き込み開始<br />
+※ ここで間違ったドライブを選択すると一瞬にしてデータを失ってしまうため慎重に行うこと。必要に応じてバックアップは取っておくこと。<br /></li>
+<li>USBに本当に書き込んでいいかの最終確認窓。間違いがない場合は「はい」をクリック<br /></li>
+<li>書き込みが完了したら「Close」ボタンをクリック<br />
+インストール用メディアの完成<br /></li>
+</ol></li>
+<li>Ubuntu を USB から起動する<br />
+完成した USB で Ubuntu を仮利用することができる。<br />
+パソコンに USB を挿して電源を入れ、同時に F2かF10かF12 を長押し（連打）する。<br />
+ブートオプション（何を立ち上げるか選択できる画面）で USBメモリ を選択。<br />
+Ubuntu 側の GNU Grub でも何を起動するか聞かれるため、「Try Ubuntu without installing」を選択。OS（Ubuntu）が立ち上がる。<br /></li>
+<li>Ubuntu のインストール<br />
+デスクトップ左上の「Ubuntu XXXX LTS のインストール」と書かれたアプリケーションを開く。<br />
+指示に従って慎重に進めていく。<br /></li>
+</ol>
+</div>
+<div id="outline-container-org3daa803" class="outline-3">
+<h3 id="org3daa803">以下 Ubuntu を USB にインストールする場合</h3>
+<div class="outline-text-3" id="text-org3daa803">
+<p>
+インストール用メディアとは別のUSBを用意する。<br />
+8GBでギリギリ。余裕を持って32GB以上のものを用意する。<br />
+上記 5 までは一緒。<br />
+</p>
+<ol class="org-ol">
+<li>「コンピュータ上には Ubuntu と Windows Boot Manager がインストールされています。どのようにしますか？」の画面にて、「それ以外」を選択。<br /></li>
+<li>「続ける」<br /></li>
+<li>自分が挿した USB を選択（容量の大きさで確認すること）。<br />
+「変更ボタン」あるいは「ダブルクリック」でパーティションの作成（左下の「+」を押せたら押す？）。<br /></li>
+<li>「利用方法：ext 4 &#x2026;」<br />
+「マウントポイント：/（スラッシュ）」<br /></li>
+<li>「ブートローダをインストールするデバイス」にてインストール先にUSBメモリを選択（USBメモリから立ち上げるため、初期設定はPC内蔵のHDDのため注意）<br /></li>
+<li>「今すぐ再起動」を選択<br /></li>
+<li>PC起動と同時に F2かF10かF12 を長押し（連打）、ブート選択画面で Ubuntu が表示されるため、これを選択して立ち上がればOK。<br /></li>
+</ol>
+</div>
+<div id="outline-container-org3cc104f" class="outline-4">
+<h4 id="org3cc104f">Ubuntu を USB にインストールした際、ブートローダがインストールされないバグ</h4>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

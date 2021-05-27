@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Update History</title>
+<title>Linux 小ネタ</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -217,127 +217,89 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Update History</h1>
-<div id="outline-container-org9c6ecf6" class="outline-2">
-<h2 id="org9c6ecf6"></h2>
-<div class="outline-text-2" id="text-org9c6ecf6">
+<h1 class="title">Linux 小ネタ</h1>
+<div id="outline-container-org234a0a5" class="outline-2">
+<h2 id="org234a0a5"></h2>
+<div class="outline-text-2" id="text-org234a0a5">
 <hr />
 </div>
-<div id="outline-container-orga51c4fe" class="outline-3">
-<h3 id="orga51c4fe"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orga51c4fe">
+<div id="outline-container-org4491327" class="outline-3">
+<h3 id="org4491327"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org4491327">
 <hr />
 </div>
-<div id="outline-container-orge0ed0de" class="outline-4">
-<h4 id="orge0ed0de">2021/05/27 - <a href="Bash.html">Bash</a></h4>
 </div>
-<div id="outline-container-orgf2e22fd" class="outline-4">
-<h4 id="orgf2e22fd">2021/05/26 - <a href="linux_koneta.html">Linux 小ネタ</a></h4>
 </div>
-<div id="outline-container-orgccbff13" class="outline-4">
-<h4 id="orgccbff13">2021/05/26 - <a href="linux_after_install.html">インストール後にやることリスト</a></h4>
+
+<div id="outline-container-orga0dc1f6" class="outline-2">
+<h2 id="orga0dc1f6">apt</h2>
+<div class="outline-text-2" id="text-orga0dc1f6">
+<div class="org-src-container">
+<pre class="src src-bash"># パッケージのインストール
+sudo apt install [パッケージ名]
+# パッケージの削除
+sudo apt remove [パッケージ名]
+# パッケージの完全削除（環境設定まですべて削除）
+sudo apt purge [パッケージ名]
+# 今現在使用されていない（依存関係がない）パッケージの削除
+sudo apt autoremove
+# パッケージの検索
+sudo apt search [パッケージ名]
+# パッケージの一覧表示
+sudo apt list --installed
+# アップグレード可能なパッケージを一覧表示
+sudo apt list --upgrade
+# 確認無しで apt を実行
+sudo apt -y ...
+</pre>
 </div>
-<div id="outline-container-orgd1f353e" class="outline-4">
-<h4 id="orgd1f353e">2021/05/26 - <a href="install_linux.html">インストール手順</a></h4>
 </div>
-<div id="outline-container-org7a6eb12" class="outline-4">
-<h4 id="org7a6eb12">2021/05/22 - <a href="ffmpeg.html">ffmpeg</a></h4>
+<div id="outline-container-org1133633" class="outline-3">
+<h3 id="org1133633">apt と apt-get の違い</h3>
+<div class="outline-text-3" id="text-org1133633">
+<p>
+apt-get は最初のコマンドラインベースフロントエンド、apt は apt-get の持っていた設計上のミスを克服。<br />
+Ubuntu では apt コマンドの使用が推奨されている。<br />
+</p>
 </div>
-<div id="outline-container-orgdaade2a" class="outline-4">
-<h4 id="orgdaade2a">2021/05/22 - <a href="windows_pc_mirroring.html">Windows PC へのミラーリング</a></h4>
 </div>
-<div id="outline-container-org708ceeb" class="outline-4">
-<h4 id="org708ceeb">2021/03/27 - <a href="php_kisobunnpou_saisoku_master.html">PHP基礎文法最速マスター</a></h4>
 </div>
-<div id="outline-container-org422dfa9" class="outline-4">
-<h4 id="org422dfa9">2021/03/27 - <a href="chrome_keyboard_shortcut.html">Chrome のキーボードショートカット</a></h4>
+
+<div id="outline-container-org8fb3e64" class="outline-2">
+<h2 id="org8fb3e64">sudo と su</h2>
+<div class="outline-text-2" id="text-org8fb3e64">
 </div>
-<div id="outline-container-orgabf84a8" class="outline-4">
-<h4 id="orgabf84a8">2021/03/27 - <a href="computer_words.html">コンピュータ用語</a></h4>
+<div id="outline-container-orgee74bfa" class="outline-3">
+<h3 id="orgee74bfa">sudo</h3>
+<div class="outline-text-3" id="text-orgee74bfa">
+<ul class="org-ul">
+<li>root のパスワードでなくてユーザーのパスワードを必要とする<br /></li>
+<li>sudo を許す許さないは管理者 root が決める<br /></li>
+<li>sudo でやったこと、やろうとして失敗したことは、すべてログに残る<br /></li>
+</ul>
 </div>
-<div id="outline-container-org7c4d063" class="outline-4">
-<h4 id="org7c4d063">2021/03/27 - <a href="html_css_koneta.html">HTML&amp;CSS 小ネタ集</a></h4>
 </div>
-<div id="outline-container-org38b1197" class="outline-4">
-<h4 id="org38b1197">2021/03/23 - <a href="paint_circle_cut.html">ペイントで画像を丸く切り取る方法</a></h4>
+<div id="outline-container-org1dd2e03" class="outline-3">
+<h3 id="org1dd2e03">su</h3>
+<div class="outline-text-3" id="text-org1dd2e03">
+<ul class="org-ul">
+<li>root のパスワードを知っている必要がある<br /></li>
+<li>root のパスワードを知っている人が su することを禁じることはできない<br /></li>
+<li>su 後はログが残らず、やりたい放題<br /></li>
+</ul>
 </div>
-<div id="outline-container-orgd325db8" class="outline-4">
-<h4 id="orgd325db8">2021/03/23 - <a href="PowerShell.html">PowerShell</a></h4>
 </div>
-<div id="outline-container-orge609bc1" class="outline-4">
-<h4 id="orge609bc1">2021/03/23 - <a href="command_prompt.html">コマンドプロンプト</a></h4>
+<div id="outline-container-orgf92e1de" class="outline-3">
+<h3 id="orgf92e1de">Ubuntu と root</h3>
+<div class="outline-text-3" id="text-orgf92e1de">
+<p>
+Ubuntu は初期状態では root が使えない（パスワード未設定）ようになっている<br />
+su を実行するには以下のようにする<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo su
+</pre>
 </div>
-<div id="outline-container-orgee5f5e5" class="outline-4">
-<h4 id="orgee5f5e5">2021/03/17 - <a href="english.html">英語</a></h4>
-</div>
-<div id="outline-container-org2b0f225" class="outline-4">
-<h4 id="org2b0f225">2021/03/13 - <a href="open_source_license.html">オープンソースライセンス</a></h4>
-</div>
-<div id="outline-container-org2b26e8b" class="outline-4">
-<h4 id="org2b26e8b">2021/03/12 - <a href="settei_file_hikitsugi.html">設定ファイルの引き継ぎ</a></h4>
-</div>
-<div id="outline-container-org43cf098" class="outline-4">
-<h4 id="org43cf098">2021/03/12 - <a href="symbolic_link.html">シンボリックリンク</a></h4>
-</div>
-<div id="outline-container-orgeebbe0a" class="outline-4">
-<h4 id="orgeebbe0a">2021/03/02 - <a href="php_konetashuu.html">PHP 小ネタ集</a></h4>
-</div>
-<div id="outline-container-org8948498" class="outline-4">
-<h4 id="org8948498">2021/03/01 - <a href="emmet_kihou.html">Emmet記法</a></h4>
-</div>
-<div id="outline-container-orge93aae6" class="outline-4">
-<h4 id="orge93aae6">2021/02/27 - <a href="directory_name_manner.html">ディレクトリ名の作法</a></h4>
-</div>
-<div id="outline-container-org421f0c5" class="outline-4">
-<h4 id="org421f0c5">2021/02/27 - <a href="git_commit_manner.html">Gitコミット作法</a></h4>
-</div>
-<div id="outline-container-orgcd34571" class="outline-4">
-<h4 id="orgcd34571">2021/02/27 - <a href="github_pages.html">GitHub Pages</a></h4>
-</div>
-<div id="outline-container-org9e186df" class="outline-4">
-<h4 id="org9e186df">2021/02/18 - <a href="git_koneta.html">Git 小ネタ集</a></h4>
-</div>
-<div id="outline-container-org6645591" class="outline-4">
-<h4 id="org6645591">2021/02/18 - <a href="git_kojin_kaihatsu.html">Git による個人開発フロー</a></h4>
-</div>
-<div id="outline-container-org206eee4" class="outline-4">
-<h4 id="org206eee4">2021/02/15 - <a href="Org-mode.html">Org-mode</a></h4>
-</div>
-<div id="outline-container-org4f4b3cf" class="outline-4">
-<h4 id="org4f4b3cf">2021/02/12 - <a href="git_tutorial.html">Git チュートリアル</a></h4>
-</div>
-<div id="outline-container-orgc8f6cd9" class="outline-4">
-<h4 id="orgc8f6cd9">2021/02/10 - <a href="Emacs_koneta.html">Emacs 小ネタ集</a></h4>
-</div>
-<div id="outline-container-orga3c6b69" class="outline-4">
-<h4 id="orga3c6b69">2021/02/10 - <a href="Emacs-Lisp-syntax.html">優しい Emacs-Lisp 講座</a></h4>
-</div>
-<div id="outline-container-orgc0dc96a" class="outline-4">
-<h4 id="orgc0dc96a">2020/10/09 - <a href="web_page_programming.html">Webページのプログラミング</a></h4>
-</div>
-<div id="outline-container-org999a414" class="outline-4">
-<h4 id="org999a414">2020/10/09 - <a href="hizuke_object.html">日付オブジェクト</a></h4>
-</div>
-<div id="outline-container-org7ac479d" class="outline-4">
-<h4 id="org7ac479d">2020/10/08 - <a href="JavaScript_kisobunnpou_saisoku_master.html">JavaScript基礎文法最速マスター</a></h4>
-</div>
-<div id="outline-container-orgafd6527" class="outline-4">
-<h4 id="orgafd6527">2020/10/07 - <a href="kakutyoukinou_setsumei.html">拡張機能 説明</a></h4>
-</div>
-<div id="outline-container-org689a67b" class="outline-4">
-<h4 id="org689a67b">2020/09/27 - <a href="VSCode_tsukaikata.html">VSCodeの使い方</a></h4>
-</div>
-<div id="outline-container-org19fc28e" class="outline-4">
-<h4 id="org19fc28e">2020/08/28 - <a href="base_css.html">base.css</a></h4>
-</div>
-<div id="outline-container-orgcbb3cfc" class="outline-4">
-<h4 id="orgcbb3cfc">2020/08/28 - <a href="base_html.html">base.html</a></h4>
-</div>
-<div id="outline-container-orge05845b" class="outline-4">
-<h4 id="orge05845b">2020/08/18 - <a href="CSS_CheatSheet.html">CSSチートシート</a></h4>
-</div>
-<div id="outline-container-org1034837" class="outline-4">
-<h4 id="org1034837">2020/08/16 - <a href="HTML_CheatSheet.html">HTMLチートシート</a></h4>
 </div>
 </div>
 </div>
