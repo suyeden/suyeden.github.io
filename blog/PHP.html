@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,74 +193,58 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">PHP</h1>
-<div id="outline-container-org5c78947" class="outline-2">
-<h2 id="org5c78947"></h2>
-<div class="outline-text-2" id="text-org5c78947">
+<div id="outline-container-org3c892a7" class="outline-2">
+<h2 id="org3c892a7"></h2>
+<div class="outline-text-2" id="text-org3c892a7">
 <hr />
 </div>
-<div id="outline-container-org65ac5ec" class="outline-3">
-<h3 id="org65ac5ec"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org65ac5ec">
+<div id="outline-container-orge8aaa3b" class="outline-3">
+<h3 id="orge8aaa3b"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orge8aaa3b">
 <hr />
-</div>
 </div>
 </div>
 
-<div id="outline-container-org197d5f8" class="outline-2">
-<h2 id="org197d5f8"><a href="php_kisobunnpou_saisoku_master.html">PHP基礎文法最速マスター</a></h2>
+<div id="outline-container-orge24f4a3" class="outline-3">
+<h3 id="orge24f4a3"><a href="php_kisobunnpou_saisoku_master.html">PHP基礎文法最速マスター</a></h3>
 </div>
 
-<div id="outline-container-org49121ac" class="outline-2">
-<h2 id="org49121ac"><a href="php_konetashuu.html">PHP 小ネタ集</a></h2>
+<div id="outline-container-org1459ce0" class="outline-3">
+<h3 id="org1459ce0"><a href="MySQL.html">MySQL</a></h3>
+</div>
+
+<div id="outline-container-org51b8f27" class="outline-3">
+<h3 id="org51b8f27"><a href="php_konetashuu.html">PHP 小ネタ集</a></h3>
+</div>
+
+<div id="outline-container-orgaba6250" class="outline-3">
+<h3 id="orgaba6250"><a href="php_example.html">PHP 例文</a></h3>
+</div>
 </div>
 </div>
 </body>

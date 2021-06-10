@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MySQL</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">MySQL</h1>
+<div id="outline-container-orgede9890" class="outline-2">
+<h2 id="orgede9890"></h2>
+<div class="outline-text-2" id="text-orgede9890">
+<hr />
+</div>
+<div id="outline-container-orged70fb9" class="outline-3">
+<h3 id="orged70fb9"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orged70fb9">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc0040d5" class="outline-2">
+<h2 id="orgc0040d5">暗号化</h2>
+<div class="outline-text-2" id="text-orgc0040d5">
+<p>
+MySQL と PHP のどちらからも利用できる暗号化関数として sha1 がある。<br />
+PHP からユーザーデータを登録する場合は password<sub>hash</sub> という関数でより良いパスワードを生成できる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68cbafe" class="outline-2">
+<h2 id="org68cbafe">COUNT 関数</h2>
+<div class="outline-text-2" id="text-org68cbafe">
+<p>
+COUNT は MySQL が持っている関数の一つで、() 内に指定したカラムのうち、値が NULL でないものの数を数える。<br />
+</p>
+<pre class="example" id="org3adae28">
+SELECT COUNT(*)
+FROM テーブル名
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2fb2ded" class="outline-2">
+<h2 id="org2fb2ded">クエリ</h2>
+<div class="outline-text-2" id="text-org2fb2ded">
+<p>
+例文については <a href="php_example.html">MySQL 例文（PHP 例文）</a><br />
+</p>
+</div>
+<div id="outline-container-orga44c6d8" class="outline-3">
+<h3 id="orga44c6d8">データベースの作成</h3>
+<div class="outline-text-3" id="text-orga44c6d8">
+<pre class="example" id="org830acdb">
+CREATE DATABASE データベース名;
+</pre>
+</div>
+</div>
+<div id="outline-container-orgb7f2471" class="outline-3">
+<h3 id="orgb7f2471">データベースの削除</h3>
+<div class="outline-text-3" id="text-orgb7f2471">
+<pre class="example" id="org0a35c50">
+DROP DATABASE データベース名;
+</pre>
+</div>
+</div>
+<div id="outline-container-org661cc96" class="outline-3">
+<h3 id="org661cc96">データベースの選択</h3>
+<div class="outline-text-3" id="text-org661cc96">
+<pre class="example" id="org138979c">
+USE データベース名;
+</pre>
+</div>
+</div>
+<div id="outline-container-org629690c" class="outline-3">
+<h3 id="org629690c">テーブルの作成</h3>
+<div class="outline-text-3" id="text-org629690c">
+<pre class="example" id="orgf42ac7d">
+CREATE TABLE テーブル名(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  title VARCHAR(255);
+  body TEXT NOT NULL;
+  date DATETIME NOT NULL;
+  pass CHAR(4) NOT NULL
+)DEFAULT CHARACTER SET =utf8;
+</pre>
+<p>
+「USE データベース名」したデータベースに対してテーブルを作成する。<br />
+() の中は、そのテーブルのカラムの設定で、カラム名、型、制約、属性の順に書く。<br />
+AUTO<sub>INCREMENT</sub> は整数の型に付与できる属性で、自動採番を表す。<br />
+PRIMARY KEY は主キーであることを表している。<br />
+最後に、閉じカッコの後で「DEFAULT CHARACTER SET=utf8」として、このテーブルで標準的に使う文字コードに UTF-8 を指定する。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2d329cf" class="outline-3">
+<h3 id="org2d329cf">データベースの削除</h3>
+<div class="outline-text-3" id="text-org2d329cf">
+<pre class="example" id="org5bc005b">
+DROP TABLE テーブル名;
+</pre>
+</div>
+</div>
+<div id="outline-container-org4803a5d" class="outline-3">
+<h3 id="org4803a5d">ユーザの作成</h3>
+<div class="outline-text-3" id="text-org4803a5d">
+<p>
+root はすべてのデータベースを操作できるユーザであるためセキュリティ上好ましくない。<br />
+1つのデータベースだけを操作できるユーザを作成し、PHP でアクセスする際はそのユーザーでデータベースにアクセスするほうが、他のデータベースを不正利用されず安心。<br />
+</p>
+<pre class="example" id="orgf11dd27">
+GRANT 権限 ON データベース.テーブル名 to 'ユーザ名'@'ホスト' IDENTIFIED BY 'パスワード';
+
+// ユーザを作成したら、MySQL 内部の一時データを削除するため、以下のように入力。
+FLUSH PRIVILEGES;
+</pre>
+<p>
+以下例文<br />
+</p>
+<pre class="example" id="org0119507">
+GRANT ALL ON tennis.* to 'tennisuser'@'localhost' IDENTIFIED BY 'password';
+// GRANT ALL : すべての権限。このデータベースに対して自由に操作できる
+// ON tennis.* : tennis データベースのすべてのテーブルを操作できる
+// 'tennisuser'@'localhost' : 指定したユーザ名が存在しないときは、新しく作られる。既に存在する場合は権限の付与を行う。
+                              @ 以降のホスト名は、データベースがどこにあるのかを示している。
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf634648" class="outline-3">
+<h3 id="orgf634648">作成したユーザの確認</h3>
+<div class="outline-text-3" id="text-orgf634648">
+<pre class="example" id="orgb2ca673">
+myaql -u ユーザー名 -p
+</pre>
+<p>
+にてパスワードを入力して、間違いがなければ MySQL にログインできる。<br />
+</p>
+<pre class="example" id="org5b705b9">
+USE データベース名;
+DESC テーブル名;
+</pre>
+<p>
+USE でデータベースを使える状態にし、「DESC テーブル名」とすることで作成したテーブルの構造が表のようになって表示される。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc22384" class="outline-3">
+<h3 id="orgbc22384">テーブルにレコードを新規追加</h3>
+<div class="outline-text-3" id="text-orgbc22384">
+<pre class="example" id="org6e28ff0">
+INSERT INTO テーブル名 (カラム1, カラム2, カラム3...) VALUES (値1, 値2, 値3...)
+</pre>
+</div>
+</div>
+<div id="outline-container-orga114ef0" class="outline-3">
+<h3 id="orga114ef0">SELECT文によるデータの取得</h3>
+<div class="outline-text-3" id="text-orga114ef0">
+<pre class="example" id="org7cc4da9">
+SELECT 取得してくるカラム（全部なら *）
+FROM 取得したいテーブル名
+ORDER BY 並び替えの軸にするカラム DESC（ASC なら昇順・日付なら古い順、DESC なら降順・日付なら新しい順）
+LIMIT 0, 10 （0件目から10件分取得する）
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99034cb" class="outline-2">
+<h2 id="org99034cb">テーブル設計の例</h2>
+<div class="outline-text-2" id="text-org99034cb">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">カラム名</th>
+<th scope="col" class="org-left">カラム型（長さ）</th>
+<th scope="col" class="org-left">NOT NULL 制約</th>
+<th scope="col" class="org-left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">INT</td>
+<td class="org-left">○</td>
+<td class="org-left">書き込みの通し番号。主キー。自動採番にする。</td>
+</tr>
+
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">VARCHAR(255)</td>
+<td class="org-left">○</td>
+<td class="org-left">書き込みを行った人の名前。長さは255文字まで。</td>
+</tr>
+
+<tr>
+<td class="org-left">title</td>
+<td class="org-left">VARCHAR(255)</td>
+<td class="org-left">-</td>
+<td class="org-left">書き込みのタイトル。長さは255文字まで。タイトルがないときは、（無題）と表示する。</td>
+</tr>
+
+<tr>
+<td class="org-left">body</td>
+<td class="org-left">TEXT</td>
+<td class="org-left">○</td>
+<td class="org-left">本文</td>
+</tr>
+
+<tr>
+<td class="org-left">date</td>
+<td class="org-left">DATETIME</td>
+<td class="org-left">○</td>
+<td class="org-left">書き込み日時</td>
+</tr>
+
+<tr>
+<td class="org-left">pass</td>
+<td class="org-left">CHAR(4)</td>
+<td class="org-left">○</td>
+<td class="org-left">4桁の数字で削除パスワード</td>
+</tr>
+</tbody>
+</table>
+<p>
+主キーとは、そのテーブルの中でレコードを識別する一意な値のこと。<br />
+NOT NULL 制約とは、「そのカラムに必ずデータを入れる」という約束を示すもの。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org813f5b3" class="outline-2">
+<h2 id="org813f5b3">MySQL のデータ型</h2>
+<div class="outline-text-2" id="text-org813f5b3">
+<ul class="org-ul">
+<li><p>
+数値型<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">型</th>
+<th scope="col" class="org-left">型の名称</th>
+<th scope="col" class="org-left">利用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">INT</td>
+<td class="org-left">整数型</td>
+<td class="org-left">連番、個数など</td>
+</tr>
+
+<tr>
+<td class="org-left">DOUBLE</td>
+<td class="org-left">倍精度浮動小数点数型</td>
+<td class="org-left">体重など、小数点を含むもの</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+日付・時刻型<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">型</th>
+<th scope="col" class="org-left">型の名称</th>
+<th scope="col" class="org-left">利用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">DATE</td>
+<td class="org-left">日付型</td>
+<td class="org-left">日付</td>
+</tr>
+
+<tr>
+<td class="org-left">DATETIME</td>
+<td class="org-left">日付時刻型</td>
+<td class="org-left">日付と時刻</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+文字列型<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">型</th>
+<th scope="col" class="org-left">型の名称</th>
+<th scope="col" class="org-left">利用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">CHAR</td>
+<td class="org-left">固定長文字列型</td>
+<td class="org-left">郵便番号（0 から始まることがある）など、桁数が決まっているもの</td>
+</tr>
+
+<tr>
+<td class="org-left">VARCHAR</td>
+<td class="org-left">可変長文字列型</td>
+<td class="org-left">名前、住所など</td>
+</tr>
+
+<tr>
+<td class="org-left">TEXT</td>
+<td class="org-left">文字列型</td>
+<td class="org-left">本文など長い文章</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org925025c" class="outline-2">
+<h2 id="org925025c">リレーショナルデータベース（RDMS）</h2>
+<div class="outline-text-2" id="text-org925025c">
+<p>
+データを表のような形で保存し、共通項で表同士を関連付けているデータベース。つまりいくつかの表が集まってできている。<br />
+表のことをテーブル、列をカラム、行をレコードと呼ぶ。<br />
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

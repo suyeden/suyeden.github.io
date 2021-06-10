@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Canvas2D</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Canvas2D</h1>
+<div id="outline-container-org2778e77" class="outline-2">
+<h2 id="org2778e77"></h2>
+<div class="outline-text-2" id="text-org2778e77">
+<hr />
+</div>
+<div id="outline-container-org24fad2b" class="outline-3">
+<h3 id="org24fad2b"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org24fad2b">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org038cf78" class="outline-2">
+<h2 id="org038cf78">Cancas</h2>
+<div class="outline-text-2" id="text-org038cf78">
+<p>
+Canvas は &lt;canvas&gt;&lt;/canvas&gt; のように記述し、Canvas が提供する機能（Canvas API）によって図形やグラフ、文字などの一連のグラフィックスを描画できる。<br />
+Canvas により、JavaScriptを使ってWebブラウザ上でグラフィックスを描画することが可能となった。<br />
+</p>
+</div>
+<div id="outline-container-orgcbc7b37" class="outline-3">
+<h3 id="orgcbc7b37">Canvas と CSS</h3>
+<div class="outline-text-3" id="text-orgcbc7b37">
+<p>
+Canvas要素にはCSSによる余分な装飾は極力行わないこと。<br />
+例えばCanvas要素自身が持つwidthプロパティとheightプロパティは、CSSのそれとは別物。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf254e0e" class="outline-2">
+<h2 id="orgf254e0e">コンテキストオブジェクト</h2>
+<div class="outline-text-2" id="text-orgf254e0e">
+<p>
+コンテキストオブジェクトは Canvas API の機能（Canvas への描画）を提供するオブジェクト（JavaScriptで操作するために用意されている）で、描画処理を行うためのメソッドやプロパティを持つ。<br />
+</p>
+</div>
+<div id="outline-container-org0d31e6d" class="outline-3">
+<h3 id="org0d31e6d">getContext メソッドを使ってコンテキストオブジェクトを取得する</h3>
+<div class="outline-text-3" id="text-org0d31e6d">
+<p>
+Canvas からコンテキストオブジェクトを取得する際、どのような種類のコンテキストオブジェクトを利用するのかを指定できる。<br />
+getContext メソッドを使い、引数には文字列で名称を指定する。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// Canvasエレメント（要素）を新規に生成
+let canvas = document.createElement('canvas');
+
+// Canvasエレメントからコンテキストを取得する例
+let context = canvas.getContext('文字列で種類を指定');
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge329b13" class="outline-3">
+<h3 id="orge329b13">Canvas2Dコンテキスト（CanvasRenderContext2D）の取得</h3>
+<div class="outline-text-3" id="text-orge329b13">
+<p>
+もし戻り値として null が返却される場合は、その環境ではCanvas2Dコンテキストを利用することはできない。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">let canvas = document.createElement('canvas'); // Canvasエレメント（要素）を新規に生成
+
+let context = canvas.getContext('2d'); // CanvasエレメントからCanvas2Dコンテキストを取得
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d9b1a2" class="outline-2">
+<h2 id="org0d9b1a2">DOM</h2>
+<div class="outline-text-2" id="text-org0d9b1a2">
+<p>
+HTMLドキュメントの構造をJavaScriptのオブジェクト型データとして扱うことができる、というJavaScriptの仕組み。<br />
+「DOMを操作する」 = 「DOMを利用してHTMLドキュメントを操作する」<br />
+</p>
+</div>
+<div id="outline-container-org6da8cbb" class="outline-3">
+<h3 id="org6da8cbb">DOM を利用してHTMLを参照する</h3>
+<div class="outline-text-3" id="text-org6da8cbb">
+<p>
+HTML全体のタグの階層構造が、「document」という名前の一つの巨大なオブジェクトになっており、ここから階層構造を一つ一つたどっていくことで、HTMLドキュメント内に存在するありとあらゆるHTML要素に理論上はアクセスできる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// HTMLドキュメント全体への参照を得る
+let doc = document;
+
+// HTMLドキュメントに含まれるbodyエレメントへの参照を得る
+let body = doc.body;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgca32118" class="outline-3">
+<h3 id="orgca32118">id属性やclass属性を利用してピンポイントでエレメントを参照する</h3>
+<div class="outline-text-3" id="text-orgca32118">
+<p>
+documentオブジェクトが持つ getElementById メソッドを用いると、任意のid属性を持つHTMLドキュメント内のエレメント（要素）への参照が得られる。<br />
+もし該当するエレメントが見つからなければ null が返される。<br />
+任意のclass属性を持つ要素への参照を得たい場合は getElementByClassName を使うこともできる。<br />
+また、CSS風の記述ができる querySelector などのメソッドも用意されている。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// main_canvasというid属性を持つエレメントへの参照を得る
+let canvas = document.getElementByID('main_canvas');
+
+// querySelectorを使ってbodyが内包するエレメント群の中から
+// main_canvasというid属性を持つエレメントを探す
+let canvas = document.body.querySelector('#main_canvas');
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7177eea" class="outline-2">
+<h2 id="org7177eea">Canvas2D の基本プリミティブ（図形を描画するための基本形状）</h2>
+<div class="outline-text-2" id="text-org7177eea">
+<p>
+Canvas2Dコンテキストを用いると、Canvas要素上に様々な図形を描画できる。<br />
+</p>
+</div>
+<div id="outline-container-orgb93cd4c" class="outline-3">
+<h3 id="orgb93cd4c">矩形の描画（fillRect）</h3>
+<div class="outline-text-3" id="text-orgb93cd4c">
+<p>
+矩形とは正方形や長方形のことである。<br />
+Canvas要素上に矩形を描画する簡単な方法は fillRect メソッドを用いる方法である。<br />
+</p>
+</div>
+<div id="outline-container-org1ad266f" class="outline-4">
+<h4 id="org1ad266f">fillRect メソッドによる矩形描画</h4>
+<div class="outline-text-4" id="text-org1ad266f">
+<div class="org-src-container">
+<pre class="src src-js">// canvasへの参照を得る
+let canvas = document.body.querySelector('#main_canvas');
+
+// CanvasRenderContext2D（Canvas2Dコンテキスト）を取得
+let context = canvas.getContext('2d');
+
+// コンテキストが持つ矩形描画のメソッドを呼び出す
+context.fillRect(0, 0, 100, 100);
+</pre>
+</div>
+<p>
+また、JSDoc 形式による引数の説明を以下に示す。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 指定された座標に矩形を描画する
+// @param {number} x - 塗りつぶす矩形の左上角のX座標
+// @param {number} y - 塗りつぶす矩形の左上角のY座標
+// @param {number} w - 塗りつぶす矩形の横幅
+// @param {number} h - 塗りつぶす矩形の高さ
+context.fillReact(x, y, w, h);
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29c2d37" class="outline-3">
+<h3 id="org29c2d37">塗りつぶしと線のスタイル（fillStyle, strokeStyle）</h3>
+<div class="outline-text-3" id="text-org29c2d37">
+<p>
+Canvas2Dでは、既定では色の設定は黒（CSSスタイルでは #000000）に設定されており、特に設定を何も行わずに描画を行うと、描画される図形は常に黒で描かれる。<br />
+Canvas2Dが持つ色のプロパティには、主に塗りつぶし描画で利用される fillStyle と、枠線などの描画で利用される strokeStyle がある。<br />
+これらの色に関するプロパティには CSS スタイルでの色指定を行える。<br />
+</p>
+</div>
+<div id="outline-container-org2a49ede" class="outline-4">
+<h4 id="org2a49ede">fillStyle や strokeStyle を設定する</h4>
+<div class="outline-text-4" id="text-org2a49ede">
+<div class="org-src-container">
+<pre class="src src-js">// 塗りつぶしのカラースタイルを設定する
+context.fillStyle = '#ffffff'; // 白
+context.fillStyle = 'rgb(255, 255, 255)'; // 白（いずれも同じ意味）
+
+// 線描画のカラースタイルを設定する
+context.strokeStyle = '#ff0000'; // 赤
+context.strokeStyle = 'rgb(255, 0, 0)'; // 赤（いずれも同じ意味）
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc4ae720" class="outline-4">
+<h4 id="orgc4ae720">矩形を描画するためのユーザー定義関数drawRect</h4>
+<div class="outline-text-4" id="text-orgc4ae720">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 矩形を描画する
+ * @param {number} x - 塗りつぶす矩形の左上角の X 座標
+ * @param {number} y - 塗りつぶす矩形の左上角の Y 座標
+ * @param {number} width - 塗りつぶす矩形の横幅
+ * @param {number} height - 塗りつぶす矩形の高さ
+ * @param {string} [color] - 矩形を塗りつぶす際の色
+ */
+function drawRect(x, y, width, height, color){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.fillStyle = color;
+    }
+    ctx.fillRect(x, y, width, height);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8979ebb" class="outline-3">
+<h3 id="org8979ebb">線分の描画</h3>
+<div class="outline-text-3" id="text-org8979ebb">
+<p>
+Canvas2Dコンテキストではパスを利用する。<br />
+</p>
+</div>
+<div id="outline-container-org42993ff" class="outline-4">
+<h4 id="org42993ff">drawLine関数（パス&amp;サブパスを使ったラインの描画）</h4>
+<div class="outline-text-4" id="text-org42993ff">
+<p>
+fill は塗りつぶしの操作を、stroke は線描画の操作を表している。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 線分を描画する
+ * @param {number} x1 - 線分の始点の X 座標
+ * @param {number} y1 - 線分の始点の Y 座標
+ * @param {number} x2 - 線分の終点の X 座標
+ * @param {number} y2 - 線分の終点の Y 座標
+ * @param {string} [color] - 線を描画する際の色
+ * @param {number} [width=1] - 線幅
+ */
+function drawLine(x1, y1, x2, y2, color, width = 1){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.strokeStyle = color;
+    }
+    // 線幅を設定する
+    ctx.lineWidth = width;
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // パスの始点を設定する
+    ctx.moveTo(x1, y1);
+    // 直線のパスを終点座標に向けて設定する
+    ctx.lineTo(x2, y2);
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで線描画を行う
+    ctx.stroke();
+}
+</pre>
+</div>
+<p>
+Canvas2Dコンテキストでラインを描画するには「パス（軌跡のこと）」を利用する。<br />
+パスを利用した描画では、最初にパスを設定し、描画したい図形やラインの軌跡を作る。<br />
+このとき、パスそのものは「パスに基づいて描画を行う命令」が実行されるまで Canvas にその姿が直接描き出されることはない。<br />
+描画を行う命令を発行すると、その軌跡に沿って図形やラインが Canvas 上に描画される。<br />
+パスを設定する際は「パスの設定を開始する」ことを明示するために beginPath メソッドを利用し、「パスの設定を終了する」際も同様に closePath メソッドを利用する。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org6eaac07" class="outline-4">
+<h4 id="org6eaac07">サブパス</h4>
+<div class="outline-text-4" id="text-org6eaac07">
+<p>
+パスを一度区切り、新しくパスを再開するもの。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org390a62a"></a>moveToメソッドを利用したサブパスの開始とlineToメソッドを使った終点の指定<br />
+<div class="outline-text-5" id="text-org390a62a">
+<div class="org-src-container">
+<pre class="src src-js">// パスの設定を開始することを明示する
+ctx.beginPath();
+// パスの始点を設定する
+ctx.moveTo(x1, y1);
+// 直線のパスを終点座標に向けて設定する
+ctx.lineTo(x2, y2);
+// パスを閉じることを明示する
+ctx.closePath();
+</pre>
+</div>
+<p>
+パスが正しく設定できたら、fill か stroke のいずれかの関数を呼び出し、設定されたパスを実際にCanvas要素の上に描画する。<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgf50b19f" class="outline-4">
+<h4 id="orgf50b19f">Canvas2Dコンテキストでパスを用いた描画の流れ</h4>
+<div class="outline-text-4" id="text-orgf50b19f">
+<ul class="org-ul">
+<li>パスとは軌跡であり\一筆書きのように設定される<br /></li>
+<li>パスを途中で区切るにはサブパスを活用する<br /></li>
+<li>パスの設定を始める際は beginPath で開始を明示する<br /></li>
+<li>パスの設定を終了する際は closePath で終了を明示する<br /></li>
+<li>closePath で開始地点と終了地点が自動的に結ばれる（パスが閉じられる）<br /></li>
+<li>パスは設定しただけでは Canvas 要素上には何も描画されない<br /></li>
+<li>fill で塗りつぶしが、stroke で線描画が、設定されたパスに対して行われる<br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41881bf" class="outline-3">
+<h3 id="org41881bf">パスを利用した多角形の描画</h3>
+<div class="outline-text-3" id="text-org41881bf">
+<p>
+連続でlineToメソッドを呼び出すことで、より複雑な多角形の描画を行える（一筆書きで座標を連続でつなぐ）。<br />
+</p>
+</div>
+<div id="outline-container-orge88108d" class="outline-4">
+<h4 id="orge88108d">drawPolygon関数</h4>
+<div class="outline-text-4" id="text-orge88108d">
+<div class="org-src-container">
+<pre class="src src-js">function render(){
+    // 多角形の各頂点を定義する
+    let points = [
+        100, 100, // 左上
+        300, 100, // 右上
+        100, 300, // 左下
+        300, 300  // 右下
+    ];
+    // 多角形の描画処理を行う
+    drawPolygon(points, '#119900');
+}
+
+/**
+ * 多角形を描画する
+ * @param {Array&lt;number&gt;} points - 多角形の各頂点の座標
+ * @param {string} [color] - 多角形を描画する際の色
+ */
+function drawPolygon(points, color){
+    // points が配列であるかどうか確認し、多角形を描くために
+    // 十分な個数のデータが存在するか調べる
+    if(Array.isArray(points) !== true || points.length &lt; 6){
+        return;
+    }
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.fillStyle = color;
+    }
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // パスの始点を設定する
+    ctx.moveTo(points[0], points[1]);
+    // 各頂点を結ぶパスを設定する
+    for(let i = 2; i &lt; points.length; i += 2){
+        ctx.lineTo(points[i], points[i + 1]);
+    }
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで多角形の描画を行う
+    // 塗りつぶさずにワイヤーフレームとして描画したければ stroke メソッドに置き換える
+    ctx.fill();
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc5fbbf" class="outline-3">
+<h3 id="orgcc5fbbf">ランダムに変化する多角形の描画</h3>
+<div class="outline-text-3" id="text-orgcc5fbbf">
+</div>
+<div id="outline-container-orgded46a8" class="outline-4">
+<h4 id="orgded46a8">generateRandomInt関数（ランダムな値の生成を行うユーザー定義関数）</h4>
+<div class="outline-text-4" id="text-orgded46a8">
+<p>
+ランダムな値を、任意の範囲で、整数で返す。<br />
+乱数の生成には Math.random を、小数点以下の数値を切り捨てる処理には Math.floor を用いる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 特定の範囲におけるランダムな整数の値を生成する
+ * @param {number} range - 乱数を生成する範囲（0 以上 〜 range 未満）
+ */
+function generateRandomInt(range){
+    let random = Math.random();
+    return Math.floor(random * range);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb135ffe" class="outline-4">
+<h4 id="orgb135ffe">render関数</h4>
+<div class="outline-text-4" id="text-orgb135ffe">
+<div class="org-src-container">
+<pre class="src src-js">function render(){
+    // 多角形の頂点の数
+    const POINT_COUNT = 5;
+    // 多角形の各頂点を格納するための配列
+    let points = [];
+    // ループで一気に頂点を追加する
+    for(let i = 0; i &lt; POINT_COUNT; ++i){
+        // 配列に要素を追加する
+        points.push(generateRandomInt(300), generateRandomInt(300));
+    }
+    // 多角形の描画処理を行う
+    drawPolygon(points, '#119900');
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94769d5" class="outline-3">
+<h3 id="org94769d5">円の描画</h3>
+<div class="outline-text-3" id="text-org94769d5">
+</div>
+<div id="outline-container-orgb25445f" class="outline-4">
+<h4 id="orgb25445f">drawCircle関数（円を描くためのユーザー定義関数）</h4>
+<div class="outline-text-4" id="text-orgb25445f">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 円を描画する
+ * @param {number} x - 円の中心位置の X 座標
+ * @param {number} y - 円の中心位置の Y 座標
+ * @param {number} radius - 円の半径
+ * @param {string} [color] - 円を描画する際の色
+ */
+function drawCircle(x, y, radius, color){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.fillStyle = color;
+    }
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // 円のパスを設定する
+    ctx.arc(x, y, radius, 0.0, Math.PI * 2.0);
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで円の描画を行う
+    ctx.fill();
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9dee0d9" class="outline-4">
+<h4 id="org9dee0d9">Canvas2Dコンテキストの arc メソッド</h4>
+<div class="outline-text-4" id="text-org9dee0d9">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 円弧のパスを設定する
+ * @param {number} x - 円弧の中心座標のX座標
+ * @param {number} y - 円弧の中心座標のY座標
+ * @param {number} radius - 円弧の半径
+ * @param {number} startAngle - 円弧の始点となる角度（ラジアン）
+ * @param {number} endAngle - 円弧の終点となる角度（ラジアン）
+ * @param {boolean} [counterclockwise] - 円弧を描く向きを指定するフラグ（既定値：false）
+ */
+ctx.arc(x, y, radius, startAngle, endAngle, false);
+</pre>
+</div>
+<p>
+arc メソッドを利用すると、円の外周に沿った（円弧の）パスを設定できる。<br />
+arc メソッドは、描画する円（または円弧）の中心座標と、その円の半径、そしてその円によって描かれる円弧の始点と終点を指定する。<br />
+drawCircle 関数では arc メソッドを呼び出す際の円弧の「始点（0.0）」と「終点（Math.PI * 2.0）」の指定が完全に固定化されている。<br />
+これは度数法の360度がラジアンでは 2π に相当するためである。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67e5a42" class="outline-3">
+<h3 id="org67e5a42">円弧の描画（乱数によってランダムに変化する円弧）</h3>
+<div class="outline-text-3" id="text-org67e5a42">
+</div>
+<div id="outline-container-orgded6f78" class="outline-4">
+<h4 id="orgded6f78">drawFan関数</h4>
+<div class="outline-text-4" id="text-orgded6f78">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 扇形を描画する
+ * @param {number} x - 扇形を形成する円の中心位置の X 座標
+ * @param {number} y - 扇形を形成する円の中心位置の Y 座標
+ * @param {number} radius - 扇形を形成する円の半径
+ * @param {number} startRadian - 扇形の開始角
+ * @param {number} endRadian - 扇形の終了角
+ * @param {string} [color] - 扇形を描画する際の色
+ */
+function drawFan(x, y, radius, startRadian, endRadian, color){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.fillStyle = color;
+    }
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // パスを扇形を形成する円の中心に移動する
+    ctx.moveTo(x, y);
+    // 円のパスを設定する
+    ctx.arc(x, y, radius, startRadian, endRadian);
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで扇形の描画を行う
+    ctx.fill();
+}
+</pre>
+</div>
+<p>
+arc メソッドは新たにサブパスを開始する命令ではないため、最初に moveTo メソッドで円弧の中心からサブパスが開始されるようになっていることに注意。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe31570" class="outline-4">
+<h4 id="orgfe31570">render関数</h4>
+<div class="outline-text-4" id="text-orgfe31570">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 描画処理を行う
+ */
+function render(){
+    // 扇形の開始角
+    let startRadian = Math.random() * Math.PI * 2.0;
+    // 扇形の終了角
+    let endRadian = Math.random() * Math.PI * 2.0;
+    // 扇形の描画処理を行う
+    drawFan(200, 200, 100, startRadian, endRadian, '#110099');
+}
+</pre>
+</div>
+<p>
+Math.random によって得られる乱数は 0以上〜1.0未満 であるため、Math.PI * 2.0 を乗算すると、円弧の始点と終点を指定するためのラジアンの値がランダムとなる。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1370ec0" class="outline-3">
+<h3 id="org1370ec0">ベジエ曲線（複雑な曲線を描画する）</h3>
+<div class="outline-text-3" id="text-org1370ec0">
+<p>
+ベジエ曲線を活用することで、直線のラインだけでなく曲線も自由に描ける。<br />
+ベジエ曲線の描画では、線の「始点」と「終点」、さらにそれらを結ぶ曲線を描くための「制御点」と呼ばれる概念を用いて曲線の描画を行う。<br />
+制御点の個数に応じて2次ベジエ曲線や3次ベジエ曲線などと区別され、2次ベジエ曲線を描くのが quadraticCurveTo で、3次ベジエ曲線を描くのが bezierCurveTo である。<br />
+</p>
+</div>
+<div id="outline-container-org6983d5a" class="outline-4">
+<h4 id="org6983d5a">ベジエ曲線を描画するための drawQuadraticBezier 関数と drawCubicBezier 関数</h4>
+<div class="outline-text-4" id="text-org6983d5a">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 線分を二次ベジェ曲線で描画する
+ * @param {number} x1 - 線分の始点の X 座標
+ * @param {number} y1 - 線分の始点の Y 座標
+ * @param {number} x2 - 線分の終点の X 座標
+ * @param {number} y2 - 線分の終点の Y 座標
+ * @param {number} cx - 制御点の X 座標
+ * @param {number} cy - 制御点の Y 座標
+ * @param {string} [color] - 線を描画する際の色
+ * @param {number} [width=1] - 線幅
+ */
+function drawQuadraticBezier(x1, y1, x2, y2, cx, cy, color, width = 1){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.strokeStyle = color;
+    }
+    // 線幅を設定する
+    ctx.lineWidth = width;
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // パスの始点を設定する
+    ctx.moveTo(x1, y1);
+    // 二次ベジェ曲線の制御点と終点を設定する
+    ctx.quadraticCurveTo(cx, cy, x2, y2);
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで線描画を行う
+    ctx.stroke();
+}
+
+/**
+ * 線分を三次ベジェ曲線で描画する
+ * @param {number} x1 - 線分の始点の X 座標
+ * @param {number} y1 - 線分の始点の Y 座標
+ * @param {number} x2 - 線分の終点の X 座標
+ * @param {number} y2 - 線分の終点の Y 座標
+ * @param {number} cx1 - 始点の制御点の X 座標
+ * @param {number} cy1 - 始点の制御点の Y 座標
+ * @param {number} cx2 - 終点の制御点の X 座標
+ * @param {number} cy2 - 終点の制御点の Y 座標
+ * @param {string} [color] - 線を描画する際の色
+ * @param {number} [width=1] - 線幅
+ */
+function drawCubicBezier(x1, y1, x2, y2, cx1, cy1, cx2, cy2, color, width = 1){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.strokeStyle = color;
+    }
+    // 線幅を設定する
+    ctx.lineWidth = width;
+    // パスの設定を開始することを明示する
+    ctx.beginPath();
+    // パスの始点を設定する
+    ctx.moveTo(x1, y1);
+    // 三次ベジェ曲線の制御点と終点を設定する
+    ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2);
+    // パスを閉じることを明示する
+    ctx.closePath();
+    // 設定したパスで線描画を行う
+    ctx.stroke();
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga91069a" class="outline-3">
+<h3 id="orga91069a">画像を利用した描画</h3>
+<div class="outline-text-3" id="text-orga91069a">
+<p>
+Canvas2Dコンテキストで画像を利用する場合も、ファイルの読み込み時間を考慮した実装を行う必要がある。<br />
+画像ファイルの読み込みが完了したときに発生する load イベントを利用する。<br />
+</p>
+</div>
+<div id="outline-container-org3c1e4c1" class="outline-4">
+<h4 id="org3c1e4c1">load イベントを利用した画像読み込み処理</h4>
+<div class="outline-text-4" id="text-org3c1e4c1">
+<div class="org-src-container">
+<pre class="src src-js">// 画像のインスタンスを生成する
+let img = new Image();
+
+// 画像がロード完了したときの処理を先に記述しておく
+img.addEventListener('load', ( =&gt; {
+    // 読み込み完了後の処理
+}, false));
+
+// 画像のロードを開始するためにパスを指定する
+img.src = path;
+</pre>
+</div>
+<p>
+画像の読み込みを確実に検出できるようにするために、画像のインスタンスの src プロパティの設定よりも前に、まず先に addEventListener を使ってロード完了時の処理を記述しておく。<br />
+画像の読み込みが完了したときにはじめて、初期化処理を行うユーザー定義関数 initialize を呼び出すようにする。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2ac8d61" class="outline-4">
+<h4 id="org2ac8d61">Canvas2Dコンテキストの drawImage メソッドにおける引数の指定</h4>
+<div class="outline-text-4" id="text-org2ac8d61">
+<div class="org-src-container">
+<pre class="src src-js">ctx.drawImage(image, dx, dy); // 描画する画像と dx, dy（画像左上角の座標）のXY座標のみを指定
+
+ctx.drawImage(image, dx, dy, dw, dh); // 描画する画像とXY座標に加え、dw, dh で幅と高さを指定する
+
+ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh); // sx, sy, sw, sh で元となる画像のどの部分を抜き取るかまでを指定
+</pre>
+</div>
+<p>
+描画処理を行うユーザー定義関数 render 内では、Canvas2Dコンテキストの画像を描画するための命令である drawImage を呼び出すようにする。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2cfb5f6" class="outline-2">
+<h2 id="org2cfb5f6">Canvas2Dコンテキストの描画効果や描画演出</h2>
+<div class="outline-text-2" id="text-org2cfb5f6">
+<p>
+何かしらの「形」を描き出す以外に、影を付けたりグラデーションを付けたりといった、より複雑な描画結果を得るための方法も用意されている。<br />
+</p>
+</div>
+<div id="outline-container-orga18c9f2" class="outline-3">
+<h3 id="orga18c9f2">テキストの描画</h3>
+<div class="outline-text-3" id="text-orga18c9f2">
+<p>
+グラフィックとしてテキストを描く機能<br />
+Canvas2Dコンテキストには、文字や文字列を描画する際に利用されるプロパティ（文字を描画する位置に関係するもの、描画される文字の大きさに関係するものなど）がいくつか用意されている。<br />
+描画を行うユーザー定義関数 render のなかで上記プロパティの設定を行う。<br />
+</p>
+</div>
+<div id="outline-container-org3722231" class="outline-4">
+<h4 id="org3722231">drawText関数</h4>
+<div class="outline-text-4" id="text-org3722231">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 描画処理を行う
+ */
+function render(){
+    // テキストのフォントスタイルを設定する
+    ctx.font = 'bold 30px cursive';
+    // テキストのベースラインを設定する
+    ctx.textBaseline = 'alphabetic';
+    // テキストの文字寄せを設定する
+    ctx.textAlign = 'start';
+    // テキストを描画する
+    drawText('グラフィックスプログラミング', 100, 100, '#ff00aa', 150);
+}
+
+/**
+ * テキストを描画する
+ * @param {string} text - 描画するテキスト
+ * @param {number} x - テキストを描画する位置の X 座標
+ * @param {number} y - テキストを描画する位置の Y 座標
+ * @param {string} [color] - テキストを描画する際の色
+ * @param {number} [width] - テキストを描画する幅に上限を設定する際の上限値
+ */
+function drawText(text, x, y, color, width){
+    // 色が指定されている場合はスタイルを設定する
+    if(color != null){
+        ctx.fillStyle = color;
+    }
+    ctx.fillText(text, x, y, width);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb438f4" class="outline-3">
+<h3 id="orgfb438f4">ドロップシャドウの描画</h3>
+<div class="outline-text-3" id="text-orgfb438f4">
+<p>
+Canvas2Dで描画される幾何学形状や文字には、ドロップシャドウを追加できる。<br />
+ドロップシャドウはCanvas2Dコンテキストによって描画されるすべてに対して、一様に設定した内容が反映されることに注意が必要。<br />
+</p>
+</div>
+<div id="outline-container-org5366ef5" class="outline-4">
+<h4 id="org5366ef5">ドロップシャドウを設定する</h4>
+<div class="outline-text-4" id="text-org5366ef5">
+<div class="org-src-container">
+<pre class="src src-js">function render(){
+    // 影のぼかしを設定する
+    ctx.shadowBlur = 5;
+    // 影の色を設定する
+    ctx.shadowColor = '#666666';
+    // 影のオフセットする量を設定する
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ＜中略＞
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org16b34ec" class="outline-3">
+<h3 id="org16b34ec">グラデーションとパターン</h3>
+<div class="outline-text-3" id="text-org16b34ec">
+<p>
+塗りつぶしや輪郭線には「CSSスタイルの文字列」による色の設定を行ってきたが、「グラデーション」や「パターン」と呼ばれる色の設定を行うこともできる。<br />
+これらの色の設定を行うには、Canvas2Dコンテキストのメソッドを使ってその実体を生成するところから始める。<br />
+例えばグラデーションでは、最初に「グラデーションオブジェクト」を生成し、そのオブジェクトに対してさらに設定を行う。<br />
+</p>
+</div>
+<div id="outline-container-org5cea524" class="outline-4">
+<h4 id="org5cea524">グラデーション</h4>
+<div class="outline-text-4" id="text-org5cea524">
+<p>
+fillStyle や strokeStyle に設定することが可能。<br />
+線形グラデーションと円形グラデーションがある。<br />
+グラデーションを生成する範囲を指定した後、その範囲内でどのようにグラデーションを行うのかをカラーストップによって指定する。<br />
+例えば「赤 -&gt; 青」というように2つのカラーストップを設定すると、赤から青へと徐々に色が変わっていくようなグラデーションを生成できる。<br />
+線形グラデーションも円形グラデーションも、いずれも「Canvasエレメント全体の座標を対象」として設定されることに注意。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgb165e76"></a>線形グラデーション<br />
+<div class="outline-text-5" id="text-orgb165e76">
+<div class="org-src-container">
+<pre class="src src-js">// 線形グラデーションを生成する
+let linearGradient = ctx.createLinearGradient(0, 0, 0, 200);
+// 生成した線形グラデーションに色を配置する
+linearGradient.addColorStop(0.0, '#ff0000'); //   0% の位置に赤
+linearGradient.addColorStop(0.5, '#ffff00'); //  50% の位置に黄色
+linearGradient.addColorStop(1.0, '#0000ff'); // 100% の位置に青
+</pre>
+</div>
+<p>
+線形グラデーションはCanvas2Dコンテキストの createLineGradient メソッドを利用して生成する。<br />
+グラデーションオブジェクトを生成できたら、addColorStop メソッドでカラーストップを設定する。<br />
+カラーストップは 0.0〜1.0 の範囲。<br />
+</p>
+</div>
+</li>
+<li><a id="orgc017dc1"></a>円形グラデーション<br />
+<div class="outline-text-5" id="text-orgc017dc1">
+<div class="org-src-container">
+<pre class="src src-js">// 円形グラデーションを生成する
+let radialGradient = ctx.createRadialGradient(250, 0, 50, 250, 0, 300);
+// 生成した円形グラデーションに色を配置する
+radialGradient.addColorStop(0.0, '#006600'); //   0% の位置に暗い緑
+radialGradient.addColorStop(0.5, '#ffff00'); //  50% の位置に黄色
+radialGradient.addColorStop(1.0, '#ff00ff'); // 100% の位置にマゼンタ
+</pre>
+</div>
+<p>
+createRadialGradient メソッドで生成できる。<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org3f94254" class="outline-4">
+<h4 id="org3f94254">パターン</h4>
+<div class="outline-text-4" id="text-org3f94254">
+<p>
+fillStyle や strokeStyle に設定することが可能。<br />
+drawImage（画像を使った矩形描画）とは異なり、塗りつぶしなどのスタイルとして「タイル状に画像を敷き詰めた絵柄」を設定する場合に利用。<br />
+第2引数の指定により「画像の敷き詰め方のルール」を指定できる。<br />
+repeat（水平/垂直の両方向に繰り返す）、repeat-x（水平方向に繰り返す）、repeat-y（垂直方向に繰り返す）、no-repeat（繰り返さない）の4種類がある。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgf27a6a2"></a>パターン\オブジェクトの生成と敷き詰め方のルールの指定<br />
+<div class="outline-text-5" id="text-orgf27a6a2">
+<div class="org-src-container">
+<pre class="src src-js">let image;
+
+＜中略：画像を読み込む処理など＞
+
+// 画像を使ってパターンを生成する
+let imagePattern = ctx.createPattern(image, 'repeat');
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org58f6896" class="outline-3">
+<h3 id="org58f6896">アルファブレンディング</h3>
+<div class="outline-text-3" id="text-org58f6896">
+<p>
+透明や半透明の描画処理ができ、この描画を行う際は「アルファ値（不透明度）」を設定する。<br />
+ドロップシャドウやグラデーションと同じように、一度設定するとあらゆる描画処理に一律で影響を与える。<br />
+</p>
+</div>
+<div id="outline-container-org6674771" class="outline-4">
+<h4 id="org6674771">Canvas2Dコンテキストの globalAlpha プロパティに設定を行う</h4>
+<div class="outline-text-4" id="text-org6674771">
+<div class="org-src-container">
+<pre class="src src-js">// グローバルアルファを設定する（不透明度50%の例）
+ctx.globalAlpha = 0.5;
+</pre>
+</div>
+<p>
+Canvas2Dコンテキストの不透明度の設定は、globalAlpha プロパティに対して行う。<br />
+不透明度は 0.0〜1.0 の範囲で指定でき、既定値は 1.0 である。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7218a3b" class="outline-3">
+<h3 id="org7218a3b">コンポジットオペレーション</h3>
+<div class="outline-text-3" id="text-org7218a3b">
+<p>
+図形や文字などが描画される際に、その描画する色を現在のCanvas要素に「どのように合成するのか」を指定する。<br />
+Canvas2Dコンテキストの globalOmpositeOperation プロパティに文字列で設定するコンポジットオペレーションを設定する。<br />
+以下例。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 合成方法変更のためのドロップダウンリストを作成する
+let dropdown = document.createElement('select');
+
+＜中略＞
+
+// リストの状態変化にイベントを設定し canvas が再描画されるようにする
+dropdown.addEventListener('change', (event) =&gt; {
+    // 選択されている項目をコンポジットオペレーションに設定する
+    compositeOperation = dropdown.value;
+    // 再描画する
+    render();
+}, false);
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf31978b" class="outline-2">
+<h2 id="orgf31978b">Canvas2Dプログラムの基本構成</h2>
+<div class="outline-text-2" id="text-orgf31978b">
+</div>
+<div id="outline-container-org0b09e38" class="outline-3">
+<h3 id="org0b09e38">スクリプトファイルの読み込み</h3>
+<div class="outline-text-3" id="text-org0b09e38">
+<div class="org-src-container">
+<pre class="src src-web">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- 文字コードを指定 --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;!-- スタイルシートの読み込み --&gt;
+    &lt;link rel="stylesheet" href="./css/style.css"&gt;
+    &lt;!-- JavaScript ファイルの読み込み --&gt;
+    &lt;script src="./script/script.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- ID 属性を持つ canvas エレメント --&gt;
+    &lt;canvas id="main_canvas"&gt;&lt;/canvas&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6673896" class="outline-3">
+<h3 id="org6673896">即時関数を使って全体を囲う</h3>
+<div class="outline-text-3" id="text-org6673896">
+<p>
+スクリプトファイルに記述されたプログラム全体を関数で包み込むことが多い。<br />
+プログラムで利用する変数がグローバルスコープになってしまうことを防ぐ（関数の内部に限定されたローカルスコープを持つようになる）ための処置である。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// グローバル汚染を避けるために即時関数を使って全体を囲う
+(() =&gt; {
+    // ここにプログラムを記述する
+})();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcf094ad" class="outline-3">
+<h3 id="orgcf094ad">読み込み完了タイミングの検出</h3>
+<div class="outline-text-3" id="text-orgcf094ad">
+<p>
+JavaScript のプログラムが実行されるようにするタイミングは「HTMLファイルが完全に読み込み完了となった時点」が好ましい。<br />
+ユーザーの操作などのことを一般に「イベント」と呼び、addEventListener はこれらのイベントを検出し、そのイベントの検出がなされたときに初めて実行される処理を記述するのに利用される。<br />
+</p>
+</div>
+<div id="outline-container-org2c71c4b" class="outline-4">
+<h4 id="org2c71c4b">ページのロード完了時に発火するloadイベント</h4>
+<div class="outline-text-4" id="text-org2c71c4b">
+<p>
+HTMLファイルが完全に読み込み完了となった瞬間にはloadイベントが発火する。<br />
+このloadイベントが発生した瞬間に処理を実行できるようにすれば、読み込みが遅延しても、遅延によってJavaScriptがエラーとなることを避けられる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">window.addEventListener('load', () =&gt; {
+    initialize(); // 初期化処理を行う
+    render(); // 描画処理を行う
+}, false);
+</pre>
+</div>
+<p>
+addEventListener に渡す引数は3つあり、第1引数には文字列で検出したいイベント名を指定し、第2引数にはイベントが発生したときに呼び出されるコールバック関数を定義し、第3引数には特別な理由がない限りは false を指定する。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94a72cf" class="outline-3">
+<h3 id="org94a72cf">初期化処理（loadイベント後1）</h3>
+<div class="outline-text-3" id="text-org94a72cf">
+<p>
+プログラムの実行に際して必要となる初期化処理を行う<br />
+</p>
+</div>
+<div id="outline-container-org6fb0200" class="outline-4">
+<h4 id="org6fb0200">initialize関数（Canvasやコンテキストを初期化）</h4>
+<div class="outline-text-4" id="text-org6fb0200">
+<div class="org-src-container">
+<pre class="src src-js">function initialize(){
+    // HTML 上の canvas には id 属性が振られているので
+    // querySelector を利用して参照し、変数に格納する
+    canvas = document.body.querySelector('#main_canvas');
+    // canvas の大きさをウィンドウ全体を覆うように変更する
+    canvas.width = window.innerWidth;   // 幅
+    canvas.height = window.innerHeight; // 高さ
+    // canvas からコンテキストを取得する
+    ctx = canvas.getContext('2d');
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org150b2bf" class="outline-3">
+<h3 id="org150b2bf">描画処理（loadイベント後2）</h3>
+<div class="outline-text-3" id="text-org150b2bf">
+<p>
+初期化が終了した後で実行される、描画を行うための処理がまとめられた関数。<br />
+</p>
+</div>
+<div id="outline-container-org818bffc" class="outline-4">
+<h4 id="org818bffc">render関数（塗り色を設定し、塗りつぶす）</h4>
+<div class="outline-text-4" id="text-org818bffc">
+<div class="org-src-container">
+<pre class="src src-js">function render(){
+    // canvas 全体を黒く塗りつぶすため塗り色のスタイルを設定する
+    ctx.fillStyle = '#000000'; // または 'black' でもよい
+
+    // canvas 全体を塗りつぶす
+    // @param {number} x - 塗りつぶす矩形の左上角の X 座標
+    // @param {number} y - 塗りつぶす矩形の左上角の Y 座標
+    // @param {number} w - 塗りつぶす矩形の横幅
+    // @param {number} h - 塗りつぶす矩形の高さ
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 線描画処理を行う
+    drawLine(100, 100, 200, 200, '#ff0000');
+}
+
+// 描画処理を制御するrender関数をよりシンプルに描画できるように
+// なにか一つの図形や線を描画する処理をひとまとめにした関数をユーザー定義の関数として定義する
+
+function drawRect(x, y, width, height, color){
+    // 処理
+}
+
+function drawLine(x1, y1, x2, y2, color, width = 1){
+    // 処理
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org024553d" class="outline-4">
+<h4 id="org024553d">引数の省略</h4>
+<div class="outline-text-4" id="text-org024553d">
+<p>
+引数が指定されているかどうかを判定するif文では、引数とnullを抽象比較すれば良い。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

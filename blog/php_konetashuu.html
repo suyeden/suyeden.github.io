@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,50 +193,26 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -264,27 +240,79 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">PHP 小ネタ集</h1>
-<div id="outline-container-org078f161" class="outline-2">
-<h2 id="org078f161"></h2>
-<div class="outline-text-2" id="text-org078f161">
+<div id="outline-container-orgf5f9427" class="outline-2">
+<h2 id="orgf5f9427"></h2>
+<div class="outline-text-2" id="text-orgf5f9427">
 <hr />
 </div>
-<div id="outline-container-org49d11bc" class="outline-3">
-<h3 id="org49d11bc"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org49d11bc">
+<div id="outline-container-orgd591b6a" class="outline-3">
+<h3 id="orgd591b6a"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgd591b6a">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org80f74f0" class="outline-2">
-<h2 id="org80f74f0">Xdebug のインストール</h2>
+<div id="outline-container-orgd08d932" class="outline-2">
+<h2 id="orgd08d932">メールの送信</h2>
+<div class="outline-text-2" id="text-orgd08d932">
+<p>
+mb<sub>send</sub><sub>mail</sub> 関数を使う<br />
+</p>
+<pre class="example" id="org98e148d">
+// メールの使用言語を設定する
+mb_language("Japanese");
+// PHPの内部で使用する文字コードを設定する
+mb_internal_encoding("UTF-8");
+
+$to = 'メールアドレス';
+$subject = '件名';
+$body = '本文';
+
+// メールの送信、送信できたら true を返す
+$result = mb_send_mail($to, $subject, $body);
+
+if ($result) {
+    echo 'メールを送信しました';
+} else {
+    echo 'メール送信に失敗しました'
+}
+</pre>
+</div>
 </div>
 
+<div id="outline-container-org89535de" class="outline-2">
+<h2 id="org89535de">エラー</h2>
+<div class="outline-text-2" id="text-org89535de">
+<p>
+深刻度順に<br />
+Notice &lt; Warning &lt; Parse error &lt; Fatal error<br />
+</p>
+</div>
+<div id="outline-container-org5aec917" class="outline-3">
+<h3 id="org5aec917">エラーを表示させる方法</h3>
+<div class="outline-text-3" id="text-org5aec917">
+<p>
+ログファイルが Linux では /opt/lampp/logs/error<sub>log</sub> にある。<br />
+ローカルホストで開発中にエラーを表示したい場合はプログラム先頭に次のように書く。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-php">&lt;?php
+ini_set('display_errors', 'on');
+// E_ALL はすべてのエラー、例えば Notice だけの場合は E_NOTICE
+error_reporting(E_ALL);
+</pre>
+</div>
+<p>
+本番運用する場合はオフにしておくこと。<br />
+</p>
+</div>
+</div>
+</div>
 
-<div id="outline-container-org41d82d2" class="outline-2">
-<h2 id="org41d82d2">XAMPP について</h2>
-<div class="outline-text-2" id="text-org41d82d2">
+<div id="outline-container-org753eb0e" class="outline-2">
+<h2 id="org753eb0e">XAMPP について</h2>
+<div class="outline-text-2" id="text-org753eb0e">
 <p>
 X : Windows or Linux<br />
 A : Apache HTTP Server<br />
@@ -293,9 +321,9 @@ P : PHP<br />
 P : Perl<br />
 </p>
 </div>
-<div id="outline-container-org462556b" class="outline-3">
-<h3 id="org462556b">Apache HTTP Server, MySQL の起動</h3>
-<div class="outline-text-3" id="text-org462556b">
+<div id="outline-container-org26473c7" class="outline-3">
+<h3 id="org26473c7">Apache HTTP Server, MySQL の起動</h3>
+<div class="outline-text-3" id="text-org26473c7">
 <ol class="org-ol">
 <li>管理者権限でXAMPPコントロールパネルのアイコン（右下のタスクバー等にある）をクリック<br />
 管理者権限で開かなければ、終了の際に <code>"Error:Cannot create file "C:\xampp\xampp-control.ini". Access denied.</code> のようなエラーメッセージが出る。<br /></li>
@@ -305,9 +333,9 @@ P : Perl<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org20a7536" class="outline-3">
-<h3 id="org20a7536">公開フォルダ（WWWサーバーのルートディレクトリ）</h3>
-<div class="outline-text-3" id="text-org20a7536">
+<div id="outline-container-org5defeaf" class="outline-3">
+<h3 id="org5defeaf">公開フォルダ（WWWサーバーのルートディレクトリ）</h3>
+<div class="outline-text-3" id="text-org5defeaf">
 <p>
 XAMPPコントロールパネルの[Explorer]ボタンをクリックすると、XAMPPをインストールしたフォルダが表示される。<br />
 その中に [htdocs] というフォルダがある<br />
@@ -317,9 +345,9 @@ XAMPPコントロールパネルの[Explorer]ボタンをクリックすると�
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdf3339" class="outline-3">
-<h3 id="orgfdf3339">PHPの日本語環境の設定</h3>
-<div class="outline-text-3" id="text-orgfdf3339">
+<div id="outline-container-org694d5d9" class="outline-3">
+<h3 id="org694d5d9">PHPの日本語環境の設定</h3>
+<div class="outline-text-3" id="text-org694d5d9">
 <p>
 「php.ini」を編集してphpの日本語環境を設定する。また文字コードも「UTF-8」に統一する。<br />
 php.iniの保存場所は「C:\xampp\php」。<br />
@@ -368,9 +396,9 @@ php.iniの保存場所は「C:\xampp\php」。<br />
 </table>
 </div>
 </div>
-<div id="outline-container-org99cedc0" class="outline-3">
-<h3 id="org99cedc0">MySQLへの接続</h3>
-<div class="outline-text-3" id="text-org99cedc0">
+<div id="outline-container-orgd3d594c" class="outline-3">
+<h3 id="orgd3d594c">MySQLへの接続</h3>
+<div class="outline-text-3" id="text-orgd3d594c">
 <p>
 MySQL5.7以降では、rootユーザーでログインする⼿順が少し変わっている。これは、セキュリティに対してより厳しくなったことによる変更である。<br />
 rootユーザーには必ずパスワードを設定しなければいけない仕様になっており、MySQL8.0以降にrootユーザーでログインするためにはパスワードの初期設定が必要。<br />
@@ -394,17 +422,108 @@ phpMyAdminでMySQLの「root」パスワードを設定し、そのパスワー�
 接続を行うには、管理者権限でXAMPPコントロールパネルを開き、コントロールパネル横の「Shell」をクリックして下記コマンドを実行する。<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">mysql -u root -p
+<pre class="src src-bash">mysql
+# mysql で実行できなければ以下コマンド
+mysql -u root -p
 # コマンド実行後、自分で設定したパスワードを入力する
+# 上記2コマンドではユーザー名が異なる可能性が（設定したユーザー名 か root か）
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c1fb45" class="outline-3">
+<h3 id="org2c1fb45">Linuxへのインストール</h3>
+<div class="outline-text-3" id="text-org2c1fb45">
+<ol class="org-ol">
+<li>XAMPP 公式サイトから .run ファイルをダウンロードする<br /></li>
+<li><p>
+ダウンロードしたディレクトリに移動して、以下のコマンドを実行する<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">chmod +x xampp-linux-x64-x.x.xx-x-installer.run
+sudo ./xampp-linux-x64-x.x.xx-x-installer.run
+</pre>
+</div></li>
+<li><p>
+以下コマンドを実行<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># Webサーバーのルートディレクトリのパーミッションを変更する
+sudo chmod 777 /opt/lampp/htdocs
+# 「php.ini」のパーミッションを変更する
+sudo chmod 777 /opt/lampp/etc/php.ini
+</pre>
+</div></li>
+<li><p>
+XAMPP のスタートと停止<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># スタート
+sudo /opt/lampp/lampp start
+# 停止
+sudo /opt/lampp/lampp stop
+</pre>
+</div>
+<p>
+公開ディレクトリは /opt/lampp/htdocs<br />
+</p></li>
+</ol>
+</div>
+
+<div id="outline-container-orgc49d853" class="outline-4">
+<h4 id="orgc49d853">Linux での設定ファイルの場所</h4>
+<div class="outline-text-4" id="text-orgc49d853">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ファイル</th>
+<th scope="col" class="org-left">保存場所</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">php.ini</td>
+<td class="org-left">/opt/lampp/etc</td>
+</tr>
+
+<tr>
+<td class="org-left">config.inc.php</td>
+<td class="org-left">/opt/lampp/phpmyadmin</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5e7ba23" class="outline-4">
+<h4 id="org5e7ba23">Linux でのインタラクティブな実行</h4>
+<div class="outline-text-4" id="text-org5e7ba23">
+<p>
+最初に PHP へのパス（/opt/lampp/bin）を登録する必要がある。<br />
+Windows 風のインタラクティブシェルは、Linux ではデフォルトではない。<br />
+</p>
+<ol class="org-ol">
+<li>php -a<br />
+&lt;?&#x2026;?&gt; で囲って書いてから、 <code>ctrl + d</code> で実行。<br />
+Linux では interactive shell ではなく interactive mode が起動する。<br /></li>
+<li>php -r "phpコード"<br /></li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6b1305c" class="outline-2">
-<h2 id="org6b1305c">リモートホストとローカルホスト</h2>
-<div class="outline-text-2" id="text-org6b1305c">
+<div id="outline-container-orgd204552" class="outline-2">
+<h2 id="orgd204552">リモートホストとローカルホスト</h2>
+<div class="outline-text-2" id="text-orgd204552">
 <ul class="org-ul">
 <li>リモートホスト<br />
 インターネット上のサーバーのこと。<br />
@@ -421,18 +540,18 @@ PHPでプログラムを書く時は、自分のパソコンにApache HTTP Serve
 </div>
 </div>
 
-<div id="outline-container-org947cbe5" class="outline-2">
-<h2 id="org947cbe5">Webアプリケーションとは</h2>
-<div class="outline-text-2" id="text-org947cbe5">
+<div id="outline-container-orgc382c95" class="outline-2">
+<h2 id="orgc382c95">Webアプリケーションとは</h2>
+<div class="outline-text-2" id="text-orgc382c95">
 <p>
 インターネットを通じて利用できる、ある機能を持ったWebサイトのこと。<br />
 ブラウザで表示(閲覧)・操作する。<br />
 </p>
 </div>
-<div id="outline-container-org1f31bb8" class="outline-3">
-<h3 id="org1f31bb8">クライアントとサーバー</h3>
-<div class="outline-text-3" id="text-org1f31bb8">
-<pre class="example">
+<div id="outline-container-org481f5f2" class="outline-3">
+<h3 id="org481f5f2">クライアントとサーバー</h3>
+<div class="outline-text-3" id="text-org481f5f2">
+<pre class="example" id="orga1de35e">
                                        リクエスト
                       http://blog.example.com のブログを見せてください
 クライアント   ------------------------------------------------------------&gt;  サーバー
@@ -450,15 +569,15 @@ URLの「http」はプロトコルで、通信手段を表す。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org7ebf123" class="outline-3">
-<h3 id="org7ebf123">IPアドレスと名前解決</h3>
-<div class="outline-text-3" id="text-org7ebf123">
+<div id="outline-container-org3034597" class="outline-3">
+<h3 id="org3034597">IPアドレスと名前解決</h3>
+<div class="outline-text-3" id="text-org3034597">
 <p>
 サーバーの住所は、実際のところIPアドレスという数字でできている。<br />
 URLをIPアドレスに変更するDNSというシステムが存在し、このシステムが動いているサーバーのことをDNSサーバーという。<br />
 世界中のドメイン(○.com、○.com.jpなど)をIPアドレスに対応づけるデータベースを持っている。<br />
 </p>
-<pre class="example">
+<pre class="example" id="orga44d73d">
 
                            名前解決
           http://blog.example.com のIPアドレスを教えて
@@ -476,14 +595,14 @@ URLをIPアドレスに変更するDNSというシステムが存在し、この
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf9ab497" class="outline-3">
-<h3 id="orgf9ab497">サーバーの仕事と動作</h3>
-<div class="outline-text-3" id="text-orgf9ab497">
+<div id="outline-container-org81e32f2" class="outline-3">
+<h3 id="org81e32f2">サーバーの仕事と動作</h3>
+<div class="outline-text-3" id="text-org81e32f2">
 <p>
 リクエストは、そのWebページを持つサーバー(通信や処理を行うコンピュータ, 受け取ったリクエストを解釈し返答であるレスポンスを返す,Server:給仕人)に到着する。<br />
 サーバーではさまざまな処理を経てHTMLをレスポンスとしてする。<br />
 </p>
-<pre class="example">
+<pre class="example" id="org578f6f5">
    リクエスト    -----------------------------------------------------------------
 ---------------&gt; |   Webサーバー       ----------------&gt;    プログラムファイル   |
 &lt;--------------- |                                                  |            |
@@ -508,9 +627,9 @@ PHP実行エンジン : 処理を行う機能
 Webサーバーはリクエストの内容から、どのファイルをレスポンスとして送り返せば良いか解釈する。<br />
 </p>
 </div>
-<div id="outline-container-org91839dd" class="outline-4">
-<h4 id="org91839dd">リクエストの判別</h4>
-<div class="outline-text-4" id="text-org91839dd">
+<div id="outline-container-orgedbc60b" class="outline-4">
+<h4 id="orgedbc60b">リクエストの判別</h4>
+<div class="outline-text-4" id="text-orgedbc60b">
 <p>
 URLが「～.html」で終わっているファイル (HTMLファイル) がリクエストされた時には、数あるファイルの中から該当するHTMLファイルを取り出してレスポンスとする。<br />
 レスポンスにはHTMLや画像を送ることになっているので、見つけたHTMLファイルをそのままクライアントに送る。<br />
@@ -523,9 +642,9 @@ PHP実行エンジンは、ファイルの内容を解釈して処理を行い�
 </div>
 </div>
 </div>
-<div id="outline-container-org2f1b7c5" class="outline-3">
-<h3 id="org2f1b7c5">クライアント(ブラウザ)の仕事</h3>
-<div class="outline-text-3" id="text-org2f1b7c5">
+<div id="outline-container-orgd5bee26" class="outline-3">
+<h3 id="orgd5bee26">クライアント(ブラウザ)の仕事</h3>
+<div class="outline-text-3" id="text-orgd5bee26">
 <p>
 ブラウザは、リクエストを送ったりレスポンスを受け取ったりするだけでなく、レスポンスとして受け取ったHTMLを解釈し、Webページとして表示を行う機能を持つ。<br />
 この世にたくさんのブラウザが存在するが、HTMLの解釈に違いがあったり、ブラウザごとに独自の機能があったりする。<br />

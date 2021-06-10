@@ -218,22 +218,47 @@
 <body>
 <div id="content">
 <h1 class="title">Linux 小ネタ</h1>
-<div id="outline-container-org234a0a5" class="outline-2">
-<h2 id="org234a0a5"></h2>
-<div class="outline-text-2" id="text-org234a0a5">
+<div id="outline-container-org5772009" class="outline-2">
+<h2 id="org5772009"></h2>
+<div class="outline-text-2" id="text-org5772009">
 <hr />
 </div>
-<div id="outline-container-org4491327" class="outline-3">
-<h3 id="org4491327"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org4491327">
+<div id="outline-container-org22ca8a0" class="outline-3">
+<h3 id="org22ca8a0"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org22ca8a0">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga0dc1f6" class="outline-2">
-<h2 id="orga0dc1f6">apt</h2>
-<div class="outline-text-2" id="text-orga0dc1f6">
+<div id="outline-container-org0e8b826" class="outline-2">
+<h2 id="org0e8b826">パスの追加</h2>
+<div class="outline-text-2" id="text-org0e8b826">
+<p>
+~/.bashrc を編集して末尾に追記すれば良い。<br />
+</p>
+<pre class="example" id="org2ec365c">
+# 「"$PATH"」現状のパス設定を保持したままで、「:」に続くパスを追加する
+PATH="$PATH":パス
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb50136f" class="outline-2">
+<h2 id="orgb50136f">ブランク・サスペンド・ハイバネート・シャットダウン・ディスプレイの電源を切る・画面をロック・スリープ について</h2>
+<div class="outline-text-2" id="text-orgb50136f">
+<p>
+ディスプレイのみについて言っているのか、作業内容のメモリへの保存等ディスプレイ以外の要素も含めているのか、に注目する必要がある。<br />
+ブランクは、ディスプレイの電源を切ったり、画面を黒一色にしたり、意味はケースバイケース。画面をロックするかどうかは設定次第。<br />
+サスペンドはスリープのこと。起動中のPCの状態を保持したままハードウェアへの給電を抑える。<br />
+ハイバネートは休止状態のこと。起動中のPCの状態をストレージに保存して電源を「オフ」にし、次回PC起動時に保存した状態をストレージから復帰させる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb383c5b" class="outline-2">
+<h2 id="orgb383c5b">apt</h2>
+<div class="outline-text-2" id="text-orgb383c5b">
 <div class="org-src-container">
 <pre class="src src-bash"># パッケージのインストール
 sudo apt install [パッケージ名]
@@ -254,9 +279,9 @@ sudo apt -y ...
 </pre>
 </div>
 </div>
-<div id="outline-container-org1133633" class="outline-3">
-<h3 id="org1133633">apt と apt-get の違い</h3>
-<div class="outline-text-3" id="text-org1133633">
+<div id="outline-container-orge51f55c" class="outline-3">
+<h3 id="orge51f55c">apt と apt-get の違い</h3>
+<div class="outline-text-3" id="text-orge51f55c">
 <p>
 apt-get は最初のコマンドラインベースフロントエンド、apt は apt-get の持っていた設計上のミスを克服。<br />
 Ubuntu では apt コマンドの使用が推奨されている。<br />
@@ -265,13 +290,13 @@ Ubuntu では apt コマンドの使用が推奨されている。<br />
 </div>
 </div>
 
-<div id="outline-container-org8fb3e64" class="outline-2">
-<h2 id="org8fb3e64">sudo と su</h2>
-<div class="outline-text-2" id="text-org8fb3e64">
+<div id="outline-container-org1131c1f" class="outline-2">
+<h2 id="org1131c1f">sudo と su</h2>
+<div class="outline-text-2" id="text-org1131c1f">
 </div>
-<div id="outline-container-orgee74bfa" class="outline-3">
-<h3 id="orgee74bfa">sudo</h3>
-<div class="outline-text-3" id="text-orgee74bfa">
+<div id="outline-container-org2ec5528" class="outline-3">
+<h3 id="org2ec5528">sudo</h3>
+<div class="outline-text-3" id="text-org2ec5528">
 <ul class="org-ul">
 <li>root のパスワードでなくてユーザーのパスワードを必要とする<br /></li>
 <li>sudo を許す許さないは管理者 root が決める<br /></li>
@@ -279,9 +304,9 @@ Ubuntu では apt コマンドの使用が推奨されている。<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-org1dd2e03" class="outline-3">
-<h3 id="org1dd2e03">su</h3>
-<div class="outline-text-3" id="text-org1dd2e03">
+<div id="outline-container-org8181055" class="outline-3">
+<h3 id="org8181055">su</h3>
+<div class="outline-text-3" id="text-org8181055">
 <ul class="org-ul">
 <li>root のパスワードを知っている必要がある<br /></li>
 <li>root のパスワードを知っている人が su することを禁じることはできない<br /></li>
@@ -289,9 +314,9 @@ Ubuntu では apt コマンドの使用が推奨されている。<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf92e1de" class="outline-3">
-<h3 id="orgf92e1de">Ubuntu と root</h3>
-<div class="outline-text-3" id="text-orgf92e1de">
+<div id="outline-container-orgea4ab2e" class="outline-3">
+<h3 id="orgea4ab2e">Ubuntu と root</h3>
+<div class="outline-text-3" id="text-orgea4ab2e">
 <p>
 Ubuntu は初期状態では root が使えない（パスワード未設定）ようになっている<br />
 su を実行するには以下のようにする<br />
