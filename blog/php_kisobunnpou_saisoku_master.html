@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,76 +193,100 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">PHP基礎文法最速マスター</h1>
-<div id="outline-container-org689f301" class="outline-2">
-<h2 id="org689f301"></h2>
-<div class="outline-text-2" id="text-org689f301">
+<div id="outline-container-org5bf13c2" class="outline-2">
+<h2 id="org5bf13c2"></h2>
+<div class="outline-text-2" id="text-org5bf13c2">
 <hr />
 </div>
-<div id="outline-container-org6c894ab" class="outline-3">
-<h3 id="org6c894ab"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org6c894ab">
+<div id="outline-container-org5db0af3" class="outline-3">
+<h3 id="org5db0af3"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org5db0af3">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc124dd1" class="outline-2">
-<h2 id="orgc124dd1">基本文法</h2>
-<div class="outline-text-2" id="text-orgc124dd1">
+<div id="outline-container-org6b1e9f8" class="outline-2">
+<h2 id="org6b1e9f8">基本文法</h2>
+<div class="outline-text-2" id="text-org6b1e9f8">
 </div>
-<div id="outline-container-org6bd049e" class="outline-3">
-<h3 id="org6bd049e">コードブロック</h3>
-<div class="outline-text-3" id="text-org6bd049e">
+<div id="outline-container-orgf95f033" class="outline-3">
+<h3 id="orgf95f033">コードブロック</h3>
+<div class="outline-text-3" id="text-orgf95f033">
 <p>
 PHPコードは開始タグ <code>&lt;?php</code> から始まり、終了タグ <code>?&gt;</code> で終了します。<br />
 ただし、終了タグは省略することが推奨されています。<br />
 </p>
-<pre class="example" id="org8e936f2">
+<pre class="example">
 &lt;?php
 echo 'piyo';
 </pre>
 </div>
 </div>
-<div id="outline-container-org3b9cf62" class="outline-3">
-<h3 id="org3b9cf62">文の終わり</h3>
-<div class="outline-text-3" id="text-org3b9cf62">
+<div id="outline-container-orgd1077b5" class="outline-3">
+<h3 id="orgd1077b5">文の終わり</h3>
+<div class="outline-text-3" id="text-orgd1077b5">
 <p>
 PHPコードは、 ; で一文の終わりを示します。<br />
 </p>
-<pre class="example" id="org82941fe">
+<pre class="example">
 echo 'hoge';
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf80a9f6" class="outline-3">
-<h3 id="orgf80a9f6">コメント</h3>
-<div class="outline-text-3" id="text-orgf80a9f6">
-<pre class="example" id="org8ae268c">
+<div id="outline-container-orgf27f4fa" class="outline-3">
+<h3 id="orgf27f4fa">コメント</h3>
+<div class="outline-text-3" id="text-orgf27f4fa">
+<pre class="example">
 // 一行コメント
 # 一行コメント
 /*
@@ -272,13 +296,13 @@ echo 'hoge';
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf3f8098" class="outline-3">
-<h3 id="orgf3f8098">変数の宣言</h3>
-<div class="outline-text-3" id="text-orgf3f8098">
+<div id="outline-container-org3cf534b" class="outline-3">
+<h3 id="org3cf534b">変数の宣言</h3>
+<div class="outline-text-3" id="text-org3cf534b">
 <p>
 型はPHPが自動で決定するので、宣言する必要はありません。<br />
 </p>
-<pre class="example" id="org034219d">
+<pre class="example">
 $a = 'hoge'; // string
 $b = 1; // integer
 $c = true; // boolean
@@ -287,14 +311,14 @@ $c = true; // boolean
 </div>
 </div>
 
-<div id="outline-container-org9ed17c6" class="outline-2">
-<h2 id="org9ed17c6">数値の表現</h2>
-<div class="outline-text-2" id="text-org9ed17c6">
+<div id="outline-container-orgadb5672" class="outline-2">
+<h2 id="orgadb5672">数値の表現</h2>
+<div class="outline-text-2" id="text-orgadb5672">
 </div>
-<div id="outline-container-org455222f" class="outline-3">
-<h3 id="org455222f">四則演算</h3>
-<div class="outline-text-3" id="text-org455222f">
-<pre class="example" id="org248b123">
+<div id="outline-container-orgfb84011" class="outline-3">
+<h3 id="orgfb84011">四則演算</h3>
+<div class="outline-text-3" id="text-orgfb84011">
+<pre class="example">
 $i = 1 + 1; // 2
 $i = 1 - 1; // 0
 $i = 1 * 1; // 1
@@ -303,65 +327,65 @@ $i = 5 % 2; // 1
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbc1700a" class="outline-3">
-<h3 id="orgbc1700a">インクリメント・デクリメント</h3>
-<div class="outline-text-3" id="text-orgbc1700a">
-<pre class="example" id="orga5ceedf">
+<div id="outline-container-org5bf5657" class="outline-3">
+<h3 id="org5bf5657">インクリメント・デクリメント</h3>
+<div class="outline-text-3" id="text-org5bf5657">
+<pre class="example">
 $i++;
 $i--;
 </pre>
 </div>
 </div>
-<div id="outline-container-org4e7d86c" class="outline-3">
-<h3 id="org4e7d86c">端数の切り上げ</h3>
-<div class="outline-text-3" id="text-org4e7d86c">
-<pre class="example" id="org38d16c3">
+<div id="outline-container-org981ca79" class="outline-3">
+<h3 id="org981ca79">端数の切り上げ</h3>
+<div class="outline-text-3" id="text-org981ca79">
+<pre class="example">
 ceil(数値)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3553477" class="outline-2">
-<h2 id="org3553477">文字列操作</h2>
-<div class="outline-text-2" id="text-org3553477">
+<div id="outline-container-org51b6200" class="outline-2">
+<h2 id="org51b6200">文字列操作</h2>
+<div class="outline-text-2" id="text-org51b6200">
 <p>
 文字列はシングルクォートかダブルクォートで囲みます。<br />
 </p>
-<pre class="example" id="org521acdb">
+<pre class="example">
 $s = 'hoge';
 $s = "fuga";
 </pre>
 </div>
-<div id="outline-container-org2d16a4e" class="outline-3">
-<h3 id="org2d16a4e">特殊文字</h3>
-<div class="outline-text-3" id="text-org2d16a4e">
+<div id="outline-container-org1db1a37" class="outline-3">
+<h3 id="org1db1a37">特殊文字</h3>
+<div class="outline-text-3" id="text-org1db1a37">
 <p>
 ダブルクォートの中では特殊文字を利用できます。<br />
 </p>
-<pre class="example" id="orgee75e2e">
+<pre class="example">
 $s = "hoge\nfuga"; // \nは改行
 $s = 'hoge\nfuga'; // \nは文字列
 </pre>
 </div>
 </div>
-<div id="outline-container-org5d2ec28" class="outline-3">
-<h3 id="org5d2ec28">変数展開</h3>
-<div class="outline-text-3" id="text-org5d2ec28">
+<div id="outline-container-orga718914" class="outline-3">
+<h3 id="orga718914">変数展開</h3>
+<div class="outline-text-3" id="text-orga718914">
 <p>
 ダブルクォートの中では変数展開ができます。<br />
 </p>
-<pre class="example" id="org4340119">
+<pre class="example">
 $x = hoge;
 $string1 = "$x fuga";
 $string2 = "{$x} fuga";
 </pre>
 </div>
 </div>
-<div id="outline-container-org64d750b" class="outline-3">
-<h3 id="org64d750b">結合</h3>
-<div class="outline-text-3" id="text-org64d750b">
-<pre class="example" id="org5aa31e9">
+<div id="outline-container-orga249a37" class="outline-3">
+<h3 id="orga249a37">結合</h3>
+<div class="outline-text-3" id="text-orga249a37">
+<pre class="example">
 $string1 = 'hoge';
 $string2 = 'fuga';
 $s = $string1 . $string2; // hogefuga
@@ -370,43 +394,43 @@ $s = $string1 . $string2; // hogefuga
 </div>
 </div>
 
-<div id="outline-container-org602c518" class="outline-2">
-<h2 id="org602c518">配列</h2>
-<div class="outline-text-2" id="text-org602c518">
+<div id="outline-container-orgc5c3da4" class="outline-2">
+<h2 id="orgc5c3da4">配列</h2>
+<div class="outline-text-2" id="text-orgc5c3da4">
 </div>
-<div id="outline-container-orge051289" class="outline-3">
-<h3 id="orge051289">初期化</h3>
-<div class="outline-text-3" id="text-orge051289">
-<pre class="example" id="org7b0a1b0">
+<div id="outline-container-org37e4f4a" class="outline-3">
+<h3 id="org37e4f4a">初期化</h3>
+<div class="outline-text-3" id="text-org37e4f4a">
+<pre class="example">
 // 2通り
 $array = [];
 $array = array();
 </pre>
 </div>
 </div>
-<div id="outline-container-orgcc405d5" class="outline-3">
-<h3 id="orgcc405d5">リスト</h3>
-<div class="outline-text-3" id="text-orgcc405d5">
+<div id="outline-container-org86d6323" class="outline-3">
+<h3 id="org86d6323">リスト</h3>
+<div class="outline-text-3" id="text-org86d6323">
 <p>
 リストは、キーが数値の連想配列として表現されます。<br />
 </p>
-<pre class="example" id="orgc4e1600">
+<pre class="example">
 $array = ['apple', 'melon', 'banana'];
 echo $array[0]; // apple
 </pre>
 <p>
 配列の値を変数に入れることもできます。<br />
 </p>
-<pre class="example" id="org0b25416">
+<pre class="example">
 $array = ['apple', 'melon', 'banana'];
 [$x, $y, $z] = $array; // $x = 'apple', $y = 'melon', $z = 'banana'
 </pre>
 </div>
 </div>
-<div id="outline-container-org297b612" class="outline-3">
-<h3 id="org297b612">連想配列</h3>
-<div class="outline-text-3" id="text-org297b612">
-<pre class="example" id="org2d6c515">
+<div id="outline-container-org647f6a3" class="outline-3">
+<h3 id="org647f6a3">連想配列</h3>
+<div class="outline-text-3" id="text-org647f6a3">
+<pre class="example">
 $array = [
   'apple' =&gt; 'red',
   'melon' =&gt; 'green',
@@ -421,35 +445,35 @@ echo $array['banana']; // yellow
 </p>
 </div>
 </div>
-<div id="outline-container-org160f229" class="outline-3">
-<h3 id="org160f229">要素の追加</h3>
-<div class="outline-text-3" id="text-org160f229">
-<pre class="example" id="orgde2899b">
+<div id="outline-container-org847ddb7" class="outline-3">
+<h3 id="org847ddb7">要素の追加</h3>
+<div class="outline-text-3" id="text-org847ddb7">
+<pre class="example">
 $array = ['apple', 'melon'];
 $array[] = 'banana'; // $arrayは['apple', 'melon', 'banana']
 </pre>
 <p>
 連想配列の追加はキーを指定します。<br />
 </p>
-<pre class="example" id="org1bc2518">
+<pre class="example">
 $array = ['apple' =&gt; 'red', 'melon' =&gt; 'green'];
 $array['banana'] = 'yellow'; // $arrayは['apple' =&gt; 'red', 'melon' =&gt; 'green', 'banana' =&gt; 'yellow']
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc989de0" class="outline-3">
-<h3 id="orgc989de0">配列に含まれる要素数を調べる</h3>
-<div class="outline-text-3" id="text-orgc989de0">
-<pre class="example" id="orga70e646">
+<div id="outline-container-org24c5071" class="outline-3">
+<h3 id="org24c5071">配列に含まれる要素数を調べる</h3>
+<div class="outline-text-3" id="text-org24c5071">
+<pre class="example">
 // 返り値は数字、連想配列にも使える
 count(配列の変数名)
 </pre>
 </div>
 </div>
-<div id="outline-container-org60480b0" class="outline-3">
-<h3 id="org60480b0">配列の分割</h3>
-<div class="outline-text-3" id="text-org60480b0">
-<pre class="example" id="orga0378ab">
+<div id="outline-container-org7eeda86" class="outline-3">
+<h3 id="org7eeda86">配列の分割</h3>
+<div class="outline-text-3" id="text-org7eeda86">
+<pre class="example">
 // 返り値は配列
 array_chunk(分割したい配列, 分割単位)
 </pre>
@@ -457,39 +481,39 @@ array_chunk(分割したい配列, 分割単位)
 </div>
 </div>
 
-<div id="outline-container-org1024f5f" class="outline-2">
-<h2 id="org1024f5f">特殊な演算子</h2>
-<div class="outline-text-2" id="text-org1024f5f">
+<div id="outline-container-orgb26b2f5" class="outline-2">
+<h2 id="orgb26b2f5">特殊な演算子</h2>
+<div class="outline-text-2" id="text-orgb26b2f5">
 </div>
-<div id="outline-container-orgdd689a5" class="outline-3">
-<h3 id="orgdd689a5">エルビス演算子</h3>
-<div class="outline-text-3" id="text-orgdd689a5">
+<div id="outline-container-orgec8f658" class="outline-3">
+<h3 id="orgec8f658">エルビス演算子</h3>
+<div class="outline-text-3" id="text-orgec8f658">
 <p>
 $xがtrueであれば、$hogeにxを代入。そうでなければ、$hogeにyを代入する。<br />
 </p>
-<pre class="example" id="org54a8eae">
+<pre class="example">
 $hoge = $x ?: $y;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd2c38da" class="outline-3">
-<h3 id="orgd2c38da">Null合体演算子（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-orgd2c38da">
+<div id="outline-container-org45fc37f" class="outline-3">
+<h3 id="org45fc37f">Null合体演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org45fc37f">
 <p>
 Nullの判定をする演算子です。<br />
 </p>
-<pre class="example" id="orgfeda283">
+<pre class="example">
 $hoge = $x ?? $y;
 </pre>
 </div>
 </div>
-<div id="outline-container-org4c41c66" class="outline-3">
-<h3 id="org4c41c66">宇宙船演算子（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-org4c41c66">
+<div id="outline-container-org9e38e5a" class="outline-3">
+<h3 id="org9e38e5a">宇宙船演算子（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org9e38e5a">
 <p>
 左辺（a）と右辺（b）を比較し、aが大きい場合は 1、 aとb が等しい場合は 0、 bが大きい場合は -1 をそれぞれ返します。<br />
 </p>
-<pre class="example" id="org2b88fa6">
+<pre class="example">
 switch (1 &lt;=&gt; 2) {
     case 1:
       echo '左辺の方が大きいです。';
@@ -506,14 +530,14 @@ switch (1 &lt;=&gt; 2) {
 </div>
 </div>
 
-<div id="outline-container-orgf177c81" class="outline-2">
-<h2 id="orgf177c81">スーパーグローバル変数</h2>
-<div class="outline-text-2" id="text-orgf177c81">
+<div id="outline-container-org6051bed" class="outline-2">
+<h2 id="org6051bed">スーパーグローバル変数</h2>
+<div class="outline-text-2" id="text-org6051bed">
 <p>
 PHPの定義済み変数です。<br />
 サーバーの設定値やフォームからポストされたデータなど外部から渡された値が格納されています。<br />
 </p>
-<pre class="example" id="org4f83d9b">
+<pre class="example">
 $GLOBALS
 $_SERVER
 $_GET
@@ -527,13 +551,13 @@ $_ENV
 </div>
 </div>
 
-<div id="outline-container-orgc810190" class="outline-2">
-<h2 id="orgc810190">定数</h2>
-<div class="outline-text-2" id="text-orgc810190">
+<div id="outline-container-org256ba89" class="outline-2">
+<h2 id="org256ba89">定数</h2>
+<div class="outline-text-2" id="text-org256ba89">
 <p>
 定数には配列も定義できます。定数は慣習的に大文字で書くことになっています。<br />
 </p>
-<pre class="example" id="orge88fc1d">
+<pre class="example">
 define('ANIMALS', [
     'dog',
     'cat',
@@ -544,24 +568,24 @@ echo ANIMALS[1]; // cat
 </div>
 </div>
 
-<div id="outline-container-org5f2abb7" class="outline-2">
-<h2 id="org5f2abb7">制御文</h2>
-<div class="outline-text-2" id="text-org5f2abb7">
+<div id="outline-container-org9ae2fb4" class="outline-2">
+<h2 id="org9ae2fb4">制御文</h2>
+<div class="outline-text-2" id="text-org9ae2fb4">
 </div>
-<div id="outline-container-orgd869197" class="outline-3">
-<h3 id="orgd869197">if文</h3>
-<div class="outline-text-3" id="text-orgd869197">
-<pre class="example" id="orge00c692">
+<div id="outline-container-orgfe0061b" class="outline-3">
+<h3 id="orgfe0061b">if文</h3>
+<div class="outline-text-3" id="text-orgfe0061b">
+<pre class="example">
 if ( 条件 ) {
     式
 }
 </pre>
 </div>
 </div>
-<div id="outline-container-org2fc4e10" class="outline-3">
-<h3 id="org2fc4e10">if-else文</h3>
-<div class="outline-text-3" id="text-org2fc4e10">
-<pre class="example" id="orge6005d8">
+<div id="outline-container-org8d58c44" class="outline-3">
+<h3 id="org8d58c44">if-else文</h3>
+<div class="outline-text-3" id="text-org8d58c44">
+<pre class="example">
 if ( 条件 ) {
     式1
 } else {
@@ -570,10 +594,10 @@ if ( 条件 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbbceb88" class="outline-3">
-<h3 id="orgbbceb88">elseif文</h3>
-<div class="outline-text-3" id="text-orgbbceb88">
-<pre class="example" id="org9452e36">
+<div id="outline-container-orgd7f7a45" class="outline-3">
+<h3 id="orgd7f7a45">elseif文</h3>
+<div class="outline-text-3" id="text-orgd7f7a45">
+<pre class="example">
 if ( 条件1 ) {
     式1
 } elseif ( 条件2 ) {
@@ -582,37 +606,37 @@ if ( 条件1 ) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf642716" class="outline-3">
-<h3 id="orgf642716">while文</h3>
-<div class="outline-text-3" id="text-orgf642716">
+<div id="outline-container-org3adf90e" class="outline-3">
+<h3 id="org3adf90e">while文</h3>
+<div class="outline-text-3" id="text-org3adf90e">
 <p>
 条件がtrueの間、ループします。<br />
 </p>
-<pre class="example" id="orgfe6a9ed">
+<pre class="example">
 while ( 条件 ) {
     式
 }
 </pre>
 </div>
 </div>
-<div id="outline-container-orga922d8a" class="outline-3">
-<h3 id="orga922d8a">for文</h3>
-<div class="outline-text-3" id="text-orga922d8a">
-<pre class="example" id="org755f9f8">
+<div id="outline-container-org36e9cb6" class="outline-3">
+<h3 id="org36e9cb6">for文</h3>
+<div class="outline-text-3" id="text-org36e9cb6">
+<pre class="example">
 for ($i = 0; $i &lt; 100; $i++) {
     式
 }
 </pre>
 </div>
 </div>
-<div id="outline-container-orgaac1285" class="outline-3">
-<h3 id="orgaac1285">foreach文</h3>
-<div class="outline-text-3" id="text-orgaac1285">
+<div id="outline-container-org2e78cf5" class="outline-3">
+<h3 id="org2e78cf5">foreach文</h3>
+<div class="outline-text-3" id="text-org2e78cf5">
 <p>
 配列が存在する分だけループするというような場合に便利。<br />
 連想配列にも使える。<br />
 </p>
-<pre class="example" id="org22e6361">
+<pre class="example">
 // 配列の値だけ取り出す場合
 foreach ($array（配列） as $value（ループ内変数名）) {
     式
@@ -625,7 +649,7 @@ foreach ($array（配列） as $key（キーの変数名） =&gt; $value（ル�
 <p>
 多次元配列の場合、複数の変数に値を渡すことができます。(PHP7.1〜)<br />
 </p>
-<pre class="example" id="org9f0caca">
+<pre class="example">
 $array = [
     ['hoge', 'hogehoge'],
     ['fuga', 'fugafuga'],
@@ -638,20 +662,20 @@ foreach ($array as [$single, $double]) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org6b6f5d0" class="outline-3">
-<h3 id="org6b6f5d0">do&#x2026;while文</h3>
-<div class="outline-text-3" id="text-org6b6f5d0">
-<pre class="example" id="orga7a99b4">
+<div id="outline-container-org8a70821" class="outline-3">
+<h3 id="org8a70821">do&#x2026;while文</h3>
+<div class="outline-text-3" id="text-org8a70821">
+<pre class="example">
 do {
    処理内容
 } while (条件式);
 </pre>
 </div>
 </div>
-<div id="outline-container-org65c07ad" class="outline-3">
-<h3 id="org65c07ad">switch文</h3>
-<div class="outline-text-3" id="text-org65c07ad">
-<pre class="example" id="orgb9b1841">
+<div id="outline-container-org857d3e4" class="outline-3">
+<h3 id="org857d3e4">switch文</h3>
+<div class="outline-text-3" id="text-org857d3e4">
+<pre class="example">
 switch (式) {
     case 条件:
          caseに当てはまる場合の処理内容
@@ -664,13 +688,13 @@ switch (式) {
 </div>
 </div>
 
-<div id="outline-container-orgcb6da2f" class="outline-2">
-<h2 id="orgcb6da2f">例外処理</h2>
-<div class="outline-text-2" id="text-orgcb6da2f">
+<div id="outline-container-org55f07ef" class="outline-2">
+<h2 id="org55f07ef">例外処理</h2>
+<div class="outline-text-2" id="text-org55f07ef">
 <p>
 例外を処理したい場合は、 <code>try-catch</code> 構文で処理します。<br />
 </p>
-<pre class="example" id="org0a59eb2">
+<pre class="example">
 try {
     （例外が発生しそうな）処理
 } catch(Exception $e（受け取る例外の条件）) {
@@ -680,18 +704,18 @@ try {
 </div>
 </div>
 
-<div id="outline-container-org565dbe8" class="outline-2">
-<h2 id="org565dbe8">関数</h2>
-<div class="outline-text-2" id="text-org565dbe8">
+<div id="outline-container-org003206c" class="outline-2">
+<h2 id="org003206c">関数</h2>
+<div class="outline-text-2" id="text-org003206c">
 </div>
-<div id="outline-container-org4374976" class="outline-3">
-<h3 id="org4374976">定義</h3>
-<div class="outline-text-3" id="text-org4374976">
+<div id="outline-container-orgb8a38d7" class="outline-3">
+<h3 id="orgb8a38d7">定義</h3>
+<div class="outline-text-3" id="text-orgb8a38d7">
 <p>
 <code>return</code> で返り値を返します。<br />
 呼び出し時に引数が立ちない場合、 <code>ArgumentCountError</code> の例外が発生します。（PHP7.1〜）<br />
 </p>
-<pre class="example" id="org575d935">
+<pre class="example">
 function sum($x, $y) {
     return $x + $y;
 }
@@ -700,7 +724,7 @@ $total = sum(1, 2); // $total = 3
 <p>
 配列を使えば複数の値を返せます。<br />
 </p>
-<pre class="example" id="orgbb0c2f9">
+<pre class="example">
 function plus_minus($x, $y) {
     return [$x + $y, $x - $y];
 }
@@ -708,13 +732,13 @@ function plus_minus($x, $y) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc9ec148" class="outline-3">
-<h3 id="orgc9ec148">型宣言</h3>
-<div class="outline-text-3" id="text-orgc9ec148">
+<div id="outline-container-org09848a9" class="outline-3">
+<h3 id="org09848a9">型宣言</h3>
+<div class="outline-text-3" id="text-org09848a9">
 <p>
 引数と返り値にも型が指定ができる。<br />
 </p>
-<pre class="example" id="org8d4b181">
+<pre class="example">
 function hoge(string $s, int $x): bool {
     return true;
 }
@@ -722,7 +746,7 @@ function hoge(string $s, int $x): bool {
 <p>
 nullableな型も宣言できます。（PHP7.1〜）<br />
 </p>
-<pre class="example" id="org1f30eda">
+<pre class="example">
 function hoge(?string $s, ?int $x): ?bool {
     return null;
 }
@@ -730,16 +754,16 @@ function hoge(?string $s, ?int $x): ?bool {
 <p>
 返り値がない場合、voidを指定することもできます。（PHP7.1〜）<br />
 </p>
-<pre class="example" id="orga80acf9">
+<pre class="example">
 function hoge(string $s): void {
     $GLOBAL['hoge'] = $s;
 }
 </pre>
 </div>
-<div id="outline-container-org7319758" class="outline-4">
-<h4 id="org7319758">宣言可能な型</h4>
-<div class="outline-text-4" id="text-org7319758">
-<pre class="example" id="org296b5bb">
+<div id="outline-container-org3597531" class="outline-4">
+<h4 id="org3597531">宣言可能な型</h4>
+<div class="outline-text-4" id="text-org3597531">
+<pre class="example">
 string
 int
 bool
@@ -754,13 +778,13 @@ object （PHP7.2〜）
 </div>
 </div>
 </div>
-<div id="outline-container-org0fb1e56" class="outline-3">
-<h3 id="org0fb1e56">無名関数</h3>
-<div class="outline-text-3" id="text-org0fb1e56">
+<div id="outline-container-orga1b9262" class="outline-3">
+<h3 id="orga1b9262">無名関数</h3>
+<div class="outline-text-3" id="text-orga1b9262">
 <p>
 関数に名前をつけずに関数を定義することができます。<br />
 </p>
-<pre class="example" id="org3557a5a">
+<pre class="example">
 $bar = 'world';
 $hoge = function($foo) use ($bar) {
     var_dump($foo . ': ' . $bar);
@@ -770,7 +794,7 @@ $hoge('hello'); // string(12) "hello: world"
 <p>
 即時実行もできます。<br />
 </p>
-<pre class="example" id="org29f80a5">
+<pre class="example">
 (function($foo) use ($bar) {
     var_dump($foo . ': ' . $bar);
 })('hello'); // string(12) "hello: world"
@@ -779,17 +803,17 @@ $hoge('hello'); // string(12) "hello: world"
 </div>
 </div>
 
-<div id="outline-container-org9aec849" class="outline-2">
-<h2 id="org9aec849">クラス</h2>
-<div class="outline-text-2" id="text-org9aec849">
+<div id="outline-container-org14e2fb6" class="outline-2">
+<h2 id="org14e2fb6">クラス</h2>
+<div class="outline-text-2" id="text-org14e2fb6">
 </div>
-<div id="outline-container-orgbc49af9" class="outline-3">
-<h3 id="orgbc49af9">定義</h3>
-<div class="outline-text-3" id="text-orgbc49af9">
+<div id="outline-container-org88c0bea" class="outline-3">
+<h3 id="org88c0bea">定義</h3>
+<div class="outline-text-3" id="text-org88c0bea">
 <p>
 アクセス修飾子はpublic、protected、privateが使えます。<br />
 </p>
-<pre class="example" id="org4178a77">
+<pre class="example">
 class Human {
     public $age = 20;
     private $name = 'hoge';
@@ -803,19 +827,19 @@ echo $hoge-&gt;getName(); // hoge
 </pre>
 </div>
 </div>
-<div id="outline-container-org6c1435a" class="outline-3">
-<h3 id="org6c1435a">継承</h3>
-<div class="outline-text-3" id="text-org6c1435a">
-<pre class="example" id="orgd634fe3">
+<div id="outline-container-orgd3d6326" class="outline-3">
+<h3 id="orgd3d6326">継承</h3>
+<div class="outline-text-3" id="text-orgd3d6326">
+<pre class="example">
 class Fuga extends Hoge {
 }
 </pre>
 </div>
 </div>
-<div id="outline-container-org56da8e0" class="outline-3">
-<h3 id="org56da8e0">無名クラス（PHP7.0〜）</h3>
-<div class="outline-text-3" id="text-org56da8e0">
-<pre class="example" id="org4c7c478">
+<div id="outline-container-org2f402ab" class="outline-3">
+<h3 id="org2f402ab">無名クラス（PHP7.0〜）</h3>
+<div class="outline-text-3" id="text-org2f402ab">
+<pre class="example">
 $class = new class{
     public $msg;
     public function logging() {
@@ -834,26 +858,26 @@ object(class@anonymous)#1 (1) {
 </div>
 </div>
 
-<div id="outline-container-org7f706a1" class="outline-2">
-<h2 id="org7f706a1">ファイル操作</h2>
-<div class="outline-text-2" id="text-org7f706a1">
+<div id="outline-container-orgeb0d51b" class="outline-2">
+<h2 id="orgeb0d51b">ファイル操作</h2>
+<div class="outline-text-2" id="text-orgeb0d51b">
 <p>
 Webアプリを外部に公開する場合は、ファイルの意図しない漏洩（URL指定でファイルに直接アクセスする等）を防ぐため、ドキュメントルートの外にファイルを置き、ファイルのURLを直接指定しても見えないようにすること。<br />
 </p>
 </div>
-<div id="outline-container-org5f27a93" class="outline-3">
-<h3 id="org5f27a93">ファイルの中身をすべて読み込む</h3>
-<div class="outline-text-3" id="text-org5f27a93">
-<pre class="example" id="org720c076">
+<div id="outline-container-org838640e" class="outline-3">
+<h3 id="org838640e">ファイルの中身をすべて読み込む</h3>
+<div class="outline-text-3" id="text-org838640e">
+<pre class="example">
 // 返り値は文字列
 file_get_contents(ファイル名);
 </pre>
 </div>
 </div>
-<div id="outline-container-orge1786b3" class="outline-3">
-<h3 id="orge1786b3">改行コードを br タグに置き換える</h3>
-<div class="outline-text-3" id="text-orge1786b3">
-<pre class="example" id="orge72f3d4">
+<div id="outline-container-org721c37b" class="outline-3">
+<h3 id="org721c37b">改行コードを br タグに置き換える</h3>
+<div class="outline-text-3" id="text-org721c37b">
+<pre class="example">
 // &lt;br /&gt; になる、返り値は文字列
 nl2br(文字列);
 // &lt;br&gt; になる、返り値は文字列
@@ -861,17 +885,17 @@ nl2br(文字列, false);
 </pre>
 </div>
 </div>
-<div id="outline-container-org92d5233" class="outline-3">
-<h3 id="org92d5233">ファイルを1行ずつ読み込む</h3>
-<div class="outline-text-3" id="text-org92d5233">
+<div id="outline-container-orgc4f0fe4" class="outline-3">
+<h3 id="orgc4f0fe4">ファイルを1行ずつ読み込む</h3>
+<div class="outline-text-3" id="text-orgc4f0fe4">
 <p>
 ファイルを開く（fopen） -&gt; ファイルから1行読み込む（fgets） -&gt; ファイルを閉じる（fclose） の流れ<br />
 </p>
 </div>
-<div id="outline-container-org33180f5" class="outline-4">
-<h4 id="org33180f5">ファイルを開く</h4>
-<div class="outline-text-4" id="text-org33180f5">
-<pre class="example" id="org37aef9f">
+<div id="outline-container-org83cd6d6" class="outline-4">
+<h4 id="org83cd6d6">ファイルを開く</h4>
+<div class="outline-text-4" id="text-org83cd6d6">
+<pre class="example">
 // 返り値はファイルポインタ
 fopen("ファイル名"、"モード");
 </pre>
@@ -1050,37 +1074,37 @@ fopen("ファイル名"、"モード");
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b4c12b" class="outline-4">
-<h4 id="org9b4c12b">ファイルから1行読み込む</h4>
-<div class="outline-text-4" id="text-org9b4c12b">
-<pre class="example" id="org523953b">
+<div id="outline-container-orgf908154" class="outline-4">
+<h4 id="orgf908154">ファイルから1行読み込む</h4>
+<div class="outline-text-4" id="text-orgf908154">
+<pre class="example">
 // 返り値は取得した1行の文字列
 fgets(ファイルポインタ);
 </pre>
 </div>
 </div>
-<div id="outline-container-org2f37977" class="outline-4">
-<h4 id="org2f37977">ファイルを閉じる</h4>
-<div class="outline-text-4" id="text-org2f37977">
-<pre class="example" id="org7a35b95">
+<div id="outline-container-orgce94bea" class="outline-4">
+<h4 id="orgce94bea">ファイルを閉じる</h4>
+<div class="outline-text-4" id="text-orgce94bea">
+<pre class="example">
 // 返り値は、正常に閉じたら true、失敗したら false
 fclose(ファイルポインタ（fopen で開いたときの返り値）);
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc3e9155" class="outline-4">
-<h4 id="orgc3e9155">ファイルポインタがファイル終端に達したか調べる</h4>
-<div class="outline-text-4" id="text-orgc3e9155">
-<pre class="example" id="orga6a933b">
+<div id="outline-container-org657eb60" class="outline-4">
+<h4 id="org657eb60">ファイルポインタがファイル終端に達したか調べる</h4>
+<div class="outline-text-4" id="text-org657eb60">
+<pre class="example">
 // 正しくファイルが開けていることが条件
 feof(ファイルポインタ);
 </pre>
 </div>
 </div>
-<div id="outline-container-org141a616" class="outline-4">
-<h4 id="org141a616">ファイルの中身を配列に格納する</h4>
-<div class="outline-text-4" id="text-org141a616">
-<pre class="example" id="org3a226ca">
+<div id="outline-container-orge5aab2a" class="outline-4">
+<h4 id="orge5aab2a">ファイルの中身を配列に格納する</h4>
+<div class="outline-text-4" id="text-orge5aab2a">
+<pre class="example">
 // 返り値は配列
 file(ファイル名);
 </pre>
@@ -1093,17 +1117,17 @@ file(ファイル名);
 </div>
 </div>
 
-<div id="outline-container-orgdb384f7" class="outline-3">
-<h3 id="orgdb384f7">ファイルへの書き込み</h3>
-<div class="outline-text-3" id="text-orgdb384f7">
+<div id="outline-container-org6206070" class="outline-3">
+<h3 id="org6206070">ファイルへの書き込み</h3>
+<div class="outline-text-3" id="text-org6206070">
 <p>
 fopen -&gt; fwrite -&gt; fclose の流れ。<br />
 </p>
 </div>
-<div id="outline-container-orgdb296a9" class="outline-4">
-<h4 id="orgdb296a9">ファイルに書き込む</h4>
-<div class="outline-text-4" id="text-orgdb296a9">
-<pre class="example" id="orgbbd2a30">
+<div id="outline-container-orgce89c1a" class="outline-4">
+<h4 id="orgce89c1a">ファイルに書き込む</h4>
+<div class="outline-text-4" id="text-orgce89c1a">
+<pre class="example">
 fwrite(ファイルポインタ, 書き込み内容)
 </pre>
 
@@ -1116,9 +1140,9 @@ fwrite(ファイルポインタ, 書き込み内容)
 </div>
 </div>
 
-<div id="outline-container-orgdcaa7a7" class="outline-2">
-<h2 id="orgdcaa7a7">フォーム</h2>
-<div class="outline-text-2" id="text-orgdcaa7a7">
+<div id="outline-container-orged4dc51" class="outline-2">
+<h2 id="orged4dc51">フォーム</h2>
+<div class="outline-text-2" id="text-orged4dc51">
 <p>
 サーバと利用者の間で双方向にデータのやり取りを行う際、サーバに対してリクエストを送信する方法は2種類。<br />
 </p>
@@ -1143,17 +1167,17 @@ fwrite(ファイルポインタ, 書き込み内容)
 </tbody>
 </table>
 </div>
-<div id="outline-container-orgb585512" class="outline-3">
-<h3 id="orgb585512">GETメソッド</h3>
-<div class="outline-text-3" id="text-orgb585512">
+<div id="outline-container-orgc6d473e" class="outline-3">
+<h3 id="orgc6d473e">GETメソッド</h3>
+<div class="outline-text-3" id="text-orgc6d473e">
 </div>
-<div id="outline-container-org22d11d0" class="outline-4">
-<h4 id="org22d11d0">GETメソッドでのリクエスト</h4>
-<div class="outline-text-4" id="text-org22d11d0">
+<div id="outline-container-orgb11137f" class="outline-4">
+<h4 id="orgb11137f">GETメソッドでのリクエスト</h4>
+<div class="outline-text-4" id="text-orgb11137f">
 <p>
 以下のように、URLの末尾に「?」をつけ、「パラメータ名=値」という形式でデータを付与する。<br />
 </p>
-<pre class="example" id="org5ed6302">
+<pre class="example">
 hoge.example.com/index.php（パラメータを受け取るプログラム）?page（パラメータ名）=2（値）
 </pre>
 <p>
@@ -1167,13 +1191,13 @@ GETメソッドには次のような特徴がある。<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd628778" class="outline-4">
-<h4 id="orgd628778">GETメソッドの受け取り</h4>
-<div class="outline-text-4" id="text-orgd628778">
+<div id="outline-container-org4372964" class="outline-4">
+<h4 id="org4372964">GETメソッドの受け取り</h4>
+<div class="outline-text-4" id="text-org4372964">
 <p>
 GETメソッドのリクエスト（GETリクエスト）を PHP では以下のように受け取る。<br />
 </p>
-<pre class="example" id="org55d3f36">
+<pre class="example">
 &lt;?php
 $page = $_GET['page'];
 echo 'リクエストされたページは' . $page . 'です。';
@@ -1181,16 +1205,16 @@ echo 'リクエストされたページは' . $page . 'です。';
 </pre>
 </div>
 </div>
-<div id="outline-container-org3c5d0af" class="outline-4">
-<h4 id="org3c5d0af">スーパーグローバル変数</h4>
-<div class="outline-text-4" id="text-org3c5d0af">
+<div id="outline-container-org49054d6" class="outline-4">
+<h4 id="org49054d6">スーパーグローバル変数</h4>
+<div class="outline-text-4" id="text-org49054d6">
 <p>
 プログラムのどこからでもアクセスできる特別な変数。<br />
 GETメソッドのスーパーグローバル変数は、内部では連想配列として展開される。<br />
 パラメータ名は連想配列のキーであり、値は連想配列の値となる。<br />
 したがって以下のような操作もできる。<br />
 </p>
-<pre class="example" id="org4068f23">
+<pre class="example">
 &lt;?php
 
 foreach($_GET as $key =&gt; $value) {
@@ -1202,13 +1226,13 @@ foreach($_GET as $key =&gt; $value) {
 </div>
 </div>
 </div>
-<div id="outline-container-org7864e43" class="outline-3">
-<h3 id="org7864e43">POSTメソッド</h3>
-<div class="outline-text-3" id="text-org7864e43">
+<div id="outline-container-org5da2132" class="outline-3">
+<h3 id="org5da2132">POSTメソッド</h3>
+<div class="outline-text-3" id="text-org5da2132">
 </div>
-<div id="outline-container-orgf01a53c" class="outline-4">
-<h4 id="orgf01a53c">POSTメソッドでのリクエスト</h4>
-<div class="outline-text-4" id="text-orgf01a53c">
+<div id="outline-container-org44dd525" class="outline-4">
+<h4 id="org44dd525">POSTメソッドでのリクエスト</h4>
+<div class="outline-text-4" id="text-org44dd525">
 <p>
 POSTメソッドには次のような特徴がある。<br />
 </p>
@@ -1249,25 +1273,25 @@ POSTメソッドには次のような特徴がある。<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org1aa6f78" class="outline-4">
-<h4 id="org1aa6f78">POSTメソッドの受け取り</h4>
-<div class="outline-text-4" id="text-org1aa6f78">
+<div id="outline-container-orgb462e29" class="outline-4">
+<h4 id="orgb462e29">POSTメソッドの受け取り</h4>
+<div class="outline-text-4" id="text-orgb462e29">
 <p>
 GETメソッド同様、スーパーグローバル変数で以下のように受け取る。<br />
 </p>
-<pre class="example" id="org6e48a39">
+<pre class="example">
 $_POST['送信フォーム側の変数名（name）']
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orga6d7eee" class="outline-3">
-<h3 id="orga6d7eee">改ざんの防止</h3>
-<div class="outline-text-3" id="text-orga6d7eee">
+<div id="outline-container-org4821236" class="outline-3">
+<h3 id="org4821236">改ざんの防止</h3>
+<div class="outline-text-3" id="text-org4821236">
 <p>
 例1. 性別受け取り部分<br />
 </p>
-<pre class="example" id="org175551f">
+<pre class="example">
 $gender = $_POST['gender'];
 if($gender == "man") {
     $gender = "男性";
@@ -1280,7 +1304,7 @@ if($gender == "man") {
 <p>
 例2. 評価受け取り部分<br />
 </p>
-<pre class="example" id="org21bf5d6">
+<pre class="example">
 $tmp_star = intval($_POST['star']);
 $star = ''; //出力用
 if($tmp_star &lt; 1 || $tmp_star &gt; 5) {
@@ -1295,41 +1319,41 @@ if($tmp_star &lt; 1 || $tmp_star &gt; 5) {
 }
 </pre>
 </div>
-<div id="outline-container-org929ae69" class="outline-4">
-<h4 id="org929ae69">変数の値を整数として返す</h4>
-<div class="outline-text-4" id="text-org929ae69">
-<pre class="example" id="org2735ded">
+<div id="outline-container-org7b72b2f" class="outline-4">
+<h4 id="org7b72b2f">変数の値を整数として返す</h4>
+<div class="outline-text-4" id="text-org7b72b2f">
+<pre class="example">
 // 変数に代入された値を整数として返す。変数の値が整数でなかった場合 0 を返す。
 intval(変数名)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd4ab37e" class="outline-3">
-<h3 id="orgd4ab37e">アップロード</h3>
-<div class="outline-text-3" id="text-orgd4ab37e">
+<div id="outline-container-org4fae075" class="outline-3">
+<h3 id="org4fae075">アップロード</h3>
+<div class="outline-text-3" id="text-org4fae075">
 <p>
 アップロードされたファイルは一時的にテンポラリに保持される。<br />
 このファイルをサーバーに保存するには、テンポラリから画像ディレクトリに移動させる必要がある。<br />
 画像ファイルのアップロードプログラムの例は <a href="php_example.html">画像ファイルのアップロードプログラム（PHP 例文）</a><br />
 </p>
 </div>
-<div id="outline-container-orgc0208ff" class="outline-4">
-<h4 id="orgc0208ff">アップロードされたファイルか確認</h4>
-<div class="outline-text-4" id="text-orgc0208ff">
-<pre class="example" id="orgad2c42a">
+<div id="outline-container-org0a3bd2a" class="outline-4">
+<h4 id="org0a3bd2a">アップロードされたファイルか確認</h4>
+<div class="outline-text-4" id="text-org0a3bd2a">
+<pre class="example">
 is_uploaded_file(ファイル名)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf403ee4" class="outline-4">
-<h4 id="orgf403ee4">グローバル変数</h4>
-<div class="outline-text-4" id="text-orgf403ee4">
+<div id="outline-container-org3ca5e37" class="outline-4">
+<h4 id="org3ca5e37">グローバル変数</h4>
+<div class="outline-text-4" id="text-org3ca5e37">
 <p>
 以下のようなグローバル変数で受け取る。<br />
 アップロードしたファイルについての情報を持っている連想配列となっている。<br />
 </p>
-<pre class="example" id="orgd512801">
+<pre class="example">
 $_FILES['input タグの name 属性の値'][...]
 </pre>
 <p>
@@ -1372,10 +1396,10 @@ $_FILES['input タグの name 属性の値'][...]
 </table>
 </div>
 </div>
-<div id="outline-container-orgd6cc24c" class="outline-4">
-<h4 id="orgd6cc24c">アップロードされたファイルの移動</h4>
-<div class="outline-text-4" id="text-orgd6cc24c">
-<pre class="example" id="org1664c78">
+<div id="outline-container-org99a5ff8" class="outline-4">
+<h4 id="org99a5ff8">アップロードされたファイルの移動</h4>
+<div class="outline-text-4" id="text-org99a5ff8">
+<pre class="example">
 move_uploaded_file(移動元ファイル名, 移動先ファイル名)
 </pre>
 </div>
@@ -1383,19 +1407,19 @@ move_uploaded_file(移動元ファイル名, 移動先ファイル名)
 </div>
 </div>
 
-<div id="outline-container-org6fb37a7" class="outline-2">
-<h2 id="org6fb37a7">画像の種類を調べる</h2>
-<div class="outline-text-2" id="text-org6fb37a7">
-<pre class="example" id="org55b48fd">
+<div id="outline-container-org9c86e50" class="outline-2">
+<h2 id="org9c86e50">画像の種類を調べる</h2>
+<div class="outline-text-2" id="text-org9c86e50">
+<pre class="example">
 exif_imagetype(ファイル名)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgcbbc476" class="outline-2">
-<h2 id="orgcbbc476">日付文字列を返す</h2>
-<div class="outline-text-2" id="text-orgcbbc476">
-<pre class="example" id="orgb8b30c4">
+<div id="outline-container-org1f75c4e" class="outline-2">
+<h2 id="org1f75c4e">日付文字列を返す</h2>
+<div class="outline-text-2" id="text-org1f75c4e">
+<pre class="example">
 date(フォーマット文字列)
 </pre>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1474,133 +1498,133 @@ date(フォーマット文字列)
 </div>
 </div>
 
-<div id="outline-container-org05e90a6" class="outline-2">
-<h2 id="org05e90a6">擬似乱数を返す</h2>
-<div class="outline-text-2" id="text-org05e90a6">
-<pre class="example" id="org87838b6">
+<div id="outline-container-orge1d2721" class="outline-2">
+<h2 id="orge1d2721">擬似乱数を返す</h2>
+<div class="outline-text-2" id="text-orge1d2721">
+<pre class="example">
 mt_rand()
 mt_rand(最小値, 最大値)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgd3b1e50" class="outline-2">
-<h2 id="orgd3b1e50">フォルダ操作</h2>
-<div class="outline-text-2" id="text-orgd3b1e50">
+<div id="outline-container-orga9adcef" class="outline-2">
+<h2 id="orga9adcef">フォルダ操作</h2>
+<div class="outline-text-2" id="text-orga9adcef">
 </div>
-<div id="outline-container-org1580230" class="outline-3">
-<h3 id="org1580230">フォルダを開く</h3>
-<div class="outline-text-3" id="text-org1580230">
-<pre class="example" id="org7389587">
+<div id="outline-container-org0df2f9b" class="outline-3">
+<h3 id="org0df2f9b">フォルダを開く</h3>
+<div class="outline-text-3" id="text-org0df2f9b">
+<pre class="example">
 // 引数に指定されたフォルダを開き、ディレクトリハンドルを返す
 opendir(フォルダ名)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf12da64" class="outline-3">
-<h3 id="orgf12da64">フォルダ内のファイルを読み込む</h3>
-<div class="outline-text-3" id="text-orgf12da64">
-<pre class="example" id="org14b18dc">
+<div id="outline-container-org9ce8b70" class="outline-3">
+<h3 id="org9ce8b70">フォルダ内のファイルを読み込む</h3>
+<div class="outline-text-3" id="text-org9ce8b70">
+<pre class="example">
 // 引数のファイルハンドルからファイル名を読み込んで返り値とし、ファイル名が取得できなくなると false を返す。
 readdir(ファイルハンドル)
 </pre>
 </div>
 </div>
-<div id="outline-container-org8070e3a" class="outline-3">
-<h3 id="org8070e3a">フォルダを閉じる</h3>
-<div class="outline-text-3" id="text-org8070e3a">
-<pre class="example" id="orgb8a3371">
+<div id="outline-container-orgc95cfb7" class="outline-3">
+<h3 id="orgc95cfb7">フォルダを閉じる</h3>
+<div class="outline-text-3" id="text-orgc95cfb7">
+<pre class="example">
 closedir(ファイルハンドル)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2d9e3dd" class="outline-2">
-<h2 id="org2d9e3dd">変数が定義されているか調べる</h2>
-<div class="outline-text-2" id="text-org2d9e3dd">
-<pre class="example" id="orgd673188">
+<div id="outline-container-org98cc5d5" class="outline-2">
+<h2 id="org98cc5d5">変数が定義されているか調べる</h2>
+<div class="outline-text-2" id="text-org98cc5d5">
+<pre class="example">
 // 定義されていれば true、定義されていなければ false を返す
 isset(変数名)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org0c2e729" class="outline-2">
-<h2 id="org0c2e729">変数が数値か判定する</h2>
-<div class="outline-text-2" id="text-org0c2e729">
-<pre class="example" id="org1401f6b">
+<div id="outline-container-org0e82e5b" class="outline-2">
+<h2 id="org0e82e5b">変数が数値か判定する</h2>
+<div class="outline-text-2" id="text-org0e82e5b">
+<pre class="example">
 // 引数が数値のときに true、そうでないときに false を返す
 is_numeric(変数)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orga703fd7" class="outline-2">
-<h2 id="orga703fd7">指定したURLへジャンプする</h2>
-<div class="outline-text-2" id="text-orga703fd7">
+<div id="outline-container-org68c7af8" class="outline-2">
+<h2 id="org68c7af8">指定したURLへジャンプする</h2>
+<div class="outline-text-2" id="text-org68c7af8">
 <p>
 HTTPヘッダを送信するための関数。<br />
 ヘッダとは、送信するデータの容量などの、実データ（HTML）以外の情報のことである。<br />
 </p>
-<pre class="example" id="orgbd1ed55">
+<pre class="example">
 header('Location: 戻り先のURL');
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgd09036e" class="outline-2">
-<h2 id="orgd09036e">正規表現</h2>
-<div class="outline-text-2" id="text-orgd09036e">
-<pre class="example" id="org1209b98">
+<div id="outline-container-org69a0ab0" class="outline-2">
+<h2 id="org69a0ab0">正規表現</h2>
+<div class="outline-text-2" id="text-org69a0ab0">
+<pre class="example">
 // パターンに文字列が合っていれば true、そうでなければ false
 preg_match("パターン", 文字列)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org1f2fbd5" class="outline-2">
-<h2 id="org1f2fbd5">データベース操作</h2>
-<div class="outline-text-2" id="text-org1f2fbd5">
+<div id="outline-container-orge3b2e95" class="outline-2">
+<h2 id="orge3b2e95">データベース操作</h2>
+<div class="outline-text-2" id="text-orge3b2e95">
 </div>
-<div id="outline-container-org11f9b0a" class="outline-3">
-<h3 id="org11f9b0a">DSN</h3>
-<div class="outline-text-3" id="text-org11f9b0a">
+<div id="outline-container-org2235ca7" class="outline-3">
+<h3 id="org2235ca7">DSN</h3>
+<div class="outline-text-3" id="text-org2235ca7">
 <p>
 データベースに接続するときに必要。<br />
 どのサーバーにあるどんなデータベースを使うのかを指定した文字列のこと。<br />
 </p>
-<pre class="example" id="org0ecc78b">
+<pre class="example">
 mysql:host=ホスト名;dbname=データベース名;charset=文字コード
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf77f095" class="outline-3">
-<h3 id="orgf77f095">PDO (PHP Data Objects)</h3>
-<div class="outline-text-3" id="text-orgf77f095">
+<div id="outline-container-orgfdb3734" class="outline-3">
+<h3 id="orgfdb3734">PDO (PHP Data Objects)</h3>
+<div class="outline-text-3" id="text-orgfdb3734">
 <p>
 さまざまなデータベースを簡単に利用できるようにする、PHPの拡張機能。<br />
 利用するには、new演算子を使ってPDOクラスのインスタンスを作成する必要がある。<br />
 </p>
-<pre class="example" id="org815d049">
+<pre class="example">
 // PDOクラスは、引数に DSN、ユーザ名、パスワードを必要とする。
 $db = new PDO($dsn, $user, $password);
 // プリペアドステートメントを使う際にセキュリティを高めるために指定。
 $db-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 </pre>
 </div>
-<div id="outline-container-orgd12a459" class="outline-4">
-<h4 id="orgd12a459">プリペアドステートメント</h4>
-<div class="outline-text-4" id="text-orgd12a459">
+<div id="outline-container-org89d0d80" class="outline-4">
+<h4 id="org89d0d80">プリペアドステートメント</h4>
+<div class="outline-text-4" id="text-org89d0d80">
 <p>
 実行したいクエリのテンプレートのようなものである。SQL文を最初に用意しておいて、その後はクエリ内のパラメータの値だけを変更してクエリを実行できる。<br />
 プリペアドステートメントを利用するためには、PDOオブジェクトを作成して、prepareメソッドを実行する。<br />
 </p>
-<pre class="example" id="org4d5db9b">
+<pre class="example">
 $PDOインスタンス-&gt;prepare("ステートメント文字列 ");
 
-// 以下例
-$stmt = $db-&gt;prepare("
+// プリペアドステートメントの作成
+$stmt = $PDOインスタンス-&gt;prepare("
     INSERT INTO contact (name, title, body, date, pass)
     VALUES (:name, :title, :body, now(), :pass)"
 );
@@ -1610,7 +1634,7 @@ $stmt = $db-&gt;prepare("
 文字列の場合は第3引数に PDO::PARAM<sub>STR</sub>、整数の場合は PDO::PARAM<sub>INT</sub> を指定する。<br />
 値を埋め込む際、文字列を値としたい時、通常クオーテーションで文字列を囲む必要があるが、プリペアドステートメントを使う場合は自動的に付けてくれるため不要である。<br />
 </p>
-<pre class="example" id="orga320f7f">
+<pre class="example">
 $stmt-&gt;bindParam(':name', $name, PDO::PARAM_STR);
 $stmt-&gt;bindParam(':title', $title, PDO::PARAM_STR);
 $stmt-&gt;bindParam(':body', $body, PDO::PARAM_STR);
@@ -1619,7 +1643,7 @@ $stmt-&gt;bindParam(':pass', $pass, PDO::PARAM_STR);
 <p>
 作成したプリペアドステートメントは、execute で実行する。<br />
 </p>
-<pre class="example" id="orgb7036f4">
+<pre class="example">
 $stmt-&gt;execute();
 </pre>
 <p>
@@ -1627,10 +1651,10 @@ $stmt-&gt;execute();
 </p>
 </div>
 </div>
-<div id="outline-container-orgb929140" class="outline-4">
-<h4 id="orgb929140">fetch メソッド</h4>
-<div class="outline-text-4" id="text-orgb929140">
-<pre class="example" id="org0a2e3a3">
+<div id="outline-container-org3fd08fe" class="outline-4">
+<h4 id="org3fd08fe">fetch メソッド</h4>
+<div class="outline-text-4" id="text-org3fd08fe">
+<pre class="example">
 $stmt-&gt;fetch()
 </pre>
 <p>
@@ -1638,10 +1662,10 @@ $stmt-&gt;fetch()
 </p>
 </div>
 </div>
-<div id="outline-container-orga995b72" class="outline-4">
-<h4 id="orga995b72">fetchColumn メソッド</h4>
-<div class="outline-text-4" id="text-orga995b72">
-<pre class="example" id="orgdfb98de">
+<div id="outline-container-org1da6eb5" class="outline-4">
+<h4 id="org1da6eb5">fetchColumn メソッド</h4>
+<div class="outline-text-4" id="text-org1da6eb5">
+<pre class="example">
 $stmt-&gt;fetchColumn()
 </pre>
 <p>
@@ -1653,9 +1677,9 @@ $stmt-&gt;fetchColumn()
 </div>
 </div>
 
-<div id="outline-container-org6e3e7a9" class="outline-2">
-<h2 id="org6e3e7a9">クッキー</h2>
-<div class="outline-text-2" id="text-org6e3e7a9">
+<div id="outline-container-org0ed70f0" class="outline-2">
+<h2 id="org0ed70f0">クッキー</h2>
+<div class="outline-text-2" id="text-org0ed70f0">
 <p>
 クッキーとは、サーバー上のデータをブラウザに保存することで情報を再利用する仕組みのことである。<br />
 最初にデータをPOSTメソッドでサーバーに送信した際、ブラウザに対してサーバーからクッキーが送信される。これによりサーバーが持っているデータをブラウザが保存することができ、次に同じようにアクセスした際にブラウザが自身に保存されているクッキーの情報をサーバーに送ることで、情報を再利用することができる。<br />
@@ -1667,19 +1691,19 @@ $stmt-&gt;fetchColumn()
 <li>内容が書き換えられると困る情報を入れないこと<br /></li>
 </ul>
 </div>
-<div id="outline-container-org7efdbd9" class="outline-3">
-<h3 id="org7efdbd9">クッキーの保存</h3>
-<div class="outline-text-3" id="text-org7efdbd9">
-<pre class="example" id="org6a167fd">
+<div id="outline-container-orgc269fa7" class="outline-3">
+<h3 id="orgc269fa7">クッキーの保存</h3>
+<div class="outline-text-3" id="text-orgc269fa7">
+<pre class="example">
 // 第1引数は必須項目、第2引数以降は省略可能
 // 第3引数は省略すると自動的に「0」
 setcookie(クッキーの名前, 保存する値, 有効期限のタイムスタンプ)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgca79a5b" class="outline-3">
-<h3 id="orgca79a5b">クッキーの読み込み</h3>
-<div class="outline-text-3" id="text-orgca79a5b">
+<div id="outline-container-orga6c6a42" class="outline-3">
+<h3 id="orga6c6a42">クッキーの読み込み</h3>
+<div class="outline-text-3" id="text-orga6c6a42">
 <p>
 スーパーグローバル変数である「$<sub>COOKIE</sub>['クッキーの名前']」を利用する。<br />
 連想配列になっており、キーはクッキーの名前になる。<br />
@@ -1688,17 +1712,17 @@ setcookie(クッキーの名前, 保存する値, 有効期限のタイムスタ
 </div>
 </div>
 
-<div id="outline-container-org1f3ec1a" class="outline-2">
-<h2 id="org1f3ec1a">セッション</h2>
-<div class="outline-text-2" id="text-org1f3ec1a">
+<div id="outline-container-org501e9dd" class="outline-2">
+<h2 id="org501e9dd">セッション</h2>
+<div class="outline-text-2" id="text-org501e9dd">
 <p>
 1セッション（サイトの閲覧開始から終了までの一連の流れ）の開始から終了までの情報維持を目的とする。<br />
 色々なページに移動してもログイン情報や買い物カート等といった情報を維持できる。<br />
 </p>
 </div>
-<div id="outline-container-org333fa00" class="outline-3">
-<h3 id="org333fa00">セッションの仕組み</h3>
-<div class="outline-text-3" id="text-org333fa00">
+<div id="outline-container-orgbff3e6c" class="outline-3">
+<h3 id="orgbff3e6c">セッションの仕組み</h3>
+<div class="outline-text-3" id="text-orgbff3e6c">
 <p>
 セッション機能を使ったWebサイトにアクセスすると、サーバーはセッションIDと呼ばれるユニークなIDを作成すると同時に、そのセッションIDをファイル名としたデータ保存用のセッションファイルというファイルを作成する。<br />
 サーバーはセッションIDをブラウザ側のクッキーに保存させることで、特定ユーザーのブラウザとセッションファイルを紐付ける。<br />
@@ -1706,13 +1730,13 @@ setcookie(クッキーの名前, 保存する値, 有効期限のタイムスタ
 </p>
 </div>
 </div>
-<div id="outline-container-org4873e14" class="outline-3">
-<h3 id="org4873e14">ログイン機能</h3>
-<div class="outline-text-3" id="text-org4873e14">
+<div id="outline-container-orgbfce6bf" class="outline-3">
+<h3 id="orgbfce6bf">ログイン機能</h3>
+<div class="outline-text-3" id="text-orgbfce6bf">
 <p>
 以下のような構成にする。<br />
 </p>
-<pre class="example" id="org3f097ed">
+<pre class="example">
 閲覧制限ページ.php
   ログインしている時：ページを表示
   していない時：login.php へ遷移
@@ -1725,10 +1749,10 @@ login.php
 </pre>
 </div>
 </div>
-<div id="outline-container-org1388759" class="outline-3">
-<h3 id="org1388759">セッションの開始</h3>
-<div class="outline-text-3" id="text-org1388759">
-<pre class="example" id="org0691d2c">
+<div id="outline-container-orgada182d" class="outline-3">
+<h3 id="orgada182d">セッションの開始</h3>
+<div class="outline-text-3" id="text-orgada182d">
+<pre class="example">
 session_start();
 </pre>
 <p>
@@ -1738,18 +1762,18 @@ session<sub>start関数は</sub>、セッションの開始と、（セッショ
 </p>
 </div>
 </div>
-<div id="outline-container-orge407fb4" class="outline-3">
-<h3 id="orge407fb4">セッションの読み込み</h3>
-<div class="outline-text-3" id="text-orge407fb4">
+<div id="outline-container-org3975eea" class="outline-3">
+<h3 id="org3975eea">セッションの読み込み</h3>
+<div class="outline-text-3" id="text-org3975eea">
 <p>
 $<sub>SESSION</sub> というスーパーグローバル変数を連想配列として参照することができる。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org13cef24" class="outline-3">
-<h3 id="org13cef24">セッションの終了</h3>
-<div class="outline-text-3" id="text-org13cef24">
-<pre class="example" id="org493462e">
+<div id="outline-container-org36740f1" class="outline-3">
+<h3 id="org36740f1">セッションの終了</h3>
+<div class="outline-text-3" id="text-org36740f1">
+<pre class="example">
 // unset は $_SESSION 変数にではなく、各変数に対して使うこと。
 unset($_SESSION['id']);
 // 全セッション変数を消すには以下のようにする
@@ -1761,14 +1785,14 @@ session_destroy();
 </div>
 </div>
 
-<div id="outline-container-org77e1697" class="outline-2">
-<h2 id="org77e1697">ファイルの読み込み</h2>
-<div class="outline-text-2" id="text-org77e1697">
+<div id="outline-container-org0bdf200" class="outline-2">
+<h2 id="org0bdf200">ファイルの読み込み</h2>
+<div class="outline-text-2" id="text-org0bdf200">
 <p>
 include で読み込む。<br />
 読み込んだファイルは、include を使った部分にポコッとハマるイメージ。<br />
 </p>
-<pre class="example" id="org626ca4f">
+<pre class="example">
 &lt;?php
   include 'includes/login.php';
 </pre>
@@ -1778,34 +1802,34 @@ include の他に require があり、include はファイルが読み込めず�
 </div>
 </div>
 
-<div id="outline-container-orge73f70a" class="outline-2">
-<h2 id="orge73f70a">セキュリティ</h2>
-<div class="outline-text-2" id="text-orge73f70a">
+<div id="outline-container-orgdfd4d61" class="outline-2">
+<h2 id="orgdfd4d61">セキュリティ</h2>
+<div class="outline-text-2" id="text-orgdfd4d61">
 <p>
 基本的な心構えとして、「外部入力（GET, POST, 想定外の入力内容, クッキー）は敵」だと思って疑うこと。<br />
 </p>
 </div>
 
-<div id="outline-container-org7d8ce34" class="outline-3">
-<h3 id="org7d8ce34">クロスサイトスクリプティング（XSS）</h3>
-<div class="outline-text-3" id="text-org7d8ce34">
+<div id="outline-container-org78c37ee" class="outline-3">
+<h3 id="org78c37ee">クロスサイトスクリプティング（XSS）</h3>
+<div class="outline-text-3" id="text-org78c37ee">
 </div>
-<div id="outline-container-orge624640" class="outline-4">
-<h4 id="orge624640">説明</h4>
-<div class="outline-text-4" id="text-orge624640">
+<div id="outline-container-org13d8891" class="outline-4">
+<h4 id="org13d8891">説明</h4>
+<div class="outline-text-4" id="text-org13d8891">
 <p>
 何かしらのサイトに記述された JavaScript のプログラムが、別のサイト、あるいはサイト間をまたがらずとも、実行されてしまうという脆弱性。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org6ea6f28" class="outline-4">
-<h4 id="org6ea6f28">対策</h4>
-<div class="outline-text-4" id="text-org6ea6f28">
+<div id="outline-container-orgd295baf" class="outline-4">
+<h4 id="orgd295baf">対策</h4>
+<div class="outline-text-4" id="text-orgd295baf">
 <ul class="org-ul">
 <li><p>
 出力値のエスケープ（特別な意味のある文字列を別の無害な文字列に置き換える）が有効。<br />
 </p>
-<pre class="example" id="org79bb6a3">
+<pre class="example">
 htmlspecialchars(文字列, ENT_QUOTES, 'UTF-8')
 </pre></li>
 <li>外部入力がHTMLタグの属性値として使われるような場面では、外部入力をダブルクオーテーションで囲む。<br /></li>
@@ -1814,22 +1838,22 @@ htmlspecialchars(文字列, ENT_QUOTES, 'UTF-8')
 </div>
 </div>
 
-<div id="outline-container-org96e847b" class="outline-3">
-<h3 id="org96e847b">SQLインジェクション</h3>
-<div class="outline-text-3" id="text-org96e847b">
+<div id="outline-container-org26f90b4" class="outline-3">
+<h3 id="org26f90b4">SQLインジェクション</h3>
+<div class="outline-text-3" id="text-org26f90b4">
 </div>
-<div id="outline-container-org17e3102" class="outline-4">
-<h4 id="org17e3102">説明</h4>
-<div class="outline-text-4" id="text-org17e3102">
+<div id="outline-container-org876a1c8" class="outline-4">
+<h4 id="org876a1c8">説明</h4>
+<div class="outline-text-4" id="text-org876a1c8">
 <p>
 クエリを操作して意図しない情報を表示したり、削除したりする脆弱性。<br />
-例えば「SELECT * FROM users WHERE name='$name'」の $name に 「鈴木' or '1' or '1"」と代入すると、「SELECT * FROM users WHERE name='鈴木' or '1' or '1'」となり、「'鈴木' or '1' or '1'」は TRUE であるため、すべてのレコードが選択されることとなる。<br />
+例えば「SELECT * FROM users WHERE name='$name'」の $name に 「鈴木' or '1' or '1'」と代入すると、「SELECT * FROM users WHERE name='鈴木' or '1' or '1'」となり、「'鈴木' or '1' or '1'」は TRUE であるため、すべてのレコードが選択されることとなる。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org0137b9e" class="outline-4">
-<h4 id="org0137b9e">対策</h4>
-<div class="outline-text-4" id="text-org0137b9e">
+<div id="outline-container-org03d4ede" class="outline-4">
+<h4 id="org03d4ede">対策</h4>
+<div class="outline-text-4" id="text-org03d4ede">
 <p>
 外部入力データ内のクオーテーションのエスケープを行う必要がある。<br />
 一番の適切な方法はプリペアドステートメントを使うことである。<br />
@@ -1840,26 +1864,26 @@ PDO の持つプリペアドステートメント機能を使い、bindParam メ
 </div>
 </div>
 
-<div id="outline-container-org038dd5b" class="outline-3">
-<h3 id="org038dd5b">セッションハイジャック</h3>
-<div class="outline-text-3" id="text-org038dd5b">
+<div id="outline-container-orgc619734" class="outline-3">
+<h3 id="orgc619734">セッションハイジャック</h3>
+<div class="outline-text-3" id="text-orgc619734">
 </div>
-<div id="outline-container-org3af2ece" class="outline-4">
-<h4 id="org3af2ece">説明</h4>
-<div class="outline-text-4" id="text-org3af2ece">
+<div id="outline-container-orgf7eaba1" class="outline-4">
+<h4 id="orgf7eaba1">説明</h4>
+<div class="outline-text-4" id="text-orgf7eaba1">
 <p>
 セッションが他人によって乗っ取られ、本人になりすまされるという脆弱性である。<br />
 セッションIDが連番で想像しやすかったり、短くて総当たり攻撃を受けやすかったり、盗聴器で抜き取られたり、攻撃者自身が作成したセッションIDを使わされたりすることで生じる。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org65a16a9" class="outline-4">
-<h4 id="org65a16a9">対策</h4>
-<div class="outline-text-4" id="text-org65a16a9">
+<div id="outline-container-org37261a1" class="outline-4">
+<h4 id="org37261a1">対策</h4>
+<div class="outline-text-4" id="text-org37261a1">
 <p>
 ログインした直後にセッションIDを再生成するのが良い。<br />
 </p>
-<pre class="example" id="org60b3457">
+<pre class="example">
 session_regenerate_id(true);
 </pre>
 <p>
@@ -1867,7 +1891,7 @@ session_regenerate_id(true);
 なお、新しいセッションIDを発行するたびに、そのセッションIDをファイル名としたセッションファイルが作成されている。<br />
 以下に login.php での例を示す。<br />
 </p>
-<pre class="example" id="org785da3f">
+<pre class="example">
 // ユーザが存在していたので、セッションにユーザIDをセット
 $_SESSION['id'] = $row['id'];
 // セッションID再生成
@@ -1881,29 +1905,29 @@ header('Location: index.php');
 </div>
 </div>
 
-<div id="outline-container-org2235aec" class="outline-3">
-<h3 id="org2235aec">クロスサイトリクエストフォージェリ（CSRF）</h3>
-<div class="outline-text-3" id="text-org2235aec">
+<div id="outline-container-org15f893e" class="outline-3">
+<h3 id="org15f893e">クロスサイトリクエストフォージェリ（CSRF）</h3>
+<div class="outline-text-3" id="text-org15f893e">
 </div>
-<div id="outline-container-orga18b6fe" class="outline-4">
-<h4 id="orga18b6fe">説明</h4>
-<div class="outline-text-4" id="text-orga18b6fe">
+<div id="outline-container-org8106fc2" class="outline-4">
+<h4 id="org8106fc2">説明</h4>
+<div class="outline-text-4" id="text-org8106fc2">
 <p>
 意図しないリクエストを強制的に送られてしまう脆弱性。<br />
 本来サイト内の書き込みフォーム等から送られてこなければならないデータを、別の偽サイトから（データのみを）送るような攻撃手法である。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-orga52c358" class="outline-4">
-<h4 id="orga52c358">対策</h4>
-<div class="outline-text-4" id="text-orga52c358">
+<div id="outline-container-orgdf2567e" class="outline-4">
+<h4 id="orgdf2567e">対策</h4>
+<div class="outline-text-4" id="text-orgdf2567e">
 <p>
 「トークン」を使って、正しい所から送信されたデータであることを確かめるのが効果的。<br />
 トークンは「証拠」という意味であり、特定のプログラムが作った証拠を示す短い文字列のことである。<br />
 ページにアクセスした際にPHP（サーバー側）でトークンを作成し、セッション変数にトークンを保存して、hiddenフォームにもトークンを埋め込み、フォーム内容送信時にトークンも送信すると、サーバーが割り当てたトークンを持っているかどうかを確かめることができる。<br />
 次のようにセッションIDをハッシュ化してトークンを作成できる。<br />
 </p>
-<pre class="example" id="orgef91333">
+<pre class="example">
 sha1(session_id()); // sha1方式のハッシュ
 hash("sha256", session_id()); // sha256方式のハッシュ
 
@@ -1918,7 +1942,7 @@ session_id()
 bbs.php<br />
 投稿フォームと削除用のフォームにhidden属性でトークンを埋め込む。<br />
 </p>
-<pre class="example" id="org4507b02">
+<pre class="example">
 &lt;body&gt;
   &lt;h1&gt;掲示板&lt;/h1&gt;
   &lt;p&gt;&lt;a href="index.php"&gt;トップページに戻る&lt;/a&gt;&lt;/p&gt;
@@ -1929,14 +1953,14 @@ bbs.php<br />
   &lt;/form&gt;
         （略）
       &lt;input type="submit" value="削除"&gt;
-      &lt;input type="hidden" name="token "value="&lt;?php echo sha1(session_id()); ?&gt;"&gt;
+      &lt;input type="hidden" name="token" value="&lt;?php echo sha1(session_id()); ?&gt;"&gt;
     &lt;/form&gt;
 </pre></li>
 <li><p>
 write.php<br />
 送信されたトークンが正しいかどうかを確かめる。<br />
 </p>
-<pre class="example" id="org54cad27">
+<pre class="example">
 &lt;?php
 include 'includes/login.php';
 // データの受け取り
@@ -1965,7 +1989,7 @@ if ($token != sha1(session_id())) {
 delete.php<br />
 送信されたトークンが正しいかどうかを確かめる。<br />
 </p>
-<pre class="example" id="org72f60b0">
+<pre class="example">
 &lt;?php
 include 'includes/login.php';
 // データの受け取り
@@ -1990,9 +2014,9 @@ if ($token != sha1(session_id())) {
 </div>
 </div>
 
-<div id="outline-container-org8aa764e" class="outline-2">
-<h2 id="org8aa764e">文字コード</h2>
-<div class="outline-text-2" id="text-org8aa764e">
+<div id="outline-container-orgff8b216" class="outline-2">
+<h2 id="orgff8b216">文字コード</h2>
+<div class="outline-text-2" id="text-orgff8b216">
 <p>
 WebページやPHPプログラムの作成から公開までの以下の5ステップの文字コードが揃っていないと、文字化けが起きる。<br />
 </p>

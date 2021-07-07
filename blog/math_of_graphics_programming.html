@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>グラフィックスプログラミングの数学</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">グラフィックスプログラミングの数学</h1>
+<div id="outline-container-org5dd496f" class="outline-2">
+<h2 id="org5dd496f"></h2>
+<div class="outline-text-2" id="text-org5dd496f">
+<hr />
+</div>
+<div id="outline-container-org8b471fc" class="outline-3">
+<h3 id="org8b471fc"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org8b471fc">
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec33b73" class="outline-2">
+<h2 id="orgec33b73">角度と三角関数</h2>
+<div class="outline-text-2" id="text-orgec33b73">
+</div>
+<div id="outline-container-org2bbc76c" class="outline-3">
+<h3 id="org2bbc76c">ラジアン</h3>
+<div class="outline-text-3" id="text-org2bbc76c">
+<p>
+度数法 -&gt; 度数<br />
+弧度法 -&gt; ラジアン<br />
+単純に角度を表現するだけなら非直感的だが、計算量を節約できるなどのメリットがある。<br />
+ラジアンは「円周の長さを基準とした角度の表現」であり、「円の一周（360度）が成す角は 2π（ラジアン）」（この時半径は1（ラジアン））となる。<br />
+</p>
+</div>
+<div id="outline-container-org6afcd28" class="outline-4">
+<h4 id="org6afcd28">度数からラジアンへの変換を行う関数</h4>
+<div class="outline-text-4" id="text-org6afcd28">
+<div class="org-src-container">
+<pre class="src src-js">function degToRad(degrees){
+    // return (degrees / 360) * (Math.PI * 2);
+    return degrees * Math.PI / 180;
+}
+
+let degrees = 45; // 度数
+let radian = degToRad(degrees); // ラジアン
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf8df956" class="outline-3">
+<h3 id="orgf8df956">sin, cos</h3>
+<div class="outline-text-3" id="text-orgf8df956">
+<p>
+sinもcosも「何かしらの角度をもとにして」その値が決まり、JavaScriptでは角度にラジアンを用いる。<br />
+「半径1の円」を基準に考えて、原点から任意の角度の方向に伸ばしたラインと円が交差する地点の座標XYは、X要素をcosで、Y要素をsinで求めることができる。<br />
+sinやcosの値は常に-1〜1の範囲に収まる。すなわち、cos, sin は半径に対する比となり、座標や長さが簡単に求まる。<br />
+座標や長さについては、半径が変わればそのまま半径をsinやcosの値にかければ良い。<br />
+</p>
+<pre class="example" id="org39542c3">
+sin, cos は「ある角度に対する縦横の比」
+</pre>
+</div>
+<div id="outline-container-org9ba23bb" class="outline-4">
+<h4 id="org9ba23bb">任意の方向に任意の距離移動した座標を求める</h4>
+<div class="outline-text-4" id="text-org9ba23bb">
+<div class="org-src-container">
+<pre class="src src-js">// 任意の座標A（ここでは仮に原点とする）
+let A = [0.0, 0.0];
+
+// 任意の角度θのラジアン
+let radian = degToRad(theta);
+
+// サインとコサインを求める
+let s = Math.sin(radian);
+let c = Math.cos(radian);
+
+// 移動量rを使って移動後の座標Bを求める
+let B = [
+    A[0] + c * r,
+    A[1] + s * r
+];
+</pre>
+</div>
+<p>
+sinやcosの「-1〜1の範囲の値を返す（しかも規則的・周期的に変動する）」という性質を利用して、反復運動を表現する際にも使うことができる。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba2903e" class="outline-2">
+<h2 id="orgba2903e">ベクトルと行列</h2>
+<div class="outline-text-2" id="text-orgba2903e">
+</div>
+<div id="outline-container-org794ee2b" class="outline-3">
+<h3 id="org794ee2b">ベクトル</h3>
+<div class="outline-text-3" id="text-org794ee2b">
+<pre class="example" id="orgdc06efb">
+スカラー（実数） : 大きい・小さい・多い・少ない等を表せる、数や値などの「量」
+ベクトル : 「量」 + 「向き」
+</pre>
+</div>
+<div id="outline-container-orgda2ad2c" class="outline-4">
+<h4 id="orgda2ad2c">始点と終点からベクトルを定義する</h4>
+<div class="outline-text-4" id="text-orgda2ad2c">
+<p>
+始点と終点が明確であれば、ベクトルを定義できる。<br />
+ベクトルは「終点 - 始点」という計算を行うことによって、数値の組み合わせ (x, y) として表現できる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">let A = [-2, 2]; // 始点
+
+let B = [3, -1]; // 終点
+
+// 2点間を結ぶベクトル
+let V = [
+    B[0] - A[0],
+    B[1] - A[1]
+];
+
+console.log(V); // -&gt; [5, -3]
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb27805b" class="outline-4">
+<h4 id="orgb27805b">ベクトルの向き</h4>
+<div class="outline-text-4" id="text-orgb27805b">
+<p>
+同じ向きであることを数学的に確かめるには、ベクトルの大きさを1に揃え、ベクトルの「単位化（単位ベクトル化）」をすれば良い。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgf581701"></a>ベクトルの大きさの算出と単位ベクトル<br />
+<div class="outline-text-5" id="text-orgf581701">
+<div class="org-src-container">
+<pre class="src src-js">// ベクトルVを定義
+let V = [5, -3];
+
+// ベクトルの大きさ（長さ）
+let L = Math.sqrt(V[0] * V[0] + V[1] * V[1]);
+
+// ベクトルの単位化
+V[0] /= L;
+V[1] /= L;
+
+console.log(V); // -&gt; [0.857..., -0.5144...]
+</pre>
+</div>
+<p>
+また、単位ベクトルは大きさが1のため、半径1の円の内側に収まる。<br />
+つまり、ある角度のサインやコサインの値（半径1の円の円周上の点の座標XY）は、組み合わせてベクトルとして表現すると必ず単位ベクトルとなる。<br />
+逆に、任意のベクトルが定義できる時、そのベクトルが向く角度を（そのベクトルの単位ベクトルから）求めることができると言える。<br />
+三角関数には、サインの値からラジアンを求めるアークサイン（Math.asin）やコサインの値からラジアンを求めるアークコサイン（Math.acos）があるため、ベクトルVを単位化してから要素をアークサインやアークコサインに与えることで、ベクトルの成す角度が得られる。<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgca3e5ec" class="outline-4">
+<h4 id="orgca3e5ec">ベクトルと演算</h4>
+<div class="outline-text-4" id="text-orgca3e5ec">
+<p>
+ベクトル同士の加算・減算では、ベクトルを構成するXやYなどの要素ごとに加算・減算を行い、結果として「同じ次元のベクトル」が得られる。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgee38d90"></a>ベクトル同士の加算・減算<br />
+<div class="outline-text-5" id="text-orgee38d90">
+<div class="org-src-container">
+<pre class="src src-js">let V = [5, -3];
+let W = [-2, 6];
+
+// ベクトルの加算 (V+W)
+let A = [
+    V[0] + W[0],
+    V[1] + W[1]
+];
+console.log(A); // -&gt; [3, 3]
+
+// ベクトルの減算 (V-W)
+let B = [
+    V[0] - W[0],
+    V[1] - W[1]
+];
+console.log(B); // -&gt; [7, -9]
+</pre>
+</div>
+<p>
+ベクトル同士の乗算・除算はない。<br />
+代わりに、「スカラー倍」と呼ばれる、ベクトルとスカラーをかけ合わせることでベクトルを拡大・縮小する方法がある。<br />
+</p>
+</div>
+</li>
+<li><a id="org4144f31"></a>ベクトルのスカラー倍<br />
+<div class="outline-text-5" id="text-org4144f31">
+<div class="org-src-container">
+<pre class="src src-js">let V = [5, -3]; // ベクトル
+
+let scalar = 2.0; // スケール（拡大・縮小）するためのスカラーの定義
+
+// ベクトルVをスカラー倍する
+let W = [
+    V[0] * scalar;
+    V[1] * scalar;
+];
+console.log(W); // -&gt; [10, -6]
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgc717d31" class="outline-4">
+<h4 id="orgc717d31">内積</h4>
+<div class="outline-text-4" id="text-orgc717d31">
+<p>
+内積は、ベクトルAとベクトルBの成す角θに対する「cos」が求まる。（スカラーが求まる。）<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org58b7080"></a>ベクトルの内積を計算する関数<br />
+<div class="outline-text-5" id="text-org58b7080">
+<div class="org-src-container">
+<pre class="src src-js">// ベクトルの内積
+function dot(v0, v1){
+    return (v0[0] * v1[0]) + (v0[1] * v1[1]);
+}
+</pre>
+</div>
+<p>
+ベクトルの内積により角度に関する計算を行う場合は、対象となるベクトルを単位化し、長さを1にしてから内積を行う。<br />
+単位化されたベクトル同士の内積の結果は、内積の性質上「cosθ」に等しくなるため、アークコサインを用いることでベクトル同士がなす角度θを計算できる。<br />
+</p>
+</div>
+</li>
+<li><a id="orgf2b34e7"></a>任意のベクトル同士の内積から角度を求める<br />
+<div class="outline-text-5" id="text-orgf2b34e7">
+<div class="org-src-container">
+<pre class="src src-js">// 2つのベクトルを定義
+let V = [5, 1];
+let W = [-2, 3];
+
+// それぞれベクトルを単位化する
+V = normalize(V);
+W = normalize(W);
+
+let dotValue = dot(V, W); // 単位化したベクトル同士で内積を求める
+
+let rad = Math.acos(dotValue); // 内積の結果はcosθなのでアークコサインでラジアンが得られる
+
+let deg = rad / Math.PI * 180; // ラジアンから度数への変換
+
+console.log(rad); // -&gt; 1.9614...
+console.log(deg); // -&gt; 112.3801...
+
+// ベクトルを単位化する関数
+function normalize(v){
+    // (x * x + y * y)の平方根を求める（ベクトルの長さ）
+    let len = Math.sqrt(v[0] * v[0] * v[1] * v[1]);
+    return [v[0] / len, v[1] / len];
+}
+
+// ベクトルの内積を求める関数
+function dot(v0, v1){
+    return (v0[0] * v1[0]) + (v0[1] * v1[1]);
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org583749e" class="outline-4">
+<h4 id="org583749e">外積</h4>
+<div class="outline-text-4" id="text-org583749e">
+<p>
+2次元ベクトル同士では結果がスカラーに、3次元ベクトル同士では結果が3次元ベクトルになる。<br />
+3次元ベクトル同士の外積では、その結果として「2つのベクトルに直行する3次元ベクトル」が得られる。<br />
+3Dプログラミングでは、ある平面（平面に対して水平なベクトルを2つ定義することで表現する）からまっすぐに上に伸びるベクトルを求め、そのベクトルの向きに応じて照度を計算するなどの用途に用いられる。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgb5b480a"></a>3次元ベクトル同士の外積<br />
+<div class="outline-text-5" id="text-orgb5b480a">
+<div class="org-src-container">
+<pre class="src src-js">function cross(v0, v1){
+    return [
+        v0[1] * v1[2] - v0[2] * v1[1], // y0 * z1 - z0 * y1
+        v0[2] * v1[0] - v0[0] * v1[2], // z0 * x1 - x0 * z1
+        v0[0] * v1[1] - v0[1] * v1[0] // x0 * y1 - y0 * x1
+    ];
+}
+</pre>
+</div>
+<p>
+2次元ベクトル同士の外積では、その結果としてスカラーが得られる。<br />
+この時、単位化されたベクトル同士の外積は「sinθ」と等しくなる。<br />
+</p>
+</div>
+</li>
+<li><a id="org3cce430"></a>Z要素に0が入った3次元ベクトル同士の外積の例<br />
+<div class="outline-text-5" id="text-org3cce430">
+<div class="org-src-container">
+<pre class="src src-js">function cross(v0, v1){
+    return [
+        v0[1] * 0.0 - 0.0 * v1[1], // 常に0
+        0.0 * v1[0] - v0[0] * 0.0, // 常に0
+        v0[0] * v1[1] - v0[1] * v1[0] // この部分だけ見るとスカラーの値
+    ];
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org844d0c6" class="outline-4">
+<h4 id="org844d0c6">ベクトルの内積と外積の要点</h4>
+<div class="outline-text-4" id="text-org844d0c6">
+<ul class="org-ul">
+<li>コサインは「左右の方向、もしくは垂直を判定するのに使うことができる」<br /></li>
+<li>サインは「上下の方向、もしくは水平を判定するのに使うことができる」<br /></li>
+<li>サイン単体あるいはコサイン単体では、それぞれ「縦横どちらかの向きしか判定できない」<br /></li>
+<li>単位ベクトル同士の内積 -&gt; コサインに相当<br /></li>
+<li>単位ベクトル同士の外積 -&gt; サインに相当<br /></li>
+<li>内積の結果が 0 のとき、ベクトル同士は垂直である<br /></li>
+<li>内積の結果が正の値である時、両者の成す角は鋭角である<br /></li>
+<li>内積の結果が負の値である時、両者の成す角は鈍角である<br /></li>
+<li>外積の結果が 0 のとき、ベクトル同士は水平である<br /></li>
+<li>外積の結果が正の値である時、ベクトルAから見て上（左側）にベクトルBがある<br /></li>
+<li>外積の結果が負の値である時、ベクトルAから見て下（右側）にベクトルBがある<br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9376ea5" class="outline-3">
+<h3 id="org9376ea5">行列</h3>
+<div class="outline-text-3" id="text-org9376ea5">
+<p>
+2行2列のような行と列が同じ数になっている行列のことを正方行列と呼ぶ。<br />
+2Dグラフィックスの世界では主に2x2の正方行列が用いられるのが一般的である。<br />
+</p>
+</div>
+<div id="outline-container-orgd74e03b" class="outline-4">
+<h4 id="orgd74e03b">回転行列</h4>
+<div class="outline-text-4" id="text-orgd74e03b">
+<p>
+以下のように2x2の正方行列にサインやコサインの結果を正しく配置すると、回転行列を定義できる。<br />
+</p>
+<pre class="example" id="orge497344">
+2次元の回転行列の定義
+ -                 -
+|   cosθ   -sinθ    |
+|                   |
+|   sinθ    cosθ    |
+ _                 _
+</pre>
+<p>
+回転行列と2次元ベクトルを乗算した結果は、「サインやコサインで指定した量だけ回転した2次元ベクトル」として得られる。<br />
+任意のベクトルを任意の角度分だけ回転させたい場合は、回転行列を用いることで簡単に実現できる。<br />
+</p>
+<pre class="example" id="org87d7701">
+1.
+    -                 -       -   -
+   |   cosθ    -sinθ   |     |  x  |
+   |                   |  *  |     |
+   |   sinθ     cosθ   |     |  y  |
+    _                 _       _   _
+
+2.
+        x        y
+    -                 -
+   |   cosθ    -sinθ   |
+   |                   |
+   |   sinθ     cosθ   |
+    _                 _
+
+3.
+    -                         -
+   |   cosθ * x    -sinθ * y   |
+   |                           |
+   |   sinθ * x     cosθ * y   |
+    _                         _
+
+4.
+    -                             -
+   |   cosθ * x    +   -sinθ * y   |
+   |                               |
+   |   sinθ * x    +    cosθ * y   |
+    _                             _
+</pre>
+</div>
+<ul class="org-ul">
+<li><a id="orga855d19"></a>回転行列を用いてベクトルを回転させる<br />
+<div class="outline-text-5" id="text-orga855d19">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * ベクトルを回転させる
+ * @param {Array&lt;number&gt;} vec - 回転させるベクトル
+ * @param {number} radian - 回転量を表すラジアン
+ * @return {Array&lt;number&gt;} - 回転を加えたベクトル
+ */
+function rotate2D(vsc, radian){
+    let sin = Math.sin(radian);
+    let cos = Math.cos(radian);
+    return [
+        vec[0] * cos + vec[1] * -sin,
+        vec[0] * sin + vec[1] * cos
+    ];
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfcb4948" class="outline-2">
+<h2 id="orgfcb4948">疑似乱数（乱数）</h2>
+<div class="outline-text-2" id="text-orgfcb4948">
+<p>
+JavaScript で擬似乱数を利用する場合、以下に示すように Math.random を利用する。<br />
+Math.random では、戻り値は 0以上1未満 の浮動小数点の値になる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">console.log(Math.random()); // Math.randomメソッドを利用して乱数を生成
+</pre>
+</div>
+<p>
+乱数の範囲を変更したい場合は、乱数の結果に定数をかけることで範囲を拡大することができる。<br />
+また、整数だけの結果を得たいときは小数点以下を切り捨てるような処理を行うことでこれを実現できる。<br />
+</p>
+</div>
+<div id="outline-container-org57faf8a" class="outline-3">
+<h3 id="org57faf8a">0 以上 100 未満の乱数を整数で生成する</h3>
+<div class="outline-text-3" id="text-org57faf8a">
+<div class="org-src-container">
+<pre class="src src-js">// 0以上〜100未満の乱数を生成する関数
+function rnd(){
+    // まず浮動小数点の乱数を生成
+    let random = Math.random();
+
+    // 定数倍する
+    random *= 100;
+
+    // 小数点以下を切り捨てて返却する
+    return Math.floor(random);
+}
+
+// 呼び出し
+console.log(rnd()); // -&gt; 0〜99 までのいずれかの整数
+</pre>
+</div>
+<p>
+JavaScript では疑似乱数生成に Xorshift という強力なアルゴリズムが使われているため、あまり深く考えずに使っても問題ない。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e7d1ef" class="outline-2">
+<h2 id="org7e7d1ef">補間とイージング</h2>
+<div class="outline-text-2" id="text-org7e7d1ef">
+<p>
+オブジェクトが移動する様子をグラフィックスとして描く場合、出発地点から到達地点へ一瞬で移動してしまうのではなく、徐々になめらかに移動していくほうが動きとしてはより自然な表現になる。<br />
+このようななめらかな移動を実現するために、2つの状態の間を補い空白を埋める考え方が「補間」であり、グラフィックスプログラミングでは補間を行う関数を定義して利用するのが一般的である。<br />
+このように補間を行うための関数を「補間関数（イージング関数）」と呼び、引数には 0.0〜1.0 の範囲の値を与えて呼び出す。<br />
+また戻り値についても 0.0〜1.0 で返されるのが普通である。<br />
+つまり補間関数では、0.0〜1.0 の値を与え、0.0〜1.0 の値が得られる。<br />
+</p>
+</div>
+<div id="outline-container-org352c43d" class="outline-3">
+<h3 id="org352c43d">シンプルな補間関数 linear</h3>
+<div class="outline-text-3" id="text-org352c43d">
+<div class="org-src-container">
+<pre class="src src-js">function linear(t){
+    return t;
+}
+</pre>
+</div>
+<p>
+与えられた引数をそのまま返しており、このように入力値を規則正しく与えると出力値も直線的で等速に上昇していくような補間を線形補間という。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org55c9310" class="outline-3">
+<h3 id="org55c9310">引数を2乗して返す easeInQuad 関数</h3>
+<div class="outline-text-3" id="text-org55c9310">
+<div class="org-src-container">
+<pre class="src src-js">function easeInQuad(t){
+    return t * t;
+}
+</pre>
+</div>
+<p>
+補間関数には「ease（和らげる）」と組み合わせた名前が付けられている場合が多く、特に緩やかに始まるものを「ease-in」、緩やかに終わるものを「ease-out」と表現する。<br />
+easeInQuad は 0.0 付近ほど値の変化が緩やかで、1.0 に近づくほど値の変化が急になる。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org50efedf" class="outline-3">
+<h3 id="org50efedf">代表的な補間関数</h3>
+<div class="outline-text-3" id="text-org50efedf">
+<div class="org-src-container">
+<pre class="src src-js">// linear
+function linear(t){
+    return t;
+}
+
+// easeInQuad
+function easeInQuad(t){
+    return t * t;
+}
+
+// easeOutQuad
+function easeOutQuad(t){
+    return t * (2 - t);
+}
+
+// easeInOutQuad
+function easeInOutQuad(t){
+    if (t &lt; 0.5) {
+        return 2 * t *t;
+    } else {
+        return -1 + (4 - 2 * t) * t;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

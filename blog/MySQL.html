@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,47 +193,71 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">MySQL</h1>
-<div id="outline-container-orgede9890" class="outline-2">
-<h2 id="orgede9890"></h2>
-<div class="outline-text-2" id="text-orgede9890">
+<div id="outline-container-orgde3f1f6" class="outline-2">
+<h2 id="orgde3f1f6"></h2>
+<div class="outline-text-2" id="text-orgde3f1f6">
 <hr />
 </div>
-<div id="outline-container-orged70fb9" class="outline-3">
-<h3 id="orged70fb9"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orged70fb9">
+<div id="outline-container-org0fbf9e1" class="outline-3">
+<h3 id="org0fbf9e1"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org0fbf9e1">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc0040d5" class="outline-2">
-<h2 id="orgc0040d5">暗号化</h2>
-<div class="outline-text-2" id="text-orgc0040d5">
+<div id="outline-container-org68b1ef5" class="outline-2">
+<h2 id="org68b1ef5">暗号化</h2>
+<div class="outline-text-2" id="text-org68b1ef5">
 <p>
 MySQL と PHP のどちらからも利用できる暗号化関数として sha1 がある。<br />
 PHP からユーザーデータを登録する場合は password<sub>hash</sub> という関数でより良いパスワードを生成できる。<br />
@@ -241,60 +265,69 @@ PHP からユーザーデータを登録する場合は password<sub>hash</sub> 
 </div>
 </div>
 
-<div id="outline-container-org68cbafe" class="outline-2">
-<h2 id="org68cbafe">COUNT 関数</h2>
-<div class="outline-text-2" id="text-org68cbafe">
+<div id="outline-container-org6edd0db" class="outline-2">
+<h2 id="org6edd0db">COUNT 関数</h2>
+<div class="outline-text-2" id="text-org6edd0db">
 <p>
 COUNT は MySQL が持っている関数の一つで、() 内に指定したカラムのうち、値が NULL でないものの数を数える。<br />
+() 内が * の時は格納されている値が NULL かどうかに関係なくデータの行数を取得する。<br />
 </p>
-<pre class="example" id="org3adae28">
+<pre class="example">
 SELECT COUNT(*)
 FROM テーブル名
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org2fb2ded" class="outline-2">
-<h2 id="org2fb2ded">クエリ</h2>
-<div class="outline-text-2" id="text-org2fb2ded">
+<div id="outline-container-orgc8ea48b" class="outline-2">
+<h2 id="orgc8ea48b">クエリ</h2>
+<div class="outline-text-2" id="text-orgc8ea48b">
 <p>
 例文については <a href="php_example.html">MySQL 例文（PHP 例文）</a><br />
 </p>
 </div>
-<div id="outline-container-orga44c6d8" class="outline-3">
-<h3 id="orga44c6d8">データベースの作成</h3>
-<div class="outline-text-3" id="text-orga44c6d8">
-<pre class="example" id="org830acdb">
+<div id="outline-container-orgdaa0693" class="outline-3">
+<h3 id="orgdaa0693">作成したデータベース一覧の確認</h3>
+<div class="outline-text-3" id="text-orgdaa0693">
+<pre class="example">
+show databases;
+</pre>
+</div>
+</div>
+<div id="outline-container-org51574f6" class="outline-3">
+<h3 id="org51574f6">データベースの作成</h3>
+<div class="outline-text-3" id="text-org51574f6">
+<pre class="example">
 CREATE DATABASE データベース名;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb7f2471" class="outline-3">
-<h3 id="orgb7f2471">データベースの削除</h3>
-<div class="outline-text-3" id="text-orgb7f2471">
-<pre class="example" id="org0a35c50">
+<div id="outline-container-org7eb4b83" class="outline-3">
+<h3 id="org7eb4b83">データベースの削除</h3>
+<div class="outline-text-3" id="text-org7eb4b83">
+<pre class="example">
 DROP DATABASE データベース名;
 </pre>
 </div>
 </div>
-<div id="outline-container-org661cc96" class="outline-3">
-<h3 id="org661cc96">データベースの選択</h3>
-<div class="outline-text-3" id="text-org661cc96">
-<pre class="example" id="org138979c">
+<div id="outline-container-orgac1e208" class="outline-3">
+<h3 id="orgac1e208">データベースの選択</h3>
+<div class="outline-text-3" id="text-orgac1e208">
+<pre class="example">
 USE データベース名;
 </pre>
 </div>
 </div>
-<div id="outline-container-org629690c" class="outline-3">
-<h3 id="org629690c">テーブルの作成</h3>
-<div class="outline-text-3" id="text-org629690c">
-<pre class="example" id="orgf42ac7d">
+<div id="outline-container-org4efc01a" class="outline-3">
+<h3 id="org4efc01a">テーブルの作成</h3>
+<div class="outline-text-3" id="text-org4efc01a">
+<pre class="example">
 CREATE TABLE テーブル名(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  title VARCHAR(255);
-  body TEXT NOT NULL;
-  date DATETIME NOT NULL;
+  title VARCHAR(255),
+  body TEXT NOT NULL,
+  date DATETIME NOT NULL,
   pass CHAR(4) NOT NULL
 )DEFAULT CHARACTER SET =utf8;
 </pre>
@@ -307,22 +340,22 @@ PRIMARY KEY は主キーであることを表している。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org2d329cf" class="outline-3">
-<h3 id="org2d329cf">データベースの削除</h3>
-<div class="outline-text-3" id="text-org2d329cf">
-<pre class="example" id="org5bc005b">
+<div id="outline-container-org3e233d6" class="outline-3">
+<h3 id="org3e233d6">テーブルの削除</h3>
+<div class="outline-text-3" id="text-org3e233d6">
+<pre class="example">
 DROP TABLE テーブル名;
 </pre>
 </div>
 </div>
-<div id="outline-container-org4803a5d" class="outline-3">
-<h3 id="org4803a5d">ユーザの作成</h3>
-<div class="outline-text-3" id="text-org4803a5d">
+<div id="outline-container-org02fbcb6" class="outline-3">
+<h3 id="org02fbcb6">ユーザの作成</h3>
+<div class="outline-text-3" id="text-org02fbcb6">
 <p>
 root はすべてのデータベースを操作できるユーザであるためセキュリティ上好ましくない。<br />
 1つのデータベースだけを操作できるユーザを作成し、PHP でアクセスする際はそのユーザーでデータベースにアクセスするほうが、他のデータベースを不正利用されず安心。<br />
 </p>
-<pre class="example" id="orgf11dd27">
+<pre class="example">
 GRANT 権限 ON データベース.テーブル名 to 'ユーザ名'@'ホスト' IDENTIFIED BY 'パスワード';
 
 // ユーザを作成したら、MySQL 内部の一時データを削除するため、以下のように入力。
@@ -331,7 +364,7 @@ FLUSH PRIVILEGES;
 <p>
 以下例文<br />
 </p>
-<pre class="example" id="org0119507">
+<pre class="example">
 GRANT ALL ON tennis.* to 'tennisuser'@'localhost' IDENTIFIED BY 'password';
 // GRANT ALL : すべての権限。このデータベースに対して自由に操作できる
 // ON tennis.* : tennis データベースのすべてのテーブルを操作できる
@@ -340,16 +373,16 @@ GRANT ALL ON tennis.* to 'tennisuser'@'localhost' IDENTIFIED BY 'password';
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf634648" class="outline-3">
-<h3 id="orgf634648">作成したユーザの確認</h3>
-<div class="outline-text-3" id="text-orgf634648">
-<pre class="example" id="orgb2ca673">
-myaql -u ユーザー名 -p
+<div id="outline-container-orge3dc280" class="outline-3">
+<h3 id="orge3dc280">作成したユーザの確認</h3>
+<div class="outline-text-3" id="text-orge3dc280">
+<pre class="example">
+mysql -u ユーザー名 -p
 </pre>
 <p>
 にてパスワードを入力して、間違いがなければ MySQL にログインできる。<br />
 </p>
-<pre class="example" id="org5b705b9">
+<pre class="example">
 USE データベース名;
 DESC テーブル名;
 </pre>
@@ -358,18 +391,18 @@ USE でデータベースを使える状態にし、「DESC テーブル名」�
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc22384" class="outline-3">
-<h3 id="orgbc22384">テーブルにレコードを新規追加</h3>
-<div class="outline-text-3" id="text-orgbc22384">
-<pre class="example" id="org6e28ff0">
+<div id="outline-container-orga9ec594" class="outline-3">
+<h3 id="orga9ec594">テーブルにレコードを新規追加</h3>
+<div class="outline-text-3" id="text-orga9ec594">
+<pre class="example">
 INSERT INTO テーブル名 (カラム1, カラム2, カラム3...) VALUES (値1, 値2, 値3...)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga114ef0" class="outline-3">
-<h3 id="orga114ef0">SELECT文によるデータの取得</h3>
-<div class="outline-text-3" id="text-orga114ef0">
-<pre class="example" id="org7cc4da9">
+<div id="outline-container-orgc0c71b1" class="outline-3">
+<h3 id="orgc0c71b1">SELECT文によるデータの取得</h3>
+<div class="outline-text-3" id="text-orgc0c71b1">
+<pre class="example">
 SELECT 取得してくるカラム（全部なら *）
 FROM 取得したいテーブル名
 ORDER BY 並び替えの軸にするカラム DESC（ASC なら昇順・日付なら古い順、DESC なら降順・日付なら新しい順）
@@ -379,9 +412,9 @@ LIMIT 0, 10 （0件目から10件分取得する）
 </div>
 </div>
 
-<div id="outline-container-org99034cb" class="outline-2">
-<h2 id="org99034cb">テーブル設計の例</h2>
-<div class="outline-text-2" id="text-org99034cb">
+<div id="outline-container-orgb298bfd" class="outline-2">
+<h2 id="orgb298bfd">テーブル設計の例</h2>
+<div class="outline-text-2" id="text-orgb298bfd">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -453,9 +486,9 @@ NOT NULL 制約とは、「そのカラムに必ずデータを入れる」と�
 </div>
 </div>
 
-<div id="outline-container-org813f5b3" class="outline-2">
-<h2 id="org813f5b3">MySQL のデータ型</h2>
-<div class="outline-text-2" id="text-org813f5b3">
+<div id="outline-container-org91048cb" class="outline-2">
+<h2 id="org91048cb">MySQL のデータ型</h2>
+<div class="outline-text-2" id="text-org91048cb">
 <ul class="org-ul">
 <li><p>
 数値型<br />
@@ -569,9 +602,9 @@ NOT NULL 制約とは、「そのカラムに必ずデータを入れる」と�
 </div>
 </div>
 
-<div id="outline-container-org925025c" class="outline-2">
-<h2 id="org925025c">リレーショナルデータベース（RDMS）</h2>
-<div class="outline-text-2" id="text-org925025c">
+<div id="outline-container-orgdd196ac" class="outline-2">
+<h2 id="orgdd196ac">リレーショナルデータベース（RDMS）</h2>
+<div class="outline-text-2" id="text-orgdd196ac">
 <p>
 データを表のような形で保存し、共通項で表同士を関連付けているデータベース。つまりいくつかの表が集まってできている。<br />
 表のことをテーブル、列をカラム、行をレコードと呼ぶ。<br />

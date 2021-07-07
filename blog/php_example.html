@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,52 +193,76 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">PHP 例文</h1>
-<div id="outline-container-org31206de" class="outline-2">
-<h2 id="org31206de"></h2>
-<div class="outline-text-2" id="text-org31206de">
+<div id="outline-container-org0ddd77a" class="outline-2">
+<h2 id="org0ddd77a"></h2>
+<div class="outline-text-2" id="text-org0ddd77a">
 <hr />
 </div>
-<div id="outline-container-org7a59fb5" class="outline-3">
-<h3 id="org7a59fb5"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org7a59fb5">
+<div id="outline-container-org6b6525e" class="outline-3">
+<h3 id="org6b6525e"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org6b6525e">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org79e90a3" class="outline-2">
-<h2 id="org79e90a3">掲示板</h2>
-<div class="outline-text-2" id="text-org79e90a3">
+<div id="outline-container-orgf52fc48" class="outline-2">
+<h2 id="orgf52fc48">掲示板</h2>
+<div class="outline-text-2" id="text-orgf52fc48">
 </div>
-<div id="outline-container-org41bf080" class="outline-3">
-<h3 id="org41bf080">bbs.php</h3>
-<div class="outline-text-3" id="text-org41bf080">
-<pre class="example" id="org6968a6e">
+<div id="outline-container-org4e9b91e" class="outline-3">
+<h3 id="org4e9b91e">bbs.php</h3>
+<div class="outline-text-3" id="text-org4e9b91e">
+<pre class="example">
 &lt;!DOCTYPE html&gt;
 &lt;?php
 // 1ページに表示されるコメントの数
@@ -329,10 +353,10 @@ try {
 </pre>
 </div>
 </div>
-<div id="outline-container-org533facb" class="outline-3">
-<h3 id="org533facb">write.php</h3>
-<div class="outline-text-3" id="text-org533facb">
-<pre class="example" id="org987e2cf">
+<div id="outline-container-org10d544d" class="outline-3">
+<h3 id="org10d544d">write.php</h3>
+<div class="outline-text-3" id="text-org10d544d">
+<pre class="example">
 &lt;?php
 // データの受け取り
 $name = $_POST['name'];
@@ -381,10 +405,10 @@ try {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgaf1f780" class="outline-3">
-<h3 id="orgaf1f780">delete.php</h3>
-<div class="outline-text-3" id="text-orgaf1f780">
-<pre class="example" id="orgbbcadb1">
+<div id="outline-container-org0120d42" class="outline-3">
+<h3 id="org0120d42">delete.php</h3>
+<div class="outline-text-3" id="text-org0120d42">
+<pre class="example">
 &lt;?php
 // データの受け取り
 $id = intval($_POST['id']);
@@ -420,10 +444,10 @@ exit();
 </pre>
 </div>
 </div>
-<div id="outline-container-org88ee749" class="outline-3">
-<h3 id="org88ee749">login.php</h3>
-<div class="outline-text-3" id="text-org88ee749">
-<pre class="example" id="org06fe143">
+<div id="outline-container-org22316dc" class="outline-3">
+<h3 id="org22316dc">login.php</h3>
+<div class="outline-text-3" id="text-org22316dc">
+<pre class="example">
 &lt;!doctype html&gt;
 &lt;?php
 session_start(); // セッション開始
@@ -454,7 +478,7 @@ if (isset($_SESSION['id'])) {
 
         if ($row = $stmt-&gt;fetch()) {
             // ユーザが存在していたので、セッションにユーザIDをセット
-            $_SESSION['id'] = $orw['id'];
+            $_SESSION['id'] = $row['id'];
             header('Location: bbs.php');
             exit();
         } else {
@@ -469,9 +493,9 @@ if (isset($_SESSION['id'])) {
     }
 
 } else {
-    // ログインしていない場合はログインフォームを評樹する
-    // }
+    // ログインしていない場合はログインフォームを表示する
     // （ } はここでもいい）
+    // }
 ?&gt;
   &lt;html lang="ja"&gt;
     &lt;head&gt;
@@ -494,13 +518,13 @@ if (isset($_SESSION['id'])) {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbeb0bc9" class="outline-3">
-<h3 id="orgbeb0bc9">include/login.php</h3>
-<div class="outline-text-3" id="text-orgbeb0bc9">
+<div id="outline-container-org181bbdd" class="outline-3">
+<h3 id="org181bbdd">includes/login.php</h3>
+<div class="outline-text-3" id="text-org181bbdd">
 <p>
-「include 'include/login.php';」でファイル読み込み<br />
+「include 'includes/login.php';」でファイル読み込み<br />
 </p>
-<pre class="example" id="org7d3b411">
+<pre class="example">
 &lt;?php
 session_start();
 if(!isset($_SESSION['id'])) {
@@ -511,13 +535,13 @@ if(!isset($_SESSION['id'])) {
 </pre>
 </div>
 </div>
-<div id="outline-container-org070b6a1" class="outline-3">
-<h3 id="org070b6a1">logout.php</h3>
-<div class="outline-text-3" id="text-org070b6a1">
+<div id="outline-container-org5d636aa" class="outline-3">
+<h3 id="org5d636aa">logout.php</h3>
+<div class="outline-text-3" id="text-org5d636aa">
 <p>
 「&lt;a href="logout.php"&gt;ログアウト&lt;/a&gt;」のようなメニューを追加して使う。<br />
 </p>
-<pre class="example" id="org512b880">
+<pre class="example">
 &lt;?php
 session_start();
 if (isset($_SESSION['id'])) {
@@ -530,18 +554,18 @@ header('Location: index.php');
 </div>
 </div>
 
-<div id="outline-container-org42c2219" class="outline-2">
-<h2 id="org42c2219">MySQL 例文</h2>
-<div class="outline-text-2" id="text-org42c2219">
+<div id="outline-container-orgc00d81e" class="outline-2">
+<h2 id="orgc00d81e">MySQL 例文</h2>
+<div class="outline-text-2" id="text-orgc00d81e">
 </div>
-<div id="outline-container-orga3c0c9a" class="outline-3">
-<h3 id="orga3c0c9a">テーブル設計</h3>
-<div class="outline-text-3" id="text-orga3c0c9a">
+<div id="outline-container-orga969b22" class="outline-3">
+<h3 id="orga969b22">テーブル設計</h3>
+<div class="outline-text-3" id="text-orga969b22">
 </div>
-<div id="outline-container-orgd23fa1c" class="outline-4">
-<h4 id="orgd23fa1c">掲示板用テーブル</h4>
-<div class="outline-text-4" id="text-orgd23fa1c">
-<pre class="example" id="org13c3ff2">
+<div id="outline-container-org454e0c1" class="outline-4">
+<h4 id="org454e0c1">掲示板用テーブル</h4>
+<div class="outline-text-4" id="text-org454e0c1">
+<pre class="example">
 CREATE TABLE bbs(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -553,10 +577,10 @@ CREATE TABLE bbs(
 </pre>
 </div>
 </div>
-<div id="outline-container-org7bd9e51" class="outline-4">
-<h4 id="org7bd9e51">ログイン機能用テーブル</h4>
-<div class="outline-text-4" id="text-org7bd9e51">
-<pre class="example" id="orgb7782f9">
+<div id="outline-container-org465cc09" class="outline-4">
+<h4 id="org465cc09">ログイン機能用テーブル</h4>
+<div class="outline-text-4" id="text-org465cc09">
+<pre class="example">
 CREATE TABLE users(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -566,16 +590,16 @@ CREATE TABLE users(
 </div>
 </div>
 </div>
-<div id="outline-container-org580937e" class="outline-3">
-<h3 id="org580937e">レコードの追加</h3>
-<div class="outline-text-3" id="text-org580937e">
-<pre class="example" id="org3ea2fa0">
+<div id="outline-container-orgf19154b" class="outline-3">
+<h3 id="orgf19154b">レコードの追加</h3>
+<div class="outline-text-3" id="text-orgf19154b">
+<pre class="example">
 INSERT INTO users (name, password) VALUES ('yamada', sha1('yamadapass'))
 </pre>
 <p>
 複数追加したい場合<br />
 </p>
-<pre class="example" id="org7702906">
+<pre class="example">
 INSERT INTO users (name, password) VALUES
   ('yamada', sha1('yamadapass')),
   ('tanaka', sha1('tanakapass')),
@@ -585,10 +609,10 @@ INSERT INTO users (name, password) VALUES
 </div>
 </div>
 
-<div id="outline-container-orga633e1c" class="outline-2">
-<h2 id="orga633e1c">ファイルの読み込み操作</h2>
-<div class="outline-text-2" id="text-orga633e1c">
-<pre class="example" id="org453cf4c">
+<div id="outline-container-org312183c" class="outline-2">
+<h2 id="org312183c">ファイルの読み込み操作</h2>
+<div class="outline-text-2" id="text-org312183c">
+<pre class="example">
 &lt;?php
 $fp = fopen("info.txt", "r"); //ファイルを開く
 ?&gt;
@@ -612,7 +636,7 @@ $fp = fopen("info.txt", "r"); //ファイルを開く
   ?&gt;
 &lt;/html&gt;
 </pre>
-<pre class="example" id="orgc7153b1">
+<pre class="example">
 &lt;?php
 $fp = fopen("info.txt", "r"); //ファイルを開く
 $line = array(); //ファイル内容を1行1要素に格納する配列
@@ -645,10 +669,10 @@ if($fp) {
 </div>
 </div>
 
-<div id="outline-container-org3fed61f" class="outline-2">
-<h2 id="org3fed61f">ファイルの書き込み操作</h2>
-<div class="outline-text-2" id="text-org3fed61f">
-<pre class="example" id="org360e867">
+<div id="outline-container-org7fa2e22" class="outline-2">
+<h2 id="org7fa2e22">ファイルの書き込み操作</h2>
+<div class="outline-text-2" id="text-org7fa2e22">
+<pre class="example">
 &lt;?php
 $fp = fopen("test.txt", "w");
 if($fp) {
@@ -664,10 +688,10 @@ if($fp) {
 </div>
 </div>
 
-<div id="outline-container-orge6cd1a5" class="outline-2">
-<h2 id="orge6cd1a5">画像ファイルのアップロードプログラム</h2>
-<div class="outline-text-2" id="text-orge6cd1a5">
-<pre class="example" id="org8d23b96">
+<div id="outline-container-org87835e0" class="outline-2">
+<h2 id="org87835e0">画像ファイルのアップロードプログラム</h2>
+<div class="outline-text-2" id="text-org87835e0">
+<pre class="example">
 &lt;?php
 $msg = null; //アップロード状況を表すメッセージ
 

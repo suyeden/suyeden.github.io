@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,51 +193,791 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">JavaScript 小ネタ集</h1>
-<div id="outline-container-org17de991" class="outline-2">
-<h2 id="org17de991"></h2>
-<div class="outline-text-2" id="text-org17de991">
+<div id="outline-container-org8d6b8c0" class="outline-2">
+<h2 id="org8d6b8c0"></h2>
+<div class="outline-text-2" id="text-org8d6b8c0">
 <hr />
 </div>
-<div id="outline-container-org1e96ffe" class="outline-3">
-<h3 id="org1e96ffe"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org1e96ffe">
+<div id="outline-container-org2d68d4e" class="outline-3">
+<h3 id="org2d68d4e"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org2d68d4e">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgae8b28c" class="outline-2">
-<h2 id="orgae8b28c">class構文を構成する要素</h2>
-<div class="outline-text-2" id="text-orgae8b28c">
+<div id="outline-container-org3659286" class="outline-2">
+<h2 id="org3659286">フォーム送信のコントロール（submitイベント）</h2>
+<div class="outline-text-2" id="text-org3659286">
+<p>
+<a href="https://www.sejuku.net/blog/28720">JavaScriptのsubmitイベントで、フォーム送信をコントロールしよう</a><br />
+<a href="https://techacademy.jp/magazine/22317">JavaScriptでonsubmitを使う方法を現役エンジニアが解説【初心者向け】</a><br />
+</p>
 </div>
-<div id="outline-container-orga282313" class="outline-3">
-<h3 id="orga282313">constructor</h3>
-<div class="outline-text-3" id="text-orga282313">
+</div>
+
+<div id="outline-container-org422ab24" class="outline-2">
+<h2 id="org422ab24">属性とプロパティとaddEventListenerの違い</h2>
+<div class="outline-text-2" id="text-org422ab24">
+<p>
+<a href="https://qiita.com/KKKarin/items/ccb8ed361ab9acd1f9cf">【js】onclickとaddEventListenerの違い</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga5eac7c" class="outline-2">
+<h2 id="orga5eac7c">テキストボックスから値を取得する</h2>
+<div class="outline-text-2" id="text-orga5eac7c">
+<p>
+<a href="https://techacademy.jp/magazine/21069">https://techacademy.jp/magazine/21069</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03553ba" class="outline-2">
+<h2 id="org03553ba">数値かチェック</h2>
+<div class="outline-text-2" id="text-org03553ba">
+<p>
+<a href="https://uxmilk.jp/46961">https://uxmilk.jp/46961</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f2c7b7" class="outline-2">
+<h2 id="org0f2c7b7">数値の桁数のチェック</h2>
+<div class="outline-text-2" id="text-org0f2c7b7">
+<p>
+<a href="https://techacademy.jp/magazine/26988">https://techacademy.jp/magazine/26988</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6d77b0" class="outline-2">
+<h2 id="orgb6d77b0">setTimeout と setInterval</h2>
+<div class="outline-text-2" id="text-orgb6d77b0">
+<p>
+setTimeout は指定時間経過後「一度だけ」処理を実行するが、setInterval は「指定時間後処理を実行」という操作を「繰り返す」。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8449a4" class="outline-2">
+<h2 id="orgc8449a4">Array.map()</h2>
+<div class="outline-text-2" id="text-orgc8449a4">
+<div class="org-src-container">
+<pre class="src src-js">array.map((currentValue) =&gt; {
+    // （currentValue を使った）コールバック関数の内容
+});
+</pre>
+</div>
+<p>
+currentValue には現在処理中の要素（配列の一要素）が代入される。<br />
+map は、与えられた関数を配列の順番通りに、各要素に対して一度ずつ呼び出す。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c94863" class="outline-2">
+<h2 id="org5c94863">Math.min と Math.max</h2>
+<div class="outline-text-2" id="text-org5c94863">
+<p>
+Math.min は引数を2つ受け取り、より小さい方だけを返却する。<br />
+Math.max は引数を2つ受け取り、より大きい方だけを返却する。<br />
+以下は最小値より大きく、最大値より小さいかをチェックするコードの例<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">let value = Math.min( Math.max ( チェックする値, 最小値 ), 最大値 );
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org26eef74" class="outline-2">
+<h2 id="org26eef74">テンプレートリテラル</h2>
+<div class="outline-text-2" id="text-org26eef74">
+<div class="org-src-container">
+<pre class="src src-js">// 従来の文字列表現
+let string0 = 'シングルクオーテーション';
+let string1 = "ダブルクオーテーション";
+let string2 = `バッククオート`; // テンプレートリテラル
+</pre>
+</div>
+<p>
+以下のような特徴がある<br />
+</p>
+<ul class="org-ul">
+<li>文字列の改行等をそのまま表現できる<br /></li>
+<li>したがって、複数行にまたがる文字列の定義ができる<br /></li>
+<li>変数など、式を展開して埋め込むことができる<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-js">// 従来のJavaScriptでの改行の表現では...
+// バックスラッシュで特殊文字としてエスケープして改行を書く必要があった
+let string0 ='途中で\n改行';
+
+// テンプレートリテラルではそのまま改行が表現できる
+let string1 = `途中で
+改行`;
+
+// 従来のJavaScriptでは変数を使った文字表現では...
+// 文字列と+演算子で連結する必要があった
+let string2 = '文字列は 「' + variable + '」 です';
+
+// テンプレートリテラルでは ${} （ドル記号と波括弧）で変数を展開できる
+let string3 =`文字列は 「${variable}」 です`
+</pre>
+</div>
+<p>
+オブジェクトのプロパティに変数などを埋め込む場合はテンプレートリテラルとブラケット記法が有効である。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgadd2110" class="outline-2">
+<h2 id="orgadd2110">ブラケット記法</h2>
+<div class="outline-text-2" id="text-orgadd2110">
+<p>
+ブラケット記法とは、[] を利用してプロパティにアクセスする方法。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// ドット記法
+console.log('dot');
+Math.sin(0.0);
+Date.now();
+
+// ブラケット記法
+console['log']('bracket');
+Math['sin'](0.0);
+Date['now']();
+</pre>
+</div>
+</div>
+<div id="outline-container-org970968c" class="outline-3">
+<h3 id="org970968c">ブラケット記法でなければ実現できないこと</h3>
+<div class="outline-text-3" id="text-org970968c">
+<p>
+ブラケット記法ではプロパティの名前を「文字列で指定」できる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">let obj = {};
+obj.member0 = 'Banana';
+obj.member1 = 'Orange';
+obj.member2 = 'Apple';
+
+for(let i = 0; i &lt; 3; i++){
+    console.log(obj['member' + i]);
+}
+// =&gt; Banana, Orange, Apple が順番に出力される
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1365bea" class="outline-2">
+<h2 id="org1365bea">windowオブジェクトとグローバルスコープ</h2>
+<div class="outline-text-2" id="text-org1365bea">
+<p>
+Webブラウザ上で動くJavaScriptでは、あらゆるビルトインオブジェクトやビルトインの関数などは「window」オブジェクトのプロパティになっている。<br />
+一般的なプログラミング言語における「グローバルスコープ」の役割をwindowオブジェクトは持っている。<br />
+また、「myVariable = 'global'」のように let や var などの変数宣言キーワードを使わずに名前のみで変数定義を行うと、その変数は「グローバルスコープ」となる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// var や let などの変数宣言キーワードを使わずに名前のみで変数定義を行う
+myVariable = 'global';
+
+// 同盟のwindowオブジェクトのプロパティと比較する
+console.log(window.myVariable === myVariable); // =&gt; true
+
+console.log(window.Array === Array); // =&gt; true
+</pre>
+</div>
+<p>
+通常グローバルスコープにやみくもに変数や関数を定義することは避けるべきだが、windowオブジェクトに新しくプロパティを追加すると異なるファイル間で同じ情報を利用できるようになる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55ee478" class="outline-2">
+<h2 id="org55ee478">数学以外のグラフィックスプログラミング</h2>
+<div class="outline-text-2" id="text-org55ee478">
+<p>
+class構文を利用してオブジェクト（プロトタイプ）を設計したり、真偽値を見てシーンの状態を変化させたり、ユーザーの入力を検出するイベント処理を一つの関数にまとめたりといった工夫が大切になってくる。<br />
+</p>
+</div>
+
+<div id="outline-container-orgae7ee78" class="outline-3">
+<h3 id="orgae7ee78">スクリーン座標系（画面座標系）</h3>
+<div class="outline-text-3" id="text-orgae7ee78">
+<p>
+Canvas要素上の座標系は、一般にスクリーン座標系（画面座標系）と呼ばれる左上角を原点とした座標系になっている。<br />
+このスクリーン座標系では、X は右に行くほど値が大きく、Y は下に行くほど値が大きくなる。<br />
+また下方向が正の方向のため、角度は「半時計回り」の方向に向かって増える。（真上が90度ではなく270度）<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf45e306" class="outline-3">
+<h3 id="orgf45e306">回転処理</h3>
+<div class="outline-text-3" id="text-orgf45e306">
+</div>
+<div id="outline-container-orge5b4bdf" class="outline-4">
+<h4 id="orge5b4bdf">rotate</h4>
+<div class="outline-text-4" id="text-orge5b4bdf">
+<p>
+rotateメソッドで原点（デフォルトはCanvasの左上角）を中心にCanvas上の座標全体を回転させる。<br />
+ただし、ひとたびCanvas上の座標を回転させてしまうと、それ以降に描画する画像や矩形、文字などもすべて同じように回転の影響を受ける。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">// 以下 rotate メソッドで度数法における45度分だけCanvas上の座標を回転させる
+
+// Canvas上の座標を回転させる
+let rad = 45 * Math.PI /180;
+ctx.rotate(rad);
+
+// 矩形を描画する
+let x = 200;
+let y = 100;
+let width = 200;
+let height = 50;
+ctx.fillRect(x, y, width, height);
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge03ed5b" class="outline-4">
+<h4 id="orge03ed5b">translate</h4>
+<div class="outline-text-4" id="text-orge03ed5b">
+<p>
+Canvas は「原点を中心に回転が行われる」と同時に「原点の位置をずらす」ことができる。<br />
+translate メソッドはCanvas上の座標を水平や垂直に「平行移動させる」ことができる。<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgbd71854" class="outline-4">
+<h4 id="orgbd71854">Canvas2Dコンテキストの状態保存と状態復元</h4>
+<div class="outline-text-4" id="text-orgbd71854">
+<p>
+translate や rotate は座標の扱いそのものを根本的に変化させるため、座標等を変更したのであればその分だけ戻す必要がある。<br />
+save や restore メソッドは、コンテキストの状態をスナップショットのように保存したりリセットしたりできる機能である。<br />
+このとき save によって保存した情報は「スタック」され、restore によってスタックされている状態を一つずつ取り出す。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 自身の回転量を元に座標系を回転させる
+ */
+rotationDraw(){
+    // 座標系を回転する前の状態を保存する
+    this.ctx.save();
+    // 自身の位置が座標系の中心と重なるように平行移動する
+    this.ctx.translate(this.position.x, this.position.y);
+    // 座標系を回転させる（270 度の位置を基準にするため Math.PI * 1.5 を引いている）
+    this.ctx.rotate(this.angle - Math.PI * 1.5);
+
+    // キャラクターの幅を考慮してオフセットする量
+    let offsetX = this.width / 2;
+    let offsetY = this.height / 2;
+    // キャラクターの幅やオフセットする量を加味して描画する
+    this.ctx.drawImage(
+        this.image,
+        -offsetX, // 先に translate で平行移動しているのでオフセットのみ行う
+        -offsetY, // 先に translate で平行移動しているのでオフセットのみ行う
+        this.width,
+        this.height
+    );
+
+    // メソッドが終わる直前に、座標系を回転する前の状態に戻す
+    this.ctx.restore();
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3a3a8b3" class="outline-3">
+<h3 id="org3a3a8b3">ディスプレイのリフレッシュレートに合わせて指定関数を呼び出す requestAnimationFrame （setInterval や setTimeout の代わり）</h3>
+<div class="outline-text-3" id="text-org3a3a8b3">
+<div class="org-src-container">
+<pre class="src src-js">function render(){
+    ＜中略＞
+
+    // render関数自身が、render関数の呼び出しを
+    // requestAnimationFrameに登録して終わる形になっている
+    requestAnimationFrame(render);
+}
+</pre>
+</div>
+<p>
+ゲーム等のプログラムでは、無限ループ（メインループ）を記述してゲームオーバーや終了合図まで繰り返し描画処理（画面の更新）をし続ける必要がある。<br />
+この無限ループを記述するには、「setInterval(描画関数名, ミリ秒)」や「setTimeout(描画関数名, ミリ秒)」などを描画関数内に記述して描画関数を再帰的に繰り返し呼ぶ、といった方法もあるが、これではブラウザ自身の画面の更新のタイミングとは関係なく描画関数を呼び出すことになるので、ブラウザの画面更新とJavaScriptの実行が重なり効率が悪い。<br />
+requestAnimationFrame はディスプレイのリフレッシュレートに合わせて自動的に指定関数を呼び出してくれるため、描画関数内でこの仕組みを使って自分自身の処理を呼び出しループさせる（引数を描画関数自身にして描画関数中に記述することで描画関数を再帰的に呼び出す）ことで、画面の描画（リフレッシュレート）の度に自分で定義した描画関数を呼び出してくれ、結果的にリフレッシュレートに合わせて再帰的に繰り返し描画処理がなされることになる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8daee2" class="outline-3">
+<h3 id="orgd8daee2">ユーザーインタラクション</h3>
+<div class="outline-text-3" id="text-orgd8daee2">
+<p>
+ユーザーのインタラクティブな操作を受け取る仕組みには、addEventListener を利用する。<br />
+通常ゲームなどをJavaScriptで作成する場合には、ユーザーのイベントの検出には keydown と keyup を用いるのが良い。<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">イベント名</th>
+<th scope="col" class="org-left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">keydown</td>
+<td class="org-left">キーが押された</td>
+</tr>
+
+<tr>
+<td class="org-left">keypress</td>
+<td class="org-left">キーが押された</td>
+</tr>
+
+<tr>
+<td class="org-left">keyup</td>
+<td class="org-left">キーが離された</td>
+</tr>
+</tbody>
+</table>
+<p>
+イベントに関する処理は、対応するイベントの種類が増えてくると煩雑になりがちなため、イベントに関連した処理を一つにまとめて関数として記述する。<br />
+以下の eventSetting関数 の例のように、イベントの登録などを行うための関数を用意して、ゲームの初期化処理のタイミングで一度だけ呼び出すようにする。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * イベントを設定する
+ */
+function eventSetting(){
+    // キーの挿下時に呼び出されるイベントリスナーを設定する
+    // ブラウザウィンドウ全体でキーの入力を検出できるようにするために、window に対して addEventListener を設定する
+    window.addEventListener('keydown', (event) =&gt; {
+        // 入力されたキーに応じて処理内容を変化させる
+        switch(event.key){
+        case 'ArrowLeft': // 左矢印キー
+            viperX -= 10;
+            break;
+        case 'ArrowRight': // 右矢印キー
+            viperX += 10;
+            break;
+        case 'ArrowUp': // 上矢印キー
+            viperY -= 10;
+            break;
+        case 'ArrowDown' // 下矢印キー
+            ViperY += 10;
+            break;
+        }
+    }, false);
+}
+</pre>
+</div>
+<p>
+イベントが発生した時に呼ばれるコールバック関数部分には、引数として event という名前の変数を利用しているが、この引数 event にはキーボード操作に関する様々な情報を持った KeyboardEvent という名前のオブジェクトが渡されている。<br />
+KeyboardEvent オブジェクトの key プロパティを参照すると、イベントの発生のトリガーとなったキーの種類を、文字列で取得できる。<br />
+</p>
+<pre class="example">
+KeyboardEvent === 's' // sキー
+KeyboardEvent === 'Enter' // Enterキー
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8981744" class="outline-3">
+<h3 id="org8981744">シーン構成</h3>
+<div class="outline-text-3" id="text-org8981744">
+</div>
+<div id="outline-container-org86a629a" class="outline-4">
+<h4 id="org86a629a">シーン構成・導入編</h4>
+<div class="outline-text-4" id="text-org86a629a">
+<p>
+タイトルシーンやチュートリアルのシーン、ゲームオーバーのシーンなど、様々なシーンの状態を管理する必要がある。<br />
+ここでは「自機キャラクターが登場してくるシーン」を例にとって考えてみる。<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org9ac65e6"></a>新しい変数の宣言<br />
+<div class="outline-text-5" id="text-org9ac65e6">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * @type {boolean} - 自機が登場中かどうかを表す
+ */
+let isComing = false;
+/**
+ * @type {number} - 登場演出を開始した際のタイムスタンプ
+ */
+let comingStart = null;
+</pre>
+</div>
+<p>
+「自機キャラクターが現在登場中かどうか」を判定するための isComing には、真偽値の値を格納する。<br />
+また自機キャラクターの登場シーンが始まってからの経過時間を管理するために、変数 comingStart を用いてタイムスタンプとの差分を取れるようにする。<br />
+</p>
+</div>
+</li>
+<li><a id="org9bdc082"></a>initialize関数<br />
+<div class="outline-text-5" id="text-org9bdc082">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * canvas やコンテキストを初期化する
+ */
+function initialize(){
+    // canvas の大きさを設定
+    canvas.width = CANVAS_WIDTH;
+    canvas.height = CANVAS_HEIGHT;
+
+    // 自機キャラクターを初期化する
+    viper = new Viper(ctx, 0, 0, image);
+    // 登場シーンからスタートするための設定を行う
+    viper.setComing(
+        CANVAS_WIDTH / 2,   // 登場演出時の開始 X 座標
+        CANVAS_HEIGHT,      // 登場演出時の開始 Y 座標
+        CANVAS_WIDTH / 2,   // 登場演出を終了とする X 座標
+        CANVAS_HEIGHT - 100 // 登場演出を終了とする Y 座標
+    );
+}
+</pre>
+</div>
+<p>
+自機キャラクターが登場する所からゲームをスタートするため、変数 isComing には true を設定する。<br />
+isComing が true なら登場中とみなすことができ、false になっていたら登場シーンは終わっていると判断できる。<br />
+登場してからどれくらい経っているのかを後々利用することになるため、この時点のタイムスタンプを変数 comingStart に入れておく。<br />
+自機キャラクターは画面の外側から内側に向かって徐々に登場してくるようにするため、自機キャラクターのY座標の初期値はCanvas要素の高さと同じにする。<br />
+</p>
+</div>
+</li>
+<li><a id="org805a5dd"></a>render関数<br />
+<div class="outline-text-5" id="text-org805a5dd">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 描画処理を行う
+ */
+function render(){
+    // グローバルなアルファを必ず 1.0 で描画処理を開始する
+    ctx.globalAlpha = 1.0;
+    // 描画前に画面全体を不透明な明るいグレーで塗りつぶす
+    util.drawRect(0, 0, canvas.width, canvas.height, '#eeeeee');
+    // 現在までの経過時間を取得する（ミリ秒を秒に変換するため 1000 で除算）
+    let nowTime = (Date.now() - startTime) / 1000;
+
+    // 登場シーンの処理
+    if(isComing === true){
+        // 登場シーンが始まってからの経過時間
+        let justTime = Date.now();
+        let comingTime = (justTime - comingStart) / 1000;
+        // 登場中は時間が経つほど上に向かって進む
+        viperY = CANVAS_HEIGHT - comingTime * 50;
+        // 一定の位置まで移動したら登場シーンを終了する
+        if(viperY &lt;= CANVAS_HEIGHT - 100){
+            isComing = false;             // 登場シーンフラグを下ろす
+            viperY = CANVAS_HEIGHT - 100; // 行き過ぎの可能性もあるので位置を再設定
+        }
+        // justTime を 100 で割ったとき余りが 50 より小さくなる場合だけ半透明にする
+        if(justTime % 100 &lt; 50){
+            ctx.globalAlpha = 0.5;
+        }
+    }
+
+    // 画像を描画する（現在の viper の位置に準じた位置に描画する）
+    ctx.drawImage(image, viperX, viperY);
+
+    // 恒常ループのために描画処理を再帰呼出しする
+    requestAnimationFrame(render);
+}
+</pre>
+</div>
+<p>
+isComing が true の場合は登場シーンの最中であるとして、自機キャラクターを登場させる演出の処理を行う。<br />
+登場シーンは、登場時間からの経過時間を算出し、経過時間に応じて自機キャラクターを画面の下方から徐々に画面の上の方に向かって移動させるようにする。<br />
+自機キャラクターの位置が一定位置よりも上に移動したら、その時点で isComing を false にする。<br />
+つまり変数 isComing を見れば、いつでも「シーンが登場中であるかどうか」を判定できる。<br />
+また、時間の経過に応じてキャラクターを描画する際の不透明度を変化させ、点滅するような外見を実現している。<br />
+Dat.now() で得られたタイムスタンプを100で割った余りが50未満のときのみ、Canvasコンテキスト全体の不透明度を半分にしてから描画している。<br />
+Dat.now() で得られたタイムスタンプを100で割った余りは必ず0〜99になり、これが50未満になる確率は50%であるため、点滅しているように見せかけられる。<br />
+</p>
+</div>
+</li>
+<li><a id="orgecf284c"></a>eventSetting関数<br />
+<div class="outline-text-5" id="text-orgecf284c">
+<p>
+isComing が true に設定されていた場合は、キーの入力を無視するようにする。<br />
+自機キャラクターが一定の位置に達するまで、キーボードでの操作を制限する。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * イベントを設定する
+ */
+function eventSetting(){
+    // キーの押下時に呼び出されるイベントリスナーを設定する
+    window.addEventListener('keydown', (event) =&gt; {
+        // 登場シーンなら何もしないで終了する
+        if(isComing === true){return;}
+
+        ＜中略＞
+    })
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org8bbf350" class="outline-4">
+<h4 id="org8bbf350">シーン管理</h4>
+<div class="outline-text-4" id="text-org8bbf350">
+</div>
+<ul class="org-ul">
+<li><a id="org34054b5"></a>SceneManager クラス<br />
+<div class="outline-text-5" id="text-org34054b5">
+<p>
+シーンを管理するための新しいクラスを用意する。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * シーンを管理するためのクラス
+ */
+class SceneManager {
+    /**
+     * @constructor
+     */
+    constructor(){
+        /**
+         * シーンを格納するためのオブジェクト
+         * @type {object}
+         */
+        this.scene = {};
+        /**
+         * 現在アクティブなシーン
+         * @type {function}
+         */
+        this.activeScene = null;
+        /**
+         * 現在のシーンがアクティブになった時刻のタイムスタンプ
+         * @type {number}
+         */
+        this.startTime = null;
+        /**
+         * 現在のシーンがアクティブになってからのシーンの実行回数（カウンタ）
+         * @type {number}
+         */
+        this.frame = null;
+    }
+
+    /**
+     * シーンを追加する
+     * @param {string} name - シーンの名前
+     * @param {function} updateFunction - シーン中の処理
+     */
+    add(name, updateFunction){
+        this.scene[name] = updateFunction;
+    }
+
+    /**
+     * アクティブなシーンを設定する
+     * @param {string} name - アクティブにするシーンの名前
+     */
+    use(name){
+        // 指定されたシーンが存在するか確認する
+        if(this.scene.hasOwnProperty(name) !== true){
+            // 存在しなかった場合はなにもせず終了する
+            return;
+        }
+        // 名前をもとにアクティブなシーンを設定する
+        this.activeScene = this.scene[name];
+        // シーンをアクティブにした瞬間のタイムスタンプを設定する
+        this.startTime = Date.now();
+        // シーンをアクティブにしたのでカウンタをリセットする
+        this.frame = -1;
+    }
+
+    /**
+     * シーンを更新する
+     */
+    update(){
+        // シーンがアクティブになってからの経過時間（秒）
+        let activeTime = (Date.now() - this.startTime) / 1000;
+        // 経過時間を引数に与えて updateFunction を呼び出す
+        this.activeScene(activeTime);
+        // シーンを更新したのでカウンタをインクリメントする
+        ++this.frame;
+    }
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb863fd1"></a>sceneSetting 関数 （メインスクリプト中）<br />
+<div class="outline-text-5" id="text-orgb863fd1">
+<p>
+SceneManagerクラス（のインスタンス）にシーンの「名前」と「処理の内容」を（SceneManager のメソッドを使って）登録する関数。<br />
+以下単純な例。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * シーンを設定する
+ */
+function sceneSetting(){
+    // イントロシーン
+    scene.add('intro', (time) =&gt; {
+        // 2 秒経過したらシーンを invade に変更する
+        if(time &gt; 2.0){
+            scene.use('invade');
+        }
+    });
+    // invade シーン
+    scene.add('invade', (time) =&gt; {
+        // シーンのフレーム数が 0 のとき以外は即座に終了する
+        if(scene.frame !== 0){return;}
+        // ライフが 0 の状態の敵キャラクターが見つかったら配置する
+        for(let i = 0; i &lt; ENEMY_MAX_COUNT; ++i){
+            if(enemyArray[i].life &lt;= 0){
+                let e = enemyArray[i];
+                // 出現場所は X が画面中央、Y が画面上端の外側に設定する
+                e.set(CANVAS_WIDTH / 2, -e.height);
+                // 進行方向は真下に向かうように設定する
+                e.setVector(0.0, 1.0);
+                break;
+            }
+        }
+    });
+    // 一番最初のシーンには intro を設定する
+    scene.use('intro');
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org549668e" class="outline-2">
+<h2 id="org549668e">class構文</h2>
+<div class="outline-text-2" id="text-org549668e">
+</div>
+<div id="outline-container-org6345fa5" class="outline-3">
+<h3 id="org6345fa5">class構文の使い方</h3>
+<div class="outline-text-3" id="text-org6345fa5">
+<p>
+プロトタイプの記述をよりスマートにわかりやすくするために生まれた構文である。<br />
+クラスベース言語のクラスを生成するものではなく、コンストラクタ関数でインスタンスを生成できるオブジェクトを生成する。<br />
+（let myRobot = new Robot(); の Robot() ように新しいインスタンスを生成できる関数が「コンストラクタ関数」である。）<br />
+上記例の書き換えを下に示す。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">class Robot {
+    constructor(){
+        this.size = 100;
+        this.weight = 10;
+    }
+    walk(){
+        console.log('walking!');
+    }
+}
+
+let myRobot = new Robot();
+console.log(myRobot.size); // =&gt; 100
+myRobot.walk(); // =&gt; walking!
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3832387" class="outline-3">
+<h3 id="org3832387">クラスの利点</h3>
+<div class="outline-text-3" id="text-org3832387">
+<p>
+複数のオブジェクトに「共通する」ような機能は、「小さなクラスとして汎用化」しておくのが良い。<br />
+</p>
+
+<p>
+汎用的な役割を持つクラスを実装することで、<br />
+</p>
+<ul class="org-ul">
+<li>そのクラスに新しい機能を追加するだけで、そのクラスを使っているすべてのオブジェクトがその新機能をもれなく使える<br /></li>
+<li>表記方法を統一できる<br /></li>
+</ul>
+
+<p>
+変数で管理していた値や設定処理をクラスのプロパティやメソッドに置き換えるといった工夫が考えられる。<br />
+またキャラクター特有の処理はクラス側で管理するようにする（各オブジェクト自身が、自身の振る舞いの定義を持っている）と、プログラム全体の見通しが劇的に改善する。（これは利用するオブジェクトの種類が増えれば増えるほど、その恩恵が顕著になる。メインプログラムのロジックをシンプルに保てる。）<br />
+すなわち「各クラス特有の処理は、そのクラス自身で管理・処理する」。（自分自身が、自身の挙動について責任を持つ構造。）<br />
+まだプログラムが小規模なうちから、土台をしっかり作っておくこと。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74c9a90" class="outline-3">
+<h3 id="org74c9a90">class構文を構成する要素</h3>
+<div class="outline-text-3" id="text-org74c9a90">
+</div>
+<div id="outline-container-org715a430" class="outline-4">
+<h4 id="org715a430">constructor</h4>
+<div class="outline-text-4" id="text-org715a430">
 <p>
 コンストラクタ関数がnew演算子とともに呼び出され、新しいインスタンスを生成する際に必ず「自動的に」呼び出される。<br />
 そのためあえて Canvas2DUtility.constructor() のように名前付きで呼び出すことは原則しない。<br />
@@ -269,10 +1009,102 @@ constructor は、その呼び出しの際に引数を受け取ることがで�
 また、クラス内部で this を利用することで、そのインスタンス自身に紐づくプロパティを持つことができる。<br />
 </p>
 </div>
+<ul class="org-ul">
+<li><a id="orgd4887fa"></a>コンストラクタによる値の代入<br />
+<div class="outline-text-5" id="text-orgd4887fa">
+<p>
+なお、以下の2例は同じことを実現している。<br />
+</p>
 </div>
-<div id="outline-container-orgd8cb9f2" class="outline-3">
-<h3 id="orgd8cb9f2">property</h3>
-<div class="outline-text-3" id="text-orgd8cb9f2">
+<ul class="org-ul">
+<li><a id="org630a640"></a>例1<br />
+<div class="outline-text-6" id="text-org630a640">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 座標を管理するためのクラス
+ */
+class Position {
+    /**
+     * @constructor
+     * @param {number} x - X 座標
+     * @param {number} y - Y 座標
+     */
+    constructor(x, y){
+        /**
+         * X 座標
+         * @type {number}
+         */
+        this.x = x;
+        /**
+         * Y 座標
+         * @type {number}
+         */
+        this.y = y;
+    }
+
+    /**
+     * 値を設定する
+     * @param {number} [x] - 設定する X 座標
+     * @param {number} [y] - 設定する Y 座標
+     */
+    set(x, y){
+        if(x != null){this.x = x;}
+        if(y != null){this.y = y;}
+    }
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org7de13e4"></a>例2<br />
+<div class="outline-text-6" id="text-org7de13e4">
+<div class="org-src-container">
+<pre class="src src-js">/**
+ * 座標を管理するためのクラス
+ */
+class Position {
+    /**
+     * @constructor
+     * @param {number} x - X 座標
+     * @param {number} y - Y 座標
+     */
+    constructor(x, y){
+        /**
+         * X 座標
+         * @type {number}
+         */
+        this.x = null;
+        /**
+         * Y 座標
+         * @type {number}
+         */
+        this.y = null;
+
+        // setメソッドを使って値を設定
+        this.set(x, y);
+    }
+
+    /**
+     * 値を設定する
+     * @param {number} [x] - 設定する X 座標
+     * @param {number} [y] - 設定する Y 座標
+     */
+    set(x, y){
+        if(x != null){this.x = x;}
+        if(y != null){this.y = y;}
+    }
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-org6b84c73" class="outline-4">
+<h4 id="org6b84c73">property</h4>
+<div class="outline-text-4" id="text-org6b84c73">
 <p>
 オブジェクトが持つ「変数」であると言える。<br />
 クラス内での this は、そのインスタンス自身を指す特殊な変数である。<br />
@@ -280,9 +1112,9 @@ constructor の内部で「this.任意のプロパティ名 = 何かのデータ
 </p>
 </div>
 </div>
-<div id="outline-container-org2040c7d" class="outline-3">
-<h3 id="org2040c7d">getter</h3>
-<div class="outline-text-3" id="text-org2040c7d">
+<div id="outline-container-orgac936ca" class="outline-4">
+<h4 id="orgac936ca">getter</h4>
+<div class="outline-text-4" id="text-orgac936ca">
 <p>
 プロパティと役割は同じ。<br />
 ただ普通のプロパティと異なるのは、プロパティに「関数の実行とその戻り値を紐付ける」という点が異なる。<br />
@@ -297,9 +1129,9 @@ constructor の内部で「this.任意のプロパティ名 = 何かのデータ
 （プロパティ名が長い時に、よりシンプルな名前でプロパティにアクセスできるようになる。）<br /></li>
 </ul>
 </div>
-<div id="outline-container-org3a8c0fd" class="outline-4">
-<h4 id="org3a8c0fd">getter の使用例</h4>
-<div class="outline-text-4" id="text-org3a8c0fd">
+<ul class="org-ul">
+<li><a id="org16a3efa"></a>getter の使用例<br />
+<div class="outline-text-5" id="text-org16a3efa">
 <div class="org-src-container">
 <pre class="src src-js">class Canvas2DUtility {
     /**
@@ -344,11 +1176,12 @@ console.log(cvs2); // =&gt; HTMLCanvasElement
 </pre>
 </div>
 </div>
+</li>
+</ul>
 </div>
-</div>
-<div id="outline-container-org8af23c9" class="outline-3">
-<h3 id="org8af23c9">method</h3>
-<div class="outline-text-3" id="text-org8af23c9">
+<div id="outline-container-orgea2f7a6" class="outline-4">
+<h4 id="orgea2f7a6">method</h4>
+<div class="outline-text-4" id="text-orgea2f7a6">
 <p>
 オブジェクトが持つ「関数」であると言える。<br />
 class 構文では、メソッドを定義する場合も prototype を利用する必要はなく、メソッド名の記述だけでそのクラスの持つメソッドを定義できる。<br />
@@ -360,9 +1193,49 @@ class 構文では、メソッドを定義する場合も prototype を利用す
 </div>
 </div>
 
-<div id="outline-container-org5a96bb1" class="outline-2">
-<h2 id="org5a96bb1">プロトタイプベース言語の記述と振る舞い</h2>
-<div class="outline-text-2" id="text-org5a96bb1">
+<div id="outline-container-org6204373" class="outline-3">
+<h3 id="org6204373">継承 extendsとsuper</h3>
+<div class="outline-text-3" id="text-org6204373">
+<p>
+以下例では、extends というキーワードを利用して、MyClass という名前の独自のクラスに BaseClass というクラスのプロトタイプを継承させている。<br />
+そして super によって「継承元のプロトタイプのコンストラクタ関数」が呼び出されている。<br />
+extends と super によって、継承元のオブジェクトが持つプロトタイプのメソッドやプロパティをそのまま引き継げる。<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-js">class BaseClass {
+    constructor(a, b, c, d, e){
+        ...
+    }
+}
+
+class MyClass extends BaseClass {
+    // ここでは MyClass に必要な引数（継承元のコンストラクタに渡す引数 + 新たに定義するプロパティに渡す引数）を羅列
+    constructor(x, y, z, w, h){
+        // BaseClassクラスを継承しているので、まずは継承元となる
+        // そして「BaseClassクラス」の「コンストラクタ」を呼び出す（super が継承元のコンストラクタの呼び出しに相当）
+        // ことでこのクラスを初期化する
+        super(x, y, z, w, 0); // 継承元である BaseClass に合うように引数を渡す
+        // 初期化した後なら、継承元のプロパティを使いつつ新たにプロパティを定義することが可能
+        // そのため this よりも先に super を呼び出すこと
+        this.newProperty = h;
+    }
+}
+</pre>
+</div>
+<p>
+super は継承を行ったクラス（正しくは（プロトタイプの性質を持つ）オブジェクト、コンストラクタ関数）の初期化を行うのに必要であり、クラスを継承・定義するのに欠かせない操作である。<br />
+super による初期化をしなくても extends だけで継承元のプロパティやメソッドを使うことはできる。（ただし、その時も内部的には自動で定義されていて、その中で呼び出されている。）<br />
+だが、継承した後に super を使わずに新たに constructor を定義すると、継承元のメソッドが使えずにエラーを吐く。<br />
+これは、constructor（プロパティ） を変更したことで新たにコンストラクタ関数が定義されることとなり、継承元のコンストラクタ関数が使われず、この MyClass の構造が正しく機能しなくなったために生じる。（constructor は class で作成されたオブジェクト（コンストラクタ関数）の生成と初期化のために必要、という点を忘れずに。）<br />
+extends と super はセットで覚えること。（extends した場合は constructor 内で super を必ず呼び出すこと。）<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11a29da" class="outline-2">
+<h2 id="org11a29da">プロトタイプベース言語の記述と振る舞い</h2>
+<div class="outline-text-2" id="text-org11a29da">
 <div class="org-src-container">
 <pre class="src src-js">let Robot = function(){}; // 関数オブジェクトを最初に作る
 
@@ -385,41 +1258,16 @@ myRobot.walk(); // =&gt; walking!
 </pre>
 </div>
 <p>
-ビルトインオブジェクトの Date や、上述の Robot オブジェクトのように、新しいインスタンスを生成できる関数のことを「コンストラクタ関数」と呼ぶ<br />
+ビルトインオブジェクトの Date や、上述の Robot オブジェクトのように、新しいインスタンスを生成できる関数のことを「コンストラクタ関数」と呼ぶ。<br />
+（new 演算子をつけて呼び出すことを意図して書かれた関数、とも言える）<br />
 コンストラクタ関数を持つオブジェクトは、慣例としてその名前の最初の1文字を大文字のアルファベットで表記する。<br />
 </p>
 </div>
-<div id="outline-container-org3e1fb4c" class="outline-3">
-<h3 id="org3e1fb4c">class構文の使い方</h3>
-<div class="outline-text-3" id="text-org3e1fb4c">
-<p>
-プロトタイプの記述をよりスマートにわかりやすくするために生まれた構文である。<br />
-クラスベース言語のクラスを生成するものではなく、コンストラクタ関数でインスタンスを生成できるオブジェクトを生成する。<br />
-上記例の書き換えを下に示す。<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-js">class Robot {
-    constructor(){
-        this.size = 100;
-        this.weight = 10;
-    }
-    walk(){
-        console.log('walking!');
-    }
-}
-
-let myRobot = new Robot();
-console.log(myRobot.size); // =&gt; 100
-myRobot.walk(); // =&gt; walking!
-</pre>
-</div>
-</div>
-</div>
 </div>
 
-<div id="outline-container-org523c9c2" class="outline-2">
-<h2 id="org523c9c2">クラスベースとプロトタイプベース</h2>
-<div class="outline-text-2" id="text-org523c9c2">
+<div id="outline-container-org66c6fd6" class="outline-2">
+<h2 id="org66c6fd6">クラスベースとプロトタイプベース</h2>
+<div class="outline-text-2" id="text-org66c6fd6">
 <ul class="org-ul">
 <li>クラスベースの言語では、クラスが設計図であり、インスタンスはその実体である<br /></li>
 <li>プロトタイプベースの言語には、クラスとインスタンスという区別がそもそも存在しない<br /></li>
@@ -430,16 +1278,16 @@ myRobot.walk(); // =&gt; walking!
 </ul>
 
 <p>
-プロトタイプは注意点もあるが、どのようなタイミングでも自由に拡張ができる。<br />
+プロトタイプは、注意点もあるがどのようなタイミングでも自由に拡張ができる。<br />
 一方でクラスベース言語におけるクラスは常に静的で、インスタンスに後から動的にメソッド等を追加することはできない。<br />
 クラスベースの言語は常に一つの静的な設計図からインスタンスを生成するのに対し、プロトタイプベースの言語は柔軟にオブジェクトの持つプロトタイプを引き継ぎながらインスタンスを生成する。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc385181" class="outline-2">
-<h2 id="orgc385181">即時関数と無名関数</h2>
-<div class="outline-text-2" id="text-orgc385181">
+<div id="outline-container-org6a9cc19" class="outline-2">
+<h2 id="org6a9cc19">即時関数と無名関数</h2>
+<div class="outline-text-2" id="text-org6a9cc19">
 <ul class="org-ul">
 <li><p>
 即時関数<br />
