@@ -67,6 +67,9 @@ header h1 a {
     text-align: center;
     float: left;
 }
+#global_navi ul li:last-child {
+    margin-right: 0;
+}
 #global_navi ul li a {
     display: block;
     background-color: black;
@@ -117,12 +120,19 @@ header h1 a {
     margin: 30px 0 30px 0;
 }
 #main {
-    width: 710px;
+    width: 700px;
     float: left;
     color: black;
     background-color: rgba(223, 186, 138, 0.475);
     border-radius: 5px;
-    padding: 30px 0 10px 15px;
+    /* 
+     * ただ水平線を引いたりするだけなら両端のスペースを等しく空けた方がいいかもしれないが、
+     * 日本語を表示した際に、左側の間隔よりも右側の間隔の方が余分に大きく感じてしまうため、
+     * 右側の padding は 5px だけ小さくしている。
+     * （その分 #main の width は 5px 大きくできる。（サイドバーとの間隔を考慮して））
+     * #main + #mainの左右のpadding + #sidebar + #mainと#sidebarの間隔 = 980px
+     */
+    padding: 30px 10px 10px 15px; /* 上 右 下 左 */
 }
 #main article p {
     padding-top: 0;
@@ -142,10 +152,10 @@ header h1 a {
     font-style: italic;
     margin-bottom: 25px;
 }
-#github_blog {
+#main article p a {
     color: blue;
 }
-#github_blog:hover {
+#main article p a:hover {
     text-decoration: none;
     font-weight: bold;
 }
@@ -254,7 +264,7 @@ footer small {
 }
 #about_me h2 {
     float: right;
-    margin-right: 50px;
+    margin-right: 35px;
     margin-top: 180px;
 }
 #introduction {
@@ -281,7 +291,123 @@ footer small {
     text-decoration: none;
 }
 
-@media screen and (max-width : 767px) {
+#bbs_submit ul {
+    list-style: none;
+    padding: 0;
+}
+#bbs_submit ul li {
+    margin-bottom: 5px;
+}
+#bbs_submit ul li textarea{
+    resize: none;
+    /* width: 680px; */
+    width: 85%;
+    height: 100px;
+}
+#bbs_submit_send {
+    text-align: left;
+    margin: 0;
+}
+#bbs_submit_send input {
+    background: #f1ede4;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%, #b6af9f));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#b6af9f 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#b6af9f 100%);
+    border: 1px solid #808080;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 3px 5px 3px 5px;
+}
+#bbs_submit_send input:hover {
+    background: #94928d;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#94928d), color-stop(100%, #b6af9f));
+    background: -webkit-linear-gradient(top,  #94928d 0%,#b6af9f 100%);
+    background: linear-gradient(to bottom,  #94928d 0%,#b6af9f 100%);
+    border: 1px solid #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+.contentsOfBbs {
+    border-top: 1px solid black;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.contentsOfBbs p {
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+.contentsOfBbs_color {
+    color: #006600;
+}
+.contentsOfBbs_bold {
+    font-weight: bold;
+}
+.contentsOfBbs_adminLink {
+    text-decoration: none;
+}
+.contentsOfBbs_kannrininn {
+    color: #000080;
+}
+.contentsOfBbs_contents {
+    font-weight: bold;
+}
+.contentsOfBbs_date {
+    text-align: right;
+}
+.contentsOfBbs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.contentsOfBbs_deleteButton {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.contentsOfBbs_deleteButton input {
+    background: #f1ede4;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%, #b6af9f));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#b6af9f 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#b6af9f 100%);
+    border: 1px solid #808080;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 2px 5px 2px 5px;
+}
+.contentsOfBbs_deleteButton input:hover {
+    background: #94928d;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#94928d), color-stop(100%, #b6af9f));
+    background: -webkit-linear-gradient(top,  #94928d 0%,#b6af9f 100%);
+    background: linear-gradient(to bottom,  #94928d 0%,#b6af9f 100%);
+    border: 1px solid #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+/* 
+ * #bbs_page 単独指定では、
+ * style.css 上部で指定した「#main article p」への修飾が効いたままになる。
+ */
+#main article #bbs_page {
+    margin: 10px 0 0 0;
+    padding: 15px 0 5px 0;
+    border-top: 1px solid black;
+    overflow-wrap: break-word;
+}
+#bbs_page a {
+    color: #0039e6;
+}
+#bbs_page a:hover {
+    text-decoration: none;
+}
+
+#bbs_error_back a {
+    color: #0039e6;
+    font-weight: bold;
+}
+#bbs_error_back a:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width : 768px) {
     img {
         max-width: 100%;
     }
@@ -294,14 +420,24 @@ footer small {
     }
     #global_navi ul li {
         width: 50%;
-        padding: 0 0.5px 0.5px 0;
+        padding: 0;
         margin: 0;
         box-sizing: border-box;
+    }
+    #global_navi ul li:nth-child(even) {
+        padding-left: 1px;
+    }
+    #global_navi ul li:nth-child(odd) {
+        padding-right: 0.5px;
+    }
+    #global_navi ul li:nth-child(-n+4) {
+        margin-bottom: 1px;
     }
     #global_navi ul li a {
         margin: 0;
     }
     #global_navi ul li:last-child {
+        padding: 0;
         width: 100%;
     }
     #breadcrumb {
@@ -337,5 +473,14 @@ footer small {
     #about_me h2 {
         float: none;
         margin: 10% 0 0 0;
+    }
+    #bbs_submit ul li textarea{
+        width: 100%;
+    }
+    .contentsOfBbs_deleteButton {
+        padding-bottom: 5px;
+    }
+    #main article #bbs_page {
+        padding: 5% 0 0 0;
     }
 }
