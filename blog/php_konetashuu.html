@@ -38,7 +38,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -50,7 +50,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,26 +193,50 @@
 </style>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -240,26 +264,115 @@
 <body>
 <div id="content">
 <h1 class="title">PHP 小ネタ集</h1>
-<div id="outline-container-orgf5f9427" class="outline-2">
-<h2 id="orgf5f9427"></h2>
-<div class="outline-text-2" id="text-orgf5f9427">
+<div id="outline-container-org5ff8f0d" class="outline-2">
+<h2 id="org5ff8f0d"></h2>
+<div class="outline-text-2" id="text-org5ff8f0d">
 <hr />
 </div>
-<div id="outline-container-orgd591b6a" class="outline-3">
-<h3 id="orgd591b6a"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orgd591b6a">
+<div id="outline-container-orgf6fc556" class="outline-3">
+<h3 id="orgf6fc556"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-orgf6fc556">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd08d932" class="outline-2">
-<h2 id="orgd08d932">メールの送信</h2>
-<div class="outline-text-2" id="text-orgd08d932">
+<div id="outline-container-org5779f62" class="outline-2">
+<h2 id="org5779f62">セキュリティ</h2>
+<div class="outline-text-2" id="text-org5779f62">
+</div>
+<div id="outline-container-org65f2c17" class="outline-3">
+<h3 id="org65f2c17">セッション</h3>
+<div class="outline-text-3" id="text-org65f2c17">
+<p>
+<a href="https://teratail.com/questions/137653">セッション変数って漏洩するものなのでしょうか？</a><br />
+<a href="https://www.atmarkit.co.jp/ait/articles/0902/06/news137_3.html">セッション変数で気を付けるべき“セッションフィクセーション”</a><br />
+<a href="https://web.archive.org/web/20191219124229/http://crought.com/blog/%E3%80%90php%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%A9%9F%E8%83%BD%E3%80%91db%E3%82%92%E4%BD%BF%E3%82%8F%E3%81%9A%E5%9B%BA%E5%AE%9A%E6%96%87%E5%AD%97%E5%88%97%E3%81%A7%E5%8F%96%E3%82%8A%E6%95%A2-82/">【PHPで簡易ログイン機能】DBを使わず固定文字列で取り敢えずログイン機能の実装</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga9a4f8a" class="outline-3">
+<h3 id="orga9a4f8a">情報の埋め込み</h3>
+<div class="outline-text-3" id="text-orga9a4f8a">
+<p>
+<a href="https://teratail.com/questions/58910">PHPでDBに接続する時にパスワードを平文で書いて良いのか</a><br />
+<a href="https://qiita.com/nsktdeluxe/items/c50b680a4328e9e0bb45">セキュリティ面（PHPで簡易ログイン機能を実装する）</a><br />
+<a href="https://webukatu.com/wordpress/blog/23122/">【初心者向け】phpでパスワードをハッシュ化する方法</a><br />
+<a href="https://www.ipa.go.jp/security/awareness/vendor/programmingv1/a02_02_main.html">スクリプトに埋め込まれたDBパスワード</a><br />
+<a href="https://web.archive.org/web/20191219124229/http://crought.com/blog/%E3%80%90php%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%A9%9F%E8%83%BD%E3%80%91db%E3%82%92%E4%BD%BF%E3%82%8F%E3%81%9A%E5%9B%BA%E5%AE%9A%E6%96%87%E5%AD%97%E5%88%97%E3%81%A7%E5%8F%96%E3%82%8A%E6%95%A2-82/">【PHPで簡易ログイン機能】DBを使わず固定文字列で取り敢えずログイン機能の実装</a>（セッションにも同項目）<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org06436c1" class="outline-3">
+<h3 id="org06436c1">XSS</h3>
+<div class="outline-text-3" id="text-org06436c1">
+<p>
+<a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">クロスサイトスクリプティング</a><br />
+<a href="https://hacknote.jp/archives/44924/">htmlspecialchars関数でXSS対策をする</a><br />
+<a href="https://oku.edu.mie-u.ac.jp/~okumura/php/form.php">簡単なフォーム</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb4c2b60" class="outline-3">
+<h3 id="orgb4c2b60">CSRF</h3>
+<div class="outline-text-3" id="text-orgb4c2b60">
+<p>
+<a href="https://oku.edu.mie-u.ac.jp/~okumura/php/form.php">簡単なフォーム</a>（XSSにも同項目）<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf6fcfba" class="outline-2">
+<h2 id="orgf6fcfba">セッション</h2>
+<div class="outline-text-2" id="text-orgf6fcfba">
+<p>
+session<sub>start</sub> で開始・再開。<br />
+端末情報は セッションID（session<sub>id</sub>()） や セッション名（session<sub>name</sub>()） によって判別される。<br />
+$<sub>SESSION</sub>('Id') や $<sub>SESSION</sub>('Name') は単にセッションで登録された（自分自身で登録した）「セッション変数」であり、サーバーによって与えられる一意の値・識別子ではない。<br />
+</p>
+
+<p>
+要点<br />
+</p>
+<ul class="org-ul">
+<li>セッションは、サイトを訪れた <b>個々のユーザーのデータ</b> を <b>個別に管理する機能</b> を提供する<br /></li>
+<li>セッションデータは、 <b>セッションデータコンテナ</b> に格納される<br /></li>
+<li>セッションデータは、 <b>一意な識別子(ユニークなID)セッションIDによって管理</b> される<br /></li>
+<li>サーバー側の <b>セッションID</b> とブラウザ側のクッキーに格納された <b>PHPSESSID</b> が一意な同一のIDであり、 <b>ユーザーを関連付け識別する</b><br /></li>
+<li>セッションを利用するには、 <b>session<sub>start</sub>()</b> 関数と <b>セッション変数</b> の <b>$<sub>SESSION</sub></b> (スーパーグローバル変数の1つ)を使用する<br /></li>
+<li><b>$<sub>SESSION</sub></b> は <b>PHPの定義済み変数(=スーパーグローバル変数)</b> の1つ<br /></li>
+<li><b>$<sub>SESSION</sub></b> は <b>現在のセッションに登録されている値の変数</b><br /></li>
+<li><b>$<sub>SESSION</sub></b> は <b>連想配列</b> として使用する<br /></li>
+<li><b>$<sub>SESSION</sub></b> は、関数やメソッドの内部で使用する場合、 <b>global $<sub>SESSION</sub>; とする必要がない</b><br /></li>
+<li><b>session<sub>id</sub>()</b> 関数 セッションIDを確認できる<br /></li>
+<li><b>session<sub>name</sub>()</b> 関数 セッション名を確認できる<br /></li>
+<li><b>session<sub>regenerate</sub><sub>id</sub>()</b> 関数 セッションIDを再発行できる<br /></li>
+<li><b>session<sub>unset</sub>()</b> 関数 セッション変数を開放できる<br /></li>
+<li><b>session<sub>destroy</sub>()</b> 関数 全セッションデータを破棄できる<br /></li>
+<li>セッションは <b>ラウザを閉じた時点で終了</b> する<br /></li>
+<li><b>php.iniのsession.cookie<sub>lifetimeで有効期限を設定</sub></b> できる<br /></li>
+</ul>
+
+<p>
+参考になるサイト<br />
+<a href="https://wepicks.net/phpref-session/">PHP $<sub>SESSION</sub>(セッション変数)のすべて！【初心者向け基本】</a><br />
+<a href="http://html2php.starrypages.net/php/session">PHP初心者のためのセッション入門</a><br />
+<a href="https://teratail.com/questions/137653">セッション変数って漏洩するものなのでしょうか？</a><br />
+<a href="https://kanda-it-school-kensyu.com/php-basic-contents/pb_ch11/pb_1103/">第11章 クッキーとセッションを利用しよう</a><br />
+<a href="https://www.sejuku.net/blog/25276">【PHP入門】徹底解説！PHPでセッションを使う方法～基本から応用まで</a><br />
+<a href="https://www.atmarkit.co.jp/ait/articles/0902/06/news137_2.html">セッション変数、利用方法をお間違えなく</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc76dfac" class="outline-2">
+<h2 id="orgc76dfac">メールの送信</h2>
+<div class="outline-text-2" id="text-orgc76dfac">
 <p>
 mb<sub>send</sub><sub>mail</sub> 関数を使う<br />
 </p>
-<pre class="example" id="org98e148d">
+<pre class="example">
 // メールの使用言語を設定する
 mb_language("Japanese");
 // PHPの内部で使用する文字コードを設定する
@@ -281,17 +394,17 @@ if ($result) {
 </div>
 </div>
 
-<div id="outline-container-org89535de" class="outline-2">
-<h2 id="org89535de">エラー</h2>
-<div class="outline-text-2" id="text-org89535de">
+<div id="outline-container-org29fada7" class="outline-2">
+<h2 id="org29fada7">エラー</h2>
+<div class="outline-text-2" id="text-org29fada7">
 <p>
 深刻度順に<br />
 Notice &lt; Warning &lt; Parse error &lt; Fatal error<br />
 </p>
 </div>
-<div id="outline-container-org5aec917" class="outline-3">
-<h3 id="org5aec917">エラーを表示させる方法</h3>
-<div class="outline-text-3" id="text-org5aec917">
+<div id="outline-container-org1ec64c4" class="outline-3">
+<h3 id="org1ec64c4">エラーを表示させる方法</h3>
+<div class="outline-text-3" id="text-org1ec64c4">
 <p>
 ログファイルが Linux では /opt/lampp/logs/error<sub>log</sub> にある。<br />
 ローカルホストで開発中にエラーを表示したい場合はプログラム先頭に次のように書く。<br />
@@ -310,9 +423,9 @@ error_reporting(E_ALL);
 </div>
 </div>
 
-<div id="outline-container-org753eb0e" class="outline-2">
-<h2 id="org753eb0e">XAMPP について</h2>
-<div class="outline-text-2" id="text-org753eb0e">
+<div id="outline-container-org70ed52d" class="outline-2">
+<h2 id="org70ed52d">XAMPP について</h2>
+<div class="outline-text-2" id="text-org70ed52d">
 <p>
 X : Windows or Linux<br />
 A : Apache HTTP Server<br />
@@ -321,9 +434,9 @@ P : PHP<br />
 P : Perl<br />
 </p>
 </div>
-<div id="outline-container-org26473c7" class="outline-3">
-<h3 id="org26473c7">Apache HTTP Server, MySQL の起動</h3>
-<div class="outline-text-3" id="text-org26473c7">
+<div id="outline-container-org894eb86" class="outline-3">
+<h3 id="org894eb86">Apache HTTP Server, MySQL の起動</h3>
+<div class="outline-text-3" id="text-org894eb86">
 <ol class="org-ol">
 <li>管理者権限でXAMPPコントロールパネルのアイコン（右下のタスクバー等にある）をクリック<br />
 管理者権限で開かなければ、終了の際に <code>"Error:Cannot create file "C:\xampp\xampp-control.ini". Access denied.</code> のようなエラーメッセージが出る。<br /></li>
@@ -333,9 +446,9 @@ P : Perl<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org5defeaf" class="outline-3">
-<h3 id="org5defeaf">公開フォルダ（WWWサーバーのルートディレクトリ）</h3>
-<div class="outline-text-3" id="text-org5defeaf">
+<div id="outline-container-orge588f4a" class="outline-3">
+<h3 id="orge588f4a">公開フォルダ（WWWサーバーのルートディレクトリ）</h3>
+<div class="outline-text-3" id="text-orge588f4a">
 <p>
 XAMPPコントロールパネルの[Explorer]ボタンをクリックすると、XAMPPをインストールしたフォルダが表示される。<br />
 その中に [htdocs] というフォルダがある<br />
@@ -345,9 +458,9 @@ XAMPPコントロールパネルの[Explorer]ボタンをクリックすると�
 </p>
 </div>
 </div>
-<div id="outline-container-org694d5d9" class="outline-3">
-<h3 id="org694d5d9">PHPの日本語環境の設定</h3>
-<div class="outline-text-3" id="text-org694d5d9">
+<div id="outline-container-org57167a7" class="outline-3">
+<h3 id="org57167a7">PHPの日本語環境の設定</h3>
+<div class="outline-text-3" id="text-org57167a7">
 <p>
 「php.ini」を編集してphpの日本語環境を設定する。また文字コードも「UTF-8」に統一する。<br />
 php.iniの保存場所は「C:\xampp\php」。<br />
@@ -396,9 +509,9 @@ php.iniの保存場所は「C:\xampp\php」。<br />
 </table>
 </div>
 </div>
-<div id="outline-container-orgd3d594c" class="outline-3">
-<h3 id="orgd3d594c">MySQLへの接続</h3>
-<div class="outline-text-3" id="text-orgd3d594c">
+<div id="outline-container-orgf5cee12" class="outline-3">
+<h3 id="orgf5cee12">MySQLへの接続</h3>
+<div class="outline-text-3" id="text-orgf5cee12">
 <p>
 MySQL5.7以降では、rootユーザーでログインする⼿順が少し変わっている。これは、セキュリティに対してより厳しくなったことによる変更である。<br />
 rootユーザーには必ずパスワードを設定しなければいけない仕様になっており、MySQL8.0以降にrootユーザーでログインするためにはパスワードの初期設定が必要。<br />
@@ -432,9 +545,9 @@ mysql -u root -p
 </div>
 </div>
 
-<div id="outline-container-org2c1fb45" class="outline-3">
-<h3 id="org2c1fb45">Linuxへのインストール</h3>
-<div class="outline-text-3" id="text-org2c1fb45">
+<div id="outline-container-org52aecf4" class="outline-3">
+<h3 id="org52aecf4">Linuxへのインストール</h3>
+<div class="outline-text-3" id="text-org52aecf4">
 <ol class="org-ol">
 <li>XAMPP 公式サイトから .run ファイルをダウンロードする<br /></li>
 <li><p>
@@ -471,9 +584,9 @@ sudo /opt/lampp/lampp stop
 </ol>
 </div>
 
-<div id="outline-container-orgc49d853" class="outline-4">
-<h4 id="orgc49d853">Linux での設定ファイルの場所</h4>
-<div class="outline-text-4" id="text-orgc49d853">
+<div id="outline-container-org82f3b08" class="outline-4">
+<h4 id="org82f3b08">Linux での設定ファイルの場所</h4>
+<div class="outline-text-4" id="text-org82f3b08">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -503,9 +616,9 @@ sudo /opt/lampp/lampp stop
 </div>
 </div>
 
-<div id="outline-container-org5e7ba23" class="outline-4">
-<h4 id="org5e7ba23">Linux でのインタラクティブな実行</h4>
-<div class="outline-text-4" id="text-org5e7ba23">
+<div id="outline-container-org07e354c" class="outline-4">
+<h4 id="org07e354c">Linux でのインタラクティブな実行</h4>
+<div class="outline-text-4" id="text-org07e354c">
 <p>
 最初に PHP へのパス（/opt/lampp/bin）を登録する必要がある。<br />
 Windows 風のインタラクティブシェルは、Linux ではデフォルトではない。<br />
@@ -521,9 +634,9 @@ Linux では interactive shell ではなく interactive mode が起動する。<
 </div>
 </div>
 
-<div id="outline-container-orgd204552" class="outline-2">
-<h2 id="orgd204552">リモートホストとローカルホスト</h2>
-<div class="outline-text-2" id="text-orgd204552">
+<div id="outline-container-orgca0ac98" class="outline-2">
+<h2 id="orgca0ac98">リモートホストとローカルホスト</h2>
+<div class="outline-text-2" id="text-orgca0ac98">
 <ul class="org-ul">
 <li>リモートホスト<br />
 インターネット上のサーバーのこと。<br />
@@ -540,18 +653,18 @@ PHPでプログラムを書く時は、自分のパソコンにApache HTTP Serve
 </div>
 </div>
 
-<div id="outline-container-orgc382c95" class="outline-2">
-<h2 id="orgc382c95">Webアプリケーションとは</h2>
-<div class="outline-text-2" id="text-orgc382c95">
+<div id="outline-container-org3a16f1c" class="outline-2">
+<h2 id="org3a16f1c">Webアプリケーションとは</h2>
+<div class="outline-text-2" id="text-org3a16f1c">
 <p>
 インターネットを通じて利用できる、ある機能を持ったWebサイトのこと。<br />
 ブラウザで表示(閲覧)・操作する。<br />
 </p>
 </div>
-<div id="outline-container-org481f5f2" class="outline-3">
-<h3 id="org481f5f2">クライアントとサーバー</h3>
-<div class="outline-text-3" id="text-org481f5f2">
-<pre class="example" id="orga1de35e">
+<div id="outline-container-org9c472c3" class="outline-3">
+<h3 id="org9c472c3">クライアントとサーバー</h3>
+<div class="outline-text-3" id="text-org9c472c3">
+<pre class="example">
                                        リクエスト
                       http://blog.example.com のブログを見せてください
 クライアント   ------------------------------------------------------------&gt;  サーバー
@@ -569,15 +682,15 @@ URLの「http」はプロトコルで、通信手段を表す。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org3034597" class="outline-3">
-<h3 id="org3034597">IPアドレスと名前解決</h3>
-<div class="outline-text-3" id="text-org3034597">
+<div id="outline-container-org6864cfd" class="outline-3">
+<h3 id="org6864cfd">IPアドレスと名前解決</h3>
+<div class="outline-text-3" id="text-org6864cfd">
 <p>
 サーバーの住所は、実際のところIPアドレスという数字でできている。<br />
 URLをIPアドレスに変更するDNSというシステムが存在し、このシステムが動いているサーバーのことをDNSサーバーという。<br />
 世界中のドメイン(○.com、○.com.jpなど)をIPアドレスに対応づけるデータベースを持っている。<br />
 </p>
-<pre class="example" id="orga44d73d">
+<pre class="example">
 
                            名前解決
           http://blog.example.com のIPアドレスを教えて
@@ -595,14 +708,14 @@ URLをIPアドレスに変更するDNSというシステムが存在し、この
 </pre>
 </div>
 </div>
-<div id="outline-container-org81e32f2" class="outline-3">
-<h3 id="org81e32f2">サーバーの仕事と動作</h3>
-<div class="outline-text-3" id="text-org81e32f2">
+<div id="outline-container-orgf79403f" class="outline-3">
+<h3 id="orgf79403f">サーバーの仕事と動作</h3>
+<div class="outline-text-3" id="text-orgf79403f">
 <p>
 リクエストは、そのWebページを持つサーバー(通信や処理を行うコンピュータ, 受け取ったリクエストを解釈し返答であるレスポンスを返す,Server:給仕人)に到着する。<br />
 サーバーではさまざまな処理を経てHTMLをレスポンスとしてする。<br />
 </p>
-<pre class="example" id="org578f6f5">
+<pre class="example">
    リクエスト    -----------------------------------------------------------------
 ---------------&gt; |   Webサーバー       ----------------&gt;    プログラムファイル   |
 &lt;--------------- |                                                  |            |
@@ -627,9 +740,9 @@ PHP実行エンジン : 処理を行う機能
 Webサーバーはリクエストの内容から、どのファイルをレスポンスとして送り返せば良いか解釈する。<br />
 </p>
 </div>
-<div id="outline-container-orgedbc60b" class="outline-4">
-<h4 id="orgedbc60b">リクエストの判別</h4>
-<div class="outline-text-4" id="text-orgedbc60b">
+<div id="outline-container-orgf327b8e" class="outline-4">
+<h4 id="orgf327b8e">リクエストの判別</h4>
+<div class="outline-text-4" id="text-orgf327b8e">
 <p>
 URLが「～.html」で終わっているファイル (HTMLファイル) がリクエストされた時には、数あるファイルの中から該当するHTMLファイルを取り出してレスポンスとする。<br />
 レスポンスにはHTMLや画像を送ることになっているので、見つけたHTMLファイルをそのままクライアントに送る。<br />
@@ -642,9 +755,9 @@ PHP実行エンジンは、ファイルの内容を解釈して処理を行い�
 </div>
 </div>
 </div>
-<div id="outline-container-orgd5bee26" class="outline-3">
-<h3 id="orgd5bee26">クライアント(ブラウザ)の仕事</h3>
-<div class="outline-text-3" id="text-orgd5bee26">
+<div id="outline-container-orgdcc1e97" class="outline-3">
+<h3 id="orgdcc1e97">クライアント(ブラウザ)の仕事</h3>
+<div class="outline-text-3" id="text-orgdcc1e97">
 <p>
 ブラウザは、リクエストを送ったりレスポンスを受け取ったりするだけでなく、レスポンスとして受け取ったHTMLを解釈し、Webページとして表示を行う機能を持つ。<br />
 この世にたくさんのブラウザが存在するが、HTMLの解釈に違いがあったり、ブラウザごとに独自の機能があったりする。<br />

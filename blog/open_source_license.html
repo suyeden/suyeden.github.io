@@ -242,42 +242,82 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">オープンソースライセンス</h1>
-<div id="outline-container-org814a50b" class="outline-2">
-<h2 id="org814a50b"></h2>
-<div class="outline-text-2" id="text-org814a50b">
+<div id="outline-container-org10b7f2d" class="outline-2">
+<h2 id="org10b7f2d"></h2>
+<div class="outline-text-2" id="text-org10b7f2d">
 <hr />
 </div>
-<div id="outline-container-org95190ab" class="outline-3">
-<h3 id="org95190ab"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-org95190ab">
+<div id="outline-container-org8e5683f" class="outline-3">
+<h3 id="org8e5683f"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org8e5683f">
 <hr />
 </div>
 </div>
 </div>
 
-<div id="outline-container-org182b001" class="outline-2">
-<h2 id="org182b001">オープンソースを使用する際の注意点</h2>
-<div class="outline-text-2" id="text-org182b001">
+<div id="outline-container-org70693cc" class="outline-2">
+<h2 id="org70693cc">ライセンスをつけなかった時</h2>
+<div class="outline-text-2" id="text-org70693cc">
+<p>
+No license （Unlicense ではない） となる。<br />
+GitHub上でソースコードを公開するとき、明示的にライセンスが設定されていないのであれば、それは依然として「ライセンスなし」の状態のまま。<br />
+パブリックリポジトリに公開されたプログラムは、他のGitHubユーザーが閲覧・フォークすることができるようになっているが、権利のみが他ユーザーに付与され、「GitHub上以外での複製」や「改変」に関する許可は行われない。<br />
+つまりライセンスのないリポジトリをフォークすることはできても、そのリポジトリをgit cloneコマンドなどで自分のマシンにダウンロードしたり、修正を加えてプルリクエストを送ったりすることは(GitHubの利用規約上では)一切許可されていない。<br />
+これでは、GitHub上にプログラムが公開されていたとしても、ただソースコードが読めるというだけでソフトウェアに組み込んだりすることもできず、実質的にはほとんど何にも利用できない。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70a808d" class="outline-2">
+<h2 id="org70a808d">緩いライセンス</h2>
+<div class="outline-text-2" id="text-org70a808d">
+</div>
+<div id="outline-container-orgc81ac52" class="outline-3">
+<h3 id="orgc81ac52">パブリックドメインソフトウェア</h3>
+<div class="outline-text-3" id="text-orgc81ac52">
+<p>
+著作権を放棄した状態（パブリックドメイン）で配布されるソフトウェアのこと。<br />
+</p>
+</div>
+<div id="outline-container-org6f69466" class="outline-4">
+<h4 id="org6f69466">パブリックドメインとすることを表明するソフトウェアライセンス</h4>
+<div class="outline-text-4" id="text-org6f69466">
 <ul class="org-ul">
-<li>オープンソース＝無償ではない<br /></li>
-<li>派生物もオープンソースになる<br />
-OSSにおける派生物とは、改良・再配布された二次的著作物を指します。<br />
-基本的に、OSSを使用すると派生物も元の書作物と同じ条件で配布しなければならない、という義務を負います。<br />
-特に、GPLのOSSを使用した場合はソースコードをすべて開示しなければなりません。<br />
-そのため、コピーレフト型のOSSを使用する際は影響を検討したうえで、適用する範囲を調整するなどの対応が必要になります。<br /></li>
-<li>異なるライセンス間での互換性<br />
-複数のOSSを組み合わる場合には、ライセンス間の互換性について注意しなければなりません。<br />
-例えば、先述したOLD BSD LicenseとGPLv2です。OLD BSD Licenseには、宣伝媒体に所定の謝辞を記載する条件があります。<br />
-この条件が、GPLv2にある「GPLv2以上の条件を求めてはいけない」に反することになるため、この2つのライセンスは、共存できません。<br />
-このような状態を「両立性がない」といいます。<br />
-そのため、通常はコピーレフト型同士、あるいは非コピーレフト型同士のように、同じライセンスが適用されるOSSを使用します。<br /></li>
+<li>CC0（Creative Commons 0 ）<br /></li>
+<li>Unlicense<br /></li>
+<li>WTFPL<br /></li>
+<li>NYSL<br /></li>
+</ul>
+<p>
+パブリックドメインソフトウェアではなく、あくまで著作権を放棄しない状態で配布する場合は、作者が策定した独自のライセンスを宣言したり、GPLやBSDライセンスといった、広く知られているフリーソフトウェアライセンス・オープンソースライセンスなどに分類されるソフトウェアライセンスを利用することが多い。<br />
+</p>
+<ul class="org-ul">
+<li>参照サイト<br />
+<a href="https://blog.natade.net/2013/07/21/license-cc0-wtfpl-nysl/">プログラマにとって緩いライセンスの紹介（CC0, WTFPL, NYSL etc）</a><br />
+<a href="https://www.g200kg.com/archives/2019/01/-github-unlicen.html">サンプルコードは GitHub で Unlicense でどうかな?</a><br /></li>
 </ul>
 </div>
 </div>
+</div>
+<div id="outline-container-org59d0460" class="outline-3">
+<h3 id="org59d0460">CC0（Creative Commons 0 ）</h3>
+<div class="outline-text-3" id="text-org59d0460">
+<p>
+作者の著作権を含む極力多くの権利を手放し、パブリックドメインへの供与を宣言する法的ツールである。<br />
+フリーソフトウェア財団は、ソフトウェアをパブリックドメインにする際には、Unlicenseの代わりにCC0を使うことを推奨とし、CC0のほうが「より綿密で精錬されている」としている。<br />
+Fedora ProjectもCC0の使用を推奨し、「CC0の文書のほうがより包括的である」としている。<br />
+</p>
+</div>
+</div>
+</div>
 
-<div id="outline-container-orgd70d4ec" class="outline-2">
-<h2 id="orgd70d4ec">オープンソースライセンスの3つの分類</h2>
-<div class="outline-text-2" id="text-orgd70d4ec">
+<div id="outline-container-orgaa4f531" class="outline-2">
+<h2 id="orgaa4f531">オープンソースライセンスの3つの分類</h2>
+<div class="outline-text-2" id="text-orgaa4f531">
+<p>
+分かりやすいまとめサイト：<a href="https://www.sbbit.jp/article/cont1/34811">オープンソースソフトウェア（OSS）ライセンスの比較・まとめ、GPLやMITは何が違うのか</a><br />
+</p>
+
 <ul class="org-ul">
 <li><p>
 コピーレフト型<br />
@@ -514,11 +554,47 @@ BSD License（2-Clause）と利用条件は類似していますが、MIT Licens
 </tbody>
 </table>
 </div>
+
+<div id="outline-container-orgdf025bf" class="outline-3">
+<h3 id="orgdf025bf">初心者向けライセンス紹介</h3>
+<div class="outline-text-3" id="text-orgdf025bf">
+<ul class="org-ul">
+<li>I want simple and permissive.（シンプルで寛容な条件がいい）→ MIT Liense<br /></li>
+<li>I'm concerned about patents.（特許について心配している）→ Apache License<br /></li>
+<li>I care about sharing improvements.（改善を共有することを大切にしたい）→GPL<br /></li>
+</ul>
+<p>
+利用者に条件をあまり課したくない人にはMIT License。<br />
+特許について心配しているならApache License。<br />
+改善を共有したい、すなわちコピーレフトの思想を持つならGPL。<br />
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-org2bafecb" class="outline-2">
-<h2 id="org2bafecb">ライセンス関連用語</h2>
-<div class="outline-text-2" id="text-org2bafecb">
+<div id="outline-container-org9edfed2" class="outline-2">
+<h2 id="org9edfed2">オープンソースを使用する際の注意点</h2>
+<div class="outline-text-2" id="text-org9edfed2">
+<ul class="org-ul">
+<li>オープンソース＝無償ではない<br /></li>
+<li>派生物もオープンソースになる<br />
+OSSにおける派生物とは、改良・再配布された二次的著作物を指します。<br />
+基本的に、OSSを使用すると派生物も元の書作物と同じ条件で配布しなければならない、という義務を負います。<br />
+特に、GPLのOSSを使用した場合はソースコードをすべて開示しなければなりません。<br />
+そのため、コピーレフト型のOSSを使用する際は影響を検討したうえで、適用する範囲を調整するなどの対応が必要になります。<br /></li>
+<li>異なるライセンス間での互換性<br />
+複数のOSSを組み合わる場合には、ライセンス間の互換性について注意しなければなりません。<br />
+例えば、先述したOLD BSD LicenseとGPLv2です。OLD BSD Licenseには、宣伝媒体に所定の謝辞を記載する条件があります。<br />
+この条件が、GPLv2にある「GPLv2以上の条件を求めてはいけない」に反することになるため、この2つのライセンスは、共存できません。<br />
+このような状態を「両立性がない」といいます。<br />
+そのため、通常はコピーレフト型同士、あるいは非コピーレフト型同士のように、同じライセンスが適用されるOSSを使用します。<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0cc004c" class="outline-2">
+<h2 id="org0cc004c">ライセンス関連用語</h2>
+<div class="outline-text-2" id="text-org0cc004c">
 <ul class="org-ul">
 <li>オープンソース・ソフトウェア（Open Source Software, OSS）<br />
 ソースコードが無償で公開されており、誰でも複製・配布・改良できるソフトウェアのこと。<br /></li>

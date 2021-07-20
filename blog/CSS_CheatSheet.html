@@ -242,19 +242,22 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">CSSチートシート</h1>
-<div id="outline-container-org8782370" class="outline-2">
-<h2 id="org8782370"></h2>
-<div class="outline-text-2" id="text-org8782370">
+<div id="outline-container-org70827cd" class="outline-2">
+<h2 id="org70827cd"></h2>
+<div class="outline-text-2" id="text-org70827cd">
 <hr />
 </div>
-<div id="outline-container-orga8f1413" class="outline-3">
-<h3 id="orga8f1413"><a href="index.html">home</a></h3>
-<div class="outline-text-3" id="text-orga8f1413">
+<div id="outline-container-org718213a" class="outline-3">
+<h3 id="org718213a"><a href="index.html">home</a></h3>
+<div class="outline-text-3" id="text-org718213a">
 <hr />
+</div>
+</div>
+</div>
 
-<p>
-記述場所<br />
-</p>
+<div id="outline-container-org4408836" class="outline-2">
+<h2 id="org4408836">記述場所</h2>
+<div class="outline-text-2" id="text-org4408836">
 <pre class="example">
 ・インライン
   &lt;p style="font-size:20px;"&gt;
@@ -267,10 +270,12 @@ for the JavaScript code in this tag.
 ・リンク
   &lt;link rel="stylesheet" href="style.css"&gt;
 </pre>
+</div>
+</div>
 
-<p>
-基本形<br />
-</p>
+<div id="outline-container-orga5ba59c" class="outline-2">
+<h2 id="orga5ba59c">基本形</h2>
+<div class="outline-text-2" id="text-orga5ba59c">
 <pre class="example">
 要素 { プロパティ: 値; }
 
@@ -299,19 +304,23 @@ for the JavaScript code in this tag.
 要素::before { プロパティ: 値; }
 要素::after { プロパティ: 値; }
 </pre>
+</div>
+</div>
 
-<p>
-文字のサイズ指定 (相対単位)<br />
-</p>
+<div id="outline-container-orgbfe61c5" class="outline-2">
+<h2 id="orgbfe61c5">文字のサイズ指定 (相対単位)</h2>
+<div class="outline-text-2" id="text-orgbfe61c5">
 <pre class="example">
 px : ブラウザ標準は 16px
 %  : 親要素のサイズに対する%
 em : 1文字文の倍数
 </pre>
+</div>
+</div>
 
-<p>
-プロパティ一覧<br />
-</p>
+<div id="outline-container-org8934bf5" class="outline-2">
+<h2 id="org8934bf5">プロパティ一覧</h2>
+<div class="outline-text-2" id="text-org8934bf5">
 <pre class="example">
 background-clip: 範囲の値
   背景の適応範囲を指定する
@@ -524,7 +533,12 @@ vertical-align: 基準
 width: 幅
   要素の幅を指定する
 </pre>
+</div>
+</div>
 
+<div id="outline-container-org6450f49" class="outline-2">
+<h2 id="org6450f49">CSS テンプレート</h2>
+<div class="outline-text-2" id="text-org6450f49">
 <p>
 sample.css<br />
 </p>
@@ -544,6 +558,110 @@ h2 { color: #ff0000; }
 */
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org27a9852" class="outline-2">
+<h2 id="org27a9852">何番目系擬似クラス一覧</h2>
+<div class="outline-text-2" id="text-org27a9852">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">種類</th>
+<th scope="col" class="org-left">擬似クラス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">最初だけ</td>
+<td class="org-left">:first-child</td>
+</tr>
+
+<tr>
+<td class="org-left">最後だけ</td>
+<td class="org-left">:last-child</td>
+</tr>
+
+<tr>
+<td class="org-left">奇数</td>
+<td class="org-left">:nth-child(odd)</td>
+</tr>
+
+<tr>
+<td class="org-left">偶数</td>
+<td class="org-left">:nth-child(even)</td>
+</tr>
+
+<tr>
+<td class="org-left">3の倍数</td>
+<td class="org-left">:nth-child(3n)</td>
+</tr>
+
+<tr>
+<td class="org-left">3の倍数+1</td>
+<td class="org-left">:nth-child(3n+1)</td>
+</tr>
+
+<tr>
+<td class="org-left">上から2番目だけ</td>
+<td class="org-left">:nth-child(2)</td>
+</tr>
+
+<tr>
+<td class="org-left">下から3番目だけ</td>
+<td class="org-left">:nth-last-child(3)</td>
+</tr>
+
+<tr>
+<td class="org-left">上から5番目まで全部</td>
+<td class="org-left">:nth-child(-n+5)</td>
+</tr>
+
+<tr>
+<td class="org-left">上から6番目以降全部</td>
+<td class="org-left">:nth-child(n+6)</td>
+</tr>
+
+<tr>
+<td class="org-left">下から5番目まで全部</td>
+<td class="org-left">:nth-last-child(-n+5)</td>
+</tr>
+
+<tr>
+<td class="org-left">下から6番目以降全部</td>
+<td class="org-left">:nth-last-child(n+6)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgcff5d38" class="outline-2">
+<h2 id="orgcff5d38">文字列の折り返し</h2>
+<div class="outline-text-2" id="text-orgcff5d38">
+<div class="org-src-container">
+<pre class="src src-css">overflow-wrap: break-word;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org421aca3" class="outline-2">
+<h2 id="org421aca3">要素を非表示/表示にする</h2>
+<div class="outline-text-2" id="text-org421aca3">
+<div class="org-src-container">
+<pre class="src src-css">/* 要素の非表示 */
+display:none;
+/* 要素の表示（非表示の解除） */
+display:block;
+</pre>
 </div>
 </div>
 </div>

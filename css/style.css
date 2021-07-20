@@ -67,9 +67,6 @@ header h1 a {
     text-align: center;
     float: left;
 }
-#global_navi ul li:last-child {
-    margin-right: 0;
-}
 #global_navi ul li a {
     display: block;
     background-color: black;
