@@ -60,11 +60,12 @@
     let screenBlacked = false;
     let recordTimeAfterWait = false;
     let frameCounter = null;
-    let moveFreq = null;
     let blinkFreq = null;
 
     let babelObjArr = [];
     let babelCreated = 0;
+
+    let requestId = 0; 
 
     /**
      * ページのロードが完了した時に発火する load イベント
@@ -102,8 +103,6 @@
 
         frameCounter = 100;
 
-        moveFreq = 30;
-
         blinkFreq = 330;
 
         if (canvas.width < canvas.height) {
@@ -119,7 +118,7 @@
         omuriceManNega.set(squareSizeBasic / 2, squareSizeBasic / 2, 0.975);
 
         omuriceManNormal = new OmuriceMan(ctx, './image/omurice.png');
-        omuriceManNormal.set(squareSizeBasic / 2, squareSizeBasic / 2, 1)
+        omuriceManNormal.set(squareSizeBasic / 2, squareSizeBasic / 2, 1);
 
         squareBig = new Square(ctx, util);
         squareBig.set(squareSizeBasic / 1.2, squareSizeBasic / 1.2, 1.1, 3, '#b30000', '#b0c4de', 1.7, 0.98);
@@ -145,19 +144,19 @@
         promptMessage8.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'start', '#ffffff', 2, 10);
 
         outputPass = new PromptStringHalf(ctx, util, 'pass: ', 'pass:', 100);
-        outputPass.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'start', '#ffffff', 30, 0)
+        outputPass.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'start', '#ffffff', 30, 0);
 
         promptMessage9 = new PromptString(ctx, util, ' Go to, let us go down, and there confound');
-        promptMessage9.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now())
+        promptMessage9.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now());
         promptMessage10 = new PromptString(ctx, util, 'their language, that they may not understand');
-        promptMessage10.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now())
-        promptMessage11 = new PromptString(ctx, util, "one another's speech." + ' '.repeat(23))
-        promptMessage11.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now())
+        promptMessage10.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now());
+        promptMessage11 = new PromptString(ctx, util, "one another's speech." + ' '.repeat(23));
+        promptMessage11.set('consolas', (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6, 'center', '#ffffff', 2, Date.now());
 
-        let fontWidth = (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6
+        let fontWidth = (squareBig.heightFinal - squareSmall.heightFinal) / 2 / 6;
         let lineHeight = fontWidth * 1.15; // 最低でも fontWidth * 1.0
         for (let i = 0; i < Math.floor(canvas.height / lineHeight) + 1; i++) {
-            babelObjArr[i] = new Babel(ctx, canvas, fontWidth, canvas.height - lineHeight * i, moveFreq)
+            babelObjArr[i] = new Babel(ctx, canvas, fontWidth, canvas.height - lineHeight * i);
         }
     }
 
@@ -188,6 +187,9 @@
      * 描画処理
      */
     function render(){
+        // 恒常ループのために描画処理を再帰呼び出しする
+        requestId = window.requestAnimationFrame(render);
+
         // グローバルなアルファ値を 1.0 にして描画処理を開始する
         ctx.globalAlpha = 1.0;
         // 描画前に画面全体を黒で塗りつぶす
@@ -320,7 +322,7 @@
                 }
             } else {
                 if (screenBlacked == false) {
-                    justTime = Date.now()
+                    justTime = Date.now();
                     screenBlacked = true;
                 } else {
                     if (Date.now() - justTime > 1000) {
@@ -348,7 +350,7 @@
                         }
                         if (frameCounter < 0) {
                             phaseTwoEnd = true;
-                            nowTime == Date.now();
+                            nowTime = Date.now();
                             frameCounter = 0;
                         }
                     }
@@ -364,20 +366,19 @@
             ctx.fillText('Welcome', canvas.width / 2, canvas.height / 2 + ((squareBig.heightFinal - squareSmall.heightFinal) / 2) * (1 / 2) - (squareSmall.heightFinal / 2) - ((squareBig.heightFinal - squareSmall.heightFinal) / 2) / 2);
             window.location.href = 'https://suyeden.github.io/';
         } else if (phaseTwoEnd == true && pass !== correctPass) {
-            if ((Date.now() - nowTime) / 1000 > 6.5) {
-                if (frameCounter % moveFreq == 0) {
+            window.cancelAnimationFrame(requestId);
+            util.drawRect(0, 0, canvas.width, canvas.height, '#000000');
+            window.setTimeout(() => {
+                window.setInterval(() => {
+                    util.drawRect(0, 0, canvas.width, canvas.height, '#000000');
                     if (babelCreated < babelObjArr.length) {
                         babelCreated++;
                     }
-                }
-                for (let i = 0; i < babelCreated; i++) {
-                    babelObjArr[i].update();
-                }
-                frameCounter++;
-            }
+                    for (let i = 0; i < babelCreated; i++) {
+                        babelObjArr[i].update();
+                    }
+                }, 500);
+            }, 3000);
         }
-        
-        // 恒常ループのために描画処理を再帰呼び出しする
-        requestAnimationFrame(render);
     }
 })();

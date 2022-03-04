@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>picdown.el | Suyeden's Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../webclip.png"/>
+  </head>
+
+  <body>
+
+    <!-- ヘッダー -->
+    <header>
+      <!-- # タイトル # -->
+      <h1><a href="../../../">Suyeden's Website</a></h1>
+      <!-- # グローバルナビゲーション # -->
+      <nav id="global_navi">
+        <ul>
+          <li><a href="../../../">HOME</a></li>
+          <li class="current"><a href="../../">Softwares</a></li>
+          <li><a href="../../../about/">About</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="http://suyeden.php.xdomain.jp/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- /ヘッダー -->
+
+    <!-- wrapper -->
+    <div id="wrapper">
+      <!-- # パンくずリスト # -->
+      <div id="breadcrumb">
+        <ol>
+          <li><a href="../../../">HOME</a></li>
+          <li><a href="../../">Softwares</a></li>
+          <li><a href="../">ツール系</a></li>
+          <li>picdown.el</li>
+        </ol>
+      </div>
+      <!-- メイン -->
+      <div id="main">
+        <h1 class="head_title">picdown.el</h1>
+        <article id="softwares_article">
+          <p>Picture Downloader</p>
+          <p>Webサイト上の画像ファイルを自動収集するための Emacs Lisp スクリプトです。Windows上での使用を想定しています。</p>
+          <p>Google Chrome には、ヘッドレスモードと呼ばれる、GUI を立ち上げることなくブラウザを実行できるモードが搭載されており、これを使って Web ページの取得を行っています。<br>また Windows 10 には、curl.exe というコマンドがデフォルトでついており、これを使って画像ファイルのダウンロードを行っています。curl でも Web ページの取得はできるのですが、Headless-Chrome の方が画像ファイルの回収結果が良好だったため、Web ページの取得には Chrome を用いています。<br>したがって本スクリプトを使用するには、Emacs と Google Chrome のインストールが必要となります。</p>
+          <p><a target="_blank" href="https://github.com/suyeden/picdown">ソースコードの閲覧およびスクリプトのダウンロードはこちらから</a></p>
+          <p>導入方法や使用方法については上記リンク先にて詳しく記述していますので、そちらを参考にして下さい。</p>
+          <p>本スクリプトの実行中、Web ページを取得するためにヘッドレスモードで Chrome を起動する際に、真っ黒のウィンドウが画面に一瞬映ります。これはどうも仕様でこうなっているみたいで、設定だけではどうしようもできなかったので、この問題の解消はこれからの課題にしていきたいと思います。</p>
+          <p>またおそらく JavaScript によるファイルの動的読み込みに起因して、Twitter や Google の画像検索の結果などのようなページでは画像のダウンロードができません。これもそのうち解決できるようにしたいと思います。</p>
+          <p>ダウンロード操作の際に、相手のサイトに集中して大量のアクセスを送ってしまうと、サーバーに負荷をかけて多くに人に迷惑をかけることになるため、本スクリプトではマナー対策としてダウンロードの間隔を5秒開けるように設定しています。</p>
+          <h3>注意事項</h3>
+          <p>画像をダウンロードする際には、著作権法をしっかりと守り、常識の範囲内で、また個人の責任のもとで行ってください。</p>
+        </article>
+      </div>
+      <!-- /メイン -->
+      <!-- サイド -->
+      <aside id="sidebar">
+        <section id="side_banner">
+          <h2>関連リンク</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/suyeden" target="_blank"><img
+                                                                       src="../../../images/GitHub-Mark/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png"
+                                                                       alt="すえーでんのGitHub"></a>
+            </li>
+          </ul>
+        </section>
+        <section id="side_contact">
+          <h2>お問い合わせ</h2>
+          <p><a href="http://suyeden.php.xdomain.jp/contact/">掲示板ページ</a></p>
+        </section>
+      </aside>
+      <!-- /サイド -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- フッター -->
+    <footer>
+      <div id="footer_navi">
+        <ul>
+          <li><a href="../../../">HOME</a></li>
+          <li><a href="../../">Softwares</a></li>
+          <li><a href="../../../about/">About</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="http://suyeden.php.xdomain.jp/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <small>&copy; 2021 suyeden.</small>
+    </footer>
+    <!-- /フッター -->
+  </body>
+
+</html>

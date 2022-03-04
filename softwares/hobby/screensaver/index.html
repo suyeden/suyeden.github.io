@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>screensaver | Suyeden's Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../webclip.png"/>
+  </head>
+
+  <body>
+
+    <!-- ヘッダー -->
+    <header>
+      <!-- # タイトル # -->
+      <h1><a href="../../../">Suyeden's Website</a></h1>
+      <!-- # グローバルナビゲーション # -->
+      <nav id="global_navi">
+        <ul>
+          <li><a href="../../../">HOME</a></li>
+          <li class="current"><a href="../../">Softwares</a></li>
+          <li><a href="../../../about/">About</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="http://suyeden.php.xdomain.jp/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- /ヘッダー -->
+
+    <!-- wrapper -->
+    <div id="wrapper">
+      <!-- # パンくずリスト # -->
+      <div id="breadcrumb">
+        <ol>
+          <li><a href="../../../">HOME</a></li>
+          <li><a href="../../">Softwares</a></li>
+          <li><a href="../">趣味系</a></li>
+          <li>screensaver</li>
+        </ol>
+      </div>
+      <!-- メイン -->
+      <div id="main">
+        <h1 class="head_title">screensaver</h1>
+        <article id="softwares_article">
+          <p>私が使用している PC に、ディスプレイの電源を切ってスリープ状態にすると再起動できなくなる、という不具合があったため、作ることにしました。<br>HTML5、CSS、JavaScript を使用し、また Canvas を用いて実装しています。<br>実際にスクリーンセーバーとして使用する際には、ブラウザで起動した後に全画面表示にして楽しんでください。<br>ただし、FireFox など一部のブラウザでは横のスクロールバーが消えないこともあります。</p>
+          <p>なお、これらの作品のソースコードは以下のリンク先を参照してください。</p>
+          <p><a target="_blank" href="https://github.com/suyeden/screensaver">ソースコードはこちら</a></p>
+          <h1>tama</h1>
+          <p style="padding-bottom: 0;">画面の中を5つの玉がひたすら動き続けます。衝突は玉と壁の衝突のみ検出します。</p>
+          <p><a target="_blank" href="./tama/tama.html">起動はここから</a></p>
+          <h1>ulam_spiral</h1>
+          <p style="padding-bottom: 0;">数学者ウラムが発見した「ウラムの螺旋」が生成される様子を観察できます。<br>ウラムの螺旋とは、中心から数字をらせん状に並べていき、素数のみに印をつけると、まるで素数の分布に規則性でもあるかのような並びが浮かび上がって見える、というものです。</p>
+          <p><a target="_blank" href="./ulam_spiral/ulam_spiral.html">起動はここから</a></p>
+          <h1>black</h1>
+          <p style="padding-bottom: 0;">そもそもスクリーンセーバーは、ディスプレイを焼き付きから保護する等の理由から使われていました。しかしながら最近は、液晶ディスプレイが普及したということもあり、省電力等の観点からあまり好まれなくなってきました。そこで、何もしない、真っ黒の画面を表示するのが一番スクリーンセーバーとして意味があるのではないかと考え、これを実装しました。<br>真っ黒な画面を表示するだけなので、HTML ファイルのみの構成になっています。</p>
+          <p><a target="_blank" href="./black/black.html">起動はここから</a></p>
+        </article>
+      </div>
+      <!-- /メイン -->
+      <!-- サイド -->
+      <aside id="sidebar">
+        <section id="side_banner">
+          <h2>関連リンク</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/suyeden" target="_blank"><img
+                                                                       src="../../../images/GitHub-Mark/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png"
+                                                                       alt="すえーでんのGitHub"></a>
+            </li>
+          </ul>
+        </section>
+        <section id="side_contact">
+          <h2>お問い合わせ</h2>
+          <p><a href="http://suyeden.php.xdomain.jp/contact/">掲示板ページ</a></p>
+        </section>
+      </aside>
+      <!-- /サイド -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- フッター -->
+    <footer>
+      <div id="footer_navi">
+        <ul>
+          <li><a href="../../../">HOME</a></li>
+          <li><a href="../../">Softwares</a></li>
+          <li><a href="../../../about/">About</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="http://suyeden.php.xdomain.jp/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <small>&copy; 2021 suyeden.</small>
+    </footer>
+    <!-- /フッター -->
+  </body>
+
+</html>

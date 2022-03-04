@@ -1,0 +1,101 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+body::-webkit-scrollbar {
+    display:none;
+}
+
+#canvas_wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 4;
+}
+
+/* メニュー */
+.menu_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #333333;
+}
+.menu_item h1 a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* メニューのアニメーション */
+/* 変化前の状態 */
+.menu_list {
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+.cross {
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+.wheel {
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+/* 変化後の状態 */
+.menu_list.is_toggled {
+    z-index: 3;
+    opacity: 1;
+}
+.cross.is_toggled {
+    opacity: 1;
+}
+.wheel.is_toggled {
+    opacity: 0;
+}
+
+/* 画面が横向きの場合 */
+@media screen and (orientation: landscape) {
+    .menu_item h1 a {
+        font-size: 1.8rem;
+    }
+    #menu_top {
+        margin-bottom: 30px;
+    }
+    #menu_medium {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #menu_bottom {
+        margin-top: 30px;
+    }
+}
+/* 画面が縦向きの場合 */
+@media screen and (orientation: portrait) {
+    .menu_item h1 a {
+        font-size: 3rem;
+    }
+    #menu_top {
+        margin-bottom: 75px;
+    }
+    #menu_bottom {
+        margin-top: 75px;
+    }
+}

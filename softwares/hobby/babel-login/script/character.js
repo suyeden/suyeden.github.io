@@ -257,7 +257,7 @@ class PromptString {
     }
 
     drawPrompt(){
-        this.promptString = ' '.repeat(this.contents.length + 1) + '▮';
+        this.promptString = '▮';
         if (this.frame % this.promptInterval == 0) {
             if (this.promptOpacity == 1.0) {
                 this.promptOpacity = 0.5;
@@ -269,7 +269,7 @@ class PromptString {
         this.ctx.textAlign = this.textAlign;
         this.ctx.fillStyle = this.color;
         this.ctx.font = this.font;
-        this.ctx.fillText(this.promptString, this.x, this.y)
+        this.ctx.fillText(this.promptString, this.x + this.ctx.measureText(this.contents + ' ').width, this.y);
         this.ctx.globalAlpha = 1.0;
     }
 
@@ -338,7 +338,7 @@ class PromptStringHalf extends PromptString {
 }
 
 class Babel {
-    constructor(ctx, canvas, fontSize, y, moveFreq){
+    constructor(ctx, canvas, fontSize, y){
         this.ctx = ctx;
         this.canvas = canvas;
         this.fontSize = fontSize;
@@ -350,24 +350,19 @@ class Babel {
         this.outputString = 'BABEL   '.repeat(Math.floor(this.canvas.width / 8) + 1);
         this.color = '#ff0000';
         this.font = this.fontSize + 'px Franklin Gothic Medium';
-        this.frame = 0;
-        this.moveFreq = moveFreq;
     }
 
     drawBabel(){
-        if (this.frame % this.moveFreq == 0){
-            if (this.xType == 0) {
-                this.x = - this.fontSize * 3.0;
-                this.xType = 1 - this.xType;
-            } else {
-                this.x = - this.fontSize * 3.5;
-                this.xType = 1 - this.xType;
-            }
+        if (this.xType == 0) {
+            this.x = - this.fontSize * 3.0;
+            this.xType = 1 - this.xType;
+        } else {
+            this.x = - this.fontSize * 3.5;
+            this.xType = 1 - this.xType;
         }
         this.ctx.fillStyle = this.color;
         this.ctx.font = this.font;
         this.ctx.fillText(this.outputString, this.x, this.y);
-        this.frame++;
     }
 
     update(){
