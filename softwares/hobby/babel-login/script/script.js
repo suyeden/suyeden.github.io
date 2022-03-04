@@ -364,7 +364,10 @@
             ctx.fillStyle = '#ffffff';
             ctx.font = (squareBig.heightFinal - squareSmall.heightFinal) / 2 + 'px ' + 'sans-serif';
             ctx.fillText('Welcome', canvas.width / 2, canvas.height / 2 + ((squareBig.heightFinal - squareSmall.heightFinal) / 2) * (1 / 2) - (squareSmall.heightFinal / 2) - ((squareBig.heightFinal - squareSmall.heightFinal) / 2) / 2);
-            window.location.href = 'https://suyeden.github.io/';
+            window.cancelAnimationFrame(requestId);
+            window.setTimeout(() => {
+                window.location.href = 'https://suyeden.github.io/';
+            }, 3000);
         } else if (phaseTwoEnd == true && pass !== correctPass) {
             window.cancelAnimationFrame(requestId);
             util.drawRect(0, 0, canvas.width, canvas.height, '#000000');
