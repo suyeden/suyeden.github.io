@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>スネークゲーム | Suyeden's Website</title>
+    <!-- JavaScript ファイルの読み込み -->
+    <script src="./script/canvas2d.js"></script>
+    <script src="./script/script.js"></script>
+    <!-- その他ファイルの読み込み -->
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/webclip.png"/>
+  </head>
+  <body style="margin:0; padding:0; touch-action:manipulation; -webkit-touch-callout:none; -webkit-user-select:none;" oncontextmenu="return false;" oncopy="return false;">
+    <div id="canvas_wrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div style="overflow:hidden">
+      <img id="retry" src="./images/retry.png" style="float:left; border-radius:5px;" />
+      <img id="up" src="./images/up.png" style="float:left; border-radius:5px;" />
+    </div>
+    <div style="overflow:hidden">
+      <img id="left" src="./images/left.png" style="float:left; border-radius:5px;" />
+      <img id="retry2" src="./images/retry.png" style="float:left; border-radius:5px;" />
+      <img id="right" src="./images/right.png" style="float:left; border-radius:5px;" />
+    </div>
+    <div style="overflow:hidden">
+      <img id="down" src="./images/down.png" style="float:left; border-radius:5px;" />
+    </div>
+    <img id="snake" src="./images/snake.png" style="display:none;" />
+    <img id="food" src="./images/food.png" style="display:none;" />
+  </body>
+</html>
