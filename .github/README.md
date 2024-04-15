@@ -1,2 +1,2 @@
 # suyeden.github.io
-This is my Github Pages site.
+This is my GitHub Pages site.

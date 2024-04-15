@@ -366,7 +366,7 @@
             ctx.fillText('Welcome', canvas.width / 2, canvas.height / 2 + ((squareBig.heightFinal - squareSmall.heightFinal) / 2) * (1 / 2) - (squareSmall.heightFinal / 2) - ((squareBig.heightFinal - squareSmall.heightFinal) / 2) / 2);
             window.cancelAnimationFrame(requestId);
             window.setTimeout(() => {
-                window.location.href = 'https://github.com/suyeden';
+                window.location.href = 'https://github.com/suyeden/babel-login';
             }, 3000);
         } else if (phaseTwoEnd == true && pass !== correctPass) {
             window.cancelAnimationFrame(requestId);
